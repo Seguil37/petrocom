@@ -30,11 +30,11 @@ const TourDetails = ({ formData, updateFormData }) => {
           value={formData.itinerary}
           onChange={handleChange}
           rows="8"
-          className="w-full px-4 py-3 border-2 border-[#dfe2ea] rounded-xl focus:border-primary focus:outline-none resize-y font-mono text-sm"
+          className="w-full px-4 py-3 border-2 border-[#D7DCE1] rounded-xl focus:border-primary focus:outline-none resize-y font-mono text-sm"
           placeholder="Día 1: Cusco - Km 82 - Wayllabamba (12km)&#10;Salida temprano desde Cusco. Inicio de caminata en el km 82...&#10;&#10;Día 2: Wayllabamba - Paso Warmihuañusca (11km)&#10;Día más desafiante. Ascenso al paso..."
           required
         />
-        <p className="text-sm text-[#65647a] mt-2">
+        <p className="text-sm text-[#5F6B76] mt-2">
           Describe el itinerario día a día o por actividades
         </p>
       </div>
@@ -50,11 +50,11 @@ const TourDetails = ({ formData, updateFormData }) => {
           value={formData.includes}
           onChange={handleChange}
           rows="6"
-          className="w-full px-4 py-3 border-2 border-[#dfe2ea] rounded-xl focus:border-primary focus:outline-none resize-y"
+          className="w-full px-4 py-3 border-2 border-[#D7DCE1] rounded-xl focus:border-primary focus:outline-none resize-y"
           placeholder="• Guía profesional bilingüe certificado&#10;• Entrada a Machu Picchu&#10;• Transporte Cusco - Km 82&#10;• 3 noches de camping..."
           required
         />
-        <p className="text-sm text-[#65647a] mt-2">
+        <p className="text-sm text-[#5F6B76] mt-2">
           Lista todo lo que está incluido en el precio (usa • para viñetas)
         </p>
       </div>
@@ -62,7 +62,7 @@ const TourDetails = ({ formData, updateFormData }) => {
       {/* No incluye */}
       <div>
         <label className="block text-sm font-semibold text-[#07073b] mb-2 flex items-center gap-2">
-          <XCircle className="w-5 h-5 text-[#e8a12f]" />
+          <XCircle className="w-5 h-5 text-[#C58A2A]" />
           ¿Qué NO incluye? *
         </label>
         <textarea
@@ -70,7 +70,7 @@ const TourDetails = ({ formData, updateFormData }) => {
           value={formData.excludes}
           onChange={handleChange}
           rows="5"
-          className="w-full px-4 py-3 border-2 border-[#dfe2ea] rounded-xl focus:border-primary focus:outline-none resize-y"
+          className="w-full px-4 py-3 border-2 border-[#D7DCE1] rounded-xl focus:border-primary focus:outline-none resize-y"
           placeholder="• Propinas para guías y porteadores&#10;• Bebidas alcohólicas&#10;• Seguro de viaje personal..."
           required
         />
@@ -79,7 +79,7 @@ const TourDetails = ({ formData, updateFormData }) => {
       {/* Requisitos */}
       <div>
         <label className="block text-sm font-semibold text-[#07073b] mb-2 flex items-center gap-2">
-          <AlertTriangle className="w-5 h-5 text-[#e8a12f]" />
+          <AlertTriangle className="w-5 h-5 text-[#C58A2A]" />
           Requisitos *
         </label>
         <textarea
@@ -87,7 +87,7 @@ const TourDetails = ({ formData, updateFormData }) => {
           value={formData.requirements}
           onChange={handleChange}
           rows="5"
-          className="w-full px-4 py-3 border-2 border-[#dfe2ea] rounded-xl focus:border-primary focus:outline-none resize-y"
+          className="w-full px-4 py-3 border-2 border-[#D7DCE1] rounded-xl focus:border-primary focus:outline-none resize-y"
           placeholder="• Buen estado físico (caminatas de 6-8 horas)&#10;• Pasaporte vigente&#10;• Edad mínima: 12 años..."
           required
         />
@@ -104,7 +104,7 @@ const TourDetails = ({ formData, updateFormData }) => {
           value={formData.cancellation_policy}
           onChange={handleChange}
           rows="3"
-          className="w-full px-4 py-3 border-2 border-[#dfe2ea] rounded-xl focus:border-primary focus:outline-none resize-y"
+          className="w-full px-4 py-3 border-2 border-[#D7DCE1] rounded-xl focus:border-primary focus:outline-none resize-y"
           placeholder="Cancelación gratuita hasta 24 horas antes. Menos de 24 horas: sin reembolso."
           required
         />
@@ -121,13 +121,13 @@ const TourDetails = ({ formData, updateFormData }) => {
             name="cancellation_hours"
             value={formData.cancellation_hours}
             onChange={handleNumberChange}
-            className="w-32 px-4 py-3 border-2 border-[#dfe2ea] rounded-xl focus:border-primary focus:outline-none"
+            className="w-32 px-4 py-3 border-2 border-[#D7DCE1] rounded-xl focus:border-primary focus:outline-none"
             min="0"
             required
           />
-          <span className="text-[#65647a]">horas antes del tour</span>
+          <span className="text-[#5F6B76]">horas antes del tour</span>
         </div>
-        <p className="text-sm text-[#65647a] mt-2">
+        <p className="text-sm text-[#5F6B76] mt-2">
           Ejemplo: 24 horas = cancelación gratuita hasta 1 día antes
         </p>
       </div>

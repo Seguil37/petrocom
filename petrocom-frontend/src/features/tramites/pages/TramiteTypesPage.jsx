@@ -13,7 +13,7 @@ const TYPES_PER_PAGE = 6;
 const TramiteTypesPage = () => {
   const { user } = useAuthStore();
   const inputClass =
-    'w-full rounded-xl border border-[#dfe2ea] bg-[#f3f4f6] px-4 py-2 text-[#07073b] outline-none placeholder-[#65647a] focus:border-[#1fb74d] focus:ring-2 focus:ring-[#9be2ad]';
+    'w-full rounded-xl border border-[#D7DCE1] bg-[#F4F5F6] px-4 py-2 text-[#07073b] outline-none placeholder-[#5F6B76] focus:border-[#238A55] focus:ring-2 focus:ring-[#A8D8BA]';
   const labelClass = 'mb-1 block text-sm font-semibold text-[#07073b]';
   const [types, setTypes] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -233,27 +233,27 @@ const TramiteTypesPage = () => {
 
   if (!canAccessModule(user, MODULES.TRAMITE_TYPES)) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-[#f3f4f6] font-semibold text-[#07073b]">
+      <div className="flex min-h-screen items-center justify-center bg-[#F4F5F6] font-semibold text-[#07073b]">
         No tienes permiso para administrar tipos de tramite.
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#f3f4f6] py-10">
+    <div className="min-h-screen bg-[#F4F5F6] py-10">
       <div className="container-custom space-y-6">
         <div className="flex justify-end">
           <AdminPanelBackButton />
         </div>
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-        <div className="rounded-2xl border border-[#dfe2ea] bg-white p-6 shadow-lg lg:col-span-2">
+        <div className="rounded-2xl border border-[#D7DCE1] bg-white p-6 shadow-lg lg:col-span-2">
           <div className="mb-6 flex items-center gap-3">
-            <Layers className="h-6 w-6 text-[#1fb74d]" />
+            <Layers className="h-6 w-6 text-[#238A55]" />
             <div>
               <h1 className="text-2xl font-black text-[#07073b]">
                 {editingId ? 'Editar tipo de tramite' : 'Crear tipo de tramite'}
               </h1>
-              <p className="text-sm text-[#65647a]">Define fases y subfases reutilizables.</p>
+              <p className="text-sm text-[#5F6B76]">Define fases y subfases reutilizables.</p>
             </div>
           </div>
 
@@ -261,10 +261,10 @@ const TramiteTypesPage = () => {
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
               <div>
                 <label className={labelClass}>Codigo generado</label>
-                <div className="rounded-xl border border-[#dfe2ea] bg-[#f3f4f6] px-4 py-2 font-semibold text-[#07073b]">
+                <div className="rounded-xl border border-[#D7DCE1] bg-[#F4F5F6] px-4 py-2 font-semibold text-[#07073b]">
                   {codeSuggestion || 'Se generara al guardar'}
                 </div>
-                <p className="mt-1 text-xs text-[#65647a]">
+                <p className="mt-1 text-xs text-[#5F6B76]">
                   El sistema genera este codigo automaticamente a partir del nombre y evita duplicados.
                 </p>
               </div>
@@ -293,10 +293,10 @@ const TramiteTypesPage = () => {
               />
             </div>
 
-            <div className="flex items-center justify-between rounded-2xl border border-[#dfe2ea] bg-[#ffffff] px-4 py-3">
+            <div className="flex items-center justify-between rounded-2xl border border-[#D7DCE1] bg-[#ffffff] px-4 py-3">
               <div>
                 <p className="text-sm font-semibold text-[#07073b]">Estado del tipo</p>
-                <p className="text-xs text-[#65647a]">
+                <p className="text-xs text-[#5F6B76]">
                   {form.is_active ? 'Disponible para nuevos tramites.' : 'Oculto para nuevas asignaciones.'}
                 </p>
               </div>
@@ -307,7 +307,7 @@ const TramiteTypesPage = () => {
                   onChange={(e) => setForm({ ...form, is_active: e.target.checked })}
                   className="sr-only peer"
                 />
-                <div className="h-6 w-11 rounded-full bg-[#dfe2ea] transition-colors peer-checked:bg-[#1fb74d]"></div>
+                <div className="h-6 w-11 rounded-full bg-[#D7DCE1] transition-colors peer-checked:bg-[#238A55]"></div>
                 <div className="absolute left-1 top-1 h-4 w-4 rounded-full bg-white shadow transition-transform peer-checked:translate-x-5"></div>
               </label>
             </div>
@@ -326,7 +326,7 @@ const TramiteTypesPage = () => {
               </div>
 
               {form.phases.map((phase, idx) => (
-                <div key={idx} className="rounded-xl border border-[#dfe2ea] bg-[#ffffff] p-4">
+                <div key={idx} className="rounded-xl border border-[#D7DCE1] bg-[#ffffff] p-4">
                   <div className="mb-3 flex items-center justify-between">
                     <div className="inline-flex rounded-full bg-[#07073b] px-3 py-1 text-xs font-semibold text-white">
                       Fase {idx + 1}
@@ -356,7 +356,7 @@ const TramiteTypesPage = () => {
 
                     <div>
                       <label className={labelClass}>Orden automatico</label>
-                      <div className="rounded-xl border border-[#dfe2ea] bg-[#f3f4f6] px-4 py-2 font-semibold text-[#07073b]">
+                      <div className="rounded-xl border border-[#D7DCE1] bg-[#F4F5F6] px-4 py-2 font-semibold text-[#07073b]">
                         {idx + 1}
                       </div>
                     </div>
@@ -376,13 +376,13 @@ const TramiteTypesPage = () => {
                   <div className="mt-4">
                     <div className="mb-2 flex items-center justify-between">
                       <div className="flex items-center gap-2 text-sm font-semibold text-[#07073b]">
-                        <ListChecks className="h-4 w-4 text-[#1fb74d]" />
+                        <ListChecks className="h-4 w-4 text-[#238A55]" />
                         Subfases
                       </div>
                       <button
                         type="button"
                         onClick={() => addSubphase(idx)}
-                        className="rounded-lg border border-[#1fb74d] px-3 py-2 font-semibold text-[#1fb74d] transition hover:bg-[#eef8f1]"
+                        className="rounded-lg border border-[#238A55] px-3 py-2 font-semibold text-[#238A55] transition hover:bg-[#E9F3EE]"
                       >
                         + Subfase
                       </button>
@@ -401,7 +401,7 @@ const TramiteTypesPage = () => {
                             placeholder="Ej: Validacion de planos"
                             className={inputClass}
                           />
-	                          <div className="rounded-xl border border-[#dfe2ea] bg-[#f3f4f6] px-4 py-2 font-semibold text-[#07073b]">
+	                          <div className="rounded-xl border border-[#D7DCE1] bg-[#F4F5F6] px-4 py-2 font-semibold text-[#07073b]">
 	                            {subIndex + 1}
 	                          </div>
                           <textarea
@@ -448,7 +448,7 @@ const TramiteTypesPage = () => {
               {editingId && (
                 <button
                   type="button"
-                  className="rounded-lg border border-[#1fb74d] px-3 py-2 font-semibold text-[#1fb74d] transition hover:bg-[#eef8f1]"
+                  className="rounded-lg border border-[#238A55] px-3 py-2 font-semibold text-[#238A55] transition hover:bg-[#E9F3EE]"
                   onClick={resetForm}
                 >
                   Cancelar edicion
@@ -458,14 +458,14 @@ const TramiteTypesPage = () => {
           </form>
         </div>
 
-        <div className="rounded-2xl border border-[#dfe2ea] bg-white p-6 shadow-lg">
+        <div className="rounded-2xl border border-[#D7DCE1] bg-white p-6 shadow-lg">
           <div className="mb-4 space-y-3">
             <div className="flex items-center gap-2">
-              <ListChecks className="h-5 w-5 text-[#1fb74d]" />
+              <ListChecks className="h-5 w-5 text-[#238A55]" />
               <h2 className="text-xl font-black text-[#07073b]">Tipos registrados</h2>
             </div>
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#65647a]" />
+              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#5F6B76]" />
               <input
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
@@ -473,28 +473,28 @@ const TramiteTypesPage = () => {
                 placeholder="Buscar por codigo, nombre, estado, fase o subfase"
               />
             </div>
-            <p className="text-xs text-[#65647a]">
+            <p className="text-xs text-[#5F6B76]">
               {filteredTypes.length} tipo(s) encontrado(s).
             </p>
           </div>
           {loading ? (
-            <div className="text-center text-[#65647a]">Cargando...</div>
+            <div className="text-center text-[#5F6B76]">Cargando...</div>
           ) : types.length === 0 ? (
-            <div className="text-[#65647a]">Aun no hay tipos.</div>
+            <div className="text-[#5F6B76]">Aun no hay tipos.</div>
           ) : filteredTypes.length === 0 ? (
-            <div className="text-[#65647a]">No se encontraron tipos con esa busqueda.</div>
+            <div className="text-[#5F6B76]">No se encontraron tipos con esa busqueda.</div>
           ) : (
             <div className="space-y-3">
               {paginatedTypes.map((type) => (
                 <div
                   key={type.id}
-                  className="w-full rounded-xl border border-[#dfe2ea] bg-[#ffffff] p-4 transition hover:shadow"
+                  className="w-full rounded-xl border border-[#D7DCE1] bg-[#ffffff] p-4 transition hover:shadow"
                 >
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-xs font-semibold text-[#1fb74d]">{type.code}</p>
+                      <p className="text-xs font-semibold text-[#238A55]">{type.code}</p>
                       <p className="text-lg font-bold text-[#07073b]">{type.name}</p>
-                      <p className="text-sm text-[#65647a]">{type.phases?.length || 0} fases</p>
+                      <p className="text-sm text-[#5F6B76]">{type.phases?.length || 0} fases</p>
                     </div>
                     <span
                       className={`rounded-full px-3 py-1 text-xs ${
@@ -527,7 +527,7 @@ const TramiteTypesPage = () => {
 
               {totalPages > 1 && (
                 <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
-                  <p className="text-sm text-[#65647a]">
+                  <p className="text-sm text-[#5F6B76]">
                     Pagina {currentPage} de {totalPages}
                   </p>
                   <div className="flex items-center gap-2">
@@ -535,7 +535,7 @@ const TramiteTypesPage = () => {
                       type="button"
                       onClick={() => setCurrentPage((page) => Math.max(1, page - 1))}
                       disabled={currentPage === 1}
-                      className="inline-flex items-center gap-1 rounded-lg border border-[#dfe2ea] px-3 py-2 font-semibold text-[#07073b] transition hover:bg-[#f3f4f6] disabled:cursor-not-allowed disabled:opacity-50"
+                      className="inline-flex items-center gap-1 rounded-lg border border-[#D7DCE1] px-3 py-2 font-semibold text-[#07073b] transition hover:bg-[#F4F5F6] disabled:cursor-not-allowed disabled:opacity-50"
                     >
                       <ChevronLeft className="h-4 w-4" />
                       Anterior
@@ -544,7 +544,7 @@ const TramiteTypesPage = () => {
                       type="button"
                       onClick={() => setCurrentPage((page) => Math.min(totalPages, page + 1))}
                       disabled={currentPage === totalPages}
-                      className="inline-flex items-center gap-1 rounded-lg border border-[#dfe2ea] px-3 py-2 font-semibold text-[#07073b] transition hover:bg-[#f3f4f6] disabled:cursor-not-allowed disabled:opacity-50"
+                      className="inline-flex items-center gap-1 rounded-lg border border-[#D7DCE1] px-3 py-2 font-semibold text-[#07073b] transition hover:bg-[#F4F5F6] disabled:cursor-not-allowed disabled:opacity-50"
                     >
                       Siguiente
                       <ChevronRight className="h-4 w-4" />

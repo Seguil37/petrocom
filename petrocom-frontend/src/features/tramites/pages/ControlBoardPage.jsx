@@ -62,21 +62,21 @@ const ControlBoardPage = () => {
 
   if (!isStaff(user?.role)) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-[#f3f4f6] font-semibold text-[#07073b]">
+      <div className="flex min-h-screen items-center justify-center bg-[#F4F5F6] font-semibold text-[#07073b]">
         Solo el equipo interno puede ver la vista de control.
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#f3f4f6] py-10">
+    <div className="min-h-screen bg-[#F4F5F6] py-10">
       <div className="container-custom space-y-6">
         <div className="flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
           <div className="flex items-center gap-3">
-            <ClipboardList className="h-6 w-6 text-[#1fb74d]" />
+            <ClipboardList className="h-6 w-6 text-[#238A55]" />
             <div>
               <h1 className="text-3xl font-black text-[#07073b]">Vista General de Control</h1>
-              <p className="text-[#65647a]">Monitor de todos los clientes y tramites en tiempo real.</p>
+              <p className="text-[#5F6B76]">Monitor de todos los clientes y tramites en tiempo real.</p>
             </div>
           </div>
           <div className="flex w-full flex-wrap gap-2 sm:w-auto sm:flex-nowrap xl:justify-end">
@@ -84,33 +84,33 @@ const ControlBoardPage = () => {
           </div>
         </div>
 
-        <div className="flex flex-wrap items-center gap-3 rounded-xl border border-[#dfe2ea] bg-white px-4 py-3 text-sm text-[#07073b] shadow-sm">
-          <span className="text-xs font-semibold uppercase text-[#65647a]">Leyenda SLA:</span>
+        <div className="flex flex-wrap items-center gap-3 rounded-xl border border-[#D7DCE1] bg-white px-4 py-3 text-sm text-[#07073b] shadow-sm">
+          <span className="text-xs font-semibold uppercase text-[#5F6B76]">Leyenda SLA:</span>
           <SlaBadge sla="green" /> <span>En tiempo</span>
           <SlaBadge sla="yellow" /> <span>Proximo a vencer (3 dias o menos)</span>
           <SlaBadge sla="red" /> <span>Vencido</span>
           <SlaBadge sla="none" /> <span>Sin fecha</span>
         </div>
 
-        <div className="flex flex-col gap-3 rounded-2xl border border-[#dfe2ea] bg-white p-4 shadow-sm lg:flex-row lg:items-center">
+        <div className="flex flex-col gap-3 rounded-2xl border border-[#D7DCE1] bg-white p-4 shadow-sm lg:flex-row lg:items-center">
           <div className="flex items-center gap-2 font-semibold text-[#07073b]">
-            <Filter className="h-4 w-4 text-[#1fb74d]" />
+            <Filter className="h-4 w-4 text-[#238A55]" />
             Filtros
           </div>
           <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#65647a]" />
+            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#5F6B76]" />
             <input
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Buscar por código, cliente, proyecto, responsable o fase"
-              className="w-full rounded-xl border border-[#dfe2ea] bg-[#f3f4f6] py-2 pl-10 pr-4 outline-none focus:border-[#1fb74d] focus:ring-2 focus:ring-[#9be2ad]"
+              className="w-full rounded-xl border border-[#D7DCE1] bg-[#F4F5F6] py-2 pl-10 pr-4 outline-none focus:border-[#238A55] focus:ring-2 focus:ring-[#A8D8BA]"
             />
           </div>
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="rounded-xl border border-[#dfe2ea] bg-[#f3f4f6] px-4 py-2 outline-none focus:border-[#1fb74d] focus:ring-2 focus:ring-[#9be2ad]"
+            className="rounded-xl border border-[#D7DCE1] bg-[#F4F5F6] px-4 py-2 outline-none focus:border-[#238A55] focus:ring-2 focus:ring-[#A8D8BA]"
           >
             <option value="all">Todos los estados</option>
             <option value="pending">Pendiente</option>
@@ -120,7 +120,7 @@ const ControlBoardPage = () => {
           </select>
         </div>
 
-        <div className="overflow-hidden rounded-2xl border border-[#dfe2ea] bg-white shadow-lg">
+        <div className="overflow-hidden rounded-2xl border border-[#D7DCE1] bg-white shadow-lg">
           <div className="grid grid-cols-10 bg-[#07073b] text-xs font-semibold uppercase tracking-wide text-white">
             <div className="p-3">Codigo</div>
             <div className="col-span-2 p-3">Cliente</div>
@@ -133,12 +133,12 @@ const ControlBoardPage = () => {
           </div>
 
           {loading ? (
-            <div className="p-6 text-[#65647a]">Cargando...</div>
+            <div className="p-6 text-[#5F6B76]">Cargando...</div>
           ) : filteredRows.length === 0 ? (
-            <div className="p-6 text-[#65647a]">No hay trámites que coincidan con el filtro actual.</div>
+            <div className="p-6 text-[#5F6B76]">No hay trámites que coincidan con el filtro actual.</div>
           ) : (
             paginatedRows.map((row) => (
-              <div key={row.id} className="border-t border-[#dfe2ea]">
+              <div key={row.id} className="border-t border-[#D7DCE1]">
                 <button
                   className="grid w-full grid-cols-10 text-left transition hover:bg-[#ffffff]"
                   onClick={() => setOpenId(openId === row.id ? null : row.id)}
@@ -146,9 +146,9 @@ const ControlBoardPage = () => {
                   <div className="flex items-center gap-2 p-3 font-semibold text-[#07073b]">
                     <span>{row.code}</span>
                     {openId === row.id ? (
-                      <ChevronUp className="h-4 w-4 text-[#1fb74d]" />
+                      <ChevronUp className="h-4 w-4 text-[#238A55]" />
                     ) : (
-                      <ChevronDown className="h-4 w-4 text-[#1fb74d]" />
+                      <ChevronDown className="h-4 w-4 text-[#238A55]" />
                     )}
                   </div>
                   <div className="col-span-2 p-3 text-[#07073b]">{row.client || 'N/D'}</div>
@@ -163,29 +163,29 @@ const ControlBoardPage = () => {
                 </button>
 
                 {openId === row.id && (
-                  <div className="grid grid-cols-1 gap-3 border-t border-[#dfe2ea] bg-[#ffffff] px-4 py-4 md:grid-cols-3">
+                  <div className="grid grid-cols-1 gap-3 border-t border-[#D7DCE1] bg-[#ffffff] px-4 py-4 md:grid-cols-3">
                     <div className="flex items-start gap-2 text-[#07073b]">
-                      <UserCircle className="h-5 w-5 text-[#1fb74d]" />
+                      <UserCircle className="h-5 w-5 text-[#238A55]" />
                       <div>
-                        <p className="text-xs uppercase text-[#65647a]">Responsable</p>
+                        <p className="text-xs uppercase text-[#5F6B76]">Responsable</p>
                         <p className="font-semibold">{row.responsible || 'Sin asignar'}</p>
                       </div>
                     </div>
 
                     <div className="flex items-start gap-2 text-[#07073b]">
-                      <MapPin className="h-5 w-5 text-[#1fb74d]" />
+                      <MapPin className="h-5 w-5 text-[#238A55]" />
                       <div>
-                        <p className="text-xs uppercase text-[#65647a]">Ubicacion</p>
+                        <p className="text-xs uppercase text-[#5F6B76]">Ubicacion</p>
                         <p className="font-semibold">{row.location || 'No definida'}</p>
                       </div>
                     </div>
 
                     <div>
-                      <p className="text-xs uppercase text-[#65647a]">Observaciones</p>
+                      <p className="text-xs uppercase text-[#5F6B76]">Observaciones</p>
                       {canEditNotes ? (
                         <div className="space-y-2">
                           <textarea
-                            className="w-full rounded-lg border border-[#dfe2ea] px-3 py-2 text-sm"
+                            className="w-full rounded-lg border border-[#D7DCE1] px-3 py-2 text-sm"
                             value={noteDrafts[row.id] || ''}
                             onChange={(e) =>
                               setNoteDrafts((prev) => ({ ...prev, [row.id]: e.target.value }))
@@ -196,7 +196,7 @@ const ControlBoardPage = () => {
                             <span className="font-semibold text-[#07073b]">Vence</span>
                             <input
                               type="date"
-                              className="rounded-lg border border-[#dfe2ea] px-3 py-2"
+                              className="rounded-lg border border-[#D7DCE1] px-3 py-2"
                               value={dueDrafts[row.id] || ''}
                               onChange={(e) =>
                                 setDueDrafts((prev) => ({ ...prev, [row.id]: e.target.value }))
@@ -233,7 +233,7 @@ const ControlBoardPage = () => {
                       )}
                     </div>
 
-                    <div className="md:col-span-3 rounded-xl border border-[#dfe2ea] bg-white p-4">
+                    <div className="md:col-span-3 rounded-xl border border-[#D7DCE1] bg-white p-4">
                       <div className="flex flex-wrap items-center gap-3">
                         <div className="text-sm font-semibold text-[#07073b]">
                           Fases: {row.phases_progress?.completed || 0}/{row.phases_progress?.total || 0}
@@ -241,9 +241,9 @@ const ControlBoardPage = () => {
                         <div className="text-sm font-semibold text-[#07073b]">
                           Subfases: {row.subphases_progress?.completed || 0}/{row.subphases_progress?.total || 0}
                         </div>
-                        <div className="h-2 flex-1 overflow-hidden rounded-full bg-[#dfe2ea]">
+                        <div className="h-2 flex-1 overflow-hidden rounded-full bg-[#D7DCE1]">
                           <div
-                            className="h-full bg-[#1fb74d]"
+                            className="h-full bg-[#238A55]"
                             style={{ width: `${row.progress_percent || 0}%` }}
                           />
                         </div>
@@ -285,8 +285,8 @@ const ControlBoardPage = () => {
         </div>
 
         {!loading && filteredRows.length > 0 && (
-          <div className="flex flex-col gap-4 rounded-2xl border border-[#dfe2ea] bg-white px-4 py-4 shadow-sm md:flex-row md:items-center md:justify-between">
-            <p className="text-sm text-[#65647a]">
+          <div className="flex flex-col gap-4 rounded-2xl border border-[#D7DCE1] bg-white px-4 py-4 shadow-sm md:flex-row md:items-center md:justify-between">
+            <p className="text-sm text-[#5F6B76]">
               Página <span className="font-bold text-[#07073b]">{currentPage}</span> de{' '}
               <span className="font-bold text-[#07073b]">{totalPages}</span>
             </p>
@@ -296,7 +296,7 @@ const ControlBoardPage = () => {
                 type="button"
                 onClick={() => setCurrentPage((prev) => Math.max(1, prev - 1))}
                 disabled={currentPage === 1}
-                className="rounded-lg border border-[#dfe2ea] px-4 py-2 text-sm font-semibold text-[#07073b] transition hover:bg-[#f3f4f6] disabled:cursor-not-allowed disabled:opacity-50"
+                className="rounded-lg border border-[#D7DCE1] px-4 py-2 text-sm font-semibold text-[#07073b] transition hover:bg-[#F4F5F6] disabled:cursor-not-allowed disabled:opacity-50"
               >
                 Anterior
               </button>
@@ -309,7 +309,7 @@ const ControlBoardPage = () => {
                   className={`h-10 min-w-10 rounded-lg px-3 text-sm font-bold transition ${
                     currentPage === page
                       ? 'bg-[#07073b] text-white shadow-md'
-                      : 'border border-[#dfe2ea] text-[#07073b] hover:bg-[#f3f4f6]'
+                      : 'border border-[#D7DCE1] text-[#07073b] hover:bg-[#F4F5F6]'
                   }`}
                 >
                   {page}
@@ -320,7 +320,7 @@ const ControlBoardPage = () => {
                 type="button"
                 onClick={() => setCurrentPage((prev) => Math.min(totalPages, prev + 1))}
                 disabled={currentPage === totalPages}
-                className="rounded-lg border border-[#dfe2ea] px-4 py-2 text-sm font-semibold text-[#07073b] transition hover:bg-[#f3f4f6] disabled:cursor-not-allowed disabled:opacity-50"
+                className="rounded-lg border border-[#D7DCE1] px-4 py-2 text-sm font-semibold text-[#07073b] transition hover:bg-[#F4F5F6] disabled:cursor-not-allowed disabled:opacity-50"
               >
                 Siguiente
               </button>

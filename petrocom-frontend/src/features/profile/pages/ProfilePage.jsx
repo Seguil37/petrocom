@@ -147,16 +147,16 @@ const ProfilePage = () => {
 
   if (!user) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-[#f3f4f6] to-[#f3f4f6] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-        <div className="text-center bg-[#f3f4f6] rounded-2xl shadow-xl p-8 max-w-md mx-4">
-          <div className="w-16 h-16 bg-[#f3f4f6] rounded-full flex items-center justify-center mx-auto mb-4">
-            <X className="w-8 h-8 text-[#e8a12f]" />
+      <div className="min-h-screen bg-gradient-to-br from-[#F4F5F6] to-[#F4F5F6] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div className="text-center bg-[#F4F5F6] rounded-2xl shadow-xl p-8 max-w-md mx-4">
+          <div className="w-16 h-16 bg-[#F4F5F6] rounded-full flex items-center justify-center mx-auto mb-4">
+            <X className="w-8 h-8 text-[#C58A2A]" />
           </div>
           <h2 className="text-2xl font-bold text-[#07073b] mb-2">Debes iniciar sesión</h2>
-          <p className="text-[#65647a] mb-6">Por favor, inicia sesión para ver tu perfil</p>
+          <p className="text-[#5F6B76] mb-6">Por favor, inicia sesión para ver tu perfil</p>
           <Link
             to="/login"
-            className="inline-flex items-center gap-2 bg-[#1fb74d] hover:bg-[#168a3d] text-white font-bold px-6 py-3 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl"
+            className="inline-flex items-center gap-2 bg-[#238A55] hover:bg-[#196B43] text-white font-bold px-6 py-3 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl"
           >
             Iniciar Sesión
           </Link>
@@ -166,16 +166,16 @@ const ProfilePage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#f3f4f6] to-[#f3f4f6] py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-br from-[#F4F5F6] to-[#F4F5F6] py-12 px-4 sm:px-6 lg:px-8">
       <div className="container-custom max-w-6xl">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Columna Principal - Perfil y Formulario */}
           <div className="md:col-span-2 space-y-8">
             {/* Header con Avatar y Botón de Editar */}
-            <div className="bg-[#f3f4f6] rounded-2xl shadow-xl overflow-hidden mb-8 animate-fade-in">
+            <div className="bg-[#F4F5F6] rounded-2xl shadow-xl overflow-hidden mb-8 animate-fade-in">
               {/* Banner de Perfil */}
-              <div className="h-32 bg-[#1fb74d] relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#1fb74d]/50 to-[#e8a12f]/50"></div>
+              <div className="h-32 bg-[#238A55] relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#238A55]/50 to-[#C58A2A]/50"></div>
                 <div className="relative z-10 flex items-center justify-center h-full">
                   {user?.avatar ? (
                     <img
@@ -184,9 +184,9 @@ const ProfilePage = () => {
                       className="w-full h-full object-cover"
                     />
                   ) : (
-                    <div className="w-32 h-32 bg-[#f3f4f6] rounded-full flex items-center justify-center">
-                      <User className="w-16 h-16 text-[#e8a12f]" />
-                    <span className="text-2xl font-bold text-[#e8a12f]">
+                    <div className="w-32 h-32 bg-[#F4F5F6] rounded-full flex items-center justify-center">
+                      <User className="w-16 h-16 text-[#C58A2A]" />
+                    <span className="text-2xl font-bold text-[#C58A2A]">
                         {user?.name?.charAt(0).toUpperCase()}
                       </span>
                     </div>
@@ -197,7 +197,7 @@ const ProfilePage = () => {
               {/* Botón de Editar */}
               <button
                 onClick={() => setIsEditing(true)}
-                className="absolute top-4 right-4 bg-[#f3f4f6]/90 backdrop-blur-sm rounded-full p-2 hover:bg-[#f3f4f6] transition-colors"
+                className="absolute top-4 right-4 bg-[#F4F5F6]/90 backdrop-blur-sm rounded-full p-2 hover:bg-[#F4F5F6] transition-colors"
               >
                 <Edit2 className="w-5 h-5 text-[#07073b]" />
               </button>
@@ -209,7 +209,7 @@ const ProfilePage = () => {
                 {/* Nombre */}
                 <div>
                   <label className="block text-sm font-semibold text-[#07073b] mb-2 flex items-center gap-2">
-                    <User className="w-5 h-5 text-[#1fb74d]" />
+                    <User className="w-5 h-5 text-[#238A55]" />
                     Nombre completo
                   </label>
                   <div className="relative">
@@ -218,17 +218,17 @@ const ProfilePage = () => {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      className={`w-full pl-12 pr-4 py-3 border-2 rounded-xl focus:border-[#1fb74d] focus:outline-none transition-all ${
+                      className={`w-full pl-12 pr-4 py-3 border-2 rounded-xl focus:border-[#238A55] focus:outline-none transition-all ${
                         errors.name
-                          ? 'border-[#e8a12f]'
-                          : 'border-[#dfe2ea] focus:border-[#1fb74d]'
+                          ? 'border-[#C58A2A]'
+                          : 'border-[#D7DCE1] focus:border-[#238A55]'
                       }`}
                       placeholder="Juan Pérez"
                     />
                   </div>
                   {errors.name && (
-                    <p className="mt-1 text-sm text-[#e8a12f] flex items-center gap-1">
-                      <AlertCircle className="w-4 h-4 text-[#e8a12f]" />
+                    <p className="mt-1 text-sm text-[#C58A2A] flex items-center gap-1">
+                      <AlertCircle className="w-4 h-4 text-[#C58A2A]" />
                       {errors.name}
                     </p>
                   )}
@@ -237,7 +237,7 @@ const ProfilePage = () => {
                 {/* Email */}
                 <div>
                   <label className="block text-sm font-semibold text-[#07073b] mb-2 flex items-center gap-2">
-                    <Mail className="w-5 h-5 text-[#1fb74d]" />
+                    <Mail className="w-5 h-5 text-[#238A55]" />
                     Correo electrónico
                   </label>
                   <div className="relative">
@@ -246,18 +246,18 @@ const ProfilePage = () => {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className={`w-full pl-12 pr-4 py-3 border-2 rounded-xl focus:border-[#1fb74d] focus:outline-none transition-all ${
+                      className={`w-full pl-12 pr-4 py-3 border-2 rounded-xl focus:border-[#238A55] focus:outline-none transition-all ${
                         errors.email
-                          ? 'border-[#e8a12f]'
-                          : 'border-[#dfe2ea] focus:border-[#1fb74d]'
+                          ? 'border-[#C58A2A]'
+                          : 'border-[#D7DCE1] focus:border-[#238A55]'
                         }`}
                       placeholder="tu@email.com"
                       disabled={loading}
                     />
                   </div>
                   {errors.email && (
-                    <p className="mt-1 text-sm text-[#e8a12f] flex items-center gap-1">
-                      <AlertCircle className="w-4 h-4 text-[#e8a12f]" />
+                    <p className="mt-1 text-sm text-[#C58A2A] flex items-center gap-1">
+                      <AlertCircle className="w-4 h-4 text-[#C58A2A]" />
                       {errors.email}
                     </p>
                   )}
@@ -266,7 +266,7 @@ const ProfilePage = () => {
                 {/* Teléfono */}
                 <div>
                   <label className="block text-sm font-semibold text-[#07073b] mb-2 flex items-center gap-2">
-                    <Phone className="w-5 h-5 text-[#1fb74d]" />
+                    <Phone className="w-5 h-5 text-[#238A55]" />
                     Teléfono
                   </label>
                   <div className="relative">
@@ -275,17 +275,17 @@ const ProfilePage = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className={`w-full pl-12 pr-4 py-3 border-2 rounded-xl focus:border-[#1fb74d] focus:outline-none transition-all ${
+                      className={`w-full pl-12 pr-4 py-3 border-2 rounded-xl focus:border-[#238A55] focus:outline-none transition-all ${
                         errors.phone
-                          ? 'border-[#e8a12f]'
-                          : 'border-[#dfe2ea] focus:border-[#1fb74d]'
+                          ? 'border-[#C58A2A]'
+                          : 'border-[#D7DCE1] focus:border-[#238A55]'
                       }`}
                       placeholder="+51 999 999 999"
                     />
                   </div>
                   {errors.phone && (
-                    <p className="mt-1 text-sm text-[#e8a12f] flex items-center gap-1">
-                      <AlertCircle className="w-4 h-4 text-[#e8a12f]" />
+                    <p className="mt-1 text-sm text-[#C58A2A] flex items-center gap-1">
+                      <AlertCircle className="w-4 h-4 text-[#C58A2A]" />
                       {errors.phone}
                     </p>
                   )}
@@ -294,7 +294,7 @@ const ProfilePage = () => {
                 {/* Bio */}
                 <div>
                   <label className="block text-sm font-semibold text-[#07073b] mb-2 flex items-center gap-2">
-                    <Edit2 className="w-5 h-5 text-[#1fb74d]" />
+                    <Edit2 className="w-5 h-5 text-[#238A55]" />
                     Biografía
                   </label>
                   <textarea
@@ -302,7 +302,7 @@ const ProfilePage = () => {
                     value={formData.bio}
                     onChange={handleChange}
                     rows={4}
-                    className="w-full px-4 py-3 border-2 border-[#dfe2ea] rounded-xl focus:border-[#1fb74d] focus:outline-none resize-y transition-all"
+                    className="w-full px-4 py-3 border-2 border-[#D7DCE1] rounded-xl focus:border-[#238A55] focus:outline-none resize-y transition-all"
                     placeholder="Cuéntanos sobre ti..."
                   />
                 </div>
@@ -317,7 +317,7 @@ const ProfilePage = () => {
                       name="country"
                       value={formData.country}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border-2 border-[#dfe2ea] rounded-xl focus:border-[#1fb74d] focus:outline-none transition-all"
+                      className="w-full px-4 py-3 border-2 border-[#D7DCE1] rounded-xl focus:border-[#238A55] focus:outline-none transition-all"
                     disabled={loading}
                     >
                       <option value="">Selecciona un país</option>
@@ -340,7 +340,7 @@ const ProfilePage = () => {
                       name="city"
                       value={formData.city}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border-2 border-[#dfe2ea] rounded-xl focus:border-[#1fb74d] focus:outline-none transition-all"
+                      className="w-full px-4 py-3 border-2 border-[#D7DCE1] rounded-xl focus:border-[#238A55] focus:outline-none transition-all"
                       placeholder="Lima"
                     />
                   </div>
@@ -351,18 +351,18 @@ const ProfilePage = () => {
                   <button
                     type="button"
                     onClick={handleCancel}
-                    className="flex-1 border-2 border-[#dfe2ea] text-[#07073b] font-semibold px-6 py-3 rounded-xl hover:bg-[#f3f4f6] transition-colors"
+                    className="flex-1 border-2 border-[#D7DCE1] text-[#07073b] font-semibold px-6 py-3 rounded-xl hover:bg-[#F4F5F6] transition-colors"
                   >
                     Cancelar
                   </button>
                   <button
                     type="submit"
                     disabled={loading}
-                    className="flex-1 bg-[#1fb74d] hover:bg-[#168a3d] text-white font-bold px-6 py-3 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    className="flex-1 bg-[#238A55] hover:bg-[#196B43] text-white font-bold px-6 py-3 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                   >
                     {loading ? (
                       <>
-                        <div className="w-5 h-5 border-4 border-[#dfe2ea] border-t-transparent rounded-full animate-spin"></div>
+                        <div className="w-5 h-5 border-4 border-[#D7DCE1] border-t-transparent rounded-full animate-spin"></div>
                         Guardando...
                       </>
                     ) : (
@@ -378,29 +378,29 @@ const ProfilePage = () => {
               // Vista de Perfil (no edición)
               <div className="space-y-6">
                 {/* Información Personal */}
-                <div className="bg-[#f3f4f6] rounded-2xl shadow-lg p-8 animate-fade-in">
+                <div className="bg-[#F4F5F6] rounded-2xl shadow-lg p-8 animate-fade-in">
                   <h3 className="text-xl font-bold text-[#07073b] mb-6 flex items-center gap-2">
-                    <User className="w-6 h-6 text-[#1fb74d]" />
+                    <User className="w-6 h-6 text-[#238A55]" />
                     Información Personal
                   </h3>
                   
                   <div className="space-y-4">
                     <div className="flex items-center gap-3">
-                      <span className="text-[#65647a] font-medium w-24">Nombre:</span>
+                      <span className="text-[#5F6B76] font-medium w-24">Nombre:</span>
                       <span className="text-[#07073b] font-medium">{user?.name}</span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <span className="text-[#65647a] font-medium w-24">Email:</span>
+                      <span className="text-[#5F6B76] font-medium w-24">Email:</span>
                       <span className="text-[#07073b] font-medium truncate">{user?.email}</span>
                     </div>
                     {user?.phone && (
                       <div className="flex items-center gap-3">
-                        <span className="text-[#65647a] font-medium w-24">Teléfono:</span>
+                        <span className="text-[#5F6B76] font-medium w-24">Teléfono:</span>
                         <span className="text-[#07073b] font-medium">{user?.phone}</span>
                       </div>
                     )}
                     {user?.bio && (
-                      <div className="mt-4 p-4 bg-[#f3f4f6] rounded-xl">
+                      <div className="mt-4 p-4 bg-[#F4F5F6] rounded-xl">
                         <p className="text-[#07073b]">{user.bio}</p>
                       </div>
                     )}
@@ -408,8 +408,8 @@ const ProfilePage = () => {
 
                   {/* Ubicación */}
                   {(user?.city || user?.country) && (
-                    <div className="flex items-center gap-3 mt-4 p-4 bg-[#f3f4f6] rounded-xl">
-                      <MapPin className="w-5 h-5 text-[#1fb74d]" />
+                    <div className="flex items-center gap-3 mt-4 p-4 bg-[#F4F5F6] rounded-xl">
+                      <MapPin className="w-5 h-5 text-[#238A55]" />
                       <span className="text-[#07073b]">
                         {user?.city}, {user?.country}
                       </span>
@@ -418,9 +418,9 @@ const ProfilePage = () => {
 
                   {/* Estadísticas */}
                   <div className="grid grid-cols-2 gap-4 mt-6">
-                    <div className="text-center p-4 bg-[#f3f4f6] rounded-xl">
-                      <div className="w-12 h-12 bg-[#f3f4f6] rounded-full flex items-center justify-center mx-auto mb-2">
-                        <Calendar className="w-6 h-6 text-[#e8a12f]" />
+                    <div className="text-center p-4 bg-[#F4F5F6] rounded-xl">
+                      <div className="w-12 h-12 bg-[#F4F5F6] rounded-full flex items-center justify-center mx-auto mb-2">
+                        <Calendar className="w-6 h-6 text-[#C58A2A]" />
                       </div>
                       <p className="text-[#07073b] font-medium">Miembro desde</p>
                       <p className="text-[#07073b] text-sm">
@@ -432,8 +432,8 @@ const ProfilePage = () => {
                       </p>
                     </div>
 
-                    <div className="text-center p-4 bg-[#f3f4f6] rounded-xl">
-                      <div className="w-12 h-12 bg-[#f3f4f6] rounded-full flex items-center justify-center mx-auto mb-2">
+                    <div className="text-center p-4 bg-[#F4F5F6] rounded-xl">
+                      <div className="w-12 h-12 bg-[#F4F5F6] rounded-full flex items-center justify-center mx-auto mb-2">
                         <Shield className="w-6 h-6 text-[#07073b]" />
                       </div>
                       <p className="text-[#07073b] font-medium">Verificado</p>
@@ -447,9 +447,9 @@ const ProfilePage = () => {
 
           {/* Columna Derecha - Estadísticas y Actividad */}
           <div className="space-y-6">
-            <div className="bg-[#f3f4f6] rounded-2xl shadow-lg p-6 animate-fade-in">
+            <div className="bg-[#F4F5F6] rounded-2xl shadow-lg p-6 animate-fade-in">
               <h3 className="text-xl font-bold text-[#07073b] mb-4 flex items-center gap-2">
-                <Settings className="w-5 h-5 text-[#1fb74d]" />
+                <Settings className="w-5 h-5 text-[#238A55]" />
                 Opciones rápidas
               </h3>
               <p className="text-[#07073b] text-sm mb-4">
@@ -459,13 +459,13 @@ const ProfilePage = () => {
                 <button
                   type="button"
                   onClick={() => setIsEditing(true)}
-                  className="w-full inline-flex items-center justify-between px-4 py-3 rounded-xl bg-white border-2 border-[#dfe2ea]/40 hover:border-[#1fb74d] transition-colors"
+                  className="w-full inline-flex items-center justify-between px-4 py-3 rounded-xl bg-white border-2 border-[#D7DCE1]/40 hover:border-[#238A55] transition-colors"
                 >
                   <div className="flex items-center gap-3">
-                    <User className="w-5 h-5 text-[#1fb74d]" />
+                    <User className="w-5 h-5 text-[#238A55]" />
                     <div className="text-left">
                       <p className="text-[#07073b] font-semibold">Editar información</p>
-                      <span className="text-xs text-[#65647a]">Nombre, correo, teléfono y ubicación</span>
+                      <span className="text-xs text-[#5F6B76]">Nombre, correo, teléfono y ubicación</span>
                     </div>
                   </div>
                   <Edit2 className="w-4 h-4 text-[#07073b]" />
@@ -473,13 +473,13 @@ const ProfilePage = () => {
 
                 <a
                   href="#cambiar-contrasena"
-                  className="w-full inline-flex items-center justify-between px-4 py-3 rounded-xl bg-white border-2 border-[#dfe2ea]/40 hover:border-[#1fb74d] transition-colors"
+                  className="w-full inline-flex items-center justify-between px-4 py-3 rounded-xl bg-white border-2 border-[#D7DCE1]/40 hover:border-[#238A55] transition-colors"
                 >
                   <div className="flex items-center gap-3">
-                    <KeyRound className="w-5 h-5 text-[#1fb74d]" />
+                    <KeyRound className="w-5 h-5 text-[#238A55]" />
                     <div className="text-left">
                       <p className="text-[#07073b] font-semibold">Cambiar contraseña</p>
-                      <span className="text-xs text-[#65647a]">Refuerza la seguridad de tu cuenta</span>
+                      <span className="text-xs text-[#5F6B76]">Refuerza la seguridad de tu cuenta</span>
                     </div>
                   </div>
                   <Lock className="w-4 h-4 text-[#07073b]" />
@@ -487,9 +487,9 @@ const ProfilePage = () => {
               </div>
             </div>
 
-            <div id="cambiar-contrasena" className="bg-[#f3f4f6] rounded-2xl shadow-lg p-6 animate-fade-in">
+            <div id="cambiar-contrasena" className="bg-[#F4F5F6] rounded-2xl shadow-lg p-6 animate-fade-in">
               <h3 className="text-xl font-bold text-[#07073b] mb-4 flex items-center gap-2">
-                <Lock className="w-5 h-5 text-[#1fb74d]" />
+                <Lock className="w-5 h-5 text-[#238A55]" />
                 Cambiar contraseña
               </h3>
               <form onSubmit={handlePasswordSubmit} className="space-y-4">
@@ -500,7 +500,7 @@ const ProfilePage = () => {
                     name="currentPassword"
                     value={passwordData.currentPassword}
                     onChange={handlePasswordChange}
-                    className="w-full px-4 py-3 border-2 border-[#dfe2ea] rounded-xl focus:border-[#1fb74d] focus:outline-none transition-all"
+                    className="w-full px-4 py-3 border-2 border-[#D7DCE1] rounded-xl focus:border-[#238A55] focus:outline-none transition-all"
                     placeholder="••••••••"
                   />
                 </div>
@@ -511,7 +511,7 @@ const ProfilePage = () => {
                     name="newPassword"
                     value={passwordData.newPassword}
                     onChange={handlePasswordChange}
-                    className="w-full px-4 py-3 border-2 border-[#dfe2ea] rounded-xl focus:border-[#1fb74d] focus:outline-none transition-all"
+                    className="w-full px-4 py-3 border-2 border-[#D7DCE1] rounded-xl focus:border-[#238A55] focus:outline-none transition-all"
                     placeholder="••••••••"
                   />
                 </div>
@@ -522,13 +522,13 @@ const ProfilePage = () => {
                     name="confirmPassword"
                     value={passwordData.confirmPassword}
                     onChange={handlePasswordChange}
-                    className="w-full px-4 py-3 border-2 border-[#dfe2ea] rounded-xl focus:border-[#1fb74d] focus:outline-none transition-all"
+                    className="w-full px-4 py-3 border-2 border-[#D7DCE1] rounded-xl focus:border-[#238A55] focus:outline-none transition-all"
                     placeholder="••••••••"
                   />
                 </div>
 
                 {passwordError && (
-                  <p className="text-sm text-[#e8a12f] flex items-center gap-2">
+                  <p className="text-sm text-[#C58A2A] flex items-center gap-2">
                     <AlertCircle className="w-4 h-4" />
                     {passwordError}
                   </p>
@@ -544,11 +544,11 @@ const ProfilePage = () => {
                 <button
                   type="submit"
                   disabled={passwordLoading}
-                  className="w-full bg-[#1fb74d] hover:bg-[#168a3d] text-white font-bold px-6 py-3 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="w-full bg-[#238A55] hover:bg-[#196B43] text-white font-bold px-6 py-3 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
                   {passwordLoading ? (
                     <>
-                      <div className="w-5 h-5 border-4 border-[#dfe2ea] border-t-transparent rounded-full animate-spin"></div>
+                      <div className="w-5 h-5 border-4 border-[#D7DCE1] border-t-transparent rounded-full animate-spin"></div>
                       Actualizando...
                     </>
                   ) : (

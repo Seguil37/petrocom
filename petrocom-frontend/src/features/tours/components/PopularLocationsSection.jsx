@@ -50,10 +50,10 @@ const PopularLocationsSection = () => {
 
   if (loading) {
     return (
-      <section className="py-20 bg-[#f3f4f6]">
+      <section className="py-20 bg-[#F4F5F6]">
         <div className="container-custom">
           <div className="flex items-center justify-center py-20">
-            <Loader2 className="w-12 h-12 text-[#1fb74d] animate-spin" />
+            <Loader2 className="w-12 h-12 text-[#238A55] animate-spin" />
           </div>
         </div>
       </section>
@@ -65,10 +65,10 @@ const PopularLocationsSection = () => {
   }
 
   return (
-    <section className="py-20 bg-[#f3f4f6]">
+    <section className="py-20 bg-[#F4F5F6]">
       <div className="container-custom">
         <div className="flex items-center gap-3 mb-12 animate-fade-in">
-          <TrendingUp className="w-8 h-8 text-[#1fb74d]" />
+          <TrendingUp className="w-8 h-8 text-[#238A55]" />
           <h2 className="text-4xl lg:text-5xl font-black text-[#07073b]">
             Zonas donde mas diseñamos
           </h2>
@@ -95,12 +95,12 @@ const PopularLocationsSection = () => {
               </div>
 
               <div className="p-6">
-                <h3 className="text-2xl font-bold text-[#07073b] mb-2 group-hover:text-[#1fb74d] transition-colors">
+                <h3 className="text-2xl font-bold text-[#07073b] mb-2 group-hover:text-[#238A55] transition-colors">
                   {location.name}
                 </h3>
-                <p className="text-[#65647a] mb-3">{location.subtitle}</p>
+                <p className="text-[#5F6B76] mb-3">{location.subtitle}</p>
                 <div className="flex items-center justify-start">
-                  <div className="flex items-center gap-1 text-[#1fb74d] opacity-80 group-hover:opacity-100 transition-opacity">
+                  <div className="flex items-center gap-1 text-[#238A55] opacity-80 group-hover:opacity-100 transition-opacity">
                     <span className="text-sm font-semibold">Ver proyectos</span>
                     <svg
                       className="w-4 h-4 group-hover:translate-x-1 transition-transform"
@@ -125,7 +125,7 @@ const PopularLocationsSection = () => {
         <div className="text-center mt-12">
           <Link
             to="/projects"
-            className="inline-flex items-center gap-2 bg-[#1fb74d] hover:bg-[#168a3d] text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl"
+            className="inline-flex items-center gap-2 bg-[#238A55] hover:bg-[#196B43] text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl"
           >
             Ver todos los proyectos
             <svg

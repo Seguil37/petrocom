@@ -77,41 +77,41 @@ const DateSelector = ({ value, onChange, minDate }) => {
 
   return (
     <div className="relative">
-      <div className="flex items-center justify-between p-4 border-2 border-[#dfe2ea] rounded-xl focus-within:border-[#1fb74d] focus-within:bg-[#f3f4f6] transition-all cursor-pointer"
+      <div className="flex items-center justify-between p-4 border-2 border-[#D7DCE1] rounded-xl focus-within:border-[#238A55] focus-within:bg-[#F4F5F6] transition-all cursor-pointer"
         onClick={() => setShowCalendar(!showCalendar)}
       >
         <div className="flex items-center gap-3">
-          <Calendar className="w-5 h-5 text-[#1fb74d]" />
+          <Calendar className="w-5 h-5 text-[#238A55]" />
           <span className="text-[#07073b] font-medium">
             {value ? formatDate(value) : 'Selecciona una fecha'}
           </span>
         </div>
-        <ChevronRight className={`w-5 h-5 text-[#65647a] transition-transform ${showCalendar ? 'rotate-180' : ''}`} />
+        <ChevronRight className={`w-5 h-5 text-[#5F6B76] transition-transform ${showCalendar ? 'rotate-180' : ''}`} />
       </div>
 
       {showCalendar && (
-        <div className="absolute top-full left-0 right-0 z-10 mt-2 bg-[#f3f4f6] rounded-xl shadow-2xl p-4 animate-fade-in">
+        <div className="absolute top-full left-0 right-0 z-10 mt-2 bg-[#F4F5F6] rounded-xl shadow-2xl p-4 animate-fade-in">
           <div className="flex items-center justify-between mb-4">
             <button
               onClick={() => changeMonth('prev')}
-              className="p-2 hover:bg-[#f3f4f6] rounded-full transition-colors"
+              className="p-2 hover:bg-[#F4F5F6] rounded-full transition-colors"
             >
-              <ChevronLeft className="w-5 h-5 text-[#65647a]" />
+              <ChevronLeft className="w-5 h-5 text-[#5F6B76]" />
             </button>
             <h3 className="text-lg font-bold text-[#07073b]">
               {currentMonth.toLocaleDateString('es-PE', { month: 'long', year: 'numeric' })}
             </h3>
             <button
               onClick={() => changeMonth('next')}
-              className="p-2 hover:bg-[#f3f4f6] rounded-full transition-colors"
+              className="p-2 hover:bg-[#F4F5F6] rounded-full transition-colors"
             >
-              <ChevronRight className="w-5 h-5 text-[#65647a]" />
+              <ChevronRight className="w-5 h-5 text-[#5F6B76]" />
             </button>
           </div>
 
           <div className="grid grid-cols-7 gap-2 text-center">
             {['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'].map((day, index) => (
-              <div key={index} className="text-xs font-semibold text-[#65647a] py-2">
+              <div key={index} className="text-xs font-semibold text-[#5F6B76] py-2">
                 {day}
               </div>
             ))}
@@ -123,14 +123,14 @@ const DateSelector = ({ value, onChange, minDate }) => {
                 disabled={!day || !isDateAvailable(day)}
                 className={`p-2 rounded-lg transition-all ${
                   !day 
-                    ? 'text-[#65647a] cursor-not-allowed' 
+                    ? 'text-[#5F6B76] cursor-not-allowed' 
                     : isDateAvailable(day)
-                      ? 'hover:bg-[#f3f4f6] cursor-pointer'
+                      ? 'hover:bg-[#F4F5F6] cursor-pointer'
                       : 'cursor-not-allowed opacity-50'
                 } ${
                   isSelected(day)
-                    ? 'bg-[#1fb74d] text-white'
-                    : 'bg-[#f3f4f6] border border-[#dfe2ea]'
+                    ? 'bg-[#238A55] text-white'
+                    : 'bg-[#F4F5F6] border border-[#D7DCE1]'
                 }`}
               >
                 {day}
@@ -141,7 +141,7 @@ const DateSelector = ({ value, onChange, minDate }) => {
           <div className="flex justify-end mt-4">
             <button
               onClick={() => setShowCalendar(false)}
-              className="px-4 py-2 bg-[#f3f4f6] hover:bg-[#65647a] text-[#05052f] rounded-lg transition-colors"
+              className="px-4 py-2 bg-[#F4F5F6] hover:bg-[#5F6B76] text-[#05052f] rounded-lg transition-colors"
             >
               Cerrar
             </button>

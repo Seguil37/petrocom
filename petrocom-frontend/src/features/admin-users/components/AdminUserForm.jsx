@@ -34,13 +34,13 @@ const AdminUserForm = ({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4">
       <div className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl overflow-hidden">
-        <div className="flex items-center justify-between px-6 py-4 border-b border-[#dfe2ea] bg-[#f3f4f6]">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-[#D7DCE1] bg-[#F4F5F6]">
           <div className="flex items-center gap-3">
-            <div className="p-3 rounded-xl bg-[#dfe2ea] text-[#07073b]">
+            <div className="p-3 rounded-xl bg-[#D7DCE1] text-[#07073b]">
               <ShieldCheck className="w-5 h-5" />
             </div>
             <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-[#65647a] font-semibold">
+              <p className="text-xs uppercase tracking-[0.2em] text-[#5F6B76] font-semibold">
                 {isEditing ? 'Editar administrador' : 'Nuevo administrador'}
               </p>
               <h3 className="text-xl font-black text-[#07073b]">
@@ -48,7 +48,7 @@ const AdminUserForm = ({
               </h3>
             </div>
           </div>
-          <button onClick={onClose} className="p-2 text-[#65647a] hover:text-[#07073b]">
+          <button onClick={onClose} className="p-2 text-[#5F6B76] hover:text-[#07073b]">
             <X className="w-5 h-5" />
           </button>
         </div>
@@ -62,10 +62,10 @@ const AdminUserForm = ({
                 value={formData.name}
                 onChange={(e) => handleChange('name', e.target.value)}
                 onBlur={() => handleChange('name', toTitleCase(formData.name))}
-                className="w-full px-4 py-3 rounded-xl border border-[#dfe2ea] focus:outline-none focus:ring-2 focus:ring-[#1fb74d] bg-[#ffffff]"
+                className="w-full px-4 py-3 rounded-xl border border-[#D7DCE1] focus:outline-none focus:ring-2 focus:ring-[#238A55] bg-[#ffffff]"
                 placeholder="Ej: Ana Pérez"
               />
-              <p className="mt-1 text-xs text-[#65647a]">Usa nombre y apellidos completos; se corrige a formato titulo.</p>
+              <p className="mt-1 text-xs text-[#5F6B76]">Usa nombre y apellidos completos; se corrige a formato titulo.</p>
               {errors.name && <p className="text-sm text-red-600 mt-1">{errors.name}</p>}
             </div>
             <div>
@@ -75,7 +75,7 @@ const AdminUserForm = ({
                 value={formData.email}
                 onChange={(e) => handleChange('email', e.target.value)}
                 onBlur={() => handleChange('email', normalizeEmail(formData.email))}
-                className="w-full px-4 py-3 rounded-xl border border-[#dfe2ea] focus:outline-none focus:ring-2 focus:ring-[#1fb74d] bg-[#ffffff]"
+                className="w-full px-4 py-3 rounded-xl border border-[#D7DCE1] focus:outline-none focus:ring-2 focus:ring-[#238A55] bg-[#ffffff]"
                 placeholder="admin@empresa.com"
               />
               {errors.email && <p className="text-sm text-red-600 mt-1">{errors.email}</p>}
@@ -90,14 +90,14 @@ const AdminUserForm = ({
                   type={showPassword ? 'text' : 'password'}
                   value={formData.password}
                   onChange={(e) => handleChange('password', e.target.value)}
-                  className="w-full px-4 py-3 pr-12 rounded-xl border border-[#dfe2ea] focus:outline-none focus:ring-2 focus:ring-[#1fb74d] bg-[#ffffff]"
+                  className="w-full px-4 py-3 pr-12 rounded-xl border border-[#D7DCE1] focus:outline-none focus:ring-2 focus:ring-[#238A55] bg-[#ffffff]"
                   placeholder={isEditing ? 'Dejar vacio para mantener' : 'Minimo 8 caracteres'}
                   autoComplete="new-password"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword((value) => !value)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#65647a] hover:text-[#07073b]"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#5F6B76] hover:text-[#07073b]"
                   aria-label={showPassword ? 'Ocultar contrasena' : 'Ver contrasena'}
                 >
                   {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
@@ -112,14 +112,14 @@ const AdminUserForm = ({
                   type={showPasswordConfirmation ? 'text' : 'password'}
                   value={formData.password_confirmation}
                   onChange={(e) => handleChange('password_confirmation', e.target.value)}
-                  className="w-full px-4 py-3 pr-12 rounded-xl border border-[#dfe2ea] focus:outline-none focus:ring-2 focus:ring-[#1fb74d] bg-[#ffffff]"
+                  className="w-full px-4 py-3 pr-12 rounded-xl border border-[#D7DCE1] focus:outline-none focus:ring-2 focus:ring-[#238A55] bg-[#ffffff]"
                   placeholder="Repite la contrasena"
                   autoComplete="new-password"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPasswordConfirmation((value) => !value)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#65647a] hover:text-[#07073b]"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#5F6B76] hover:text-[#07073b]"
                   aria-label={showPasswordConfirmation ? 'Ocultar confirmacion de contrasena' : 'Ver confirmacion de contrasena'}
                 >
                   {showPasswordConfirmation ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
@@ -174,10 +174,10 @@ const AdminUserForm = ({
               {errors.role && <p className="text-sm text-red-600">{errors.role}</p>}
             </div>
 
-            <div className="flex items-center justify-between bg-[#ffffff] border border-[#dfe2ea] rounded-xl px-4 py-3">
+            <div className="flex items-center justify-between bg-[#ffffff] border border-[#D7DCE1] rounded-xl px-4 py-3">
               <div>
                 <p className="text-sm font-semibold text-[#07073b]">Estado</p>
-                <p className="text-xs text-[#65647a]">Activo por defecto</p>
+                <p className="text-xs text-[#5F6B76]">Activo por defecto</p>
               </div>
               <label className="relative inline-flex items-center cursor-pointer">
                 <input
@@ -186,17 +186,17 @@ const AdminUserForm = ({
                   onChange={(e) => handleChange('is_active', e.target.checked)}
                   className="sr-only peer"
                 />
-                <div className="w-11 h-6 bg-[#dfe2ea] rounded-full peer peer-checked:bg-[#1fb74d] transition-colors"></div>
+                <div className="w-11 h-6 bg-[#D7DCE1] rounded-full peer peer-checked:bg-[#238A55] transition-colors"></div>
                 <div className="absolute left-1 top-1 w-4 h-4 bg-white rounded-full shadow peer-checked:translate-x-5 transition-transform"></div>
               </label>
             </div>
           </div>
 
-          <div className="flex items-center justify-end gap-3 pt-4 border-t border-[#dfe2ea]">
+          <div className="flex items-center justify-end gap-3 pt-4 border-t border-[#D7DCE1]">
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2 rounded-lg border border-[#dfe2ea] text-[#65647a] hover:bg-[#f3f4f6] font-semibold"
+              className="px-4 py-2 rounded-lg border border-[#D7DCE1] text-[#5F6B76] hover:bg-[#F4F5F6] font-semibold"
             >
               Cancelar
             </button>

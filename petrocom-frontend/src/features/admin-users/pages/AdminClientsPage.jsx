@@ -87,13 +87,13 @@ const AdminClientsPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#f3f4f6] py-10">
+    <div className="min-h-screen bg-[#F4F5F6] py-10">
       <div className="container-custom space-y-6">
         <div className="flex flex-col gap-4 xl:flex-row xl:items-end xl:justify-between">
           <div className="min-w-0">
-            <p className="text-xs font-black uppercase tracking-[0.24em] text-[#1fb74d]">Gestion comercial</p>
+            <p className="text-xs font-black uppercase tracking-[0.24em] text-[#238A55]">Gestion comercial</p>
             <h1 className="mt-2 text-3xl font-black text-[#07073b]">Clientes</h1>
-            <p className="mt-2 max-w-3xl text-[#65647a]">
+            <p className="mt-2 max-w-3xl text-[#5F6B76]">
               Administra clientes registrados, vincula sus tramites, revisa historial y detecta oportunidades de seguimiento.
             </p>
           </div>
@@ -123,15 +123,15 @@ const AdminClientsPage = () => {
           <Metric icon={Link2} label="Tramites sin cuenta" value={summary.unlinked_tramites} />
         </div>
 
-        <section className="rounded-2xl border border-[#dfe2ea] bg-white p-5 shadow-sm">
+        <section className="rounded-2xl border border-[#D7DCE1] bg-white p-5 shadow-sm">
           <form onSubmit={applySearch} className="flex flex-col gap-3 lg:flex-row">
             <div className="relative flex-1">
-              <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-[#65647a]" />
+              <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-[#5F6B76]" />
               <input
                 value={searchDraft}
                 onChange={(event) => setSearchDraft(event.target.value)}
                 placeholder="Buscar por cliente, correo, telefono, codigo o tramite"
-                className="min-h-[48px] w-full rounded-xl border border-[#dfe2ea] bg-[#f3f4f6] pl-12 pr-4 text-[#07073b] outline-none focus:border-[#1fb74d]"
+                className="min-h-[48px] w-full rounded-xl border border-[#D7DCE1] bg-[#F4F5F6] pl-12 pr-4 text-[#07073b] outline-none focus:border-[#238A55]"
               />
             </div>
             <select
@@ -141,7 +141,7 @@ const AdminClientsPage = () => {
                 setCurrentPage(1);
                 setFilter(event.target.value);
               }}
-              className="min-h-[48px] rounded-xl border border-[#dfe2ea] bg-[#f3f4f6] px-4 font-semibold text-[#07073b] outline-none focus:border-[#1fb74d]"
+              className="min-h-[48px] rounded-xl border border-[#D7DCE1] bg-[#F4F5F6] px-4 font-semibold text-[#07073b] outline-none focus:border-[#238A55]"
             >
               <option value="all">Todos los clientes</option>
               <option value="with_tramites">Solo con tramites</option>
@@ -158,7 +158,7 @@ const AdminClientsPage = () => {
             <button
               type="button"
               onClick={clearSearch}
-              className="min-h-[48px] rounded-xl border border-[#dfe2ea] px-6 font-black text-[#07073b] transition hover:bg-[#f3f4f6]"
+              className="min-h-[48px] rounded-xl border border-[#D7DCE1] px-6 font-black text-[#07073b] transition hover:bg-[#F4F5F6]"
             >
               Limpiar
             </button>
@@ -166,7 +166,7 @@ const AdminClientsPage = () => {
         </section>
 
         {loading ? (
-          <div className="flex min-h-[280px] items-center justify-center rounded-2xl border border-[#dfe2ea] bg-white text-[#07073b]">
+          <div className="flex min-h-[280px] items-center justify-center rounded-2xl border border-[#D7DCE1] bg-white text-[#07073b]">
             <Loader2 className="mr-2 h-5 w-5 animate-spin" />
             Cargando clientes...
           </div>
@@ -176,7 +176,7 @@ const AdminClientsPage = () => {
           <div className="grid grid-cols-1 gap-6 xl:grid-cols-[420px_1fr]">
             <div className="space-y-3">
               {clients.length === 0 ? (
-                <div className="rounded-2xl border border-[#dfe2ea] bg-white p-6 text-center text-[#65647a]">
+                <div className="rounded-2xl border border-[#D7DCE1] bg-white p-6 text-center text-[#5F6B76]">
                   No se encontraron clientes.
                 </div>
               ) : (
@@ -187,14 +187,14 @@ const AdminClientsPage = () => {
                     onClick={() => setSelectedId(client.id)}
                     className={`w-full rounded-2xl border p-4 text-left transition ${
                       selected?.id === client.id
-                        ? 'border-[#1fb74d] bg-white shadow-md'
-                        : 'border-[#dfe2ea] bg-white hover:border-[#07073b]'
+                        ? 'border-[#238A55] bg-white shadow-md'
+                        : 'border-[#D7DCE1] bg-white hover:border-[#07073b]'
                     }`}
                   >
                     <div className="flex items-start justify-between gap-3">
                       <div className="min-w-0">
                         <p className="truncate text-lg font-black text-[#07073b]">{client.name}</p>
-                        <p className="truncate text-sm text-[#65647a]">{client.email}</p>
+                        <p className="truncate text-sm text-[#5F6B76]">{client.email}</p>
                       </div>
                       <span className={`shrink-0 rounded-full px-3 py-1 text-xs font-black ${client.is_active ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-700'}`}>
                         {client.is_active ? 'Activo' : 'Inactivo'}
@@ -205,7 +205,7 @@ const AdminClientsPage = () => {
                       <MiniMetric label="Activos" value={client.active_tramites_count} />
                       <MiniMetric label="Finalizados" value={client.completed_tramites_count} />
                     </div>
-                    <p className="mt-3 text-xs font-semibold text-[#65647a]">
+                    <p className="mt-3 text-xs font-semibold text-[#5F6B76]">
                       Ultimo: {client.latest_tramite?.code || 'Sin tramites vinculados'}
                     </p>
                   </button>
@@ -236,17 +236,17 @@ const AdminClientsPage = () => {
 export default AdminClientsPage;
 
 const Metric = ({ icon, label, value }) => (
-  <div className="rounded-2xl border border-[#dfe2ea] bg-white p-5 shadow-sm">
-    {createElement(icon, { className: 'h-6 w-6 text-[#1fb74d]' })}
+  <div className="rounded-2xl border border-[#D7DCE1] bg-white p-5 shadow-sm">
+    {createElement(icon, { className: 'h-6 w-6 text-[#238A55]' })}
     <p className="mt-4 text-3xl font-black text-[#07073b]">{value || 0}</p>
-    <p className="mt-1 text-sm font-bold text-[#65647a]">{label}</p>
+    <p className="mt-1 text-sm font-bold text-[#5F6B76]">{label}</p>
   </div>
 );
 
 const MiniMetric = ({ label, value }) => (
-  <div className="rounded-xl bg-[#f3f4f6] p-2">
+  <div className="rounded-xl bg-[#F4F5F6] p-2">
     <p className="text-lg font-black text-[#07073b]">{value || 0}</p>
-    <p className="text-[11px] font-bold uppercase text-[#65647a]">{label}</p>
+    <p className="text-[11px] font-bold uppercase text-[#5F6B76]">{label}</p>
   </div>
 );
 
@@ -257,8 +257,8 @@ const Pagination = ({ currentPage, lastPage, total, perPage, onPageChange }) => 
   const end = Math.min(total, safeCurrent * perPage);
 
   return (
-    <div className="rounded-2xl border border-[#dfe2ea] bg-white p-4 shadow-sm">
-      <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#65647a]">
+    <div className="rounded-2xl border border-[#D7DCE1] bg-white p-4 shadow-sm">
+      <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#5F6B76]">
         Mostrando {start}-{end} de {total}
       </p>
       <div className="mt-3 flex items-center justify-between gap-2">
@@ -266,7 +266,7 @@ const Pagination = ({ currentPage, lastPage, total, perPage, onPageChange }) => 
           type="button"
           disabled={safeCurrent <= 1}
           onClick={() => onPageChange(safeCurrent - 1)}
-          className="min-h-[40px] rounded-lg border border-[#07073b] px-3 text-sm font-black text-[#07073b] transition hover:bg-[#07073b] hover:text-white disabled:cursor-not-allowed disabled:border-[#dfe2ea] disabled:text-[#65647a] disabled:hover:bg-white"
+          className="min-h-[40px] rounded-lg border border-[#07073b] px-3 text-sm font-black text-[#07073b] transition hover:bg-[#07073b] hover:text-white disabled:cursor-not-allowed disabled:border-[#D7DCE1] disabled:text-[#5F6B76] disabled:hover:bg-white"
         >
           Anterior
         </button>
@@ -277,7 +277,7 @@ const Pagination = ({ currentPage, lastPage, total, perPage, onPageChange }) => 
           type="button"
           disabled={safeCurrent >= safeLast}
           onClick={() => onPageChange(safeCurrent + 1)}
-          className="min-h-[40px] rounded-lg border border-[#07073b] px-3 text-sm font-black text-[#07073b] transition hover:bg-[#07073b] hover:text-white disabled:cursor-not-allowed disabled:border-[#dfe2ea] disabled:text-[#65647a] disabled:hover:bg-white"
+          className="min-h-[40px] rounded-lg border border-[#07073b] px-3 text-sm font-black text-[#07073b] transition hover:bg-[#07073b] hover:text-white disabled:cursor-not-allowed disabled:border-[#D7DCE1] disabled:text-[#5F6B76] disabled:hover:bg-white"
         >
           Siguiente
         </button>
@@ -289,7 +289,7 @@ const Pagination = ({ currentPage, lastPage, total, perPage, onPageChange }) => 
 const ClientDetail = ({ client }) => {
   if (!client) {
     return (
-      <div className="rounded-2xl border border-[#dfe2ea] bg-white p-8 text-center text-[#65647a]">
+      <div className="rounded-2xl border border-[#D7DCE1] bg-white p-8 text-center text-[#5F6B76]">
         Selecciona un cliente para ver su historial.
       </div>
     );
@@ -297,17 +297,17 @@ const ClientDetail = ({ client }) => {
 
   return (
     <div className="space-y-5">
-      <section className="rounded-2xl border border-[#dfe2ea] bg-white p-6 shadow-sm">
+      <section className="rounded-2xl border border-[#D7DCE1] bg-white p-6 shadow-sm">
         <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
           <div>
-            <p className="text-xs font-black uppercase tracking-[0.24em] text-[#1fb74d]">Perfil cliente</p>
+            <p className="text-xs font-black uppercase tracking-[0.24em] text-[#238A55]">Perfil cliente</p>
             <h2 className="mt-2 text-2xl font-black text-[#07073b]">{client.name}</h2>
-            <p className="mt-1 text-sm text-[#65647a]">{client.email}</p>
-            <p className="text-sm text-[#65647a]">{client.phone || 'Sin telefono registrado'}</p>
+            <p className="mt-1 text-sm text-[#5F6B76]">{client.email}</p>
+            <p className="text-sm text-[#5F6B76]">{client.phone || 'Sin telefono registrado'}</p>
           </div>
           <Link
             to="/tramites/gestion"
-            className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-lg bg-[#1fb74d] px-4 py-2 text-sm font-black text-white transition hover:bg-[#168a3d]"
+            className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-lg bg-[#238A55] px-4 py-2 text-sm font-black text-white transition hover:bg-[#196B43]"
           >
             Vincular nuevo tramite
             <ArrowRight className="h-4 w-4" />
@@ -321,26 +321,26 @@ const ClientDetail = ({ client }) => {
         </div>
       </section>
 
-      <section className="rounded-2xl border border-[#dfe2ea] bg-white p-6 shadow-sm">
+      <section className="rounded-2xl border border-[#D7DCE1] bg-white p-6 shadow-sm">
         <div className="mb-4 flex items-center gap-2">
-          <ClipboardList className="h-5 w-5 text-[#1fb74d]" />
+          <ClipboardList className="h-5 w-5 text-[#238A55]" />
           <h3 className="text-xl font-black text-[#07073b]">Historial de tramites</h3>
         </div>
         {client.tramites?.length ? (
           <div className="space-y-3">
             {client.tramites.map((tramite) => (
-              <div key={tramite.id} className="rounded-xl border border-[#dfe2ea] bg-[#ffffff] p-4">
+              <div key={tramite.id} className="rounded-xl border border-[#D7DCE1] bg-[#ffffff] p-4">
                 <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
                   <div>
-                    <p className="text-xs font-black uppercase text-[#1fb74d]">{tramite.code}</p>
+                    <p className="text-xs font-black uppercase text-[#238A55]">{tramite.code}</p>
                     <p className="mt-1 font-black text-[#07073b]">{tramite.project_name}</p>
-                    <p className="text-sm text-[#65647a]">{tramite.property_name || 'Sin inmueble especifico'}</p>
+                    <p className="text-sm text-[#5F6B76]">{tramite.property_name || 'Sin inmueble especifico'}</p>
                   </div>
                   <span className={`w-fit rounded-full px-3 py-1 text-xs font-black ${statusStyles[tramite.status] || statusStyles.pending}`}>
                     {tramite.status_label}
                   </span>
                 </div>
-                <div className="mt-3 grid grid-cols-1 gap-2 text-sm text-[#65647a] sm:grid-cols-3">
+                <div className="mt-3 grid grid-cols-1 gap-2 text-sm text-[#5F6B76] sm:grid-cols-3">
                   <span>Registro: {formatDate(tramite.registered_at)}</span>
                   <span>Vence: {formatDate(tramite.due_date)}</span>
                   <span>Actualizado: {formatDateTime(tramite.updated_at)}</span>
@@ -349,18 +349,18 @@ const ClientDetail = ({ client }) => {
             ))}
           </div>
         ) : (
-          <p className="text-sm text-[#65647a]">Este cliente aun no tiene tramites vinculados.</p>
+          <p className="text-sm text-[#5F6B76]">Este cliente aun no tiene tramites vinculados.</p>
         )}
       </section>
 
-      <section className="rounded-2xl border border-[#dfe2ea] bg-white p-6 shadow-sm">
+      <section className="rounded-2xl border border-[#D7DCE1] bg-white p-6 shadow-sm">
         <div className="mb-4 flex items-center gap-2">
-          <Sparkles className="h-5 w-5 text-[#1fb74d]" />
+          <Sparkles className="h-5 w-5 text-[#238A55]" />
           <h3 className="text-xl font-black text-[#07073b]">Oportunidades de seguimiento</h3>
         </div>
         <div className="space-y-2">
           {(client.opportunities || []).map((item) => (
-            <div key={item} className="rounded-xl bg-[#f3f4f6] px-4 py-3 text-sm font-semibold text-[#07073b]">
+            <div key={item} className="rounded-xl bg-[#F4F5F6] px-4 py-3 text-sm font-semibold text-[#07073b]">
               {item}
             </div>
           ))}
@@ -371,10 +371,10 @@ const ClientDetail = ({ client }) => {
 };
 
 const InfoBlock = ({ icon, label, value }) => (
-  <div className="rounded-xl border border-[#dfe2ea] bg-[#f3f4f6] p-4">
-    {createElement(icon, { className: 'h-5 w-5 text-[#1fb74d]' })}
+  <div className="rounded-xl border border-[#D7DCE1] bg-[#F4F5F6] p-4">
+    {createElement(icon, { className: 'h-5 w-5 text-[#238A55]' })}
     <p className="mt-3 text-2xl font-black text-[#07073b]">{value || 0}</p>
-    <p className="text-xs font-bold uppercase text-[#65647a]">{label}</p>
+    <p className="text-xs font-bold uppercase text-[#5F6B76]">{label}</p>
   </div>
 );
 

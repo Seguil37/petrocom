@@ -53,7 +53,7 @@ const ReferenceContentSection = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-[#f3f4f6] to-[#f3f4f6]">
+    <section className="py-20 bg-gradient-to-br from-[#F4F5F6] to-[#F4F5F6]">
       <div className="container-custom">
         {/* Título */}
         <h2 className="text-4xl lg:text-5xl font-black text-[#07073b] mb-8 text-center animate-fade-in">
@@ -71,11 +71,11 @@ const ReferenceContentSection = () => {
                 onClick={() => setActiveTab(tab.id)}
                 className={`group flex items-center gap-3 px-6 py-4 rounded-xl font-semibold transition-all duration-300 ${
                   activeTab === tab.id
-                    ? 'bg-[#1fb74d] text-white shadow-lg scale-105'
-                    : 'bg-[#f3f4f6] text-[#65647a] hover:bg-[#f3f4f6] shadow-md hover:shadow-lg'
+                    ? 'bg-[#238A55] text-white shadow-lg scale-105'
+                    : 'bg-[#F4F5F6] text-[#5F6B76] hover:bg-[#F4F5F6] shadow-md hover:shadow-lg'
                 }`}
               >
-                <Icon className={`w-5 h-5 ${activeTab === tab.id ? 'text-white' : 'text-[#1fb74d]'}`} />
+                <Icon className={`w-5 h-5 ${activeTab === tab.id ? 'text-white' : 'text-[#238A55]'}`} />
                 <span className="hidden sm:inline">{tab.label}</span>
                 <span className="sm:hidden">{tab.label.split(' ')[0]}</span>
               </button>
@@ -89,25 +89,25 @@ const ReferenceContentSection = () => {
             <Link
               key={index}
               to={`/projects?tema=${encodeURIComponent(item.name)}`}
-              className="group bg-white rounded-xl p-4 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-[#f3f4f6] hover:border-[#1fb74d]"
+              className="group bg-white rounded-xl p-4 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-[#F4F5F6] hover:border-[#238A55]"
               style={{ animationDelay: `${index * 0.02}s` }}
             >
-              <h3 className="font-bold text-[#07073b] mb-2 group-hover:text-[#1fb74d] transition-colors truncate">
+              <h3 className="font-bold text-[#07073b] mb-2 group-hover:text-[#238A55] transition-colors truncate">
                 {item.name}
               </h3>
 
               {/* Rating */}
               <div className="flex items-center gap-1 mb-2">
-                <Star className="w-4 h-4 text-[#1fb74d] fill-current" />
+                <Star className="w-4 h-4 text-[#238A55] fill-current" />
                 <span className="text-sm font-medium text-[#07073b]">{item.rating}</span>
               </div>
 
-              <p className="text-sm text-[#65647a]">
+              <p className="text-sm text-[#5F6B76]">
                 {item.count} {item.count === 1 ? 'recurso' : 'recursos'} destacados
               </p>
 
               {/* Indicador de hover */}
-              <div className="mt-3 h-1 w-0 group-hover:w-full bg-[#1fb74d] transition-all duration-500 rounded-full"></div>
+              <div className="mt-3 h-1 w-0 group-hover:w-full bg-[#238A55] transition-all duration-500 rounded-full"></div>
             </Link>
           ))}
         </div>
@@ -116,7 +116,7 @@ const ReferenceContentSection = () => {
         <div className="text-center mt-12">
           <Link
             to="/projects"
-            className="inline-flex items-center gap-2 bg-[#1fb74d] hover:bg-[#168a3d] text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl"
+            className="inline-flex items-center gap-2 bg-[#238A55] hover:bg-[#196B43] text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl"
           >
             Ver todos los recursos
             <svg

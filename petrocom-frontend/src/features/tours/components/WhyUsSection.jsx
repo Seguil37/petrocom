@@ -34,14 +34,14 @@ const WhyUsSection = () => {
   ];
 
   return (
-    <section id="nosotros" className="py-20 bg-gradient-to-br from-[#f3f4f6] to-[#f3f4f6]">
+    <section id="nosotros" className="py-20 bg-gradient-to-br from-[#F4F5F6] to-[#F4F5F6]">
       <div className="container-custom">
         {/* Título */}
         <div className="text-center mb-16 animate-fade-in transition-transform duration-500 hover:-translate-y-1">
           <h2 className="text-4xl lg:text-5xl font-black text-[#07073b] mb-4 transition-transform duration-500 hover:scale-[1.01]">
             ¿Por qué diseñar tu proyecto con Casaliz?
           </h2>
-          <div className="w-24 h-1 bg-[#1fb74d] mx-auto rounded-full transition-all duration-500 hover:w-32"></div>
+          <div className="w-24 h-1 bg-[#238A55] mx-auto rounded-full transition-all duration-500 hover:w-32"></div>
         </div>
 
         {/* Cards */}
@@ -64,15 +64,15 @@ const WhyUsSection = () => {
                 </div>
 
                 {/* Título */}
-                <h3 className="text-2xl font-bold text-[#07073b] mb-4 group-hover:text-[#1fb74d] transition-colors">
+                <h3 className="text-2xl font-bold text-[#07073b] mb-4 group-hover:text-[#238A55] transition-colors">
                   {feature.title}
                 </h3>
 
                 {/* Descripción */}
-                <p className="text-[#65647a] leading-relaxed">{feature.description}</p>
+                <p className="text-[#5F6B76] leading-relaxed">{feature.description}</p>
 
                 {/* Línea decorativa */}
-                <div className="mt-6 h-1 w-0 group-hover:w-full bg-[#1fb74d] transition-all duration-500 rounded-full"></div>
+                <div className="mt-6 h-1 w-0 group-hover:w-full bg-[#238A55] transition-all duration-500 rounded-full"></div>
               </div>
             );
           })}
@@ -85,11 +85,11 @@ const WhyUsSection = () => {
             return (
               <div
                 key={index}
-                className="relative overflow-hidden bg-gradient-to-br from-[#07073b] via-[#10104d] to-[#454546] rounded-2xl p-8 text-center animate-fade-in shadow-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_28px_55px_rgba(35,50,116,0.20)]"
+                className="relative overflow-hidden bg-gradient-to-br from-[#07073b] via-[#10104d] to-[#303840] rounded-2xl p-8 text-center animate-fade-in shadow-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_28px_55px_rgba(35,50,116,0.20)]"
                 style={{ animationDelay: `${0.6 + index * 0.1}s` }}
               >
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-white/10 pointer-events-none" />
-                <div className="relative w-16 h-16 bg-gradient-to-br from-[#e8a12f] to-[#e8a12f] rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg transition-transform duration-500 hover:scale-110">
+                <div className="relative w-16 h-16 bg-gradient-to-br from-[#C58A2A] to-[#C58A2A] rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg transition-transform duration-500 hover:scale-110">
                   <Icon className="w-8 h-8 text-white" />
                 </div>
                 <div className="relative text-4xl font-black text-white drop-shadow mb-2">{stat.value}</div>

@@ -127,19 +127,19 @@ const HeroSection = () => {
           ) : (
             <form
               onSubmit={handleSubmit}
-              className="max-w-5xl mx-auto mt-8 bg-[#f3f4f6] rounded-2xl shadow-2xl p-4 lg:p-6 animate-slide-up transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_28px_55px_rgba(15,27,53,0.20)]"
+              className="max-w-5xl mx-auto mt-8 bg-[#F4F5F6] rounded-2xl shadow-2xl p-4 lg:p-6 animate-slide-up transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_28px_55px_rgba(15,27,53,0.20)]"
             >
               <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_auto] gap-4 items-end">
                 <div className="text-left">
                   <label className="block text-sm font-semibold text-[#07073b] mb-2">{inputLabel}</label>
                   <div className="relative">
-                    <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 text-[#65647a] w-5 h-5" />
+                    <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 text-[#5F6B76] w-5 h-5" />
                     <input
                       type="text"
                       placeholder={inputPlaceholder}
                       value={value}
                       onChange={(e) => onChange(e.target.value)}
-                      className="w-full pl-12 pr-4 py-4 rounded-xl border-2 border-[#dfe2ea] focus:border-[#1fb74d] focus:outline-none transition-all text-[#07073b] font-medium hover:border-[#1fb74d]/60"
+                      className="w-full pl-12 pr-4 py-4 rounded-xl border-2 border-[#D7DCE1] focus:border-[#238A55] focus:outline-none transition-all text-[#07073b] font-medium hover:border-[#238A55]/60"
                     />
                   </div>
                 </div>
@@ -147,7 +147,7 @@ const HeroSection = () => {
                 <div className="flex items-end">
                   <button
                     type="submit"
-                    className="w-full bg-[#1fb74d] hover:bg-[#168a3d] text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 flex items-center justify-center gap-2 group"
+                    className="w-full bg-[#238A55] hover:bg-[#196B43] text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 flex items-center justify-center gap-2 group"
                   >
                     <Search className="w-5 h-5 group-hover:scale-110 transition-transform" />
                     {mode === 'services' ? 'Buscar servicios' : 'Buscar proyectos'}
@@ -156,7 +156,7 @@ const HeroSection = () => {
               </div>
 
               <div className="mt-3 flex flex-wrap items-center gap-2 text-left">
-                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#65647a]">
+                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#5F6B76]">
                     Prueba con:
                 </span>
                 {suggestions.slice(0, 4).map((item) => (
@@ -164,7 +164,7 @@ const HeroSection = () => {
                     key={item}
                     type="button"
                     onClick={() => onChange(item)}
-                    className="rounded-full border border-[#dfe2ea] bg-white px-3 py-1 text-xs font-semibold text-[#65647a] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#1fb74d]/30 hover:text-[#e8a12f]"
+                    className="rounded-full border border-[#D7DCE1] bg-white px-3 py-1 text-xs font-semibold text-[#5F6B76] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#238A55]/30 hover:text-[#C58A2A]"
                   >
                     {item}
                   </button>
@@ -181,11 +181,11 @@ const HeroSection = () => {
               return (
                 <div
                   key={index}
-                  className="bg-[#f3f4f6]/10 backdrop-blur-sm rounded-lg p-4 text-white animate-fade-in transition-all duration-500 hover:-translate-y-1 hover:bg-[#f3f4f6]/15"
+                  className="bg-[#F4F5F6]/10 backdrop-blur-sm rounded-lg p-4 text-white animate-fade-in transition-all duration-500 hover:-translate-y-1 hover:bg-[#F4F5F6]/15"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <div className="flex items-center justify-center gap-2 mb-2">
-                    <Icon className="w-5 h-5 text-[#1fb74d] fill-current" />
+                    <Icon className="w-5 h-5 text-[#238A55] fill-current" />
                     <span className="text-2xl font-bold">{item.count}</span>
                   </div>
                   <p className="text-sm">{item.text}</p>

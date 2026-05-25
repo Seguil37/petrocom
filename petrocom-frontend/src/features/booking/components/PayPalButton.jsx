@@ -46,8 +46,8 @@ const PayPalButton = ({ amount, onSuccess, onError }) => {
   return (
     <div className="w-full">
       {error && (
-        <div className="bg-[#f3f4f6] border-l-4 border-[#e8a12f] p-4 rounded-lg mb-4">
-          <p className="text-[#e8a12f] text-sm">{error}</p>
+        <div className="bg-[#F4F5F6] border-l-4 border-[#C58A2A] p-4 rounded-lg mb-4">
+          <p className="text-[#C58A2A] text-sm">{error}</p>
         </div>
       )}
       

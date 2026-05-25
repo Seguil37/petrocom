@@ -56,7 +56,7 @@ const companyPrinciples = [
     summary: 'Visión',
     description:
       'Consolidarnos como un estudio referente en arquitectura y gestión integral de proyectos, reconocido por crear soluciones sostenibles, humanas y bien ejecutadas que generen valor real para las personas y su entorno.',
-    accent: 'from-[#1fb74d] via-[#168a3d] to-[#1fb74d]',
+    accent: 'from-[#2a5f9d] via-[#3f7ec0] to-[#238A55]',
     ring: 'shadow-[0_24px_60px_rgba(225,95,11,0.18)]',
     icon: Eye,
   },
@@ -64,16 +64,17 @@ const companyPrinciples = [
 
 const AboutPage = () => {
   return (
-    <div className="bg-[#f3f4f6] text-[#07073b]">
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#07073b] via-[#10104d] to-[#454546] text-white py-16">
-        <div className="absolute inset-0 opacity-10" aria-hidden>
-          <div className="absolute -left-12 -top-12 h-72 w-72 rounded-full bg-[#e8a12f] blur-3xl" />
-          <div className="absolute bottom-0 right-0 h-80 w-80 rounded-full bg-[#1fb74d] blur-3xl" />
+    <div className="bg-[#F4F5F6] text-[#07073b]">
+      <section className="relative overflow-hidden bg-[linear-gradient(135deg,#07073b_0%,#10104d_44%,#238A55_84%,#303840_100%)] text-white py-16">
+        <div className="absolute inset-0 opacity-14" aria-hidden>
+          <div className="absolute -left-12 -top-12 h-72 w-72 rounded-full bg-[#C58A2A] blur-3xl" />
+          <div className="absolute bottom-0 right-0 h-[30rem] w-[30rem] rounded-full bg-[#238A55]/50 blur-3xl" />
+          <div className="absolute right-1/3 top-8 h-80 w-80 rounded-full bg-[#7CC99C]/22 blur-3xl" />
         </div>
 
         <div className="container-custom relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <div className="space-y-5">
-            <div className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#b9edc7] transition-transform duration-500 hover:translate-x-1">
+            <div className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#CAE7D6] transition-transform duration-500 hover:translate-x-1">
               <Sparkles className="h-5 w-5 transition-transform duration-500 hover:scale-110 hover:rotate-12" />
               <span>Arquitectura con años de experiencia</span>
             </div>
@@ -103,8 +104,8 @@ const AboutPage = () => {
             </div>
           </div>
 
-          <div className="w-full rounded-2xl border border-white/20 bg-white/10 p-6 shadow-2xl backdrop-blur transition-all duration-500 hover:-translate-y-2 hover:bg-white/15">
-            <p className="mb-3 text-sm uppercase tracking-[0.3em] text-[#b9edc7]">Credenciales clave</p>
+          <div className="w-full rounded-2xl border border-white/20 bg-[linear-gradient(145deg,rgba(255,255,255,0.12),rgba(35,138,85,0.10))] p-6 shadow-2xl backdrop-blur transition-all duration-500 hover:-translate-y-2 hover:bg-white/15">
+            <p className="mb-3 text-sm uppercase tracking-[0.3em] text-[#CAE7D6]">Credenciales clave</p>
             <div className="space-y-3">
               {[
                 { label: 'Proyectos diseñados y ejecutados', value: '120+' },
@@ -129,11 +130,11 @@ const AboutPage = () => {
 
       <section id="nosotros" className="container-custom space-y-10 py-16 lg:py-20">
         <div className="space-y-4">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#e8a12f] transition-transform duration-500 hover:translate-x-1">Nuestra esencia</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#C58A2A] transition-transform duration-500 hover:translate-x-1">Nuestra esencia</p>
           <h2 className="max-w-4xl text-3xl font-black text-[#07073b] transition-transform duration-500 hover:translate-x-1 lg:text-4xl">
             Diseñamos proyectos que conectan estrategia, identidad y ejecución real.
           </h2>
-          <p className="max-w-3xl text-lg text-[#454546] transition-colors duration-500 hover:text-[#07073b]">
+          <p className="max-w-3xl text-lg text-[#303840] transition-colors duration-500 hover:text-[#07073b]">
             En Casaliz entendemos la arquitectura como una herramienta para ordenar, proyectar y mejorar la forma en que las personas
             habitan y usan sus espacios. Combinamos criterio técnico, visión creativa y una gestión cercana para convertir cada etapa
             del proyecto en decisiones claras, viables y bien sustentadas.
@@ -162,12 +163,12 @@ const AboutPage = () => {
                 </div>
 
                 <div className="relative flex min-h-[260px] flex-col p-7">
-                  <span className="inline-flex w-fit rounded-full bg-[#f3f4f6] px-3 py-1 text-xs font-bold text-[#65647a]">
+                  <span className="inline-flex w-fit rounded-full bg-[#F4F5F6] px-3 py-1 text-xs font-bold text-[#5F6B76]">
                     {item.title}
                   </span>
-                  <p className="mt-4 text-base leading-7 text-[#65647a]">{item.description}</p>
+                  <p className="mt-4 text-base leading-7 text-[#5F6B76]">{item.description}</p>
                   <div className="mt-auto pt-6">
-                    <div className="h-1.5 w-24 rounded-full bg-gradient-to-r from-[#07073b] to-[#1fb74d]" />
+                    <div className="h-1.5 w-24 rounded-full bg-gradient-to-r from-[#07073b] to-[#238A55]" />
                   </div>
                 </div>
               </article>
@@ -179,36 +180,36 @@ const AboutPage = () => {
           {experienceHighlights.map((item) => {
             const Icon = item.icon;
             return (
-              <div key={item.title} className="space-y-3 rounded-2xl border border-[#dfe2ea] bg-white p-6 shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_24px_50px_rgba(225,95,11,0.16)]">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#1fb74d] text-white shadow-md transition-transform duration-500 hover:scale-110 hover:rotate-3">
+              <div key={item.title} className="space-y-3 rounded-2xl border border-[#D7DCE1] bg-white p-6 shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_24px_50px_rgba(225,95,11,0.16)]">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#238A55] text-white shadow-md transition-transform duration-500 hover:scale-110 hover:rotate-3">
                   <Icon className="h-5 w-5" />
                 </div>
                 <h3 className="text-xl font-black text-[#07073b]">{item.title}</h3>
-                <p className="text-base text-[#454546]">{item.description}</p>
+                <p className="text-base text-[#303840]">{item.description}</p>
               </div>
             );
           })}
         </div>
       </section>
 
-      <section id="metodologia" className="border-y border-[#dfe2ea] bg-white">
+      <section id="metodologia" className="border-y border-[#D7DCE1] bg-white">
         <div className="container-custom grid items-center gap-10 py-16 lg:grid-cols-[1.1fr_auto] lg:py-20">
           <div className="space-y-4">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#e8a12f] transition-transform duration-500 hover:translate-x-1">Metodología</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#C58A2A] transition-transform duration-500 hover:translate-x-1">Metodología</p>
             <h2 className="text-3xl font-black text-[#07073b] transition-transform duration-500 hover:translate-x-1 lg:text-4xl">Arquitectura informada por datos y territorio</h2>
-            <p className="max-w-3xl text-lg text-[#454546] transition-colors duration-500 hover:text-[#07073b]">
+            <p className="max-w-3xl text-lg text-[#303840] transition-colors duration-500 hover:text-[#07073b]">
               Analizamos contexto urbano, condicionantes técnicas y normativas locales para definir estrategias de implantación,
               circulaciones y materialidad. Cada entregable busca anticipar riesgos y viabilizar licencias sin perder la identidad
               arquitectónica.
             </p>
             <div className="grid gap-4 sm:grid-cols-2">
               {capabilityPillars.map((item) => (
-                <div key={item.title} className="rounded-2xl border border-[#dfe2ea] bg-[#f3f4f6] p-5 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:bg-white hover:shadow-[0_20px_40px_rgba(35,50,116,0.08)]">
+                <div key={item.title} className="rounded-2xl border border-[#D7DCE1] bg-[#F4F5F6] p-5 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:bg-white hover:shadow-[0_20px_40px_rgba(35,50,116,0.08)]">
                   <div className="mb-2 flex items-center gap-2">
-                    <Handshake className="h-4 w-4 text-[#e8a12f]" />
+                    <Handshake className="h-4 w-4 text-[#C58A2A]" />
                     <h3 className="text-lg font-bold text-[#07073b]">{item.title}</h3>
                   </div>
-                  <p className="text-sm text-[#454546]">{item.detail}</p>
+                  <p className="text-sm text-[#303840]">{item.detail}</p>
                 </div>
               ))}
             </div>

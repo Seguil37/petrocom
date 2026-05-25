@@ -30,7 +30,7 @@ const MercadoPagoModal = ({ isOpen, onClose, amount, onSuccess }) => {
       <div className="space-y-6">
         {/* Logo Mercado Pago */}
         <div className="bg-gradient-to-br from-[#07073b] to-[#05052f] rounded-2xl p-8 text-white text-center">
-          <div className="w-20 h-20 bg-[#f3f4f6]/20 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div className="w-20 h-20 bg-[#F4F5F6]/20 rounded-full flex items-center justify-center mx-auto mb-4">
             <CreditCard className="w-10 h-10" />
           </div>
           <h3 className="text-2xl font-bold mb-2">Mercado Pago</h3>
@@ -38,7 +38,7 @@ const MercadoPagoModal = ({ isOpen, onClose, amount, onSuccess }) => {
         </div>
 
         {/* Monto */}
-        <div className="bg-[#f3f4f6] rounded-xl p-4 text-center">
+        <div className="bg-[#F4F5F6] rounded-xl p-4 text-center">
           <p className="text-sm text-[#07073b] mb-1">Total a pagar</p>
           <p className="text-3xl font-black text-[#05052f]">
             S/ {amount.toFixed(2)}
@@ -46,7 +46,7 @@ const MercadoPagoModal = ({ isOpen, onClose, amount, onSuccess }) => {
         </div>
 
         {/* Beneficios */}
-        <div className="bg-[#f3f4f6] rounded-xl p-4">
+        <div className="bg-[#F4F5F6] rounded-xl p-4">
           <h4 className="font-bold text-white mb-3">Beneficios:</h4>
           <ul className="space-y-2 text-sm text-[#07073b]">
             <li className="flex items-center gap-2">
@@ -74,12 +74,12 @@ const MercadoPagoModal = ({ isOpen, onClose, amount, onSuccess }) => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="tu@email.com"
-            className="w-full px-4 py-3 border-2 border-[#dfe2ea] rounded-xl focus:border-[#07073b] focus:outline-none"
+            className="w-full px-4 py-3 border-2 border-[#D7DCE1] rounded-xl focus:border-[#07073b] focus:outline-none"
           />
         </div>
 
         {/* Seguridad */}
-        <div className="flex items-center gap-3 bg-[#f3f4f6] p-4 rounded-xl">
+        <div className="flex items-center gap-3 bg-[#F4F5F6] p-4 rounded-xl">
           <Shield className="w-6 h-6 text-[#07073b] flex-shrink-0" />
           <div>
             <p className="text-sm font-semibold text-[#05052f]">Pago 100% seguro</p>
@@ -106,7 +106,7 @@ const MercadoPagoModal = ({ isOpen, onClose, amount, onSuccess }) => {
           )}
         </button>
 
-        <p className="text-xs text-center text-[#65647a]">
+        <p className="text-xs text-center text-[#5F6B76]">
           ⚠️ Pago simulado - Serás redirigido a Mercado Pago (simulado)
         </p>
       </div>

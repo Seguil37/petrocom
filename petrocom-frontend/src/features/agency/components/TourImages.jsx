@@ -78,7 +78,7 @@ const TourImages = ({ formData, updateFormData }) => {
       </h2>
 
       {/* Info */}
-      <div className="bg-[#f3f4f6] border-l-4 border-[#07073b] p-4 rounded-lg">
+      <div className="bg-[#F4F5F6] border-l-4 border-[#07073b] p-4 rounded-lg">
         <div className="flex items-start gap-3">
           <AlertCircle className="w-5 h-5 text-[#07073b] flex-shrink-0 mt-0.5" />
           <div className="text-sm text-[#05052f]">
@@ -104,7 +104,7 @@ const TourImages = ({ formData, updateFormData }) => {
             value={newImageUrl}
             onChange={(e) => setNewImageUrl(e.target.value)}
             onKeyPress={(e) => e.key === 'Enter' && handleAddImage()}
-            className="flex-1 px-4 py-3 border-2 border-[#dfe2ea] rounded-xl focus:border-primary focus:outline-none"
+            className="flex-1 px-4 py-3 border-2 border-[#D7DCE1] rounded-xl focus:border-primary focus:outline-none"
             placeholder="https://ejemplo.com/imagen.jpg"
           />
           <button
@@ -116,7 +116,7 @@ const TourImages = ({ formData, updateFormData }) => {
           </button>
         </div>
         {error && (
-          <p className="text-sm text-[#e8a12f] mt-1">{error}</p>
+          <p className="text-sm text-[#C58A2A] mt-1">{error}</p>
         )}
       </div>
 
@@ -126,7 +126,7 @@ const TourImages = ({ formData, updateFormData }) => {
           {imageUrls.map((url, index) => (
             <div
               key={index}
-              className="relative group border-2 border-[#dfe2ea] rounded-xl overflow-hidden hover:border-primary transition-all"
+              className="relative group border-2 border-[#D7DCE1] rounded-xl overflow-hidden hover:border-primary transition-all"
             >
               <img
                 src={url}
@@ -150,7 +150,7 @@ const TourImages = ({ formData, updateFormData }) => {
                   <button
                     type="button"
                     onClick={() => handleSetAsFeatured(index)}
-                    className="px-4 py-2 bg-[#f3f4f6] text-[#07073b] rounded-lg font-semibold hover:bg-[#f3f4f6] transition-all text-sm"
+                    className="px-4 py-2 bg-[#F4F5F6] text-[#07073b] rounded-lg font-semibold hover:bg-[#F4F5F6] transition-all text-sm"
                   >
                     Hacer Principal
                   </button>
@@ -158,7 +158,7 @@ const TourImages = ({ formData, updateFormData }) => {
                 <button
                   type="button"
                   onClick={() => handleRemoveImage(index)}
-                  className="p-2 bg-[#07073b] text-white rounded-lg hover:bg-[#e8a12f] transition-all"
+                  className="p-2 bg-[#07073b] text-white rounded-lg hover:bg-[#C58A2A] transition-all"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -167,10 +167,10 @@ const TourImages = ({ formData, updateFormData }) => {
           ))}
         </div>
       ) : (
-        <div className="border-2 border-dashed border-[#dfe2ea] rounded-xl p-12 text-center">
-          <ImageIcon className="w-16 h-16 text-[#65647a] mx-auto mb-4" />
-          <p className="text-[#65647a] mb-2">No has agregado imágenes aún</p>
-          <p className="text-sm text-[#65647a]">
+        <div className="border-2 border-dashed border-[#D7DCE1] rounded-xl p-12 text-center">
+          <ImageIcon className="w-16 h-16 text-[#5F6B76] mx-auto mb-4" />
+          <p className="text-[#5F6B76] mb-2">No has agregado imágenes aún</p>
+          <p className="text-sm text-[#5F6B76]">
             Agrega al menos 3 imágenes para publicar tu tour
           </p>
         </div>
@@ -178,10 +178,10 @@ const TourImages = ({ formData, updateFormData }) => {
 
       {/* Counter */}
       <div className="text-center">
-        <p className="text-sm text-[#65647a]">
+        <p className="text-sm text-[#5F6B76]">
           {imageUrls.length} de 5 imágenes
           {imageUrls.length < 3 && (
-            <span className="text-[#e8a12f] ml-2">
+            <span className="text-[#C58A2A] ml-2">
               (Mínimo 3 requeridas)
             </span>
           )}

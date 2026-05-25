@@ -99,12 +99,12 @@ const AgencyDashboard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#f3f4f6] py-8">
+    <div className="min-h-screen bg-[#F4F5F6] py-8">
       <div className="container-custom">
         <div className="mb-8 flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
           <div className="min-w-0">
             <h1 className="text-3xl font-black text-[#07073b] mb-2">Hola, {user?.name} 👋</h1>
-            <p className="text-[#65647a]">Administra los proyectos del portafolio CASALIZ.</p>
+            <p className="text-[#5F6B76]">Administra los proyectos del portafolio CASALIZ.</p>
           </div>
           <div className="flex w-full flex-wrap gap-2 sm:w-auto sm:flex-nowrap xl:justify-end">
             <AdminPanelBackButton />
@@ -124,7 +124,7 @@ const AgencyDashboard = () => {
           
         </div>
 
-        <div className="bg-[#f3f4f6] rounded-2xl shadow-lg p-6">
+        <div className="bg-[#F4F5F6] rounded-2xl shadow-lg p-6">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-2xl font-black text-[#07073b]">Todos los proyectos</h2>
             <Link to="/projects" className="text-primary hover:text-primary-dark font-semibold">
@@ -138,8 +138,8 @@ const AgencyDashboard = () => {
             </div>
           ) : recentProjects.length === 0 ? (
             <div className="text-center py-12">
-              <Home className="w-16 h-16 text-[#65647a] mx-auto mb-4" />
-              <p className="text-[#65647a] mb-4">Aún no has creado proyectos</p>
+              <Home className="w-16 h-16 text-[#5F6B76] mx-auto mb-4" />
+              <p className="text-[#5F6B76] mb-4">Aún no has creado proyectos</p>
               <Link
                 to="/agency/tours/create"
                 className="inline-flex items-center gap-2 bg-gradient-primary text-white font-bold px-6 py-3 rounded-xl"
@@ -157,15 +157,15 @@ const AgencyDashboard = () => {
               </div>
 
               {/* Pagination */}
-              <div className="flex items-center justify-between border-t border-[#dfe2ea] pt-6">
-                <div className="text-sm text-[#65647a]">
+              <div className="flex items-center justify-between border-t border-[#D7DCE1] pt-6">
+                <div className="text-sm text-[#5F6B76]">
                   Página <span className="font-bold text-[#07073b]">{currentPage}</span> de <span className="font-bold text-[#07073b]">{totalPages}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <button
                     onClick={handlePrevPage}
                     disabled={currentPage === 1}
-                    className="p-2 rounded-lg border border-[#dfe2ea] hover:bg-[#f3f4f6] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                    className="p-2 rounded-lg border border-[#D7DCE1] hover:bg-[#F4F5F6] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                   >
                     <ChevronLeft className="w-5 h-5 text-[#07073b]" />
                   </button>
@@ -178,7 +178,7 @@ const AgencyDashboard = () => {
                         className={`w-8 h-8 rounded-lg font-semibold transition-colors ${
                           currentPage === page
                             ? 'bg-gradient-primary text-white'
-                            : 'border border-[#dfe2ea] text-[#65647a] hover:bg-[#f3f4f6]'
+                            : 'border border-[#D7DCE1] text-[#5F6B76] hover:bg-[#F4F5F6]'
                         }`}
                       >
                         {page}
@@ -189,7 +189,7 @@ const AgencyDashboard = () => {
                   <button
                     onClick={handleNextPage}
                     disabled={currentPage === totalPages}
-                    className="p-2 rounded-lg border border-[#dfe2ea] hover:bg-[#f3f4f6] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                    className="p-2 rounded-lg border border-[#D7DCE1] hover:bg-[#F4F5F6] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                   >
                     <ChevronRight className="w-5 h-5 text-[#07073b]" />
                   </button>
@@ -204,12 +204,12 @@ const AgencyDashboard = () => {
 };
 
 const StatCard = ({ icon, title, value }) => (
-  <div className="bg-white rounded-2xl p-6 shadow-md border border-[#dfe2ea] flex items-center gap-4">
-    <div className="w-12 h-12 rounded-full bg-[#f3f4f6] flex items-center justify-center">
-      {createElement(icon, { className: 'w-6 h-6 text-[#1fb74d]' })}
+  <div className="bg-white rounded-2xl p-6 shadow-md border border-[#D7DCE1] flex items-center gap-4">
+    <div className="w-12 h-12 rounded-full bg-[#F4F5F6] flex items-center justify-center">
+      {createElement(icon, { className: 'w-6 h-6 text-[#238A55]' })}
     </div>
     <div>
-      <p className="text-sm text-[#65647a]">{title}</p>
+      <p className="text-sm text-[#5F6B76]">{title}</p>
       <p className="text-2xl font-black text-[#07073b]">{value}</p>
     </div>
   </div>
@@ -220,7 +220,7 @@ const ProjectRow = ({ project, onDelete }) => {
   const StatusIcon = statusConfig.icon;
 
   return (
-    <div className="bg-white rounded-2xl p-4 border border-[#dfe2ea] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+    <div className="bg-white rounded-2xl p-4 border border-[#D7DCE1] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
       <div className="flex items-start gap-4">
         <img
           src={toPublicUrl(project.hero_image || project.images?.[0]?.path) || 'https://images.unsplash.com/photo-1505691938895-1758d7feb511'}
@@ -229,7 +229,7 @@ const ProjectRow = ({ project, onDelete }) => {
         />
         <div>
           <h3 className="text-lg font-bold text-[#07073b]">{project.title}</h3>
-          <p className="text-sm text-[#65647a]">{project.city}{project.state ? `, ${project.state}` : ''}</p>
+          <p className="text-sm text-[#5F6B76]">{project.city}{project.state ? `, ${project.state}` : ''}</p>
         </div>
       </div>
 
@@ -244,14 +244,14 @@ const ProjectRow = ({ project, onDelete }) => {
           </span>
         )}
         <div className="flex items-center gap-2">
-          <Link to={`/projects/${project.id}`} className="p-2 rounded-full hover:bg-[#f3f4f6]"><Eye className="w-4 h-4 text-[#07073b]" /></Link>
-          <Link to={`/agency/tours/${project.id}/edit`} className="p-2 rounded-full hover:bg-[#f3f4f6]"><Edit className="w-4 h-4 text-[#07073b]" /></Link>
+          <Link to={`/projects/${project.id}`} className="p-2 rounded-full hover:bg-[#F4F5F6]"><Eye className="w-4 h-4 text-[#07073b]" /></Link>
+          <Link to={`/agency/tours/${project.id}/edit`} className="p-2 rounded-full hover:bg-[#F4F5F6]"><Edit className="w-4 h-4 text-[#07073b]" /></Link>
           <button
             type="button"
             onClick={() => onDelete?.(project.id)}
-            className="p-2 rounded-full hover:bg-[#f3f4f6]"
+            className="p-2 rounded-full hover:bg-[#F4F5F6]"
           >
-            <Trash2 className="w-4 h-4 text-[#e8a12f]" />
+            <Trash2 className="w-4 h-4 text-[#C58A2A]" />
           </button>
         </div>
       </div>

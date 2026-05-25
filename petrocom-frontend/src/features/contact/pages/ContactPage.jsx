@@ -7,7 +7,7 @@ const contactChannels = [
     value: 'lissyosores@hotmail.com',
     href: 'mailto:lissyosores@hotmail.com',
     icon: Mail,
-    accent: 'from-[#07073b] via-[#10104d] to-[#10104d]',
+    accent: 'from-[#07073b] via-[#10104d] to-[#2f4098]',
   },
   {
     title: 'Llámanos',
@@ -15,7 +15,7 @@ const contactChannels = [
     value: '+51 984 696 802',
     href: 'tel:+51984696802',
     icon: Phone,
-    accent: 'from-[#1fb74d] via-[#168a3d] to-[#1fb74d]',
+    accent: 'from-[#2a5f9d] via-[#3f7ec0] to-[#238A55]',
   },
   {
     title: 'Visítanos',
@@ -23,7 +23,7 @@ const contactChannels = [
     value: 'Cusco, Perú',
     href: null,
     icon: MapPin,
-    accent: 'from-[#168a3d] via-[#1fb74d] to-[#1fb74d]',
+    accent: 'from-[#6d5642] via-[#8b6a4d] to-[#C58A2A]',
   },
 ];
 
@@ -32,28 +32,29 @@ const socialLinks = [
     label: 'Síguenos en Facebook',
     href: 'https://www.facebook.com/CASALIZEIRL',
     icon: Facebook,
-    bg: 'bg-[#07073b] hover:bg-[#1fb74d]',
+    bg: 'bg-[#07073b] hover:bg-[#10104d]',
   },
   {
     label: 'Escríbenos por WhatsApp',
     href: 'https://tinyurl.com/CasalizArquitectura',
     icon: null,
-    bg: 'bg-[#1fb74d] hover:bg-[#168a3d]',
+    bg: 'bg-[#238A55] hover:bg-[#196B43]',
   },
 ];
 
 const ContactPage = () => {
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(35,50,116,0.12),_transparent_30%),linear-gradient(180deg,#f3f4f6_0%,#f3f4f6_100%)] pb-14">
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#07073b] via-[#10104d] to-[#454546] text-white py-16">
-        <div className="absolute inset-0 opacity-15" aria-hidden>
-          <div className="absolute -left-16 top-0 h-72 w-72 rounded-full bg-[#e8a12f] blur-3xl" />
-          <div className="absolute bottom-0 right-0 h-80 w-80 rounded-full bg-white/20 blur-3xl" />
+    <div className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(7,7,59,0.12),_transparent_30%),linear-gradient(180deg,#F4F5F6_0%,#F3EFE6_100%)] pb-14">
+      <section className="relative overflow-hidden bg-[linear-gradient(135deg,#07073b_0%,#10104d_42%,#238A55_82%,#303840_100%)] text-white py-16">
+        <div className="absolute inset-0 opacity-16" aria-hidden>
+          <div className="absolute -left-16 top-0 h-72 w-72 rounded-full bg-[#C58A2A] blur-3xl" />
+          <div className="absolute bottom-0 right-0 h-[30rem] w-[30rem] rounded-full bg-[#238A55]/42 blur-3xl" />
+          <div className="absolute right-1/3 top-8 h-80 w-80 rounded-full bg-[#7CC99C]/18 blur-3xl" />
         </div>
 
         <div className="container-custom relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <div className="space-y-5">
-            <div className="inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold uppercase tracking-[0.2em] text-[#fbf3df] transition-transform duration-500 hover:translate-x-1">
+            <div className="inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold uppercase tracking-[0.2em] text-[#F3EFE6] transition-transform duration-500 hover:translate-x-1">
               <Sparkles className="h-4 w-4 transition-transform duration-500 hover:scale-110 hover:rotate-12" />
               Contacto Casaliz
             </div>
@@ -86,8 +87,8 @@ const ContactPage = () => {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-white/20 bg-white/10 p-6 shadow-2xl backdrop-blur transition-all duration-500 hover:-translate-y-2 hover:bg-white/15">
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[#fbf3df]">Atención directa</p>
+          <div className="rounded-2xl border border-white/20 bg-[linear-gradient(145deg,rgba(255,255,255,0.12),rgba(35,138,85,0.10))] p-6 shadow-2xl backdrop-blur transition-all duration-500 hover:-translate-y-2 hover:bg-white/15">
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[#F3EFE6]">Atención directa</p>
             <div className="mt-5 space-y-3">
               {[
                 { label: 'Tiempo de respuesta', value: '24h' },
@@ -128,16 +129,16 @@ const ContactPage = () => {
                 </div>
 
                 <div className="space-y-4 p-6">
-                  <p className="text-sm leading-6 text-[#65647a]">{item.description}</p>
+                  <p className="text-sm leading-6 text-[#5F6B76]">{item.description}</p>
                   {item.href ? (
                     <a
                       href={item.href}
-                      className="inline-flex items-center gap-2 rounded-full bg-[#f3f4f6] px-4 py-2 text-sm font-bold text-[#07073b] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#f3f4f6]"
+                      className="inline-flex items-center gap-2 rounded-full bg-[#F4F5F6] px-4 py-2 text-sm font-bold text-[#07073b] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#F4F5F6]"
                     >
                       {item.value}
                     </a>
                   ) : (
-                    <span className="inline-flex items-center gap-2 rounded-full bg-[#f3f4f6] px-4 py-2 text-sm font-bold text-[#07073b]">
+                    <span className="inline-flex items-center gap-2 rounded-full bg-[#F4F5F6] px-4 py-2 text-sm font-bold text-[#07073b]">
                       {item.value}
                     </span>
                   )}
@@ -149,25 +150,25 @@ const ContactPage = () => {
 
         <div
           id="ubicacion"
-          className="overflow-hidden rounded-[34px] border border-[#dfe2ea] bg-white shadow-[0_25px_70px_rgba(77,58,31,0.08)]"
+          className="overflow-hidden rounded-[34px] border border-[#D7DCE1] bg-white shadow-[0_25px_70px_rgba(77,58,31,0.08)]"
         >
           <div className="grid gap-0 lg:grid-cols-[0.95fr_1.05fr]">
-            <div className="bg-[linear-gradient(180deg,#ffffff_0%,#f3f4f6_100%)] p-8 md:p-10">
+            <div className="bg-[linear-gradient(180deg,#ffffff_0%,#F4F5F6_100%)] p-8 md:p-10">
               <div className="space-y-6">
                 <div>
-                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#e8a12f]">Nuestra ubicación</p>
+                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#C58A2A]">Nuestra ubicación</p>
                   <h2 className="mt-3 text-3xl font-black text-[#07073b]">CasaLiz</h2>
-                  <p className="mt-2 text-sm font-medium text-[#65647a]">Arquitectos e Ingenieros</p>
+                  <p className="mt-2 text-sm font-medium text-[#5F6B76]">Arquitectos e Ingenieros</p>
                 </div>
 
-                <div className="rounded-[28px] border border-[#dfe2ea] bg-white p-6 shadow-sm">
+                <div className="rounded-[28px] border border-[#D7DCE1] bg-white p-6 shadow-sm">
                   <div className="space-y-5">
                     <div className="flex gap-4">
-                      <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-[#f3f4f6]">
-                        <MapPin className="h-5 w-5 text-[#1fb74d]" />
+                      <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-[#F4F5F6]">
+                        <MapPin className="h-5 w-5 text-[#238A55]" />
                       </div>
                       <div>
-                        <p className="text-sm font-semibold text-[#65647a]">Dirección</p>
+                        <p className="text-sm font-semibold text-[#5F6B76]">Dirección</p>
                         <p className="mt-1 text-sm font-semibold leading-6 text-[#07073b]">
                           Av. Lloque Yupanqui, Edificio Ecological Plaza
                           <br />
@@ -179,26 +180,26 @@ const ContactPage = () => {
                     </div>
 
                     <div className="flex gap-4">
-                      <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-[#f3f4f6]">
-                        <Phone className="h-5 w-5 text-[#1fb74d]" />
+                      <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-[#F4F5F6]">
+                        <Phone className="h-5 w-5 text-[#238A55]" />
                       </div>
                       <div>
-                        <p className="text-sm font-semibold text-[#65647a]">Teléfono</p>
-                        <a href="tel:+51984696802" className="mt-1 inline-flex text-sm font-bold text-[#1fb74d] transition-colors hover:text-[#e8a12f]">
+                        <p className="text-sm font-semibold text-[#5F6B76]">Teléfono</p>
+                        <a href="tel:+51984696802" className="mt-1 inline-flex text-sm font-bold text-[#238A55] transition-colors hover:text-[#C58A2A]">
                           +51 984 696 802
                         </a>
                       </div>
                     </div>
 
                     <div className="flex gap-4">
-                      <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-[#f3f4f6]">
-                        <Mail className="h-5 w-5 text-[#1fb74d]" />
+                      <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-[#F4F5F6]">
+                        <Mail className="h-5 w-5 text-[#238A55]" />
                       </div>
                       <div>
-                        <p className="text-sm font-semibold text-[#65647a]">Correo</p>
+                        <p className="text-sm font-semibold text-[#5F6B76]">Correo</p>
                         <a
                           href="mailto:lissyosores@hotmail.com"
-                          className="mt-1 inline-flex break-all text-sm font-bold text-[#1fb74d] transition-colors hover:text-[#e8a12f]"
+                          className="mt-1 inline-flex break-all text-sm font-bold text-[#238A55] transition-colors hover:text-[#C58A2A]"
                         >
                           lissyosores@hotmail.com
                         </a>
@@ -215,7 +216,7 @@ const ContactPage = () => {
                         href={item.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-3 rounded-2xl border border-[#dfe2ea] bg-white px-4 py-4 shadow-sm transition-all duration-300 hover:-translate-y-1"
+                        className="flex items-center gap-3 rounded-2xl border border-[#D7DCE1] bg-white px-4 py-4 shadow-sm transition-all duration-300 hover:-translate-y-1"
                       >
                         <span className={`flex h-11 w-11 items-center justify-center rounded-xl text-white transition-colors ${item.bg}`}>
                           {item.label.includes('WhatsApp') ? (
@@ -238,7 +239,7 @@ const ContactPage = () => {
             <div className="relative min-h-[420px] overflow-hidden">
               <div className="absolute inset-x-0 top-0 z-10 flex items-center justify-between bg-gradient-to-b from-[#07073b]/80 to-transparent px-6 py-5 text-white">
                 <div>
-                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#fbf3df]">Mapa</p>
+                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#F3EFE6]">Mapa</p>
                   <p className="mt-1 text-lg font-black">Encuéntranos en Cusco</p>
                 </div>
               </div>

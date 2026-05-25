@@ -1,7 +1,7 @@
 // src/shared/utils/api.js
 import axios from 'axios';
 
-const DEFAULT_API_ORIGIN = 'https://api.casaliz-arquitectura.com';
+const DEFAULT_API_ORIGIN = 'http://localhost:8000';
 
 const isLocalHostname = (hostname) =>
   ['localhost', '127.0.0.1', '::1'].includes(hostname);

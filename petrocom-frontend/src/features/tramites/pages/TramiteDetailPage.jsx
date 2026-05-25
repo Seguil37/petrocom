@@ -75,7 +75,7 @@ const TramiteDetailPage = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#f3f4f6] flex items-center justify-center text-[#07073b]">
+      <div className="min-h-screen bg-[#F4F5F6] flex items-center justify-center text-[#07073b]">
         Cargando...
       </div>
     );
@@ -83,25 +83,25 @@ const TramiteDetailPage = () => {
 
   if (!tramite || error) {
     return (
-      <div className="min-h-screen bg-[#f3f4f6] flex items-center justify-center text-[#07073b]">
+      <div className="min-h-screen bg-[#F4F5F6] flex items-center justify-center text-[#07073b]">
         {error || 'Trámite no encontrado'}
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#f3f4f6] py-10">
+    <div className="min-h-screen bg-[#F4F5F6] py-10">
       <div className="container-custom space-y-6">
         <div className="flex flex-col gap-4 xl:flex-row xl:items-start xl:justify-between">
           <div className="min-w-0">
-            <p className="text-xs font-semibold text-[#1fb74d]">TRÁMITE</p>
+            <p className="text-xs font-semibold text-[#238A55]">TRÁMITE</p>
             <h1 className="text-3xl font-black text-[#07073b] flex items-center gap-3">
               {tramite.project_name}
               <span className="text-sm font-semibold px-3 py-1 rounded-full bg-[#07073b] text-white">
                 {tramite.code}
               </span>
             </h1>
-            <p className="text-sm text-[#65647a]">{tramite.client_name || tramite.client?.name}</p>
+            <p className="text-sm text-[#5F6B76]">{tramite.client_name || tramite.client?.name}</p>
           </div>
           <div className="flex w-full flex-wrap gap-2 sm:w-auto sm:flex-nowrap xl:justify-end">
             <AdminPanelBackButton />
@@ -116,23 +116,23 @@ const TramiteDetailPage = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Fases */}
-          <div className="lg:col-span-2 bg-white border border-[#dfe2ea] rounded-2xl shadow-lg p-6 space-y-4">
+          <div className="lg:col-span-2 bg-white border border-[#D7DCE1] rounded-2xl shadow-lg p-6 space-y-4">
             <div className="flex items-center gap-2 mb-2">
-              <ClipboardList className="w-5 h-5 text-[#1fb74d]" />
+              <ClipboardList className="w-5 h-5 text-[#238A55]" />
               <h2 className="text-xl font-black text-[#07073b]">Fases y subfases</h2>
             </div>
             {tramite.phases?.length ? (
               <div className="space-y-3">
                 {tramite.phases.map((phase) => (
-                  <div key={phase.id} className="border border-[#dfe2ea] rounded-xl p-4 bg-[#ffffff]">
+                  <div key={phase.id} className="border border-[#D7DCE1] rounded-xl p-4 bg-[#ffffff]">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
                       <div>
                         <p className="text-sm font-semibold text-[#07073b]">{phase.name}</p>
-                        <p className="text-xs text-[#65647a]">Orden {phase.order}</p>
+                        <p className="text-xs text-[#5F6B76]">Orden {phase.order}</p>
                       </div>
                       <div className="flex items-center gap-2">
                         <select
-                          className="px-3 py-2 border border-[#dfe2ea] rounded-lg"
+                          className="px-3 py-2 border border-[#D7DCE1] rounded-lg"
                           value={phase.status}
                           disabled={!canManage || savingPhase === phase.id}
                           onChange={(e) => handlePhaseStatus(phase.id, e.target.value)}
@@ -155,22 +155,22 @@ const TramiteDetailPage = () => {
                     </div>
 
                     {phase.subphases?.length > 0 && (
-                      <div className="mt-3 space-y-2 pl-2 border-l-2 border-[#dfe2ea]">
+                      <div className="mt-3 space-y-2 pl-2 border-l-2 border-[#D7DCE1]">
                         {phase.subphases.map((sub) => (
                           <div
                             key={sub.id}
-                            className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 bg-white border border-[#dfe2ea] rounded-lg p-2"
+                            className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 bg-white border border-[#D7DCE1] rounded-lg p-2"
                           >
                             <div className="flex items-center gap-2">
-                              <ChevronRight className="w-4 h-4 text-[#1fb74d]" />
+                              <ChevronRight className="w-4 h-4 text-[#238A55]" />
                               <div>
                                 <p className="text-sm font-semibold text-[#07073b]">{sub.name}</p>
-                                <p className="text-xs text-[#65647a]">Orden {sub.order}</p>
+                                <p className="text-xs text-[#5F6B76]">Orden {sub.order}</p>
                               </div>
                             </div>
                             <div className="flex items-center gap-2">
                               <select
-                                className="px-3 py-2 border border-[#dfe2ea] rounded-lg"
+                                className="px-3 py-2 border border-[#D7DCE1] rounded-lg"
                                 value={sub.status}
                                 disabled={!canManage || savingSub === sub.id}
                                 onChange={(e) => handleSubStatus(sub.id, e.target.value)}
@@ -199,14 +199,14 @@ const TramiteDetailPage = () => {
                 ))}
               </div>
             ) : (
-              <p className="text-[#65647a]">No hay fases configuradas.</p>
+              <p className="text-[#5F6B76]">No hay fases configuradas.</p>
             )}
           </div>
 
           {/* Resumen */}
-          <div className="bg-white border border-[#dfe2ea] rounded-2xl shadow-lg p-6 space-y-4">
+          <div className="bg-white border border-[#D7DCE1] rounded-2xl shadow-lg p-6 space-y-4">
             <div className="flex items-center gap-2">
-              <CheckCircle className="w-5 h-5 text-[#1fb74d]" />
+              <CheckCircle className="w-5 h-5 text-[#238A55]" />
               <h3 className="text-lg font-black text-[#07073b]">Resumen</h3>
             </div>
             <div className="space-y-3 text-sm text-[#07073b]">

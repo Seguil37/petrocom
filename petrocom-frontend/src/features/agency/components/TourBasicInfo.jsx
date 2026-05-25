@@ -40,24 +40,24 @@ const TourBasicInfo = ({ formData, updateFormData, errors = {} }) => {
           Título del Tour *
         </label>
         <div className="relative">
-          <Type className="absolute left-4 top-1/2 -translate-y-1/2 text-[#65647a] w-5 h-5" />
+          <Type className="absolute left-4 top-1/2 -translate-y-1/2 text-[#5F6B76] w-5 h-5" />
           <input
             type="text"
             name="title"
             value={formData.title}
             onChange={handleChange}
             className={`w-full pl-12 pr-4 py-3 border-2 rounded-xl focus:outline-none transition-all ${
-              errors.title ? 'border-[#e8a12f]' : 'border-[#dfe2ea] focus:border-primary'
+              errors.title ? 'border-[#C58A2A]' : 'border-[#D7DCE1] focus:border-primary'
             }`}
             placeholder="Ej: Camino Inca Clásico 4 Días"
             required
           />
           {errors.title && (
-            <p className="mt-1 text-sm text-[#e8a12f]">{errors.title}</p>
+            <p className="mt-1 text-sm text-[#C58A2A]">{errors.title}</p>
           )}
         </div>
         {errors.title && (
-          <p className="mt-1 text-sm text-[#e8a12f]">{errors.title}</p>
+          <p className="mt-1 text-sm text-[#C58A2A]">{errors.title}</p>
         )}
       </div>
 
@@ -67,13 +67,13 @@ const TourBasicInfo = ({ formData, updateFormData, errors = {} }) => {
           Categoría *
         </label>
         <div className="relative">
-          <List className="absolute left-4 top-1/2 -translate-y-1/2 text-[#65647a] w-5 h-5" />
+          <List className="absolute left-4 top-1/2 -translate-y-1/2 text-[#5F6B76] w-5 h-5" />
           <select
             name="category_id"
             value={formData.category_id}
             onChange={handleChange}
             className={`w-full pl-12 pr-4 py-3 border-2 rounded-xl focus:outline-none transition-all appearance-none ${
-              errors.category_id ? 'border-[#e8a12f]' : 'border-[#dfe2ea] focus:border-primary'
+              errors.category_id ? 'border-[#C58A2A]' : 'border-[#D7DCE1] focus:border-primary'
             }`}
             required
             disabled={loadingCategories}
@@ -88,14 +88,14 @@ const TourBasicInfo = ({ formData, updateFormData, errors = {} }) => {
             ))}
           </select>
           {errors.category_id && (
-            <p className="mt-1 text-sm text-[#e8a12f]">{errors.category_id}</p>
+            <p className="mt-1 text-sm text-[#C58A2A]">{errors.category_id}</p>
           )}
         </div>
         {errors.category_id && (
-          <p className="mt-1 text-sm text-[#e8a12f]">{errors.category_id}</p>
+          <p className="mt-1 text-sm text-[#C58A2A]">{errors.category_id}</p>
         )}
         {categories.length === 0 && !loadingCategories && (
-          <p className="mt-1 text-sm text-[#e8a12f]">
+          <p className="mt-1 text-sm text-[#C58A2A]">
             ⚠️ No hay categorías disponibles. Contacta al administrador.
           </p>
         )}
@@ -113,13 +113,13 @@ const TourBasicInfo = ({ formData, updateFormData, errors = {} }) => {
             value={formData.location_city}
             onChange={handleChange}
             className={`w-full px-4 py-3 border-2 rounded-xl focus:outline-none ${
-              errors.location_city ? 'border-[#e8a12f]' : 'border-[#dfe2ea] focus:border-primary'
+              errors.location_city ? 'border-[#C58A2A]' : 'border-[#D7DCE1] focus:border-primary'
             }`}
             placeholder="Cusco"
             required
           />
           {errors.location_city && (
-            <p className="mt-1 text-sm text-[#e8a12f]">{errors.location_city}</p>
+            <p className="mt-1 text-sm text-[#C58A2A]">{errors.location_city}</p>
           )}
         </div>
 
@@ -133,13 +133,13 @@ const TourBasicInfo = ({ formData, updateFormData, errors = {} }) => {
             value={formData.location_region}
             onChange={handleChange}
             className={`w-full px-4 py-3 border-2 rounded-xl focus:outline-none ${
-              errors.location_region ? 'border-[#e8a12f]' : 'border-[#dfe2ea] focus:border-primary'
+              errors.location_region ? 'border-[#C58A2A]' : 'border-[#D7DCE1] focus:border-primary'
             }`}
             placeholder="Cusco"
             required
           />
           {errors.location_region && (
-            <p className="mt-1 text-sm text-[#e8a12f]">{errors.location_region}</p>
+            <p className="mt-1 text-sm text-[#C58A2A]">{errors.location_region}</p>
           )}
         </div>
 
@@ -152,7 +152,7 @@ const TourBasicInfo = ({ formData, updateFormData, errors = {} }) => {
             name="location_country"
             value={formData.location_country}
             onChange={handleChange}
-            className="w-full px-4 py-3 border-2 border-[#dfe2ea] rounded-xl focus:border-primary focus:outline-none"
+            className="w-full px-4 py-3 border-2 border-[#D7DCE1] rounded-xl focus:border-primary focus:outline-none"
             placeholder="Peru"
             required
           />
@@ -170,16 +170,16 @@ const TourBasicInfo = ({ formData, updateFormData, errors = {} }) => {
           onChange={handleChange}
           rows="6"
           className={`w-full px-4 py-3 border-2 rounded-xl focus:outline-none resize-y ${
-            errors.description ? 'border-[#e8a12f]' : 'border-[#dfe2ea] focus:border-primary'
+            errors.description ? 'border-[#C58A2A]' : 'border-[#D7DCE1] focus:border-primary'
           }`}
           placeholder="Describe tu tour de manera atractiva..."
           required
         />
         <div className="flex items-center justify-between mt-1">
           {errors.description ? (
-            <p className="text-sm text-[#e8a12f]">{errors.description}</p>
+            <p className="text-sm text-[#C58A2A]">{errors.description}</p>
           ) : (
-            <p className="text-sm text-[#65647a]">
+            <p className="text-sm text-[#5F6B76]">
               {formData.description.length}/500 caracteres
             </p>
           )}

@@ -88,20 +88,20 @@ const MyToursPage = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#f3f4f6] flex items-center justify-center">
+      <div className="min-h-screen bg-[#F4F5F6] flex items-center justify-center">
         <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin" />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#f3f4f6] py-8">
+    <div className="min-h-screen bg-[#F4F5F6] py-8">
       <div className="container-custom">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
           <div>
             <h1 className="text-3xl font-black text-[#07073b] mb-2">Mis proyectos</h1>
-            <p className="text-[#65647a]">Gestiona todos tus proyectos</p>
+            <p className="text-[#5F6B76]">Gestiona todos tus proyectos</p>
           </div>
           <Link
             to="/agency/tours/create"
@@ -113,37 +113,37 @@ const MyToursPage = () => {
         </div>
 
         {/* Search */}
-        <div className="bg-[#f3f4f6] rounded-2xl shadow-lg p-6 mb-6">
+        <div className="bg-[#F4F5F6] rounded-2xl shadow-lg p-6 mb-6">
           <div className="relative">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[#65647a] w-5 h-5" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[#5F6B76] w-5 h-5" />
             <input
               type="text"
               value={searchTerm}
               onChange={(e) => handleSearch(e.target.value)}
-              className="w-full pl-12 pr-4 py-3 border-2 border-[#dfe2ea] rounded-xl focus:border-primary focus:outline-none"
+              className="w-full pl-12 pr-4 py-3 border-2 border-[#D7DCE1] rounded-xl focus:border-primary focus:outline-none"
               placeholder="Buscar proyectos..."
             />
           </div>
         </div>
 
         {/* List */}
-        <div className="bg-[#f3f4f6] rounded-2xl shadow-lg overflow-hidden">
+        <div className="bg-[#F4F5F6] rounded-2xl shadow-lg overflow-hidden">
           {filtered.length === 0 ? (
             <div className="text-center py-12">
-              <p className="text-[#65647a]">
+              <p className="text-[#5F6B76]">
                 {allProjects.length === 0 ? 'No tienes proyectos' : 'No se encontraron proyectos'}
               </p>
             </div>
           ) : (
             <>
-              <div className="divide-y divide-[#65647a]">
+              <div className="divide-y divide-[#5F6B76]">
                 {paginatedProjects.map((project) => {
                   const statusConfig = STATUS_CONFIG[project.status] || STATUS_CONFIG.draft;
                   
                   return (
                     <div
                       key={project.id}
-                      className="p-6 hover:bg-[#f3f4f6] transition-colors"
+                      className="p-6 hover:bg-[#F4F5F6] transition-colors"
                     >
                       <div className="flex items-center gap-4">
                         <img
@@ -156,7 +156,7 @@ const MyToursPage = () => {
                           <h3 className="font-bold text-[#07073b] text-lg mb-2">
                             {project.title}
                           </h3>
-                          <div className="flex items-center gap-4 text-sm text-[#65647a]">
+                          <div className="flex items-center gap-4 text-sm text-[#5F6B76]">
                             <span>{project.city}{project.state ? `, ${project.state}` : ''}</span>
                             <span className={`px-2 py-1 rounded-full text-xs font-semibold ${statusConfig.bgColor} ${statusConfig.textColor}`}>
                               {statusConfig.label}
@@ -172,24 +172,24 @@ const MyToursPage = () => {
                         <div className="flex items-center gap-2">
                           <Link
                             to={`/projects/${project.id}`}
-                            className="p-2 hover:bg-[#f3f4f6] rounded-lg transition-colors"
+                            className="p-2 hover:bg-[#F4F5F6] rounded-lg transition-colors"
                             title="Ver"
                           >
-                            <Eye className="w-5 h-5 text-[#65647a]" />
+                            <Eye className="w-5 h-5 text-[#5F6B76]" />
                           </Link>
                           <Link
                             to={`/agency/tours/${project.id}/edit`}
-                            className="p-2 hover:bg-[#f3f4f6] rounded-lg transition-colors"
+                            className="p-2 hover:bg-[#F4F5F6] rounded-lg transition-colors"
                             title="Editar"
                           >
-                            <Edit className="w-5 h-5 text-[#65647a]" />
+                            <Edit className="w-5 h-5 text-[#5F6B76]" />
                           </Link>
                           <button
                             onClick={() => handleDelete(project.id)}
-                            className="p-2 hover:bg-[#f3f4f6] rounded-lg transition-colors"
+                            className="p-2 hover:bg-[#F4F5F6] rounded-lg transition-colors"
                             title="Eliminar"
                           >
-                            <Trash2 className="w-5 h-5 text-[#e8a12f]" />
+                            <Trash2 className="w-5 h-5 text-[#C58A2A]" />
                           </button>
                         </div>
                       </div>
@@ -199,15 +199,15 @@ const MyToursPage = () => {
               </div>
 
               {/* Pagination */}
-              <div className="bg-white border-t border-[#dfe2ea] px-6 py-4 flex items-center justify-between">
-                <div className="text-sm text-[#65647a]">
+              <div className="bg-white border-t border-[#D7DCE1] px-6 py-4 flex items-center justify-between">
+                <div className="text-sm text-[#5F6B76]">
                   Mostrando <span className="font-bold text-[#07073b]">{startIndex + 1}</span> a <span className="font-bold text-[#07073b]">{Math.min(startIndex + perPage, filtered.length)}</span> de <span className="font-bold text-[#07073b]">{filtered.length}</span> proyectos
                 </div>
                 <div className="flex items-center gap-2">
                   <button
                     onClick={handlePrevPage}
                     disabled={currentPage === 1}
-                    className="p-2 rounded-lg border border-[#dfe2ea] hover:bg-[#f3f4f6] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                    className="p-2 rounded-lg border border-[#D7DCE1] hover:bg-[#F4F5F6] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                   >
                     <ChevronLeft className="w-5 h-5 text-[#07073b]" />
                   </button>
@@ -220,7 +220,7 @@ const MyToursPage = () => {
                         className={`w-8 h-8 rounded-lg font-semibold transition-colors ${
                           currentPage === page
                             ? 'bg-gradient-primary text-white'
-                            : 'border border-[#dfe2ea] text-[#65647a] hover:bg-[#f3f4f6]'
+                            : 'border border-[#D7DCE1] text-[#5F6B76] hover:bg-[#F4F5F6]'
                         }`}
                       >
                         {page}
@@ -231,7 +231,7 @@ const MyToursPage = () => {
                   <button
                     onClick={handleNextPage}
                     disabled={currentPage === totalPages}
-                    className="p-2 rounded-lg border border-[#dfe2ea] hover:bg-[#f3f4f6] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                    className="p-2 rounded-lg border border-[#D7DCE1] hover:bg-[#F4F5F6] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                   >
                     <ChevronRight className="w-5 h-5 text-[#07073b]" />
                   </button>

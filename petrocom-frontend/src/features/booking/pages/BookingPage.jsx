@@ -118,10 +118,10 @@ const BookingPage = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#f3f4f6] flex items-center justify-center">
+      <div className="min-h-screen bg-[#F4F5F6] flex items-center justify-center">
         <div className="text-center">
-          <div className="w-16 h-16 border-4 border-[#1fb74d] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-[#65647a] font-medium">Cargando detalles del tour...</p>
+          <div className="w-16 h-16 border-4 border-[#238A55] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-[#5F6B76] font-medium">Cargando detalles del tour...</p>
         </div>
       </div>
     );
@@ -129,17 +129,17 @@ const BookingPage = () => {
 
   if (!tour) {
     return (
-      <div className="min-h-screen bg-[#f3f4f6] flex items-center justify-center">
-        <div className="text-center bg-[#f3f4f6] rounded-2xl shadow-xl p-8 max-w-md mx-4">
-          <div className="w-16 h-16 bg-[#f3f4f6] rounded-full flex items-center justify-center mx-auto mb-4">
-            <AlertCircle className="w-8 h-8 text-[#e8a12f]" />
+      <div className="min-h-screen bg-[#F4F5F6] flex items-center justify-center">
+        <div className="text-center bg-[#F4F5F6] rounded-2xl shadow-xl p-8 max-w-md mx-4">
+          <div className="w-16 h-16 bg-[#F4F5F6] rounded-full flex items-center justify-center mx-auto mb-4">
+            <AlertCircle className="w-8 h-8 text-[#C58A2A]" />
           </div>
           <h2 className="text-2xl font-bold text-[#07073b] mb-4">
             {error || 'Tour no encontrado'}
           </h2>
           <button
             onClick={() => navigate('/projects')}
-            className="bg-[#1fb74d] hover:bg-[#168a3d] text-white font-bold px-6 py-3 rounded-xl transition-all shadow-lg hover:shadow-xl"
+            className="bg-[#238A55] hover:bg-[#196B43] text-white font-bold px-6 py-3 rounded-xl transition-all shadow-lg hover:shadow-xl"
           >
             Ver todos los proyectos
           </button>
@@ -151,12 +151,12 @@ const BookingPage = () => {
   const basePrice = parseFloat(tour.discount_price || tour.price);
 
   return (
-    <div className="min-h-screen bg-[#f3f4f6] py-8">
+    <div className="min-h-screen bg-[#F4F5F6] py-8">
       <div className="container-custom max-w-6xl">
         {/* Breadcrumb */}
         <button
           onClick={() => navigate(`/projects/${id}`)}
-          className="flex items-center gap-2 text-[#65647a] hover:text-[#e8a12f] mb-6 font-semibold transition-colors"
+          className="flex items-center gap-2 text-[#5F6B76] hover:text-[#C58A2A] mb-6 font-semibold transition-colors"
         >
           <ArrowLeft className="w-5 h-5" />
           Volver al proyecto
@@ -165,18 +165,18 @@ const BookingPage = () => {
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Formulario Principal */}
           <div className="lg:col-span-2">
-            <div className="bg-[#f3f4f6] rounded-2xl shadow-xl p-8 animate-fade-in">
+            <div className="bg-[#F4F5F6] rounded-2xl shadow-xl p-8 animate-fade-in">
               <h1 className="text-3xl font-black text-[#07073b] mb-6 flex items-center gap-3">
-                <Calendar className="w-8 h-8 text-[#1fb74d]" />
+                <Calendar className="w-8 h-8 text-[#238A55]" />
                 Reserva tu Experiencia
               </h1>
 
               {/* Error */}
               {error && (
-                <div className="bg-[#f3f4f6] border-l-4 border-[#e8a12f] p-4 rounded-lg mb-6 animate-fade-in">
+                <div className="bg-[#F4F5F6] border-l-4 border-[#C58A2A] p-4 rounded-lg mb-6 animate-fade-in">
                   <div className="flex items-start gap-3">
-                    <AlertCircle className="w-5 h-5 text-[#e8a12f] flex-shrink-0 mt-0.5" />
-                    <p className="text-[#e8a12f] text-sm font-medium">{error}</p>
+                    <AlertCircle className="w-5 h-5 text-[#C58A2A] flex-shrink-0 mt-0.5" />
+                    <p className="text-[#C58A2A] text-sm font-medium">{error}</p>
                   </div>
                 </div>
               )}
@@ -184,7 +184,7 @@ const BookingPage = () => {
               {/* Selector de Fecha */}
               <div className="mb-8">
                 <label className="block text-lg font-bold text-[#07073b] mb-4 flex items-center gap-2">
-                  <Calendar className="w-6 h-6 text-[#1fb74d]" />
+                  <Calendar className="w-6 h-6 text-[#238A55]" />
                   Selecciona la fecha
                 </label>
                 <DateSelector
@@ -200,7 +200,7 @@ const BookingPage = () => {
               {/* Selector de Huéspedes */}
               <div className="mb-8">
                 <label className="block text-lg font-bold text-[#07073b] mb-4 flex items-center gap-2">
-                  <Users className="w-6 h-6 text-[#1fb74d]" />
+                  <Users className="w-6 h-6 text-[#238A55]" />
                   Número de personas
                 </label>
                 <GuestSelector
@@ -222,7 +222,7 @@ const BookingPage = () => {
                     setError(null);
                   }}
                 />
-                <p className="text-sm text-[#65647a] mt-2">
+                <p className="text-sm text-[#5F6B76] mt-2">
                   Capacidad: {tour.min_people} - {tour.max_people} personas
                 </p>
               </div>
@@ -230,28 +230,28 @@ const BookingPage = () => {
               {/* Solicitudes Especiales */}
               <div className="mb-8">
                 <label className="block text-lg font-bold text-[#07073b] mb-4 flex items-center gap-2">
-                  <Info className="w-6 h-6 text-[#1fb74d]" />
+                  <Info className="w-6 h-6 text-[#238A55]" />
                   Solicitudes Especiales (Opcional)
                 </label>
                 <textarea
                   value={bookingData.specialRequests}
                   onChange={(e) => setBookingData({ ...bookingData, specialRequests: e.target.value })}
                   rows="4"
-                  className="w-full px-4 py-3 border-2 border-[#dfe2ea] rounded-xl focus:border-[#1fb74d] focus:outline-none resize-none transition-all"
+                  className="w-full px-4 py-3 border-2 border-[#D7DCE1] rounded-xl focus:border-[#238A55] focus:outline-none resize-none transition-all"
                   placeholder="Ej: Restricciones dietéticas, necesidades de accesibilidad, celebración especial..."
                 />
               </div>
 
               {/* Información del Tour */}
-              <div className="bg-gradient-to-br from-[#f3f4f6] to-[#1fb74d] rounded-xl p-6 mb-8">
+              <div className="bg-gradient-to-br from-[#F4F5F6] to-[#238A55] rounded-xl p-6 mb-8">
                 <h3 className="text-lg font-bold text-[#07073b] mb-4 flex items-center gap-2">
-                  <Star className="w-5 h-5 text-[#1fb74d]" />
+                  <Star className="w-5 h-5 text-[#238A55]" />
                   Información del Tour
                 </h3>
                 
                 <div className="space-y-3">
                   <div className="flex items-center gap-3 text-[#07073b]">
-                    <Clock className="w-5 h-5 text-[#1fb74d]" />
+                    <Clock className="w-5 h-5 text-[#238A55]" />
                     <span>
                       Duración: 
                       {tour.duration_days > 0 && ` ${tour.duration_days} día${tour.duration_days > 1 ? 's' : ''}`}
@@ -261,12 +261,12 @@ const BookingPage = () => {
                   </div>
 
                   <div className="flex items-center gap-3 text-[#07073b]">
-                    <MapPin className="w-5 h-5 text-[#1fb74d]" />
+                    <MapPin className="w-5 h-5 text-[#238A55]" />
                     <span>{tour.location_city}, {tour.location_region}</span>
                   </div>
 
                   <div className="flex items-center gap-3 text-[#07073b]">
-                    <Users className="w-5 h-5 text-[#1fb74d]" />
+                    <Users className="w-5 h-5 text-[#238A55]" />
                     <span>
                       Dificultad: {
                         tour.difficulty_level === 'easy' ? 'Fácil' : 
@@ -282,7 +282,7 @@ const BookingPage = () => {
 
           {/* Sidebar - Resumen */}
           <div className="lg:col-span-1">
-            <div className="bg-[#f3f4f6] rounded-2xl shadow-xl p-6 sticky top-24 animate-slide-up">
+            <div className="bg-[#F4F5F6] rounded-2xl shadow-xl p-6 sticky top-24 animate-slide-up">
               {/* Imagen del Tour */}
               <div className="relative mb-6 rounded-xl overflow-hidden">
                 <img
@@ -290,7 +290,7 @@ const BookingPage = () => {
                   alt={tour.title}
                   className="w-full h-48 object-cover"
                 />
-                <div className="absolute top-4 right-4 bg-[#1fb74d] text-white px-3 py-1 rounded-full text-sm font-bold">
+                <div className="absolute top-4 right-4 bg-[#238A55] text-white px-3 py-1 rounded-full text-sm font-bold">
                   {tour.rating ? parseFloat(tour.rating).toFixed(1) : 'N/A'}
                 </div>
               </div>
@@ -300,7 +300,7 @@ const BookingPage = () => {
               </h3>
 
               {/* Desglose de Precios */}
-              <div className="space-y-3 mb-6 pb-6 border-b border-[#dfe2ea]">
+              <div className="space-y-3 mb-6 pb-6 border-b border-[#D7DCE1]">
                 {bookingData.adults > 0 && (
                   <div className="flex justify-between text-[#07073b] text-sm">
                     <span>
@@ -334,7 +334,7 @@ const BookingPage = () => {
               {/* Total */}
               <div className="flex justify-between items-center mb-6">
                 <span className="text-xl font-black text-[#07073b]">Total</span>
-                <span className="text-3xl font-black text-[#1fb74d]">
+                <span className="text-3xl font-black text-[#238A55]">
                   S/. {calculatePrice().toFixed(2)}
                 </span>
               </div>
@@ -343,19 +343,19 @@ const BookingPage = () => {
               <button
                 onClick={handleCreateBooking}
                 disabled={!bookingData.date || submitting}
-                className="w-full bg-[#1fb74d] hover:bg-[#168a3d] text-white font-bold px-6 py-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-[#238A55] hover:bg-[#196B43] text-white font-bold px-6 py-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {submitting ? 'Procesando reserva...' : 'Reservar ahora'}
               </button>
 
-              <div className="mt-6 bg-[#f3f4f6] rounded-xl p-4">
+              <div className="mt-6 bg-[#F4F5F6] rounded-xl p-4">
                 <div className="flex items-center gap-2 mb-2">
-                  <Shield className="w-5 h-5 text-[#e8a12f]" />
-                  <span className="text-sm font-semibold text-[#e8a12f]">
+                  <Shield className="w-5 h-5 text-[#C58A2A]" />
+                  <span className="text-sm font-semibold text-[#C58A2A]">
                     Cancelación gratuita
                   </span>
                 </div>
-                <p className="text-xs text-[#e8a12f]">
+                <p className="text-xs text-[#C58A2A]">
                   Hasta {tour.cancellation_hours} horas antes
                 </p>
               </div>

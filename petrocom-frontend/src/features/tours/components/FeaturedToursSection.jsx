@@ -57,28 +57,28 @@ const FeaturedToursSection = () => {
 
   if (loading) {
     return (
-      <section className="py-20 bg-[#f3f4f6]">
+      <section className="py-20 bg-[#F4F5F6]">
         <div className="container-custom text-center">
-          <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-[#1fb74d] border-t-transparent"></div>
-          <p className="mt-4 text-[#65647a]">Cargando proyectos...</p>
+          <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-[#238A55] border-t-transparent"></div>
+          <p className="mt-4 text-[#5F6B76]">Cargando proyectos...</p>
         </div>
       </section>
     );
   }
 
   return (
-    <section className="py-20 bg-[#f3f4f6]">
+    <section className="py-20 bg-[#F4F5F6]">
       <div className="container-custom">
         <div className="flex items-center justify-between mb-12">
           <div className="flex items-center gap-3 transition-transform duration-500 hover:translate-x-1">
-            <Sparkles className="w-8 h-8 text-[#1fb74d] transition-transform duration-500 hover:scale-110 hover:rotate-6" />
+            <Sparkles className="w-8 h-8 text-[#238A55] transition-transform duration-500 hover:scale-110 hover:rotate-6" />
             <h2 className="text-4xl lg:text-5xl font-black text-[#07073b]">
               Proyectos destacados
             </h2>
           </div>
           <Link
             to="/projects"
-            className="hidden md:flex items-center gap-2 text-[#1fb74d] hover:text-[#e8a12f] font-semibold transition-all duration-300 hover:translate-x-1"
+            className="hidden md:flex items-center gap-2 text-[#238A55] hover:text-[#C58A2A] font-semibold transition-all duration-300 hover:translate-x-1"
           >
             Ver todos los proyectos
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

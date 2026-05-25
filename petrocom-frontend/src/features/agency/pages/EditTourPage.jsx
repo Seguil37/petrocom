@@ -240,29 +240,29 @@ const EditTourPage = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#f3f4f6] flex items-center justify-center">
+      <div className="min-h-screen bg-[#F4F5F6] flex items-center justify-center">
         <Loader2 className="w-10 h-10 text-primary animate-spin" />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#f3f4f6] py-8">
+    <div className="min-h-screen bg-[#F4F5F6] py-8">
       <div className="container-custom max-w-5xl">
         <button
           type="button"
           onClick={() => navigate('/agency/tours')}
-          className="flex items-center gap-2 text-[#65647a] hover:text-[#07073b] mb-6"
+          className="flex items-center gap-2 text-[#5F6B76] hover:text-[#07073b] mb-6"
         >
           <ArrowLeft className="w-5 h-5" /> Volver a mis proyectos
         </button>
 
-        <div className="bg-white rounded-2xl shadow-lg border border-[#dfe2ea] p-8">
+        <div className="bg-white rounded-2xl shadow-lg border border-[#D7DCE1] p-8">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
             <div>
-              <p className="text-sm font-semibold text-[#65647a] uppercase tracking-widest">Editar proyecto</p>
+              <p className="text-sm font-semibold text-[#5F6B76] uppercase tracking-widest">Editar proyecto</p>
               <h1 className="text-3xl font-black text-[#07073b]">Actualiza la informacion del proyecto</h1>
-              <p className="text-[#454546]">Revisa los datos y la galeria antes de guardar.</p>
+              <p className="text-[#303840]">Revisa los datos y la galeria antes de guardar.</p>
             </div>
             <button
               type="button"
@@ -284,11 +284,11 @@ const EditTourPage = () => {
                   value={formData.title}
                   onChange={(e) => handleChange('title', e.target.value)}
                   onBlur={() => handleChange('title', toTitleCase(formData.title))}
-                  className="w-full rounded-xl border border-[#dfe2ea] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full rounded-xl border border-[#D7DCE1] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
                   placeholder="Casa de campo en Cieneguilla"
                   minLength={4}
                 />
-                <p className="mt-1 text-xs text-[#65647a]">Usa un nombre claro y comercial para el portafolio.</p>
+                <p className="mt-1 text-xs text-[#5F6B76]">Usa un nombre claro y comercial para el portafolio.</p>
                 {errors.title && <p className="text-sm text-red-600 mt-1">{errors.title}</p>}
               </div>
 
@@ -297,7 +297,7 @@ const EditTourPage = () => {
                 <select
                   value={formData.type}
                   onChange={(e) => handleChange('type', e.target.value)}
-                  className="w-full rounded-xl border border-[#dfe2ea] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full rounded-xl border border-[#D7DCE1] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
                 >
                   <option value="">Selecciona un tipo</option>
                   {formData.type && !PROJECT_TYPES.includes(formData.type) && (
@@ -309,7 +309,7 @@ const EditTourPage = () => {
                     </option>
                   ))}
                 </select>
-                <p className="mt-1 text-xs text-[#65647a]">Campo controlado para mantener reportes consistentes por tipo.</p>
+                <p className="mt-1 text-xs text-[#5F6B76]">Campo controlado para mantener reportes consistentes por tipo.</p>
               </div>
 
               <div>
@@ -320,7 +320,7 @@ const EditTourPage = () => {
                   value={formData.city}
                   onChange={(e) => handleChange('city', e.target.value)}
                   onBlur={() => handleChange('city', toTitleCase(formData.city))}
-                  className="w-full rounded-xl border border-[#dfe2ea] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full rounded-xl border border-[#D7DCE1] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
                   placeholder="Ej: Miraflores, San Isidro, Cusco"
                 />
                 <datalist id="edit-project-city-suggestions">
@@ -328,7 +328,7 @@ const EditTourPage = () => {
                     <option key={city} value={city} />
                   ))}
                 </datalist>
-                <p className="mt-1 text-xs text-[#65647a]">
+                <p className="mt-1 text-xs text-[#5F6B76]">
                   {formData.state
                     ? `Sugerencias para ${formData.state}: ${cityHints.join(', ') || 'sin sugerencias cargadas'}`
                     : 'Primero elige una region para ver sugerencias.'}
@@ -340,7 +340,7 @@ const EditTourPage = () => {
                 <select
                   value={formData.state}
                   onChange={(e) => handleChange('state', e.target.value)}
-                  className="w-full rounded-xl border border-[#dfe2ea] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full rounded-xl border border-[#D7DCE1] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
                 >
                   <option value="">Selecciona una region</option>
                   {PERU_REGIONS.map((region) => (
@@ -359,7 +359,7 @@ const EditTourPage = () => {
                   value={formData.country}
                   onChange={(e) => handleChange('country', e.target.value)}
                   onBlur={() => handleChange('country', toTitleCase(formData.country))}
-                  className="w-full rounded-xl border border-[#dfe2ea] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full rounded-xl border border-[#D7DCE1] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
                   placeholder="Ej: Peru"
                 />
                 <datalist id="edit-project-country-suggestions">
@@ -377,13 +377,13 @@ const EditTourPage = () => {
                   <select
                     value={formData.status || 'draft'}
                     onChange={(e) => handleChange('status', e.target.value)}
-                    className="w-full rounded-xl border border-[#dfe2ea] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full rounded-xl border border-[#D7DCE1] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
                   >
                     <option value="draft">Borrador</option>
                     <option value="published">Publicado</option>
                     <option value="archived">Archivado</option>
                   </select>
-                  <p className="mt-1 text-xs text-[#65647a]">Publicado aparece en la web. Borrador queda interno.</p>
+                  <p className="mt-1 text-xs text-[#5F6B76]">Publicado aparece en la web. Borrador queda interno.</p>
                   {errors.status && <p className="text-sm text-red-600 mt-1">{errors.status}</p>}
                 </div>
 
@@ -393,7 +393,7 @@ const EditTourPage = () => {
                     type="checkbox"
                     checked={formData.is_featured}
                     onChange={(e) => handleChange('is_featured', e.target.checked)}
-                    className="w-4 h-4 text-primary border-[#dfe2ea] rounded focus:ring-primary"
+                    className="w-4 h-4 text-primary border-[#D7DCE1] rounded focus:ring-primary"
                   />
                   <label htmlFor="is_featured" className="text-sm text-[#07073b] font-semibold">
                     Marcar como proyecto destacado
@@ -409,11 +409,11 @@ const EditTourPage = () => {
                   value={formData.summary}
                   onChange={(e) => handleChange('summary', e.target.value.slice(0, SUMMARY_MAX))}
                   onBlur={() => handleChange('summary', normalizeSentence(formData.summary))}
-                  className="w-full min-h-[120px] rounded-xl border border-[#dfe2ea] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary resize-y overflow-auto"
+                  className="w-full min-h-[120px] rounded-xl border border-[#D7DCE1] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary resize-y overflow-auto"
                   placeholder="Resume en una frase que se hizo y para quien fue pensado el proyecto."
                   maxLength={SUMMARY_MAX}
                 />
-                <p className="mt-1 text-xs text-[#65647a]">{formData.summary.length}/{SUMMARY_MAX} caracteres</p>
+                <p className="mt-1 text-xs text-[#5F6B76]">{formData.summary.length}/{SUMMARY_MAX} caracteres</p>
               </div>
               <div>
                 <label className="block text-sm font-semibold text-[#07073b] mb-1">Descripcion detallada *</label>
@@ -421,7 +421,7 @@ const EditTourPage = () => {
                   value={formData.description}
                   onChange={(e) => handleChange('description', e.target.value)}
                   onBlur={() => handleChange('description', normalizeSentence(formData.description))}
-                  className="w-full min-h-[120px] rounded-xl border border-[#dfe2ea] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary resize-y overflow-auto"
+                  className="w-full min-h-[120px] rounded-xl border border-[#D7DCE1] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary resize-y overflow-auto"
                   placeholder="Describe el contexto, el objetivo del proyecto, la solucion propuesta y el resultado final."
                 />
                 {errors.description && <p className="text-sm text-red-600 mt-1">{errors.description}</p>}
@@ -436,42 +436,42 @@ const EditTourPage = () => {
                     type="file"
                     accept="image/*"
                     onChange={(e) => handleHeroFileChange(e.target.files?.[0] || null)}
-                    className="w-full rounded-xl border border-[#dfe2ea] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary bg-white"
+                    className="w-full rounded-xl border border-[#D7DCE1] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary bg-white"
                   />
                   <div className="flex items-start gap-3">
                     <input
                       type="text"
                       value={formData.hero_image}
                       onChange={(e) => handleChange('hero_image', e.target.value)}
-                      className="w-full rounded-xl border border-[#dfe2ea] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
+                      className="w-full rounded-xl border border-[#D7DCE1] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
                       placeholder="URL de la imagen principal (opcional)"
                     />
                     <button
                       type="button"
                       onClick={() => openPreview(formData.hero_image)}
                       disabled={!formData.hero_image.trim()}
-                      className="px-3 py-2 rounded-xl border border-[#dfe2ea] text-[#07073b] hover:border-primary disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="px-3 py-2 rounded-xl border border-[#D7DCE1] text-[#07073b] hover:border-primary disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       Ver
                     </button>
                   </div>
                   {heroPreviewSrc && (
                     <div className="mt-1">
-                      <p className="text-xs text-[#65647a] mb-1">Previsualizacion</p>
+                      <p className="text-xs text-[#5F6B76] mb-1">Previsualizacion</p>
                       <img
                         src={heroPreviewSrc}
                         alt="Previsualizacion de la imagen principal"
-                        className="w-full max-w-sm max-h-48 object-contain rounded-lg border border-[#dfe2ea] bg-white"
+                        className="w-full max-w-sm max-h-48 object-contain rounded-lg border border-[#D7DCE1] bg-white"
                       />
                     </div>
                   )}
                   {errors.hero_image && <p className="text-sm text-red-600">{errors.hero_image}</p>}
-                  <p className="text-xs text-[#65647a]">Puedes subir desde tu computadora o pegar un enlace publico.</p>
+                  <p className="text-xs text-[#5F6B76]">Puedes subir desde tu computadora o pegar un enlace publico.</p>
                 </div>
               </div>
-              <div className="bg-[#f3f4f6] rounded-xl border border-dashed border-[#dfe2ea] p-4 flex items-start gap-3">
-                <ImagePlus className="w-5 h-5 text-[#e8a12f]" />
-                <p className="text-sm text-[#454546]">
+              <div className="bg-[#F4F5F6] rounded-xl border border-dashed border-[#D7DCE1] p-4 flex items-start gap-3">
+                <ImagePlus className="w-5 h-5 text-[#C58A2A]" />
+                <p className="text-sm text-[#303840]">
                   Las imagenes se guardan en storage en una carpeta por proyecto (id-slug) para servirlas como archivos
                   locales.
                 </p>
@@ -482,14 +482,14 @@ const EditTourPage = () => {
               <div className="flex items-center justify-between mb-4">
                 <div>
                   <h2 className="text-xl font-bold text-[#07073b]">Galeria del proyecto</h2>
-                  <p className="text-sm text-[#65647a]">
+                  <p className="text-sm text-[#5F6B76]">
                     Puedes subir archivos o pegar URLs publicas. Incluye al menos una imagen.
                   </p>
                 </div>
                 <button
                   type="button"
                   onClick={addImageField}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-[#dfe2ea] text-[#07073b] hover:border-primary"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-[#D7DCE1] text-[#07073b] hover:border-primary"
                 >
                   <PlusCircle className="w-4 h-4" /> Anadir imagen
                 </button>
@@ -499,7 +499,7 @@ const EditTourPage = () => {
                 {formData.images.map((image, index) => (
                   <div
                     key={index}
-                    className="grid grid-cols-1 md:grid-cols-6 gap-4 bg-[#ffffff] p-4 rounded-xl border border-[#dfe2ea]"
+                    className="grid grid-cols-1 md:grid-cols-6 gap-4 bg-[#ffffff] p-4 rounded-xl border border-[#D7DCE1]"
                   >
                     <div className="md:col-span-3 space-y-2">
                       <label className="block text-sm font-semibold text-[#07073b] mb-1">Imagen</label>
@@ -507,13 +507,13 @@ const EditTourPage = () => {
                         type="file"
                         accept="image/*"
                         onChange={(e) => handleGalleryFileChange(index, e.target.files?.[0] || null)}
-                        className="w-full rounded-xl border border-[#dfe2ea] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary bg-white"
+                        className="w-full rounded-xl border border-[#D7DCE1] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary bg-white"
                       />
                       <input
                         type="text"
                         value={image.path}
                         onChange={(e) => handleImageChange(index, 'path', e.target.value)}
-                        className="w-full rounded-xl border border-[#dfe2ea] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
+                        className="w-full rounded-xl border border-[#D7DCE1] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
                         placeholder="URL publica de la imagen (opcional)"
                       />
                       <div className="flex items-center gap-2">
@@ -521,14 +521,14 @@ const EditTourPage = () => {
                           type="button"
                           onClick={() => openPreview(image.path)}
                           disabled={!image.path.trim()}
-                          className="px-3 py-2 rounded-xl border border-[#dfe2ea] text-[#07073b] hover:border-primary disabled:opacity-50 disabled:cursor-not-allowed"
+                          className="px-3 py-2 rounded-xl border border-[#D7DCE1] text-[#07073b] hover:border-primary disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                           Ver enlace
                         </button>
                         <button
                           type="button"
                           onClick={() => removeImageField(index)}
-                          className="px-3 py-2 rounded-xl border border-[#dfe2ea] text-[#e8a12f] hover:border-[#e8a12f]"
+                          className="px-3 py-2 rounded-xl border border-[#D7DCE1] text-[#C58A2A] hover:border-[#C58A2A]"
                         >
                           <Trash2 className="w-4 h-4" />
                         </button>
@@ -539,7 +539,7 @@ const EditTourPage = () => {
                         value={image.caption}
                         onChange={(e) => handleImageChange(index, 'caption', e.target.value)}
                         onBlur={() => handleImageChange(index, 'caption', normalizeSentence(image.caption))}
-                        className="w-full rounded-xl border border-[#dfe2ea] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
+                        className="w-full rounded-xl border border-[#D7DCE1] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
                         placeholder="Texto descriptivo de la imagen"
                       />
                     </div>
@@ -548,10 +548,10 @@ const EditTourPage = () => {
                         <img
                           src={image.preview || image.path.trim()}
                           alt={image.caption || `Imagen ${index + 1}`}
-                          className="w-full h-48 object-cover rounded-xl border border-[#dfe2ea] bg-white"
+                          className="w-full h-48 object-cover rounded-xl border border-[#D7DCE1] bg-white"
                         />
                       ) : (
-                        <div className="w-full h-48 rounded-xl border-2 border-dashed border-[#dfe2ea] flex items-center justify-center text-[#65647a]">
+                        <div className="w-full h-48 rounded-xl border-2 border-dashed border-[#D7DCE1] flex items-center justify-center text-[#5F6B76]">
                           Previsualizacion
                         </div>
                       )}

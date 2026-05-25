@@ -102,27 +102,27 @@ const MyBookingsPage = () => {
     const configs = {
       pending: {
         label: 'Pendiente',
-        color: 'bg-[#f3f4f6] text-[#e8a12f]',
+        color: 'bg-[#F4F5F6] text-[#C58A2A]',
         icon: Clock
       },
       confirmed: {
         label: 'Confirmado',
-        color: 'bg-[#f3f4f6] text-[#05052f]',
+        color: 'bg-[#F4F5F6] text-[#05052f]',
         icon: CheckCircle
       },
       cancelled: {
         label: 'Cancelado',
-        color: 'bg-[#f3f4f6] text-[#e8a12f]',
+        color: 'bg-[#F4F5F6] text-[#C58A2A]',
         icon: XCircle
       },
       completed: {
         label: 'Completado',
-        color: 'bg-[#f3f4f6] text-[#05052f]',
+        color: 'bg-[#F4F5F6] text-[#05052f]',
         icon: CheckCircle
       },
       in_progress: {
         label: 'En progreso',
-        color: 'bg-[#f3f4f6] text-[#05052f]',
+        color: 'bg-[#F4F5F6] text-[#05052f]',
         icon: Clock
       }
     };
@@ -147,37 +147,37 @@ const MyBookingsPage = () => {
 
   if (loading && bookings.length === 0) {
     return (
-      <div className="min-h-screen bg-[#f3f4f6] flex items-center justify-center">
+      <div className="min-h-screen bg-[#F4F5F6] flex items-center justify-center">
         <div className="text-center">
-          <Loader2 className="w-12 h-12 text-[#1fb74d] animate-spin mx-auto mb-4" />
-          <p className="text-[#65647a] font-medium">Cargando tus reservas...</p>
+          <Loader2 className="w-12 h-12 text-[#238A55] animate-spin mx-auto mb-4" />
+          <p className="text-[#5F6B76] font-medium">Cargando tus reservas...</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#f3f4f6] py-8">
+    <div className="min-h-screen bg-[#F4F5F6] py-8">
       <div className="container-custom max-w-6xl">
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-4xl font-black text-[#07073b] mb-2">
             Mis Reservas
           </h1>
-          <p className="text-[#65647a]">
+          <p className="text-[#5F6B76]">
             Gestiona y revisa todas tus experiencias reservadas
           </p>
         </div>
 
         {/* Filtros */}
-        <div className="bg-[#f3f4f6] rounded-xl shadow-md p-4 mb-6">
+        <div className="bg-[#F4F5F6] rounded-xl shadow-md p-4 mb-6">
           <div className="flex flex-wrap gap-3">
             <button
               onClick={() => setFilter('all')}
               className={`px-4 py-2 rounded-lg font-semibold transition-all ${
                 filter === 'all'
-                  ? 'bg-[#1fb74d] text-white'
-                  : 'bg-[#f3f4f6] text-[#07073b] hover:bg-[#f3f4f6]'
+                  ? 'bg-[#238A55] text-white'
+                  : 'bg-[#F4F5F6] text-[#07073b] hover:bg-[#F4F5F6]'
               }`}
             >
               Todas
@@ -187,7 +187,7 @@ const MyBookingsPage = () => {
               className={`px-4 py-2 rounded-lg font-semibold transition-all ${
                 filter === 'confirmed'
                   ? 'bg-[#07073b] text-white'
-                  : 'bg-[#f3f4f6] text-[#07073b] hover:bg-[#f3f4f6]'
+                  : 'bg-[#F4F5F6] text-[#07073b] hover:bg-[#F4F5F6]'
               }`}
             >
               Confirmadas
@@ -196,8 +196,8 @@ const MyBookingsPage = () => {
               onClick={() => setFilter('pending')}
               className={`px-4 py-2 rounded-lg font-semibold transition-all ${
                 filter === 'pending'
-                  ? 'bg-[#1fb74d] text-white'
-                  : 'bg-[#f3f4f6] text-[#07073b] hover:bg-[#f3f4f6]'
+                  ? 'bg-[#238A55] text-white'
+                  : 'bg-[#F4F5F6] text-[#07073b] hover:bg-[#F4F5F6]'
               }`}
             >
               Pendientes
@@ -207,7 +207,7 @@ const MyBookingsPage = () => {
               className={`px-4 py-2 rounded-lg font-semibold transition-all ${
                 filter === 'completed'
                   ? 'bg-[#07073b] text-white'
-                  : 'bg-[#f3f4f6] text-[#07073b] hover:bg-[#f3f4f6]'
+                  : 'bg-[#F4F5F6] text-[#07073b] hover:bg-[#F4F5F6]'
               }`}
             >
               Completadas
@@ -217,7 +217,7 @@ const MyBookingsPage = () => {
               className={`px-4 py-2 rounded-lg font-semibold transition-all ${
                 filter === 'cancelled'
                   ? 'bg-[#07073b] text-white'
-                  : 'bg-[#f3f4f6] text-[#07073b] hover:bg-[#f3f4f6]'
+                  : 'bg-[#F4F5F6] text-[#07073b] hover:bg-[#F4F5F6]'
               }`}
             >
               Canceladas
@@ -227,29 +227,29 @@ const MyBookingsPage = () => {
 
         {/* Error */}
         {error && (
-          <div className="bg-[#f3f4f6] border-l-4 border-[#e8a12f] p-4 rounded-lg mb-6">
+          <div className="bg-[#F4F5F6] border-l-4 border-[#C58A2A] p-4 rounded-lg mb-6">
             <div className="flex items-center gap-3">
-              <AlertCircle className="w-5 h-5 text-[#e8a12f]" />
-              <p className="text-[#e8a12f] font-medium">{error}</p>
+              <AlertCircle className="w-5 h-5 text-[#C58A2A]" />
+              <p className="text-[#C58A2A] font-medium">{error}</p>
             </div>
           </div>
         )}
 
         {/* Lista de Reservas */}
         {filteredBookings.length === 0 ? (
-          <div className="bg-[#f3f4f6] rounded-2xl shadow-lg p-12 text-center">
-            <div className="w-24 h-24 bg-[#f3f4f6] rounded-full flex items-center justify-center mx-auto mb-6">
-              <Calendar className="w-12 h-12 text-[#65647a]" />
+          <div className="bg-[#F4F5F6] rounded-2xl shadow-lg p-12 text-center">
+            <div className="w-24 h-24 bg-[#F4F5F6] rounded-full flex items-center justify-center mx-auto mb-6">
+              <Calendar className="w-12 h-12 text-[#5F6B76]" />
             </div>
             <h3 className="text-2xl font-bold text-white mb-3">
               No tienes reservas
             </h3>
-            <p className="text-[#65647a] mb-6">
+            <p className="text-[#5F6B76] mb-6">
               Explora nuestros proyectos y comienza tu aventura
             </p>
             <button
               onClick={() => navigate('/projects')}
-              className="bg-[#1fb74d] hover:bg-[#168a3d] text-white font-bold px-6 py-3 rounded-xl transition-all shadow-lg hover:shadow-xl"
+              className="bg-[#238A55] hover:bg-[#196B43] text-white font-bold px-6 py-3 rounded-xl transition-all shadow-lg hover:shadow-xl"
             >
               Explorar proyectos
             </button>
@@ -263,7 +263,7 @@ const MyBookingsPage = () => {
               return (
                 <div
                   key={booking.id}
-                  className="bg-[#f3f4f6] rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all"
+                  className="bg-[#F4F5F6] rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all"
                 >
                   <div className="md:flex">
                     {/* Imagen */}
@@ -286,7 +286,7 @@ const MyBookingsPage = () => {
                           <h3 className="text-xl font-bold text-[#07073b] mb-2">
                             {booking.tour?.title}
                           </h3>
-                          <div className="flex items-center gap-4 text-sm text-[#65647a]">
+                          <div className="flex items-center gap-4 text-sm text-[#5F6B76]">
                             <div className="flex items-center gap-1">
                               <Calendar className="w-4 h-4" />
                               {new Date(booking.booking_date).toLocaleDateString('es-PE', {
@@ -304,8 +304,8 @@ const MyBookingsPage = () => {
                           </div>
                         </div>
                         <div className="text-right">
-                          <p className="text-sm text-[#65647a] mb-1">Total pagado</p>
-                          <p className="text-2xl font-black text-[#1fb74d]">
+                          <p className="text-sm text-[#5F6B76] mb-1">Total pagado</p>
+                          <p className="text-2xl font-black text-[#238A55]">
                             S/. {parseFloat(booking.total_price).toFixed(2)}
                           </p>
                         </div>
@@ -314,11 +314,11 @@ const MyBookingsPage = () => {
                       {/* Detalles */}
                       <div className="flex flex-wrap gap-4 mb-4 text-sm text-[#07073b]">
                         <div className="flex items-center gap-1">
-                          <Users className="w-4 h-4 text-[#65647a]" />
+                          <Users className="w-4 h-4 text-[#5F6B76]" />
                           {booking.number_of_people} persona{booking.number_of_people > 1 ? 's' : ''}
                         </div>
                         <div className="flex items-center gap-1">
-                          <MapPin className="w-4 h-4 text-[#65647a]" />
+                          <MapPin className="w-4 h-4 text-[#5F6B76]" />
                           {booking.tour?.location_city}
                         </div>
                       </div>
@@ -345,7 +345,7 @@ const MyBookingsPage = () => {
                           <button
                             onClick={() => handleCancelBooking(booking.id)}
                             disabled={cancellingId === booking.id}
-                            className="flex items-center gap-2 px-4 py-2 bg-[#07073b] hover:bg-[#e8a12f] text-white rounded-lg transition-all font-medium disabled:opacity-50"
+                            className="flex items-center gap-2 px-4 py-2 bg-[#07073b] hover:bg-[#C58A2A] text-white rounded-lg transition-all font-medium disabled:opacity-50"
                           >
                             {cancellingId === booking.id ? (
                               <>
@@ -363,7 +363,7 @@ const MyBookingsPage = () => {
 
                         <button
                           onClick={() => navigate(`/projects/${booking.tour_id}`)}
-                          className="flex items-center gap-2 px-4 py-2 bg-[#f3f4f6] hover:bg-[#65647a] text-[#07073b] rounded-lg transition-all font-medium ml-auto"
+                          className="flex items-center gap-2 px-4 py-2 bg-[#F4F5F6] hover:bg-[#5F6B76] text-[#07073b] rounded-lg transition-all font-medium ml-auto"
                         >
                           Ver proyecto
                           <ChevronRight className="w-4 h-4" />
@@ -372,13 +372,13 @@ const MyBookingsPage = () => {
 
                       {/* Dejar reseña si está completado */}
                       {booking.status === 'completed' && !booking.review && (
-                        <div className="mt-4 bg-[#f3f4f6] border-l-4 border-[#1fb74d] p-3 rounded">
-                          <p className="text-sm text-[#e8a12f] mb-2">
+                        <div className="mt-4 bg-[#F4F5F6] border-l-4 border-[#238A55] p-3 rounded">
+                          <p className="text-sm text-[#C58A2A] mb-2">
                             ¿Disfrutaste esta experiencia? ¡Déjanos tu reseña!
                           </p>
                           <button
                             onClick={() => navigate(`/projects/${booking.tour_id}?review=true`)}
-                            className="flex items-center gap-1 text-[#e8a12f] hover:text-[#e8a12f] font-medium text-sm"
+                            className="flex items-center gap-1 text-[#C58A2A] hover:text-[#C58A2A] font-medium text-sm"
                           >
                             <Star className="w-4 h-4" />
                             Dejar reseña

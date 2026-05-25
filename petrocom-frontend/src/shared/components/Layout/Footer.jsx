@@ -16,7 +16,7 @@ import petrocomLogo from '../../../assets/images/petrocom-logo.png';
 
 const Footer = () => {
   return (
-    <footer className="bg-[#07073b] text-[#dfe2ea]">
+    <footer className="bg-[#07073b] text-[#D7DCE1]">
       <div className="container-custom py-16">
         {/* Primera fila con 4 columnas */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
@@ -33,7 +33,7 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-            <p className="text-sm text-[#dfe2ea] mb-6 leading-relaxed">
+            <p className="text-sm text-[#D7DCE1] mb-6 leading-relaxed">
               Arquitectos e ingenieros especializados en soluciones a medida para proyectos
               residenciales, comerciales y corporativos.
             </p>
@@ -42,17 +42,17 @@ const Footer = () => {
                 href="https://www.facebook.com/CASALIZEIRL"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-[#05052f] hover:bg-[#1fb74d] rounded-full flex items-center justify-center transition-all group"
+                className="w-10 h-10 bg-[#05052f] hover:bg-[#238A55] rounded-full flex items-center justify-center transition-all group"
               >
-                <Facebook className="w-5 h-5 text-[#dfe2ea] group-hover:text-white" />
+                <Facebook className="w-5 h-5 text-[#D7DCE1] group-hover:text-white" />
               </a>
               <a
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-[#05052f] hover:bg-[#1fb74d] rounded-full flex items-center justify-center transition-all group"
+                className="w-10 h-10 bg-[#05052f] hover:bg-[#238A55] rounded-full flex items-center justify-center transition-all group"
               >
-                <Instagram className="w-5 h-5 text-[#dfe2ea] group-hover:text-white" />
+                <Instagram className="w-5 h-5 text-[#D7DCE1] group-hover:text-white" />
               </a>
               
             </div>
@@ -65,36 +65,36 @@ const Footer = () => {
               <li>
                 <Link
                   to="/services"
-                  className="text-[#dfe2ea] hover:text-[#1fb74d] transition-colors inline-flex items-center gap-2 group"
+                  className="text-[#D7DCE1] hover:text-[#238A55] transition-colors inline-flex items-center gap-2 group"
                 >
-                  <span className="w-1 h-1 bg-[#1fb74d] rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <span className="w-1 h-1 bg-[#238A55] rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
                   Diseño arquitectónico
                 </Link>
               </li>
               <li>
                 <Link
                   to="/services"
-                  className="text-[#dfe2ea] hover:text-[#1fb74d] transition-colors inline-flex items-center gap-2 group"
+                  className="text-[#D7DCE1] hover:text-[#238A55] transition-colors inline-flex items-center gap-2 group"
                 >
-                  <span className="w-1 h-1 bg-[#1fb74d] rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <span className="w-1 h-1 bg-[#238A55] rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
                   Licencias
                 </Link>
               </li>
               <li>
                 <Link
                   to="/services"
-                  className="text-[#dfe2ea] hover:text-[#1fb74d] transition-colors inline-flex items-center gap-2 group"
+                  className="text-[#D7DCE1] hover:text-[#238A55] transition-colors inline-flex items-center gap-2 group"
                 >
-                  <span className="w-1 h-1 bg-[#1fb74d] rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <span className="w-1 h-1 bg-[#238A55] rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
                   Expedientes tecnicos
                 </Link>
               </li>
               <li>
                 <Link
                   to="/services"
-                  className="text-[#dfe2ea] hover:text-[#1fb74d] transition-colors inline-flex items-center gap-2 group"
+                  className="text-[#D7DCE1] hover:text-[#238A55] transition-colors inline-flex items-center gap-2 group"
                 >
-                  <span className="w-1 h-1 bg-[#1fb74d] rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <span className="w-1 h-1 bg-[#238A55] rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
                   Consultorías y supervisión
                 </Link>
               </li>
@@ -108,36 +108,36 @@ const Footer = () => {
               <li>
                 <Link
                   to="/projects"
-                  className="text-[#dfe2ea] hover:text-[#1fb74d] transition-colors inline-flex items-center gap-2 group"
+                  className="text-[#D7DCE1] hover:text-[#238A55] transition-colors inline-flex items-center gap-2 group"
                 >
-                  <span className="w-1 h-1 bg-[#1fb74d] rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <span className="w-1 h-1 bg-[#238A55] rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
                   Galería de proyectos
                 </Link>
               </li>
               <li>
                 <a
                   href="http://localhost:5173/about"
-                  className="text-[#dfe2ea] hover:text-[#1fb74d] transition-colors inline-flex items-center gap-2 group"
+                  className="text-[#D7DCE1] hover:text-[#238A55] transition-colors inline-flex items-center gap-2 group"
                 >
-                  <span className="w-1 h-1 bg-[#1fb74d] rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <span className="w-1 h-1 bg-[#238A55] rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
                   Nosotros
                 </a>
               </li>
               <li>
                 <Link
                   to="/"
-                  className="text-[#dfe2ea] hover:text-[#1fb74d] transition-colors inline-flex items-center gap-2 group"
+                  className="text-[#D7DCE1] hover:text-[#238A55] transition-colors inline-flex items-center gap-2 group"
                 >
-                  <span className="w-1 h-1 bg-[#1fb74d] rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <span className="w-1 h-1 bg-[#238A55] rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
                   Inicio
                 </Link>
               </li>
               <li>
                 <Link
                   to="/services"
-                  className="text-[#dfe2ea] hover:text-[#1fb74d] transition-colors inline-flex items-center gap-2 group"
+                  className="text-[#D7DCE1] hover:text-[#238A55] transition-colors inline-flex items-center gap-2 group"
                 >
-                  <span className="w-1 h-1 bg-[#1fb74d] rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <span className="w-1 h-1 bg-[#238A55] rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
                   Servicios
                 </Link>
               </li>
@@ -149,27 +149,27 @@ const Footer = () => {
             <h3 className="text-white font-bold text-lg mb-4">Contáctanos</h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <Phone className="w-5 h-5 text-[#1fb74d] flex-shrink-0 mt-0.5" />
-                <a href="tel:+51984696802" className="text-[#dfe2ea] hover:text-[#1fb74d] transition-colors">
+                <Phone className="w-5 h-5 text-[#238A55] flex-shrink-0 mt-0.5" />
+                <a href="tel:+51984696802" className="text-[#D7DCE1] hover:text-[#238A55] transition-colors">
                   984 696802
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <Mail className="w-5 h-5 text-[#1fb74d] flex-shrink-0 mt-0.5" />
-                <a href="mailto:lissyosores@hotmail.com" className="text-[#dfe2ea] hover:text-[#1fb74d] transition-colors">
+                <Mail className="w-5 h-5 text-[#238A55] flex-shrink-0 mt-0.5" />
+                <a href="mailto:lissyosores@hotmail.com" className="text-[#D7DCE1] hover:text-[#238A55] transition-colors">
                   lissyosores@hotmail.com
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-[#1fb74d] flex-shrink-0 mt-0.5" />
-                <span className="text-[#dfe2ea]">
+                <MapPin className="w-5 h-5 text-[#238A55] flex-shrink-0 mt-0.5" />
+                <span className="text-[#D7DCE1]">
                   Av. Lloque Yupanqui, Edificio Ecological Plaza 2do. nivel Of. 202<br />
                   Wanchaq - Cusco - Cusco
                 </span>
               </li>
               <li className="flex items-start gap-3">
-                <Clock className="w-5 h-5 text-[#1fb74d] flex-shrink-0 mt-0.5" />
-                <span className="text-[#dfe2ea]">Lun - Vie: 9:00 AM - 6:00 PM</span>
+                <Clock className="w-5 h-5 text-[#238A55] flex-shrink-0 mt-0.5" />
+                <span className="text-[#D7DCE1]">Lun - Vie: 9:00 AM - 6:00 PM</span>
               </li>
             </ul>
           </div>
@@ -178,25 +178,25 @@ const Footer = () => {
         {/* Línea divisoria */}
         <div className="border-t border-[#05052f] pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-[#dfe2ea] text-sm">
+            <p className="text-[#D7DCE1] text-sm">
               © 2025 CasaLiz Arquitectos Ingenieros. Todos los derechos reservados.
             </p>
             <div className="flex gap-6 text-sm">
               <Link
                 to="/"
-                className="text-[#dfe2ea] hover:text-[#1fb74d] transition-colors"
+                className="text-[#D7DCE1] hover:text-[#238A55] transition-colors"
               >
                 Inicio
               </Link>
               <Link
                 to="/services"
-                className="text-[#dfe2ea] hover:text-[#1fb74d] transition-colors"
+                className="text-[#D7DCE1] hover:text-[#238A55] transition-colors"
               >
                 Servicios
               </Link>
               <Link
                 to="/projects"
-                className="text-[#dfe2ea] hover:text-[#1fb74d] transition-colors"
+                className="text-[#D7DCE1] hover:text-[#238A55] transition-colors"
               >
                 Proyectos
               </Link>

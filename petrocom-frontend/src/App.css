@@ -5,7 +5,7 @@
 /* 1. Resetear body para quitar espacios blancos */
 body {
   font-family: "Montserrat", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  background: #f3f4f6;
+  background: #F4F5F6;
   color: var(--text-default);
   margin: 0; /* ✅ Eliminar margen */
   padding: 0; /* ✅ Eliminar padding */
@@ -94,7 +94,7 @@ html {
 }
 
 .section-bg {
-  background-color: #f3f4f6;
+  background-color: #F4F5F6;
 }
 
 /* 7. Layout para páginas internas */
@@ -132,7 +132,7 @@ html {
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   padding: 4rem 0;
-  background: #1fb74d;
+  background: #238A55;
 }
 
 .hero-content {
@@ -239,7 +239,7 @@ html {
    15. Estilos para la página de perfil
    -------------------------------------------------- */
    .profile-page {
-    background: linear-gradient(to bottom, #f3f4f6, #eef8f1);
+    background: linear-gradient(to bottom, #F4F5F6, #E9F3EE);
   }
   
   /* Avatar de usuario */
@@ -298,25 +298,25 @@ html {
   
   /* Formulario de perfil */
   .profile-form {
-    background: #f3f4f6;
+    background: #F4F5F6;
     border-radius: 1rem;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   }
   
   .profile-form .input-field {
-    border: 2px solid #dfe2ea;
+    border: 2px solid #D7DCE1;
     border-radius: 0.75rem;
     transition: all 0.2s ease;
   }
   
   .profile-form .input-field:focus {
-    border-color: #e8a12f;
+    border-color: #C58A2A;
     box-shadow: 0 0 0 0 0.1;
   }
   
   /* Sección de información personal */
   .info-section {
-    background: #f3f4f6;
+    background: #F4F5F6;
     border-radius: 1rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   }
@@ -330,7 +330,7 @@ html {
   .info-label {
     width: 6rem;
     font-weight: 600;
-    color: #454546;
+    color: #303840;
     text-align: left;
   }
   
@@ -341,7 +341,7 @@ html {
   
   /* Tarjetas de estadísticas */
   .stat-card {
-    background: #f3f4f6;
+    background: #F4F5F6;
     border-radius: 1rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     padding: 1.5rem;
@@ -371,13 +371,13 @@ html {
   
   .stat-label {
     font-size: 1rem;
-    color: #65647a;
+    color: #5F6B76;
     margin-top: 0.25rem;
   }
   
   /* Actividad reciente */
   .activity-card {
-    background: #f3f4f6;
+    background: #F4F5F6;
     border-radius: 1rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     padding: 1.5rem;
@@ -407,7 +407,7 @@ html {
   
   .activity-label {
     font-size: 0.875rem;
-    color: #65647a;
+    color: #5F6B76;
     margin-top: 0.25rem;
   }
   
@@ -421,18 +421,18 @@ html {
   }
   
   .badge-yellow {
-    background-color: #e8a12f;
+    background-color: #C58A2A;
     color: #07073b;
   }
   
   .badge-green {
-    background-color: #1fb74d;
-    color: #f3f4f6;
+    background-color: #238A55;
+    color: #F4F5F6;
   }
   
   .badge-blue {
-    background-color: #1fb74d;
-    color: #f3f4f6;
+    background-color: #238A55;
+    color: #F4F5F6;
   }
   
   /* Responsive */
@@ -494,7 +494,7 @@ html {
   
   /* Spin loader */
   .spin {
-    border: 4px solid #e8a12f;
+    border: 4px solid #C58A2A;
     border-top-color: transparent;
     border-radius: 50%;
     animation: spin 1s linear infinite;
@@ -536,7 +536,7 @@ html {
   gap: 0.5rem;
   padding: 0.65rem 1rem;
   border-radius: 0.75rem;
-  border: 1px solid #dfe2ea;
+  border: 1px solid #D7DCE1;
   background: #ffffff;
   color: #07073b;
   font-weight: 700;
@@ -545,13 +545,13 @@ html {
 }
 
 .admin-role-pill:hover {
-  background: #f3f4f6;
-  border-color: #dfe2ea;
+  background: #F4F5F6;
+  border-color: #D7DCE1;
 }
 
 .admin-role-pill.active {
-  border-color: #1fb74d;
-  background: linear-gradient(135deg, #eef8f1, #eef8f1);
-  color: #8f6419;
+  border-color: #238A55;
+  background: linear-gradient(135deg, #E9F3EE, #E9F3EE);
+  color: #7A5A22;
   box-shadow: 0 8px 20px rgba(225, 95, 11, 0.15);
 }

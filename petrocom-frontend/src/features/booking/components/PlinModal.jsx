@@ -35,7 +35,7 @@ const PlinModal = ({ isOpen, onClose, amount, onSuccess }) => {
       <div className="space-y-6">
         {/* Logo Plin */}
         <div className="bg-gradient-to-br from-[#07073b] to-[#05052f] rounded-2xl p-8 text-white text-center">
-          <div className="w-20 h-20 bg-[#f3f4f6]/20 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div className="w-20 h-20 bg-[#F4F5F6]/20 rounded-full flex items-center justify-center mx-auto mb-4">
             <Smartphone className="w-10 h-10" />
           </div>
           <h3 className="text-2xl font-bold mb-2">Plin</h3>
@@ -51,11 +51,11 @@ const PlinModal = ({ isOpen, onClose, amount, onSuccess }) => {
         </div>
 
         {/* QR Simulado */}
-        <div className="bg-[#f3f4f6] border-2 border-dashed border-[#dfe2ea] rounded-xl p-6">
-          <div className="w-48 h-48 bg-[#f3f4f6] rounded-xl flex items-center justify-center mx-auto">
-            <QrCode className="w-24 h-24 text-[#65647a]" />
+        <div className="bg-[#F4F5F6] border-2 border-dashed border-[#D7DCE1] rounded-xl p-6">
+          <div className="w-48 h-48 bg-[#F4F5F6] rounded-xl flex items-center justify-center mx-auto">
+            <QrCode className="w-24 h-24 text-[#5F6B76]" />
           </div>
-          <p className="text-center text-sm text-[#65647a] mt-4">
+          <p className="text-center text-sm text-[#5F6B76] mt-4">
             Escanea este código QR con tu app Plin
           </p>
         </div>
@@ -63,10 +63,10 @@ const PlinModal = ({ isOpen, onClose, amount, onSuccess }) => {
         {/* O pagar con número */}
         <div className="relative">
           <div className="absolute inset-0 flex items-center">
-            <div className="w-full border-t border-[#dfe2ea]"></div>
+            <div className="w-full border-t border-[#D7DCE1]"></div>
           </div>
           <div className="relative flex justify-center text-sm">
-            <span className="px-4 bg-[#f3f4f6] text-[#65647a]">O ingresa tu número</span>
+            <span className="px-4 bg-[#F4F5F6] text-[#5F6B76]">O ingresa tu número</span>
           </div>
         </div>
 
@@ -76,7 +76,7 @@ const PlinModal = ({ isOpen, onClose, amount, onSuccess }) => {
             Número de celular
           </label>
           <div className="flex gap-2">
-            <div className="px-4 py-3 border-2 border-[#dfe2ea] rounded-xl bg-[#f3f4f6] font-mono">
+            <div className="px-4 py-3 border-2 border-[#D7DCE1] rounded-xl bg-[#F4F5F6] font-mono">
               +51
             </div>
             <input
@@ -84,7 +84,7 @@ const PlinModal = ({ isOpen, onClose, amount, onSuccess }) => {
               value={phoneNumber}
               onChange={(e) => setPhoneNumber(formatPhone(e.target.value))}
               placeholder="987654321"
-              className="flex-1 px-4 py-3 border-2 border-[#dfe2ea] rounded-xl focus:border-[#07073b] focus:outline-none font-mono"
+              className="flex-1 px-4 py-3 border-2 border-[#D7DCE1] rounded-xl focus:border-[#07073b] focus:outline-none font-mono"
               maxLength="9"
             />
           </div>
@@ -109,7 +109,7 @@ const PlinModal = ({ isOpen, onClose, amount, onSuccess }) => {
           )}
         </button>
 
-        <p className="text-xs text-center text-[#65647a]">
+        <p className="text-xs text-center text-[#5F6B76]">
           ⚠️ Pago simulado - No se realizará cargo real
         </p>
       </div>

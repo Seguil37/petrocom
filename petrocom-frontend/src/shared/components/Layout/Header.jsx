@@ -124,7 +124,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-[#f3f4f6] shadow-md sticky top-0 z-50">
+    <header className="bg-[#F4F5F6] shadow-md sticky top-0 z-50">
       <div className="container-custom">
         <div className="flex items-center justify-between h-20">
           {/* Logo y Buscador */}
@@ -146,12 +146,12 @@ const Header = () => {
                   placeholder="¿Que proyecto buscas?"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-12 pr-32 py-3 rounded-full border-2 border-[#dfe2ea] focus:border-[#1fb74d] focus:outline-none transition-all bg-[#f3f4f6] text-[#07073b] placeholder-[#65647a]"
+                  className="w-full pl-12 pr-32 py-3 rounded-full border-2 border-[#D7DCE1] focus:border-[#238A55] focus:outline-none transition-all bg-[#F4F5F6] text-[#07073b] placeholder-[#5F6B76]"
                 />
-                <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[#65647a] w-5 h-5" />
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[#5F6B76] w-5 h-5" />
                 <button
                   type="submit"
-                  className="absolute right-1.5 top-1/2 -translate-y-1/2 bg-[#1fb74d] hover:bg-[#168a3d] text-white font-bold px-5 py-2 rounded-full transition-all shadow-md hover:shadow-lg"
+                  className="absolute right-1.5 top-1/2 -translate-y-1/2 bg-[#238A55] hover:bg-[#196B43] text-white font-bold px-5 py-2 rounded-full transition-all shadow-md hover:shadow-lg"
                 >
                   Buscar
                 </button>
@@ -165,25 +165,25 @@ const Header = () => {
             <nav className="hidden lg:flex items-center gap-6 text-sm font-semibold">
               <Link
                 to="/services"
-                className="text-[#07073b] hover:text-[#1fb74d] transition-colors"
+                className="text-[#07073b] hover:text-[#238A55] transition-colors"
               >
                 Nuestros Servicios
               </Link>
               <Link
                 to="/consulta-tramite"
-                className="text-[#07073b] hover:text-[#1fb74d] transition-colors"
+                className="text-[#07073b] hover:text-[#238A55] transition-colors"
               >
                 Consulta tramite
               </Link>
               <Link
                 to="/projects"
-                className="text-[#07073b] hover:text-[#1fb74d] transition-colors"
+                className="text-[#07073b] hover:text-[#238A55] transition-colors"
               >
                 Nuestros Proyectos
               </Link>
               <Link
                 to="/about"
-                className="text-[#07073b] hover:text-[#1fb74d] transition-colors"
+                className="text-[#07073b] hover:text-[#238A55] transition-colors"
               >
                 Nosotros
               </Link>
@@ -193,7 +193,7 @@ const Header = () => {
             <div className="hidden xl:flex items-center gap-4 text-sm">
               <Link
                 to="/contacto"
-                className="flex items-center gap-1 text-[#07073b] hover:text-[#1fb74d] transition-colors"
+                className="flex items-center gap-1 text-[#07073b] hover:text-[#238A55] transition-colors"
               >
                 <Mail className="w-4 h-4" />
                 <span className="hidden lg:inline">Contactanos</span>
@@ -216,34 +216,34 @@ const Header = () => {
 		                    aria-expanded={notificationOpen}
 		                    aria-label="Notificaciones"
 		                    className={`relative flex h-10 w-10 items-center justify-center rounded-full transition-all ${
-		                      notificationOpen ? 'bg-white text-[#1fb74d]' : 'hover:bg-white'
+		                      notificationOpen ? 'bg-white text-[#238A55]' : 'hover:bg-white'
 		                    }`}
 		                  >
 	                    <Bell className="w-5 h-5 text-[#07073b]" />
 	                    {unreadCount > 0 && (
-	                      <span className="absolute -top-1 -right-1 min-w-[20px] h-5 px-1 rounded-full bg-[#1fb74d] text-white text-[11px] font-bold flex items-center justify-center">
+	                      <span className="absolute -top-1 -right-1 min-w-[20px] h-5 px-1 rounded-full bg-[#238A55] text-white text-[11px] font-bold flex items-center justify-center">
 	                        {unreadCount > 9 ? '9+' : unreadCount}
 	                      </span>
 	                    )}
 		                  </button>
 
 			                  <div
-			                    className={`fixed left-4 right-4 top-24 z-[80] max-h-[70vh] overflow-hidden rounded-xl border border-[#dfe2ea] bg-[#f3f4f6] shadow-xl transition-all duration-200 lg:absolute lg:left-auto lg:right-0 lg:top-auto lg:mt-0 lg:w-[380px] lg:max-w-[90vw] ${
+			                    className={`fixed left-4 right-4 top-24 z-[80] max-h-[70vh] overflow-hidden rounded-xl border border-[#D7DCE1] bg-[#F4F5F6] shadow-xl transition-all duration-200 lg:absolute lg:left-auto lg:right-0 lg:top-auto lg:mt-0 lg:w-[380px] lg:max-w-[90vw] ${
 			                      notificationOpen
 			                        ? 'pointer-events-auto opacity-100 visible translate-y-0'
 			                        : 'pointer-events-none opacity-0 invisible -translate-y-1 lg:translate-y-0 lg:group-hover:pointer-events-auto lg:group-hover:visible lg:group-hover:opacity-100'
 			                    }`}
 			                  >
-	                      <div className="flex items-center justify-between px-4 py-3 border-b border-[#dfe2ea]">
+	                      <div className="flex items-center justify-between px-4 py-3 border-b border-[#D7DCE1]">
 	                        <div>
 	                          <p className="text-sm font-bold text-[#07073b]">Notificaciones</p>
-	                          <p className="text-xs text-[#65647a]">Tareas pendientes y asignaciones</p>
+	                          <p className="text-xs text-[#5F6B76]">Tareas pendientes y asignaciones</p>
 	                        </div>
 		                        {unreadCount > 0 && (
 		                          <button
 		                            type="button"
 		                            onClick={handleMarkAllNotificationsRead}
-	                            className="text-xs font-semibold text-[#1fb74d] hover:underline"
+	                            className="text-xs font-semibold text-[#238A55] hover:underline"
 	                          >
 		                            Marcar todas
 		                          </button>
@@ -252,21 +252,21 @@ const Header = () => {
 		                      <Link
 		                        to={notificationsPath}
 		                        onClick={() => setNotificationOpen(false)}
-		                        className="block border-b border-[#dfe2ea] px-4 py-2 text-xs font-bold text-[#07073b] transition hover:bg-white"
+		                        className="block border-b border-[#D7DCE1] px-4 py-2 text-xs font-bold text-[#07073b] transition hover:bg-white"
 		                      >
 		                        Ver todas y configurar preferencias
 		                      </Link>
 		                      <div className="max-h-[420px] overflow-y-auto">
 	                        {notifications.length === 0 ? (
-	                          <div className="px-4 py-6 text-sm text-[#65647a]">No tienes notificaciones por ahora.</div>
+	                          <div className="px-4 py-6 text-sm text-[#5F6B76]">No tienes notificaciones por ahora.</div>
 	                        ) : (
 	                          notifications.map((notification) => (
 	                            <button
 	                              key={notification.id}
 	                              type="button"
 	                              onClick={() => handleNotificationClick(notification)}
-	                              className={`w-full text-left px-4 py-3 border-b border-[#dfe2ea] hover:bg-white transition-colors ${
-	                                notification.read_at ? 'bg-[#f3f4f6]' : 'bg-[#eef8f1]'
+	                              className={`w-full text-left px-4 py-3 border-b border-[#D7DCE1] hover:bg-white transition-colors ${
+	                                notification.read_at ? 'bg-[#F4F5F6]' : 'bg-[#E9F3EE]'
 	                              }`}
 	                            >
 	                              <div className="flex items-start justify-between gap-3">
@@ -274,15 +274,15 @@ const Header = () => {
 	                                  <p className="text-sm font-semibold text-[#07073b]">
 		                                    {notification.data?.task_title || notification.data?.label || 'Notificacion'}
 	                                  </p>
-	                                  <p className="text-xs text-[#454546]">
+	                                  <p className="text-xs text-[#303840]">
 	                                    {notification.data?.message || 'Tienes una tarea pendiente por revisar.'}
 	                                  </p>
-	                                  <p className="text-[11px] text-[#65647a]">
+	                                  <p className="text-[11px] text-[#5F6B76]">
 	                                    {notification.data?.tramite_code || 'Trámite'}
 	                                  </p>
 	                                </div>
 	                                {!notification.read_at && (
-	                                  <span className="mt-1 h-2.5 w-2.5 rounded-full bg-[#1fb74d] flex-shrink-0" />
+	                                  <span className="mt-1 h-2.5 w-2.5 rounded-full bg-[#238A55] flex-shrink-0" />
 	                                )}
 	                              </div>
 	                            </button>
@@ -301,7 +301,7 @@ const Header = () => {
                       className="w-8 h-8 rounded-full object-cover"
                     />
                   ) : (
-                    <div className="w-8 h-8 bg-[#1fb74d] rounded-full flex items-center justify-center">
+                    <div className="w-8 h-8 bg-[#238A55] rounded-full flex items-center justify-center">
                       <span className="text-sm font-bold text-[#07073b]">
                         {user?.name?.charAt(0).toUpperCase()}
                       </span>
@@ -309,14 +309,14 @@ const Header = () => {
                   )}
                   <div className="hidden md:flex flex-col items-start leading-tight">
                     <span className="font-semibold text-[#07073b]">{user?.name?.split(' ')[0]}</span>
-                    <span className="text-[11px] text-[#65647a] font-medium uppercase tracking-wide">
+                    <span className="text-[11px] text-[#5F6B76] font-medium uppercase tracking-wide">
                       {roleLabels[user?.role] || 'Usuario'}
                     </span>
                   </div>
 	                  </button>
 
 	                {/* Dropdown Menu */}
-                <div className="absolute right-0 mt-2 w-48 bg-[#f3f4f6] rounded-xl shadow-xl border border-[#dfe2ea] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <div className="absolute right-0 mt-2 w-48 bg-[#F4F5F6] rounded-xl shadow-xl border border-[#D7DCE1] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                   <Link
                     to="/profile"
                     className="block px-4 py-3 hover:bg-white text-[#07073b] rounded-t-xl transition-colors"
@@ -437,7 +437,7 @@ const Header = () => {
 	            ) : (
               <Link
                 to="/login"
-                className="flex items-center gap-2 bg-[#1fb74d] hover:bg-[#168a3d] text-white font-bold px-6 py-2 rounded-full transition-all shadow-md hover:shadow-lg"
+                className="flex items-center gap-2 bg-[#238A55] hover:bg-[#196B43] text-white font-bold px-6 py-2 rounded-full transition-all shadow-md hover:shadow-lg"
               >
                 <User className="w-5 h-5" />
                 <span className="hidden md:block">Iniciar Sesión</span>
@@ -469,9 +469,9 @@ const Header = () => {
               placeholder="¿Qué proyecto estás buscando?"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-4 py-3 rounded-full border-2 border-[#dfe2ea] focus:border-[#1fb74d] focus:outline-none"
+              className="w-full pl-12 pr-4 py-3 rounded-full border-2 border-[#D7DCE1] focus:border-[#238A55] focus:outline-none"
             />
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[#65647a] w-5 h-5" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[#5F6B76] w-5 h-5" />
           </form>
         </div>
 
@@ -484,7 +484,7 @@ const Header = () => {
                 className="flex items-center gap-2 px-4 py-2 hover:bg-white text-[#07073b] rounded-lg transition-colors font-semibold"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                <BriefcaseBusiness className="w-4 h-4 text-[#1fb74d]" />
+                <BriefcaseBusiness className="w-4 h-4 text-[#238A55]" />
                 Nuestros Servicios
               </Link>
               <Link
@@ -492,7 +492,7 @@ const Header = () => {
                 className="flex items-center gap-2 px-4 py-2 hover:bg-white text-[#07073b] rounded-lg transition-colors font-semibold"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                <ClipboardList className="w-4 h-4 text-[#1fb74d]" />
+                <ClipboardList className="w-4 h-4 text-[#238A55]" />
                 Consulta tramite
               </Link>
               <Link
@@ -500,7 +500,7 @@ const Header = () => {
                 className="flex items-center gap-2 px-4 py-2 hover:bg-white text-[#07073b] rounded-lg transition-colors font-semibold"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                <FolderKanban className="w-4 h-4 text-[#1fb74d]" />
+                <FolderKanban className="w-4 h-4 text-[#238A55]" />
                 Nuestros Proyectos
               </Link>
 	              <Link
@@ -508,7 +508,7 @@ const Header = () => {
 	                className="flex items-center gap-2 px-4 py-2 hover:bg-white text-[#07073b] rounded-lg transition-colors font-semibold"
 	                onClick={() => setMobileMenuOpen(false)}
 	              >
-	                <Info className="w-4 h-4 text-[#1fb74d]" />
+	                <Info className="w-4 h-4 text-[#238A55]" />
 	                Nosotros
 	              </Link>
               <Link
@@ -516,19 +516,19 @@ const Header = () => {
                 className="flex items-center gap-2 px-4 py-2 hover:bg-white text-[#07073b] rounded-lg transition-colors font-semibold"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                <Mail className="w-4 h-4 text-[#1fb74d]" />
+                <Mail className="w-4 h-4 text-[#238A55]" />
                 Contactanos
               </Link>
 
               {isAuthenticated && (
                 <>
-	                  <div className="border-t border-[#dfe2ea] my-2 pt-2">
+	                  <div className="border-t border-[#D7DCE1] my-2 pt-2">
 	                    <Link
 	                      to="/profile"
                       className="flex items-center gap-2 px-4 py-2 hover:bg-white text-[#07073b] rounded-lg transition-colors font-semibold"
                       onClick={() => setMobileMenuOpen(false)}
 	                    >
-	                      <User className="w-4 h-4 text-[#1fb74d]" />
+	                      <User className="w-4 h-4 text-[#238A55]" />
 	                      Mi Perfil
 	                    </Link>
                       <button
@@ -549,7 +549,7 @@ const Header = () => {
                           className="flex items-center gap-2 px-4 py-2 hover:bg-white text-[#07073b] rounded-lg transition-colors font-semibold"
                           onClick={() => setMobileMenuOpen(false)}
                         >
-                          <ClipboardList className="w-4 h-4 text-[#1fb74d]" />
+                          <ClipboardList className="w-4 h-4 text-[#238A55]" />
                           Mis tramites
                         </Link>
                         <Link
@@ -557,7 +557,7 @@ const Header = () => {
                           className="flex items-center gap-2 px-4 py-2 hover:bg-white text-[#07073b] rounded-lg transition-colors font-semibold"
                           onClick={() => setMobileMenuOpen(false)}
                         >
-                          <Heart className="w-4 h-4 text-[#1fb74d]" />
+                          <Heart className="w-4 h-4 text-[#238A55]" />
                           Favoritos
                         </Link>
                       </>
@@ -646,9 +646,9 @@ const Header = () => {
                 </>
               )}
 
-	              <div className="border-t border-[#dfe2ea] my-2 pt-2">
+	              <div className="border-t border-[#D7DCE1] my-2 pt-2">
 	                <a href="tel:+51990179027" className="flex items-center gap-2 px-4 py-2 hover:bg-white text-[#07073b] rounded-lg transition-colors">
-	                  <Phone className="w-4 h-4 text-[#1fb74d]" />
+	                  <Phone className="w-4 h-4 text-[#238A55]" />
                   <span>+51 990 179 027</span>
                 </a>
                 <Link
@@ -656,7 +656,7 @@ const Header = () => {
                   className="flex items-center gap-2 px-4 py-2 hover:bg-white text-[#07073b] rounded-lg transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-	                  <Mail className="w-4 h-4 text-[#1fb74d]" />
+	                  <Mail className="w-4 h-4 text-[#238A55]" />
 	                  <span>Contactanos</span>
 	                </Link>
                   {isAuthenticated && (

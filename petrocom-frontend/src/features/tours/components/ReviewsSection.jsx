@@ -6,12 +6,12 @@ import { reviewsApi } from '../../../shared/utils/api';
 import { ROLES } from '../../../shared/constants/roles';
 
 const RatingStars = ({ value = 0, size = 16 }) => (
-  <div className="flex items-center gap-1 text-[#1fb74d]">
+  <div className="flex items-center gap-1 text-[#238A55]">
     {[1, 2, 3, 4, 5].map((star) => (
       <Star
         key={star}
         size={size}
-        className={star <= value ? 'fill-[#1fb74d]' : 'text-[#dfe2ea]'}
+        className={star <= value ? 'fill-[#238A55]' : 'text-[#D7DCE1]'}
       />
     ))}
   </div>
@@ -30,7 +30,7 @@ const InteractiveStars = ({ value, onChange, disabled }) => (
         <Star
           size={24}
           className={`transition-transform ${
-            star <= value ? 'fill-[#1fb74d] text-[#1fb74d]' : 'text-[#dfe2ea]'
+            star <= value ? 'fill-[#238A55] text-[#238A55]' : 'text-[#D7DCE1]'
           } group-hover:scale-110`}
         />
       </button>
@@ -117,18 +117,18 @@ const ReviewsSection = ({ projectId }) => {
   };
 
   return (
-    <div className="bg-white rounded-2xl p-6 shadow-lg border border-[#dfe2ea] space-y-6">
+    <div className="bg-white rounded-2xl p-6 shadow-lg border border-[#D7DCE1] space-y-6">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="h-10 w-10 rounded-2xl bg-[#fbf3df] border border-[#fbf3df] flex items-center justify-center">
-            <MessageCircle className="w-5 h-5 text-[#e8a12f]" />
+          <div className="h-10 w-10 rounded-2xl bg-[#F3EFE6] border border-[#F3EFE6] flex items-center justify-center">
+            <MessageCircle className="w-5 h-5 text-[#C58A2A]" />
           </div>
           <div>
             <h3 className="text-xl font-black text-[#07073b]">Resenas</h3>
-            <p className="text-sm text-[#65647a]">Comparte tu experiencia con este proyecto.</p>
+            <p className="text-sm text-[#5F6B76]">Comparte tu experiencia con este proyecto.</p>
           </div>
         </div>
-        <div className="flex items-center gap-2 px-3 py-2 rounded-full bg-[#f3f4f6] border border-[#dfe2ea]">
+        <div className="flex items-center gap-2 px-3 py-2 rounded-full bg-[#F4F5F6] border border-[#D7DCE1]">
           <RatingStars value={reviews.length ? averageRating : 0} />
           <div className="text-xs text-[#07073b] font-semibold">
             {averageRating.toFixed(1)} / 5 ({reviews.length || '0'})
@@ -137,38 +137,38 @@ const ReviewsSection = ({ projectId }) => {
       </div>
 
       {loading ? (
-        <p className="text-[#65647a]">Cargando resenas...</p>
+        <p className="text-[#5F6B76]">Cargando resenas...</p>
       ) : reviews.length === 0 ? (
         <p className="text-[#07073b]">Se el primero en dejar un comentario.</p>
       ) : (
         <div className="space-y-4">
           {reviews.map((review) => (
-            <div key={review.id} className="p-4 rounded-xl bg-[#f3f4f6] border border-[#dfe2ea] space-y-2">
+            <div key={review.id} className="p-4 rounded-xl bg-[#F4F5F6] border border-[#D7DCE1] space-y-2">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="h-9 w-9 rounded-full bg-[#eef8f1] text-[#07073b] flex items-center justify-center font-bold">
+                  <div className="h-9 w-9 rounded-full bg-[#E9F3EE] text-[#07073b] flex items-center justify-center font-bold">
                     {(review.user?.name || 'C')[0]}
                   </div>
                   <div>
                     <p className="font-semibold text-[#07073b]">{review.user?.name || 'Cliente'}</p>
-                    <p className="text-xs text-[#65647a]">{review.user?.email}</p>
+                    <p className="text-xs text-[#5F6B76]">{review.user?.email}</p>
                   </div>
                 </div>
                 {review.rating && <RatingStars value={review.rating} />}
               </div>
-              <p className="text-[#454546] leading-relaxed">{review.comment}</p>
+              <p className="text-[#303840] leading-relaxed">{review.comment}</p>
               {review.user_id === user?.id && (
-                <span className="inline-block mt-1 text-xs font-semibold text-[#1fb74d]">Tu resena</span>
+                <span className="inline-block mt-1 text-xs font-semibold text-[#238A55]">Tu resena</span>
               )}
             </div>
           ))}
         </div>
       )}
 
-      <div className="border-t border-[#dfe2ea] pt-4">
+      <div className="border-t border-[#D7DCE1] pt-4">
         <h4 className="text-lg font-bold text-[#07073b] mb-2">Escribe una resena</h4>
         {!isClient && (
-          <p className="text-sm text-[#65647a] mb-3">Solo los clientes pueden dejar resenas.</p>
+          <p className="text-sm text-[#5F6B76] mb-3">Solo los clientes pueden dejar resenas.</p>
         )}
         {error && <p className="text-sm text-red-600 mb-2">{error}</p>}
         <form onSubmit={handleSubmit} className="space-y-3">
@@ -187,14 +187,14 @@ const ReviewsSection = ({ projectId }) => {
             placeholder={
               isClient ? 'Cuentanos que te parecio este proyecto' : 'Inicia sesion como cliente para comentar'
             }
-            className="w-full min-h-[120px] border border-[#dfe2ea] rounded-xl px-3 py-2 text-sm focus:outline-none focus:border-[#1fb74d] bg-[#ffffff]"
+            className="w-full min-h-[120px] border border-[#D7DCE1] rounded-xl px-3 py-2 text-sm focus:outline-none focus:border-[#238A55] bg-[#ffffff]"
             disabled={!isClient || submitting}
           />
 
           <button
             type="submit"
             disabled={!isClient || submitting}
-            className="bg-[#1fb74d] disabled:opacity-60 text-white font-bold px-4 py-3 rounded-full shadow-md hover:shadow-lg transition-all"
+            className="bg-[#238A55] disabled:opacity-60 text-white font-bold px-4 py-3 rounded-full shadow-md hover:shadow-lg transition-all"
           >
             {submitting ? 'Guardando...' : myReview ? 'Actualizar resena' : 'Publicar resena'}
           </button>

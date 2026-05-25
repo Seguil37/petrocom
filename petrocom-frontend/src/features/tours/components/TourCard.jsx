@@ -11,11 +11,11 @@ const TourCard = ({ tour }) => {
   return (
     <Link
       to={`/projects/${tour.id}`}
-      className="group bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden hover:-translate-y-1 border border-[#dfe2ea]"
+      className="group bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden hover:-translate-y-1 border border-[#D7DCE1]"
     >
       <div className="p-4 pb-0">
         {tour.is_featured && (
-          <span className="inline-flex bg-[#1fb74d] text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">
+          <span className="inline-flex bg-[#238A55] text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">
             Destacado
           </span>
         )}
@@ -32,15 +32,15 @@ const TourCard = ({ tour }) => {
       </div>
 
       <div className="p-5 space-y-3">
-        <div className="flex items-center gap-2 text-sm text-[#65647a]">
-          <MapPin className="w-4 h-4 text-[#1fb74d]" />
+        <div className="flex items-center gap-2 text-sm text-[#5F6B76]">
+          <MapPin className="w-4 h-4 text-[#238A55]" />
           <span>{tour.city ? `${tour.city}${tour.state ? ', ' + tour.state : ''}` : 'Ubicación por confirmar'}</span>
         </div>
 
         <h3 className="text-xl font-bold text-[#07073b] leading-tight line-clamp-2">{tour.title}</h3>
 
         <div className="flex items-center gap-2 text-sm text-[#07073b]">
-          <Home className="w-4 h-4 text-[#1fb74d]" />
+          <Home className="w-4 h-4 text-[#238A55]" />
           <span>{tour.type || 'Proyecto residencial'}</span>
         </div>
       </div>

@@ -452,13 +452,13 @@ const AdminUsersPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#f3f4f6] py-10">
+    <div className="min-h-screen bg-[#F4F5F6] py-10">
       <div className="container-custom space-y-6">
         <div className="flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
           <div className="min-w-0">
-            <p className="text-sm uppercase tracking-[0.2em] text-[#65647a] font-semibold">Panel de administración</p>
+            <p className="text-sm uppercase tracking-[0.2em] text-[#5F6B76] font-semibold">Panel de administración</p>
             <h1 className="text-3xl font-black text-[#07073b] mt-2">Gestión de Administradores</h1>
-            <p className="text-[#65647a] mt-2 max-w-3xl">
+            <p className="text-[#5F6B76] mt-2 max-w-3xl">
               Crea, edita y controla el acceso de usuarios internos segun los permisos asignados por el Master.
             </p>
           </div>
@@ -474,39 +474,39 @@ const AdminUsersPage = () => {
           </div>
         </div>
 
-        <div className="bg-white/70 rounded-2xl shadow-lg border border-[#dfe2ea]">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 p-5 border-b border-[#dfe2ea]">
+        <div className="bg-white/70 rounded-2xl shadow-lg border border-[#D7DCE1]">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 p-5 border-b border-[#D7DCE1]">
             <div className="flex items-center gap-3">
-              <div className="p-3 rounded-2xl bg-[#dfe2ea] text-[#07073b]">
+              <div className="p-3 rounded-2xl bg-[#D7DCE1] text-[#07073b]">
                 <ShieldCheck className="w-6 h-6" />
               </div>
               <div>
                 <h2 className="text-xl font-black text-[#07073b]">Usuarios Admin</h2>
-                <p className="text-[#65647a]">Nombre, correo, rol y estado de acceso</p>
+                <p className="text-[#5F6B76]">Nombre, correo, rol y estado de acceso</p>
               </div>
             </div>
-            <div className="text-sm text-[#65647a] font-semibold">
+            <div className="text-sm text-[#5F6B76] font-semibold">
               Total: <span className="text-[#07073b] font-black">{meta.total}</span>
             </div>
           </div>
 
-          <div className="flex flex-col gap-3 p-5 border-b border-[#dfe2ea] md:flex-row md:items-center md:justify-between">
+          <div className="flex flex-col gap-3 p-5 border-b border-[#D7DCE1] md:flex-row md:items-center md:justify-between">
             <label className="relative block w-full md:max-w-md">
-              <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-[#65647a]" />
+              <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-[#5F6B76]" />
               <input
                 type="search"
                 value={search}
                 onChange={(event) => setSearch(event.target.value)}
                 placeholder="Buscar por nombre, correo o rol"
-                className="w-full rounded-lg border border-[#dfe2ea] bg-white py-3 pl-12 pr-4 text-[#07073b] outline-none transition-colors placeholder:text-[#65647a] focus:border-[#07073b]"
+                className="w-full rounded-lg border border-[#D7DCE1] bg-white py-3 pl-12 pr-4 text-[#07073b] outline-none transition-colors placeholder:text-[#5F6B76] focus:border-[#07073b]"
               />
             </label>
-            <p className="text-sm text-[#65647a]">
+            <p className="text-sm text-[#5F6B76]">
               {debouncedSearch ? `Resultados para "${debouncedSearch}"` : 'Lista de usuarios administrativos'}
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-3 px-5 py-3 border-b border-[#dfe2ea] text-xs font-semibold text-[#65647a]">
+          <div className="flex flex-wrap gap-3 px-5 py-3 border-b border-[#D7DCE1] text-xs font-semibold text-[#5F6B76]">
             <span className="inline-flex items-center gap-1">
               <UserCog className="h-4 w-4 text-[#07073b]" /> Editar
             </span>
@@ -516,7 +516,7 @@ const AdminUsersPage = () => {
             {canManageMasterUsers && (
               <>
                 <span className="inline-flex items-center gap-1">
-                  <Crown className="h-4 w-4 text-[#8f6419]" /> Hacer/Quitar Master
+                  <Crown className="h-4 w-4 text-[#7A5A22]" /> Hacer/Quitar Master
                 </span>
                 <span className="inline-flex items-center gap-1">
                   <KeyRound className="h-4 w-4 text-[#07073b]" /> Permisos
@@ -535,11 +535,11 @@ const AdminUsersPage = () => {
               <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
             </div>
           ) : users.length === 0 ? (
-            <div className="text-center py-16 text-[#65647a]">No hay administradores registrados.</div>
+            <div className="text-center py-16 text-[#5F6B76]">No hay administradores registrados.</div>
           ) : (
             <div className="overflow-x-auto">
               <table className="w-full min-w-[980px] table-fixed text-left">
-                <thead className="bg-[#f3f4f6] text-[#65647a] uppercase text-xs tracking-[0.1em]">
+                <thead className="bg-[#F4F5F6] text-[#5F6B76] uppercase text-xs tracking-[0.1em]">
                   <tr>
                     <th className="w-[16%] py-4 px-4 font-semibold">Nombre</th>
                     <th className="w-[20%] py-4 px-4 font-semibold">Email</th>
@@ -549,13 +549,13 @@ const AdminUsersPage = () => {
                     <th className="w-[28%] py-4 px-4 font-semibold">Acciones</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#f3f4f6]">
+                <tbody className="divide-y divide-[#F4F5F6]">
                   {users.map((u) => (
                     <tr key={u.id} className="hover:bg-[#ffffff]">
                       <td className="py-4 px-4">
                         <div className="flex flex-col">
                           <span className="font-bold text-[#07073b]">{u.name}</span>
-                          <span className="text-xs text-[#65647a]">ID: {u.id}</span>
+                          <span className="text-xs text-[#5F6B76]">ID: {u.id}</span>
                         </div>
                       </td>
                       <td className="py-4 px-4 text-[#07073b] break-all">{u.email}</td>
@@ -563,8 +563,8 @@ const AdminUsersPage = () => {
                         <span
                           className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-semibold border ${
                             u.role === ROLES.MASTER_ADMIN
-                              ? 'bg-[#eef8f1] text-[#07073b] border-[#d9f4e0]'
-                              : 'bg-[#eef8f1] text-[#8f6419] border-[#fbf3df]'
+                              ? 'bg-[#E9F3EE] text-[#07073b] border-[#DDEFE5]'
+                              : 'bg-[#E9F3EE] text-[#7A5A22] border-[#F3EFE6]'
                           }`}
                         >
                           {u.role === ROLES.MASTER_ADMIN ? <Shield className="w-4 h-4" /> : <UserCog className="w-4 h-4" />}
@@ -572,7 +572,7 @@ const AdminUsersPage = () => {
                         </span>
                       </td>
                       <td className="py-4 px-4">{renderStatusBadge(u.is_active)}</td>
-                      <td className="py-4 px-4 text-[#65647a]">
+                      <td className="py-4 px-4 text-[#5F6B76]">
                         {u.created_at ? new Date(u.created_at).toLocaleDateString() : '—'}
                       </td>
                       <td className="py-4 px-4">
@@ -581,7 +581,7 @@ const AdminUsersPage = () => {
                             onClick={() => openEditModal(u)}
                             title="Editar"
                             aria-label={`Editar ${u.name}`}
-                            className="inline-flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg border border-[#dfe2ea] text-[#07073b] hover:bg-[#f3f4f6]"
+                            className="inline-flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg border border-[#D7DCE1] text-[#07073b] hover:bg-[#F4F5F6]"
                           >
                             <UserCog className="h-5 w-5" />
                           </button>
@@ -602,7 +602,7 @@ const AdminUsersPage = () => {
 	                              onClick={() => handleToggleRole(u)}
 	                              title={u.role === ROLES.MASTER_ADMIN ? 'Quitar Master' : 'Hacer Master'}
 	                              aria-label={`${u.role === ROLES.MASTER_ADMIN ? 'Quitar Master' : 'Hacer Master'} a ${u.name}`}
-	                              className="inline-flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg border border-[#fbf3df] text-[#8f6419] hover:bg-[#eef8f1]"
+	                              className="inline-flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg border border-[#F3EFE6] text-[#7A5A22] hover:bg-[#E9F3EE]"
 	                            >
 	                              <Crown className="h-5 w-5" />
 	                            </button>
@@ -612,7 +612,7 @@ const AdminUsersPage = () => {
                               onClick={() => openUserPermissions(u)}
                               title="Permisos"
                               aria-label={`Editar permisos de ${u.name}`}
-                              className="inline-flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg border border-[#dfe2ea] text-[#07073b] hover:bg-[#f3f4f6]"
+                              className="inline-flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg border border-[#D7DCE1] text-[#07073b] hover:bg-[#F4F5F6]"
                             >
                               <KeyRound className="h-5 w-5" />
                             </button>
@@ -654,29 +654,29 @@ const AdminUsersPage = () => {
               </button>
             </div>
 
-            <div className="rounded-2xl border border-[#dfe2ea] bg-white/80 p-5 shadow-lg">
+            <div className="rounded-2xl border border-[#D7DCE1] bg-white/80 p-5 shadow-lg">
               <div className="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
               <div>
-                <p className="text-sm uppercase tracking-[0.2em] text-[#1fb74d] font-semibold">Plantillas por rol</p>
+                <p className="text-sm uppercase tracking-[0.2em] text-[#238A55] font-semibold">Plantillas por rol</p>
                 <h2 className="mt-2 text-2xl font-black text-[#07073b]">Permisos predeterminados</h2>
-                <p className="mt-2 max-w-3xl text-sm leading-6 text-[#65647a]">
+                <p className="mt-2 max-w-3xl text-sm leading-6 text-[#5F6B76]">
                   Estos permisos se copian cuando creas un nuevo Administrador u Operativo. Los usuarios ya creados se ajustan desde su fila individual.
                 </p>
               </div>
-              {permissionsLoading && <span className="text-sm font-semibold text-[#65647a]">Cargando permisos...</span>}
+              {permissionsLoading && <span className="text-sm font-semibold text-[#5F6B76]">Cargando permisos...</span>}
               </div>
 
               <div className="mt-5 overflow-x-auto">
                 <table className="w-full min-w-[720px] text-left">
                   <thead>
-                    <tr className="border-b border-[#dfe2ea] text-xs uppercase tracking-[0.16em] text-[#65647a]">
+                    <tr className="border-b border-[#D7DCE1] text-xs uppercase tracking-[0.16em] text-[#5F6B76]">
                       <th className="py-3 pr-4 font-bold">Modulo</th>
                       {editablePermissionRoles.map((role) => (
                         <th key={role} className="py-3 px-4 font-bold text-center">{roleLabels[role]}</th>
                       ))}
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-[#f3f4f6]">
+                  <tbody className="divide-y divide-[#F4F5F6]">
                     {moduleOrder.map((moduleKey) => {
                       const moduleMeta = permissionModules[moduleKey] || {};
 
@@ -684,7 +684,7 @@ const AdminUsersPage = () => {
                         <tr key={moduleKey}>
                           <td className="py-4 pr-4">
                             <p className="font-bold text-[#07073b]">{moduleMeta.label || moduleLabels[moduleKey]}</p>
-                            <p className="text-xs uppercase tracking-[0.16em] text-[#65647a]">
+                            <p className="text-xs uppercase tracking-[0.16em] text-[#5F6B76]">
                               {moduleMeta.group === 'announcements' ? 'Anuncios' : 'Operacion interna'}
                             </p>
                           </td>
@@ -701,8 +701,8 @@ const AdminUsersPage = () => {
                                   className={`inline-flex min-w-[112px] items-center justify-center rounded-full border px-3 py-2 text-sm font-bold transition-colors ${
                                     checked
                                       ? 'border-green-200 bg-green-100 text-green-700 hover:bg-green-50'
-                                      : 'border-[#dfe2ea] bg-[#f3f4f6] text-[#65647a] hover:bg-white'
-                                  } ${changed ? 'ring-2 ring-[#1fb74d]/35' : ''} disabled:opacity-60`}
+                                      : 'border-[#D7DCE1] bg-[#F4F5F6] text-[#5F6B76] hover:bg-white'
+                                  } ${changed ? 'ring-2 ring-[#238A55]/35' : ''} disabled:opacity-60`}
                                 >
                                   {checked ? 'Permitido' : 'Bloqueado'}
                                 </button>
@@ -716,12 +716,12 @@ const AdminUsersPage = () => {
                 </table>
               </div>
 
-              <div className="mt-5 rounded-xl border border-[#dfe2ea] bg-[#f3f4f6] p-4">
+              <div className="mt-5 rounded-xl border border-[#D7DCE1] bg-[#F4F5F6] p-4">
                 {hasPermissionChanges ? (
                   <div className="space-y-3">
                     <div>
                       <p className="font-bold text-[#07073b]">Estas editando permisos predeterminados</p>
-                      <p className="text-sm text-[#65647a]">
+                      <p className="text-sm text-[#5F6B76]">
                         Tienes {permissionChanges.length} cambio{permissionChanges.length === 1 ? '' : 's'} sin guardar.
                       </p>
                     </div>
@@ -741,7 +741,7 @@ const AdminUsersPage = () => {
                     </div>
                   </div>
                 ) : (
-                  <p className="text-sm text-[#65647a]">No hay cambios pendientes en los permisos predeterminados.</p>
+                  <p className="text-sm text-[#5F6B76]">No hay cambios pendientes en los permisos predeterminados.</p>
                 )}
 
                 <div className="mt-4 space-y-2">
@@ -750,7 +750,7 @@ const AdminUsersPage = () => {
                       type="button"
                       onClick={handleApplyInitialDefaultPermissions}
                       disabled={permissionsLoading}
-                      className="inline-flex items-center justify-center gap-2 rounded-lg border border-[#fbf3df] bg-[#eef8f1] px-4 py-2 text-sm font-bold text-[#8f6419] hover:bg-[#fbf3df] disabled:cursor-not-allowed disabled:opacity-50"
+                      className="inline-flex items-center justify-center gap-2 rounded-lg border border-[#F3EFE6] bg-[#E9F3EE] px-4 py-2 text-sm font-bold text-[#7A5A22] hover:bg-[#F3EFE6] disabled:cursor-not-allowed disabled:opacity-50"
                     >
                       <RotateCcw className="h-4 w-4" />
                       Usar configuracion predeterminada
@@ -759,7 +759,7 @@ const AdminUsersPage = () => {
                       type="button"
                       onClick={handleDiscardDefaultPermissionChanges}
                       disabled={!hasPermissionChanges || Boolean(permissionSaving)}
-                      className="rounded-lg border border-[#dfe2ea] px-4 py-2 text-sm font-bold text-white hover:bg-white disabled:cursor-not-allowed disabled:opacity-50"
+                      className="rounded-lg border border-[#D7DCE1] px-4 py-2 text-sm font-bold text-white hover:bg-white disabled:cursor-not-allowed disabled:opacity-50"
                     >
                       Descartar cambios
                     </button>
@@ -774,7 +774,7 @@ const AdminUsersPage = () => {
                     </button>
                   </div>
                   {isUsingInitialDefaults && (
-                    <p className="text-sm text-[#65647a] sm:text-right">
+                    <p className="text-sm text-[#5F6B76] sm:text-right">
                       Ya estas usando la configuracion predeterminada.
                     </p>
                   )}
@@ -800,24 +800,24 @@ const AdminUsersPage = () => {
       {selectedPermissionUser && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4 py-6">
           <div className="w-full max-w-3xl rounded-2xl bg-white shadow-2xl max-h-[90vh] overflow-y-auto">
-            <div className="flex flex-col gap-3 border-b border-[#dfe2ea] p-6 md:flex-row md:items-start md:justify-between">
+            <div className="flex flex-col gap-3 border-b border-[#D7DCE1] p-6 md:flex-row md:items-start md:justify-between">
               <div>
-                <p className="text-sm uppercase tracking-[0.2em] text-[#1fb74d] font-semibold">Permisos individuales</p>
+                <p className="text-sm uppercase tracking-[0.2em] text-[#238A55] font-semibold">Permisos individuales</p>
                 <h3 className="mt-2 text-2xl font-black text-[#07073b]">{selectedPermissionUser.name}</h3>
-                <p className="mt-1 text-sm text-[#65647a]">
+                <p className="mt-1 text-sm text-[#5F6B76]">
                   Estos permisos solo aplican a este usuario. El Master mantiene acceso total.
                 </p>
               </div>
               <button
                 type="button"
                 onClick={() => setSelectedPermissionUser(null)}
-                className="rounded-lg border border-[#dfe2ea] px-4 py-2 text-sm font-bold text-white hover:bg-[#f3f4f6]"
+                className="rounded-lg border border-[#D7DCE1] px-4 py-2 text-sm font-bold text-white hover:bg-[#F4F5F6]"
               >
                 Cerrar
               </button>
             </div>
 
-            <div className="divide-y divide-[#f3f4f6] p-2">
+            <div className="divide-y divide-[#F4F5F6] p-2">
               {moduleOrder.map((moduleKey) => {
                 const moduleMeta = permissionModules[moduleKey] || {};
                 const checked = Boolean(selectedPermissionUser.module_permissions?.[moduleKey]);
@@ -827,7 +827,7 @@ const AdminUsersPage = () => {
                   <div key={moduleKey} className="flex flex-col gap-3 p-4 md:flex-row md:items-center md:justify-between">
                     <div>
                       <p className="font-bold text-[#07073b]">{moduleMeta.label || moduleLabels[moduleKey]}</p>
-                      <p className="text-xs uppercase tracking-[0.16em] text-[#65647a]">
+                      <p className="text-xs uppercase tracking-[0.16em] text-[#5F6B76]">
                         {moduleMeta.group === 'announcements' ? 'Anuncios' : 'Operacion interna'}
                       </p>
                     </div>
@@ -838,7 +838,7 @@ const AdminUsersPage = () => {
                       className={`inline-flex min-w-[120px] items-center justify-center rounded-full border px-4 py-2 text-sm font-bold transition-colors ${
                         checked
                           ? 'border-green-200 bg-green-100 text-green-700 hover:bg-green-50'
-                          : 'border-[#dfe2ea] bg-[#f3f4f6] text-[#65647a] hover:bg-white'
+                          : 'border-[#D7DCE1] bg-[#F4F5F6] text-[#5F6B76] hover:bg-white'
                       } disabled:opacity-60`}
                     >
                       {userPermissionSaving === savingKey ? 'Guardando...' : checked ? 'Permitido' : 'Bloqueado'}
@@ -862,7 +862,7 @@ const Pagination = ({ meta, onPageChange }) => {
   ));
 
   return (
-    <div className="flex flex-col gap-3 border-t border-[#dfe2ea] p-5 text-sm text-[#65647a] md:flex-row md:items-center md:justify-between">
+    <div className="flex flex-col gap-3 border-t border-[#D7DCE1] p-5 text-sm text-[#5F6B76] md:flex-row md:items-center md:justify-between">
       <div>
         Mostrando <span className="font-bold text-[#07073b]">{meta.from || 0}</span>
         {' - '}
@@ -876,7 +876,7 @@ const Pagination = ({ meta, onPageChange }) => {
           type="button"
           onClick={() => onPageChange(Math.max(1, currentPage - 1))}
           disabled={currentPage === 1}
-          className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-[#dfe2ea] hover:bg-[#f3f4f6] disabled:cursor-not-allowed disabled:opacity-50"
+          className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-[#D7DCE1] hover:bg-[#F4F5F6] disabled:cursor-not-allowed disabled:opacity-50"
         >
           <ChevronLeft className="h-4 w-4" />
         </button>
@@ -887,14 +887,14 @@ const Pagination = ({ meta, onPageChange }) => {
 
           return (
             <div key={page} className="flex items-center gap-2">
-              {showGap && <span className="text-[#65647a]">...</span>}
+              {showGap && <span className="text-[#5F6B76]">...</span>}
               <button
                 type="button"
                 onClick={() => onPageChange(page)}
                 className={`h-9 min-w-[36px] rounded-lg px-3 text-sm font-semibold transition-colors ${
                   currentPage === page
                     ? 'bg-gradient-primary text-white'
-                    : 'border border-[#dfe2ea] text-[#65647a] hover:bg-[#f3f4f6]'
+                    : 'border border-[#D7DCE1] text-[#5F6B76] hover:bg-[#F4F5F6]'
                 }`}
               >
                 {page}
@@ -907,7 +907,7 @@ const Pagination = ({ meta, onPageChange }) => {
           type="button"
           onClick={() => onPageChange(Math.min(lastPage, currentPage + 1))}
           disabled={currentPage === lastPage}
-          className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-[#dfe2ea] hover:bg-[#f3f4f6] disabled:cursor-not-allowed disabled:opacity-50"
+          className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-[#D7DCE1] hover:bg-[#F4F5F6] disabled:cursor-not-allowed disabled:opacity-50"
         >
           <ChevronRight className="h-4 w-4" />
         </button>

@@ -153,24 +153,24 @@ const TramiteTasksPage = () => {
   };
 
   const inputClass =
-    'w-full rounded-xl border border-[#dfe2ea] bg-[#f3f4f6] px-4 py-2 text-[#07073b] outline-none placeholder-[#65647a] focus:border-[#1fb74d] focus:ring-2 focus:ring-[#9be2ad]';
+    'w-full rounded-xl border border-[#D7DCE1] bg-[#F4F5F6] px-4 py-2 text-[#07073b] outline-none placeholder-[#5F6B76] focus:border-[#238A55] focus:ring-2 focus:ring-[#A8D8BA]';
   const labelClass = 'mb-1 block text-sm font-semibold text-[#07073b]';
   const formProgressLocked = form.status === 'pending' || form.status === 'done';
 
   return (
-    <div className="min-h-screen bg-[#f3f4f6] py-10">
+    <div className="min-h-screen bg-[#F4F5F6] py-10">
       <div className="container-custom space-y-6">
         <div className="flex flex-col gap-4 xl:flex-row xl:items-start xl:justify-between">
           <div className="min-w-0">
-            <p className="text-xs font-semibold text-[#1fb74d]">TRAMITE</p>
+            <p className="text-xs font-semibold text-[#238A55]">TRAMITE</p>
             <h1 className="text-3xl font-black text-[#07073b]">{tramite?.project_name || 'Cargando...'}</h1>
-            <p className="text-sm text-[#65647a]">{tramite?.code}</p>
+            <p className="text-sm text-[#5F6B76]">{tramite?.code}</p>
             {tramite && (
               <div className="mt-3 flex flex-wrap gap-2 text-sm">
                 <span className="rounded-full bg-[#07073b] px-3 py-1 font-semibold text-white">
                   Fase actual: {currentStep.phase?.name || 'Sin fase'}
                 </span>
-                <span className="rounded-full bg-[#eef8f1] px-3 py-1 font-semibold text-[#1fb74d]">
+                <span className="rounded-full bg-[#E9F3EE] px-3 py-1 font-semibold text-[#238A55]">
                   Subfase actual: {currentStep.subphase?.name || 'Sin subfase'}
                 </span>
               </div>
@@ -189,19 +189,19 @@ const TramiteTasksPage = () => {
         </div>
 
         {loading ? (
-          <div className="text-center text-[#65647a]">Cargando...</div>
+          <div className="text-center text-[#5F6B76]">Cargando...</div>
         ) : error ? (
           <div className="rounded-2xl border border-red-200 bg-white p-4 text-red-600">{error}</div>
         ) : (
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-            <div className="space-y-4 rounded-2xl border border-[#dfe2ea] bg-white p-6 shadow-lg lg:col-span-2">
+            <div className="space-y-4 rounded-2xl border border-[#D7DCE1] bg-white p-6 shadow-lg lg:col-span-2">
               <div className="flex items-center gap-2">
-                <ClipboardCheck className="h-5 w-5 text-[#1fb74d]" />
+                <ClipboardCheck className="h-5 w-5 text-[#238A55]" />
                 <h2 className="text-xl font-black text-[#07073b]">Tareas asignadas</h2>
               </div>
 
               {tasks.length === 0 ? (
-                <div className="text-[#65647a]">Aun no hay tareas.</div>
+                <div className="text-[#5F6B76]">Aun no hay tareas.</div>
               ) : (
                 <div className="space-y-3">
                   {tasks.map((task) => (
@@ -225,9 +225,9 @@ const TramiteTasksPage = () => {
             </div>
 
             {canCreate && (
-              <div className="rounded-2xl border border-[#dfe2ea] bg-white p-6 shadow-lg">
+              <div className="rounded-2xl border border-[#D7DCE1] bg-white p-6 shadow-lg">
                 <div className="mb-4 flex items-center gap-2">
-                  <PlayCircle className="h-5 w-5 text-[#1fb74d]" />
+                  <PlayCircle className="h-5 w-5 text-[#238A55]" />
                   <h3 className="text-lg font-black text-[#07073b]">Nueva tarea</h3>
                 </div>
 
@@ -348,7 +348,7 @@ const TramiteTasksPage = () => {
                               progress: syncStatusAndProgress(prev.status, e.target.value),
                             }))
                           }
-                          className="w-full accent-[#1fb74d]"
+                          className="w-full accent-[#238A55]"
                           disabled={formProgressLocked}
                         />
                         <input
@@ -377,7 +377,7 @@ const TramiteTasksPage = () => {
                               <button
                                 key={preset}
                                 type="button"
-                                className="rounded-full border border-[#dfe2ea] px-3 py-1 text-xs font-semibold text-[#07073b] hover:border-[#1fb74d] hover:text-[#1fb74d]"
+                                className="rounded-full border border-[#D7DCE1] px-3 py-1 text-xs font-semibold text-[#07073b] hover:border-[#238A55] hover:text-[#238A55]"
                                 onClick={() => setForm((prev) => ({ ...prev, progress: preset }))}
                               >
                                 {preset}%
@@ -476,15 +476,15 @@ const TaskCard = ({
   };
 
   return (
-    <div className="space-y-2 rounded-xl border border-[#dfe2ea] bg-[#ffffff] p-4">
+    <div className="space-y-2 rounded-xl border border-[#D7DCE1] bg-[#ffffff] p-4">
       <div className="flex items-center justify-between">
         <div className="min-w-0 flex-1">
-          <p className="text-xs font-semibold text-[#1fb74d]">
+          <p className="text-xs font-semibold text-[#238A55]">
             {task.phase?.name || 'Sin fase'}
             {task.subphase?.name ? ` / ${task.subphase.name}` : ''}
           </p>
           <p className="text-lg font-bold text-[#07073b]">{task.title}</p>
-          <p className="text-sm text-[#65647a]">{task.description}</p>
+          <p className="text-sm text-[#5F6B76]">{task.description}</p>
         </div>
 
         <span className="rounded-full bg-[#07073b] px-3 py-1 text-xs font-semibold text-white">
@@ -556,7 +556,7 @@ const TaskCard = ({
               min={local.status === 'pending' ? 0 : 1}
               max={local.status === 'done' ? 100 : 99}
               step={1}
-              className="w-full accent-[#1fb74d]"
+              className="w-full accent-[#238A55]"
               value={local.progress}
               onChange={(e) => handleChange('progress', syncStatusAndProgress(local.status, e.target.value))}
               disabled={locked || progressLocked}
@@ -582,7 +582,7 @@ const TaskCard = ({
                   <button
                     key={preset}
                     type="button"
-                    className="rounded-full border border-[#dfe2ea] px-3 py-1 text-xs font-semibold text-[#07073b] hover:border-[#1fb74d] hover:text-[#1fb74d] disabled:cursor-not-allowed disabled:opacity-50"
+                    className="rounded-full border border-[#D7DCE1] px-3 py-1 text-xs font-semibold text-[#07073b] hover:border-[#238A55] hover:text-[#238A55] disabled:cursor-not-allowed disabled:opacity-50"
                     onClick={() => handleChange('progress', preset)}
                     disabled={!canEditProgressFields}
                   >

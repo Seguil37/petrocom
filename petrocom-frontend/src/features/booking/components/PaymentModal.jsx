@@ -26,15 +26,15 @@ const PaymentModal = ({ isOpen, onClose, children, title }) => {
       />
       
       {/* Modal */}
-      <div className="relative bg-[#f3f4f6] rounded-2xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto">
+      <div className="relative bg-[#F4F5F6] rounded-2xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto">
         {/* Header */}
-        <div className="sticky top-0 bg-[#f3f4f6] border-b border-[#dfe2ea] px-6 py-4 flex items-center justify-between rounded-t-2xl">
+        <div className="sticky top-0 bg-[#F4F5F6] border-b border-[#D7DCE1] px-6 py-4 flex items-center justify-between rounded-t-2xl">
           <h3 className="text-xl font-bold text-[#07073b]">{title}</h3>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-[#f3f4f6] rounded-full transition-colors"
+            className="p-2 hover:bg-[#F4F5F6] rounded-full transition-colors"
           >
-            <X className="w-5 h-5 text-[#65647a]" />
+            <X className="w-5 h-5 text-[#5F6B76]" />
           </button>
         </div>
 

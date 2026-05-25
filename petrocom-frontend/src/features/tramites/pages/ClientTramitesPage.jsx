@@ -47,7 +47,7 @@ const ClientTramitesPage = () => {
 
   if (loading) {
     return (
-      <main className="min-h-screen bg-[#f3f4f6]">
+      <main className="min-h-screen bg-[#F4F5F6]">
         <div className="container-custom flex min-h-[60vh] items-center justify-center text-[#07073b]">
           <Loader2 className="mr-2 h-5 w-5 animate-spin" />
           Cargando tus tramites...
@@ -57,14 +57,14 @@ const ClientTramitesPage = () => {
   }
 
   return (
-    <main className="min-h-screen bg-[#f3f4f6]">
-      <section className="border-b border-[#dfe2ea] bg-white">
+    <main className="min-h-screen bg-[#F4F5F6]">
+      <section className="border-b border-[#D7DCE1] bg-white">
         <div className="container-custom py-8">
           <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
             <div>
-              <p className="text-sm font-black uppercase text-[#1fb74d]">Portal del cliente</p>
+              <p className="text-sm font-black uppercase text-[#238A55]">Portal del cliente</p>
               <h1 className="mt-1 text-3xl font-black text-[#07073b]">Mis tramites</h1>
-              <p className="mt-2 max-w-2xl text-[#65647a]">
+              <p className="mt-2 max-w-2xl text-[#5F6B76]">
                 Revisa tus tramites activos, historial con Casaliz y siguientes servicios recomendados.
               </p>
             </div>
@@ -88,14 +88,14 @@ const ClientTramitesPage = () => {
         {error ? (
           <div className="rounded-lg border border-red-200 bg-red-50 p-5 text-sm font-semibold text-red-700">{error}</div>
         ) : tramites.length === 0 ? (
-          <div className="rounded-lg border border-[#dfe2ea] bg-white p-8 text-center">
+          <div className="rounded-lg border border-[#D7DCE1] bg-white p-8 text-center">
             <p className="text-xl font-black text-[#07073b]">Aun no tienes tramites vinculados a tu cuenta</p>
-            <p className="mt-2 text-sm text-[#65647a]">
+            <p className="mt-2 text-sm text-[#5F6B76]">
               Si ya tienes un codigo, puedes consultar el estado sin iniciar sesion o pedir al equipo que lo vincule a tu perfil.
             </p>
             <Link
               to="/consulta-tramite"
-              className="mt-5 inline-flex min-h-[44px] items-center justify-center rounded-lg bg-[#1fb74d] px-5 font-black text-white transition hover:bg-[#168a3d]"
+              className="mt-5 inline-flex min-h-[44px] items-center justify-center rounded-lg bg-[#238A55] px-5 font-black text-white transition hover:bg-[#196B43]"
             >
               Consultar por codigo
             </Link>
@@ -103,18 +103,18 @@ const ClientTramitesPage = () => {
         ) : (
           <div className="grid grid-cols-1 gap-6 xl:grid-cols-[360px_1fr]">
             <aside className="space-y-4">
-              <div className="rounded-lg border border-[#dfe2ea] bg-white p-4 shadow-sm">
-                <label htmlFor="client-tramite-search" className="text-xs font-black uppercase text-[#65647a]">
+              <div className="rounded-lg border border-[#D7DCE1] bg-white p-4 shadow-sm">
+                <label htmlFor="client-tramite-search" className="text-xs font-black uppercase text-[#5F6B76]">
                   Buscar
                 </label>
                 <div className="relative mt-2">
-                  <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#65647a]" />
+                  <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#5F6B76]" />
                   <input
                     id="client-tramite-search"
                     value={search}
                     onChange={(event) => setSearch(event.target.value)}
                     placeholder="Codigo o proyecto"
-                    className="min-h-[44px] w-full rounded-lg border border-[#dfe2ea] pl-10 pr-3 text-sm text-[#07073b] outline-none focus:border-[#1fb74d]"
+                    className="min-h-[44px] w-full rounded-lg border border-[#D7DCE1] pl-10 pr-3 text-sm text-[#07073b] outline-none focus:border-[#238A55]"
                   />
                 </div>
               </div>
@@ -127,16 +127,16 @@ const ClientTramitesPage = () => {
                     onClick={() => setSelectedId(tramite.id)}
                     className={`w-full rounded-lg border p-4 text-left transition ${
                       selected?.id === tramite.id
-                        ? 'border-[#1fb74d] bg-white shadow-sm'
-                        : 'border-[#dfe2ea] bg-white hover:border-[#07073b]'
+                        ? 'border-[#238A55] bg-white shadow-sm'
+                        : 'border-[#D7DCE1] bg-white hover:border-[#07073b]'
                     }`}
                   >
-                    <p className="text-xs font-black uppercase text-[#1fb74d]">{tramite.code}</p>
+                    <p className="text-xs font-black uppercase text-[#238A55]">{tramite.code}</p>
                     <p className="mt-1 font-black text-[#07073b]">{tramite.project_name || tramite.type?.name}</p>
-                    <div className="mt-3 h-2 overflow-hidden rounded-full bg-[#dfe2ea]">
-                      <div className="h-full rounded-full bg-[#1fb74d]" style={{ width: `${tramite.progress || 0}%` }} />
+                    <div className="mt-3 h-2 overflow-hidden rounded-full bg-[#D7DCE1]">
+                      <div className="h-full rounded-full bg-[#238A55]" style={{ width: `${tramite.progress || 0}%` }} />
                     </div>
-                    <p className="mt-2 text-xs font-semibold text-[#65647a]">{tramite.status_label} - {tramite.progress || 0}%</p>
+                    <p className="mt-2 text-xs font-semibold text-[#5F6B76]">{tramite.status_label} - {tramite.progress || 0}%</p>
                   </button>
                 ))}
               </div>
@@ -145,16 +145,16 @@ const ClientTramitesPage = () => {
             <div className="space-y-6">
               <ClientTramiteStatus tramite={selected} />
 
-              <section className="rounded-lg border border-[#dfe2ea] bg-white p-5 shadow-sm">
+              <section className="rounded-lg border border-[#D7DCE1] bg-white p-5 shadow-sm">
                 <div className="flex items-center gap-2">
-                  <Sparkles className="h-5 w-5 text-[#1fb74d]" />
+                  <Sparkles className="h-5 w-5 text-[#238A55]" />
                   <h2 className="text-lg font-black text-[#07073b]">Servicios recomendados</h2>
                 </div>
                 <div className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-3">
                   {recommendations.map((item) => (
-                    <div key={item.title} className="rounded-lg border border-[#dfe2ea] bg-[#ffffff] p-4">
+                    <div key={item.title} className="rounded-lg border border-[#D7DCE1] bg-[#ffffff] p-4">
                       <p className="font-black text-[#07073b]">{item.title}</p>
-                      <p className="mt-1 text-sm text-[#65647a]">{item.description}</p>
+                      <p className="mt-1 text-sm text-[#5F6B76]">{item.description}</p>
                     </div>
                   ))}
                 </div>
@@ -170,10 +170,10 @@ const ClientTramitesPage = () => {
 export default ClientTramitesPage;
 
 const Stat = ({ icon, label, value }) => (
-  <div className="rounded-lg border border-[#dfe2ea] bg-[#ffffff] p-4">
-    {createElement(icon, { className: 'h-5 w-5 text-[#1fb74d]' })}
+  <div className="rounded-lg border border-[#D7DCE1] bg-[#ffffff] p-4">
+    {createElement(icon, { className: 'h-5 w-5 text-[#238A55]' })}
     <p className="mt-3 text-3xl font-black text-[#07073b]">{value || 0}</p>
-    <p className="text-sm font-bold text-[#65647a]">{label}</p>
+    <p className="text-sm font-bold text-[#5F6B76]">{label}</p>
   </div>
 );
 

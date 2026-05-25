@@ -202,25 +202,25 @@ const TramitesByClientPage = () => {
 
   if (!canManageTramites) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-[#f3f4f6] font-semibold text-[#07073b]">
+      <div className="flex min-h-screen items-center justify-center bg-[#F4F5F6] font-semibold text-[#07073b]">
         No tienes permiso para gestionar tramites por cliente/proyecto.
       </div>
     );
   }
 
   const inputClass =
-    'w-full rounded-xl border border-[#dfe2ea] bg-[#f3f4f6] px-4 py-2 text-[#07073b] outline-none placeholder-[#65647a] focus:border-[#1fb74d] focus:ring-2 focus:ring-[#9be2ad]';
+    'w-full rounded-xl border border-[#D7DCE1] bg-[#F4F5F6] px-4 py-2 text-[#07073b] outline-none placeholder-[#5F6B76] focus:border-[#238A55] focus:ring-2 focus:ring-[#A8D8BA]';
   const labelClass = 'mb-1 block text-sm font-semibold text-[#07073b]';
   const codePreview = form.tramite_type_id ? buildTramiteCodeSuggestion(types, form.tramite_type_id) : 'Se generara al guardar';
   const canCreateOrDelete = canManageTramites;
 
   return (
-    <div className="min-h-screen bg-[#f3f4f6] py-10">
+    <div className="min-h-screen bg-[#F4F5F6] py-10">
       <div className="container-custom space-y-6">
         <div className="flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
           <div className="min-w-0">
             <h1 className="text-3xl font-black text-[#07073b]">Tramites por Cliente / Proyecto</h1>
-            <p className="text-[#65647a]">
+            <p className="text-[#5F6B76]">
               Asigna un flujo de tramite ya definido a un cliente o proyecto especifico.
             </p>
           </div>
@@ -237,19 +237,19 @@ const TramitesByClientPage = () => {
         </div>
 
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-          <div className="rounded-2xl border border-[#dfe2ea] bg-white p-6 shadow-lg lg:col-span-1">
+          <div className="rounded-2xl border border-[#D7DCE1] bg-white p-6 shadow-lg lg:col-span-1">
             <div className="mb-4 flex items-center gap-2">
-              <Plus className="h-5 w-5 text-[#1fb74d]" />
+              <Plus className="h-5 w-5 text-[#238A55]" />
               <h2 className="text-xl font-black text-[#07073b]">Registrar tramite</h2>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-3">
               <div>
                 <label className={labelClass}>Codigo generado</label>
-                <div className="rounded-xl border border-[#dfe2ea] bg-[#f3f4f6] px-4 py-2 font-semibold text-[#07073b]">
+                <div className="rounded-xl border border-[#D7DCE1] bg-[#F4F5F6] px-4 py-2 font-semibold text-[#07073b]">
                   {codePreview}
                 </div>
-                <p className="mt-1 text-xs text-[#65647a]">
+                <p className="mt-1 text-xs text-[#5F6B76]">
                   El sistema asigna el codigo automaticamente segun el tipo, el año y el correlativo interno.
                 </p>
               </div>
@@ -292,7 +292,7 @@ const TramitesByClientPage = () => {
                     </option>
                   ))}
                 </select>
-                <p className="mt-1 text-xs text-[#65647a]">
+                <p className="mt-1 text-xs text-[#5F6B76]">
                   Si eliges un cliente registrado, el tramite aparecera en su portal. Si lo dejas vacio, podra consultar solo con el codigo.
                 </p>
               </div>
@@ -306,7 +306,7 @@ const TramitesByClientPage = () => {
                   onBlur={() => setForm((prev) => ({ ...prev, client_name: toTitleCase(prev.client_name) }))}
                   placeholder="Ej: Juan Perez Quispe"
                 />
-                <p className="mt-1 text-xs text-[#65647a]">Usa nombre y apellidos completos. Se corrige a formato titulo al salir del campo.</p>
+                <p className="mt-1 text-xs text-[#5F6B76]">Usa nombre y apellidos completos. Se corrige a formato titulo al salir del campo.</p>
               </div>
 
               <div>
@@ -325,7 +325,7 @@ const TramitesByClientPage = () => {
                     <option key={name} value={name} />
                   ))}
                 </datalist>
-                <p className="mt-1 text-xs text-[#65647a]">Elige una sugerencia si aplica; evita abreviaciones como lic., reg. o indep.</p>
+                <p className="mt-1 text-xs text-[#5F6B76]">Elige una sugerencia si aplica; evita abreviaciones como lic., reg. o indep.</p>
               </div>
 
               <div>
@@ -337,10 +337,10 @@ const TramitesByClientPage = () => {
                   onBlur={() => setForm((prev) => ({ ...prev, property_name: toTitleCase(prev.property_name) }))}
                   placeholder="Ej: Torre A, Local 102"
                 />
-                <p className="mt-1 text-xs text-[#65647a]">Usa una denominacion estable: manzana, lote, local o edificio si corresponde.</p>
+                <p className="mt-1 text-xs text-[#5F6B76]">Usa una denominacion estable: manzana, lote, local o edificio si corresponde.</p>
               </div>
 
-              <div className="space-y-3 rounded-2xl border border-[#f3f4f6] bg-[#ffffff] p-4">
+              <div className="space-y-3 rounded-2xl border border-[#F4F5F6] bg-[#ffffff] p-4">
                 <div>
                   <label className={labelClass}>Departamento</label>
                   <select
@@ -399,7 +399,7 @@ const TramitesByClientPage = () => {
                   </datalist>
                 </div>
 
-                <p className="text-xs text-[#65647a]">
+                <p className="text-xs text-[#5F6B76]">
                   {form.location_department
                     ? `Sugerencias para ${form.location_department}: provincias ${provinceHints.join(', ') || 'sin datos'}; distritos ${districtHints.join(', ') || 'sin datos'}.`
                     : 'Primero elige un departamento para ver sugerencias de provincia y distrito.'}
@@ -451,16 +451,16 @@ const TramitesByClientPage = () => {
             </form>
           </div>
 
-          <div className="rounded-2xl border border-[#dfe2ea] bg-white p-6 shadow-lg lg:col-span-2">
+          <div className="rounded-2xl border border-[#D7DCE1] bg-white p-6 shadow-lg lg:col-span-2">
             <div className="mb-4 space-y-4">
               <div className="flex items-center gap-2">
-                <ClipboardList className="h-5 w-5 text-[#1fb74d]" />
+                <ClipboardList className="h-5 w-5 text-[#238A55]" />
                 <h2 className="text-xl font-black text-[#07073b]">Tramites recientes</h2>
               </div>
 
               <form onSubmit={applySearch} className="grid grid-cols-1 gap-3 md:grid-cols-[1fr_180px_auto_auto]">
                 <div className="relative">
-                  <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#65647a]" />
+                  <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#5F6B76]" />
                   <input
                     className={`${inputClass} pl-10`}
                     value={searchDraft}
@@ -488,7 +488,7 @@ const TramitesByClientPage = () => {
                 <button
                   type="button"
                   onClick={clearFilters}
-                  className="rounded-xl border border-[#dfe2ea] px-4 py-2 font-semibold text-[#07073b] transition hover:bg-[#f3f4f6]"
+                  className="rounded-xl border border-[#D7DCE1] px-4 py-2 font-semibold text-[#07073b] transition hover:bg-[#F4F5F6]"
                 >
                   Limpiar
                 </button>
@@ -496,34 +496,34 @@ const TramitesByClientPage = () => {
             </div>
 
             {loading ? (
-              <div className="text-[#65647a]">Cargando...</div>
+              <div className="text-[#5F6B76]">Cargando...</div>
             ) : tramites.length === 0 ? (
-              <div className="text-[#65647a]">No se encontraron tramites con esos filtros.</div>
+              <div className="text-[#5F6B76]">No se encontraron tramites con esos filtros.</div>
             ) : (
               <div className="space-y-3">
                 {tramites.map((tramite) => (
                   <div
                     key={tramite.id}
-                    className="flex flex-col gap-3 rounded-xl border border-[#dfe2ea] bg-[#ffffff] p-4 md:flex-row md:items-center md:justify-between"
+                    className="flex flex-col gap-3 rounded-xl border border-[#D7DCE1] bg-[#ffffff] p-4 md:flex-row md:items-center md:justify-between"
                   >
                     <div className="flex-1 space-y-1">
-                      <p className="text-xs font-semibold text-[#1fb74d]">{tramite.code}</p>
+                      <p className="text-xs font-semibold text-[#238A55]">{tramite.code}</p>
                       <p className="text-lg font-bold text-[#07073b]">{tramite.project_name}</p>
                       <div className="flex flex-wrap gap-3 text-sm text-[#07073b]">
                         <span className="flex items-center gap-1">
-                          <UserCircle className="h-4 w-4 text-[#1fb74d]" />
+                          <UserCircle className="h-4 w-4 text-[#238A55]" />
                           {tramite.client_name || 'Cliente N/D'}
                         </span>
                         <span className="flex items-center gap-1">
-                          <Building2 className="h-4 w-4 text-[#1fb74d]" />
+                          <Building2 className="h-4 w-4 text-[#238A55]" />
                           {tramite.property_name || 'Inmueble N/D'}
                         </span>
                         <span className="flex items-center gap-1">
-                          <MapPin className="h-4 w-4 text-[#1fb74d]" />
+                          <MapPin className="h-4 w-4 text-[#238A55]" />
                           {tramite.location || 'Ubicacion N/D'}
                         </span>
                         <span className="flex items-center gap-1">
-                          <ClipboardList className="h-4 w-4 text-[#1fb74d]" />
+                          <ClipboardList className="h-4 w-4 text-[#238A55]" />
                           Fecha de vencimiento: {formatDate(tramite.due_date)}
                         </span>
                       </div>
@@ -547,7 +547,7 @@ const TramitesByClientPage = () => {
 
                       <button
                         onClick={() => startEdit(tramite)}
-                        className="rounded-lg border border-[#1fb74d] px-4 py-2 font-semibold text-[#1fb74d] transition hover:bg-[#eef8f1]"
+                        className="rounded-lg border border-[#238A55] px-4 py-2 font-semibold text-[#238A55] transition hover:bg-[#E9F3EE]"
                       >
                         Editar
                       </button>
@@ -579,7 +579,7 @@ const TramitesByClientPage = () => {
 
                 {pagination.lastPage > 1 && (
                   <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
-                    <p className="text-sm text-[#65647a]">
+                    <p className="text-sm text-[#5F6B76]">
                       Pagina {currentPage} de {pagination.lastPage}. {pagination.total} tramite(s).
                     </p>
                     <div className="flex items-center gap-2">
@@ -587,7 +587,7 @@ const TramitesByClientPage = () => {
                         type="button"
                         onClick={() => setCurrentPage((page) => Math.max(1, page - 1))}
                         disabled={currentPage === 1}
-                        className="inline-flex items-center gap-1 rounded-lg border border-[#dfe2ea] px-3 py-2 font-semibold text-[#07073b] transition hover:bg-[#f3f4f6] disabled:cursor-not-allowed disabled:opacity-50"
+                        className="inline-flex items-center gap-1 rounded-lg border border-[#D7DCE1] px-3 py-2 font-semibold text-[#07073b] transition hover:bg-[#F4F5F6] disabled:cursor-not-allowed disabled:opacity-50"
                       >
                         <ChevronLeft className="h-4 w-4" />
                         Anterior
@@ -596,7 +596,7 @@ const TramitesByClientPage = () => {
                         type="button"
                         onClick={() => setCurrentPage((page) => Math.min(pagination.lastPage, page + 1))}
                         disabled={currentPage === pagination.lastPage}
-                        className="inline-flex items-center gap-1 rounded-lg border border-[#dfe2ea] px-3 py-2 font-semibold text-[#07073b] transition hover:bg-[#f3f4f6] disabled:cursor-not-allowed disabled:opacity-50"
+                        className="inline-flex items-center gap-1 rounded-lg border border-[#D7DCE1] px-3 py-2 font-semibold text-[#07073b] transition hover:bg-[#F4F5F6] disabled:cursor-not-allowed disabled:opacity-50"
                       >
                         Siguiente
                         <ChevronRight className="h-4 w-4" />
@@ -615,7 +615,7 @@ const TramitesByClientPage = () => {
           <div className="w-full max-w-3xl space-y-4 rounded-2xl bg-white p-6 shadow-2xl">
             <div className="flex items-center justify-between">
               <h3 className="text-xl font-bold text-[#07073b]">Editar tramite</h3>
-              <button onClick={() => setEditing(null)} className="text-[#65647a] hover:text-[#07073b]">
+              <button onClick={() => setEditing(null)} className="text-[#5F6B76] hover:text-[#07073b]">
                 x
               </button>
             </div>
@@ -623,10 +623,10 @@ const TramitesByClientPage = () => {
             <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
               <div>
                 <label className={labelClass}>Codigo actual</label>
-                <div className="rounded-xl border border-[#dfe2ea] bg-[#f3f4f6] px-4 py-2 font-semibold text-[#07073b]">
+                <div className="rounded-xl border border-[#D7DCE1] bg-[#F4F5F6] px-4 py-2 font-semibold text-[#07073b]">
                   {editing.code || 'Se generara automaticamente'}
                 </div>
-                <p className="mt-1 text-xs text-[#65647a]">
+                <p className="mt-1 text-xs text-[#5F6B76]">
                   Solo cambia si reasignas el tramite a otro tipo.
                 </p>
               </div>
@@ -803,7 +803,7 @@ const TramitesByClientPage = () => {
             <div className="flex justify-end gap-3">
               <button
                 onClick={() => setEditing(null)}
-                className="rounded-lg border border-[#dfe2ea] px-4 py-2 text-[#65647a]"
+                className="rounded-lg border border-[#D7DCE1] px-4 py-2 text-[#5F6B76]"
               >
                 Cancelar
               </button>

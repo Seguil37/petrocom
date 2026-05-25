@@ -69,18 +69,18 @@ const PopularCountriesSection = () => {
   }, []);
 
   return (
-    <section className="py-20 bg-[#f3f4f6] overflow-hidden">
+    <section className="py-20 bg-[#F4F5F6] overflow-hidden">
       <div className="container-custom">
         <div className="flex items-center justify-between mb-12 animate-fade-in">
           <div className="flex items-center gap-3 transition-transform duration-500 hover:translate-x-1">
-            <Globe className="w-8 h-8 text-[#1fb74d] transition-transform duration-500 hover:scale-110 hover:rotate-6" />
+            <Globe className="w-8 h-8 text-[#238A55] transition-transform duration-500 hover:scale-110 hover:rotate-6" />
             <h2 className="text-4xl lg:text-5xl font-black text-[#07073b]">
               Nuestros servicios principales
             </h2>
           </div>
           <Link
             to="/services#servicios-listado"
-            className="hidden md:inline-flex items-center gap-2 text-[#1fb74d] font-semibold hover:text-[#e8a12f] transition-all duration-300 hover:translate-x-1"
+            className="hidden md:inline-flex items-center gap-2 text-[#238A55] font-semibold hover:text-[#C58A2A] transition-all duration-300 hover:translate-x-1"
           >
             <Star className="w-5 h-5 fill-current" />
             <span className="font-semibold">Explora nuestros servicios clave</span>
@@ -110,13 +110,13 @@ const PopularCountriesSection = () => {
                   </div>
                 </div>
                 <div className="absolute bottom-6 left-6 right-6">
-                  <div className="bg-[#f3f4f6]/90 backdrop-blur-sm rounded-xl p-4 mb-4">
+                  <div className="bg-[#F4F5F6]/90 backdrop-blur-sm rounded-xl p-4 mb-4">
                     <p className="text-sm text-[#07073b] font-semibold">{country.subtitle}</p>
                   </div>
                   <Link
                     to="/services#servicios-listado"
                     state={{ prefill: country.name }}
-                    className="w-full bg-[#1fb74d] hover:bg-[#168a3d] text-white font-bold py-3 rounded-xl transition-all duration-300 opacity-0 group-hover:opacity-100 group-hover:-translate-y-1 text-center block"
+                    className="w-full bg-[#238A55] hover:bg-[#196B43] text-white font-bold py-3 rounded-xl transition-all duration-300 opacity-0 group-hover:opacity-100 group-hover:-translate-y-1 text-center block"
                   >
                     Explorar servicios de este tipo
                   </Link>
@@ -130,7 +130,7 @@ const PopularCountriesSection = () => {
           {countries.map((_, index) => (
             <div
               key={index}
-              className="w-2 h-2 rounded-full bg-[#65647a] animate-pulse"
+              className="w-2 h-2 rounded-full bg-[#5F6B76] animate-pulse"
               style={{ animationDelay: `${index * 0.2}s` }}
             />
           ))}

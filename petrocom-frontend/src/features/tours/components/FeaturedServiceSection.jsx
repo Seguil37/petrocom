@@ -70,26 +70,26 @@ const FeaturedServiceSection = () => {
 
   if (loading) {
     return (
-      <section className="py-20 bg-[#f3f4f6]">
+      <section className="py-20 bg-[#F4F5F6]">
         <div className="container-custom text-center">
-          <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-[#1fb74d] border-t-transparent" />
-          <p className="mt-4 text-[#65647a]">Cargando servicios...</p>
+          <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-[#238A55] border-t-transparent" />
+          <p className="mt-4 text-[#5F6B76]">Cargando servicios...</p>
         </div>
       </section>
     );
   }
 
   return (
-    <section className="py-20 bg-[#f3f4f6]">
+    <section className="py-20 bg-[#F4F5F6]">
       <div className="container-custom">
         <div className="flex items-center justify-between mb-12">
           <div className="flex items-center gap-3 transition-transform duration-500 hover:translate-x-1">
-            <Sparkles className="w-8 h-8 text-[#1fb74d] transition-transform duration-500 hover:scale-110 hover:rotate-6" />
+            <Sparkles className="w-8 h-8 text-[#238A55] transition-transform duration-500 hover:scale-110 hover:rotate-6" />
             <h2 className="text-4xl lg:text-5xl font-black text-[#07073b]">Servicios destacados</h2>
           </div>
           <Link
             to="/services"
-            className="hidden md:flex items-center gap-2 text-[#1fb74d] hover:text-[#e8a12f] font-semibold transition-all duration-300 hover:translate-x-1"
+            className="hidden md:flex items-center gap-2 text-[#238A55] hover:text-[#C58A2A] font-semibold transition-all duration-300 hover:translate-x-1"
           >
             Ver todos los servicios
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -103,11 +103,11 @@ const FeaturedServiceSection = () => {
             <Link
               key={service.id}
               to={`/services/${service.slug || service.id}`}
-              className="group bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2 border border-[#dfe2ea]"
+              className="group bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2 border border-[#D7DCE1]"
             >
               <div className="p-4 pb-0">
                 {isFeaturedService(service) && (
-                  <span className="inline-flex bg-[#1fb74d] text-white px-3 py-1 rounded-full text-xs font-bold shadow-md transition-transform duration-300 group-hover:scale-105">
+                  <span className="inline-flex bg-[#238A55] text-white px-3 py-1 rounded-full text-xs font-bold shadow-md transition-transform duration-300 group-hover:scale-105">
                     Destacado
                   </span>
                 )}
@@ -123,14 +123,14 @@ const FeaturedServiceSection = () => {
               </div>
 
               <div className="p-5 space-y-3">
-                <div className="flex items-center gap-2 text-sm text-[#65647a]">
-                  <Briefcase className="w-4 h-4 text-[#1fb74d] transition-transform duration-300 group-hover:rotate-6" />
+                <div className="flex items-center gap-2 text-sm text-[#5F6B76]">
+                  <Briefcase className="w-4 h-4 text-[#238A55] transition-transform duration-300 group-hover:rotate-6" />
                   <span>{service.category || 'Servicio'}</span>
                 </div>
 
-                <h3 className="text-xl font-bold text-[#07073b] leading-tight line-clamp-2 transition-colors duration-300 group-hover:text-[#1fb74d]">{service.title}</h3>
+                <h3 className="text-xl font-bold text-[#07073b] leading-tight line-clamp-2 transition-colors duration-300 group-hover:text-[#238A55]">{service.title}</h3>
 
-                <p className="text-sm text-[#454546] line-clamp-2">
+                <p className="text-sm text-[#303840] line-clamp-2">
                   {service.short_description || 'Conoce mas sobre este servicio especializado.'}
                 </p>
               </div>

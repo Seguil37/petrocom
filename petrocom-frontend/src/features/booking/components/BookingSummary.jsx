@@ -4,7 +4,7 @@ import { Calendar, Users, MapPin, Clock } from 'lucide-react';
 
 const BookingSummary = ({ tour, bookingData, priceBreakdown }) => {
   return (
-    <div className="bg-[#f3f4f6] rounded-2xl shadow-lg p-6 sticky top-24">
+    <div className="bg-[#F4F5F6] rounded-2xl shadow-lg p-6 sticky top-24">
       {/* Imagen */}
       <img
         src={tour.featured_image}
@@ -17,7 +17,7 @@ const BookingSummary = ({ tour, bookingData, priceBreakdown }) => {
       </h3>
 
       {/* Detalles */}
-      <div className="space-y-3 mb-6 pb-6 border-b border-[#dfe2ea]">
+      <div className="space-y-3 mb-6 pb-6 border-b border-[#D7DCE1]">
         {bookingData.date && (
           <div className="flex items-center gap-2 text-[#07073b]">
             <Calendar className="w-5 h-5 text-primary" />
@@ -60,7 +60,7 @@ const BookingSummary = ({ tour, bookingData, priceBreakdown }) => {
 
       {/* Desglose de Precios */}
       {priceBreakdown && (
-        <div className="space-y-3 mb-6 pb-6 border-b border-[#dfe2ea]">
+        <div className="space-y-3 mb-6 pb-6 border-b border-[#D7DCE1]">
           {priceBreakdown.items.map((item, index) => (
             <div key={index} className="flex justify-between text-[#07073b] text-sm">
               <span>{item.label}</span>
@@ -78,7 +78,7 @@ const BookingSummary = ({ tour, bookingData, priceBreakdown }) => {
         </span>
       </div>
 
-      <p className="text-xs text-[#65647a] text-center mt-4">
+      <p className="text-xs text-[#5F6B76] text-center mt-4">
         Cancelación gratuita hasta {tour.cancellation_hours}h antes
       </p>
     </div>

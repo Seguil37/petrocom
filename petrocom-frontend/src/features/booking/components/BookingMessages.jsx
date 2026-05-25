@@ -99,13 +99,13 @@ const BookingMessages = ({ bookingId }) => {
   }
 
   return (
-    <div className="bg-[#f3f4f6] rounded-2xl shadow-lg flex flex-col h-[600px]">
+    <div className="bg-[#F4F5F6] rounded-2xl shadow-lg flex flex-col h-[600px]">
       {/* Header */}
-      <div className="px-6 py-4 border-b border-[#dfe2ea]">
+      <div className="px-6 py-4 border-b border-[#D7DCE1]">
         <h3 className="font-bold text-[#07073b]">
           Mensajes con la Agencia
         </h3>
-        <p className="text-sm text-[#65647a]">
+        <p className="text-sm text-[#5F6B76]">
           Comunícate directamente sobre tu reserva
         </p>
       </div>
@@ -114,8 +114,8 @@ const BookingMessages = ({ bookingId }) => {
       <div className="flex-1 overflow-y-auto p-6 space-y-4">
         {messages.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-[#65647a]">No hay mensajes aún</p>
-            <p className="text-sm text-[#65647a] mt-2">
+            <p className="text-[#5F6B76]">No hay mensajes aún</p>
+            <p className="text-sm text-[#5F6B76] mt-2">
               Inicia la conversación con la agencia
             </p>
           </div>
@@ -132,12 +132,12 @@ const BookingMessages = ({ bookingId }) => {
                   className={`max-w-[70%] ${
                     isOwn
                       ? 'bg-primary text-[#07073b]'
-                      : 'bg-[#f3f4f6] text-[#07073b]'
+                      : 'bg-[#F4F5F6] text-[#07073b]'
                   } rounded-2xl px-4 py-3`}
                 >
                   {/* Nombre del remitente */}
                   {!isOwn && (
-                    <p className="text-xs font-semibold text-[#65647a] mb-1">
+                    <p className="text-xs font-semibold text-[#5F6B76] mb-1">
                       {message.sender?.name || 'Agencia'}
                     </p>
                   )}
@@ -150,7 +150,7 @@ const BookingMessages = ({ bookingId }) => {
                   {/* Hora */}
                   <p
                     className={`text-xs mt-1 ${
-                      isOwn ? 'text-[#07073b]' : 'text-[#65647a]'
+                      isOwn ? 'text-[#07073b]' : 'text-[#5F6B76]'
                     }`}
                   >
                     {formatTime(message.created_at)}
@@ -167,7 +167,7 @@ const BookingMessages = ({ bookingId }) => {
       </div>
 
       {/* Input Area */}
-      <div className="px-6 py-4 border-t border-[#dfe2ea]">
+      <div className="px-6 py-4 border-t border-[#D7DCE1]">
         <form onSubmit={handleSend} className="flex items-end gap-3">
           <div className="flex-1">
             <textarea
@@ -181,7 +181,7 @@ const BookingMessages = ({ bookingId }) => {
               }}
               placeholder="Escribe tu mensaje..."
               rows="2"
-              className="w-full px-4 py-3 border-2 border-[#dfe2ea] rounded-xl focus:border-primary focus:outline-none resize-none"
+              className="w-full px-4 py-3 border-2 border-[#D7DCE1] rounded-xl focus:border-primary focus:outline-none resize-none"
             />
           </div>
 
@@ -198,7 +198,7 @@ const BookingMessages = ({ bookingId }) => {
             Enviar
           </button>
         </form>
-        <p className="text-xs text-[#65647a] mt-2">
+        <p className="text-xs text-[#5F6B76] mt-2">
           Presiona Enter para enviar, Shift+Enter para nueva línea
         </p>
       </div>

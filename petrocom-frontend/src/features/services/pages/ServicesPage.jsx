@@ -164,23 +164,24 @@ const ServicesPage = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#f3f4f6]">
+      <div className="min-h-screen flex items-center justify-center bg-[#F4F5F6]">
         <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin" />
       </div>
     );
   }
 
   return (
-    <div className="bg-[#f3f4f6] min-h-screen pb-12">
-      <div className="relative overflow-hidden bg-gradient-to-br from-[#07073b] via-[#10104d] to-[#454546] text-white py-16">
-        <div className="absolute inset-0 opacity-10 pointer-events-none">
+    <div className="bg-[#F4F5F6] min-h-screen pb-12">
+      <div className="relative overflow-hidden bg-[linear-gradient(135deg,#07073b_0%,#10104d_42%,#238A55_82%,#303840_100%)] text-white py-16">
+        <div className="absolute inset-0 opacity-14 pointer-events-none">
           <div className="absolute -left-16 -top-10 w-64 h-64 rounded-full bg-white/30 blur-3xl" />
-          <div className="absolute right-0 bottom-0 w-72 h-72 rounded-full bg-white/20 blur-3xl" />
+          <div className="absolute right-0 bottom-0 w-[32rem] h-[32rem] rounded-full bg-[#238A55]/45 blur-3xl" />
+          <div className="absolute right-1/4 top-8 w-80 h-80 rounded-full bg-[#7CC99C]/18 blur-3xl" />
         </div>
         <div className="container-custom relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <div className="space-y-5">
             <div className="inline-flex items-center gap-3 px-4 py-2 bg-white/15 rounded-full text-sm font-semibold uppercase tracking-wide border border-white/25 transition-transform duration-500 hover:translate-x-1">
-              <span className="h-2 w-2 rounded-full bg-[#e8a12f] transition-transform duration-500 hover:scale-125" />
+              <span className="h-2 w-2 rounded-full bg-[#C58A2A] transition-transform duration-500 hover:scale-125" />
               Servicios CASALIZ
             </div>
             <h1 className="text-4xl sm:text-5xl font-black leading-tight transition-transform duration-500 hover:translate-x-1">
@@ -207,7 +208,7 @@ const ServicesPage = () => {
             </div>
           </div>
 
-          <div className="bg-white/10 border border-white/20 rounded-2xl p-6 shadow-2xl backdrop-blur transition-all duration-500 hover:-translate-y-2 hover:bg-white/15">
+          <div className="bg-[linear-gradient(145deg,rgba(255,255,255,0.13),rgba(35,138,85,0.10))] border border-white/20 rounded-2xl p-6 shadow-2xl backdrop-blur transition-all duration-500 hover:-translate-y-2 hover:bg-white/15">
             <div className="flex items-center gap-2 text-sm font-semibold uppercase text-white/80 mb-4">
               <Briefcase className="w-5 h-5 transition-transform duration-500 hover:scale-110 hover:rotate-6" />
               Encuentra tu servicio
@@ -238,9 +239,9 @@ const ServicesPage = () => {
                   type="checkbox"
                   checked={featuredOnly}
                   onChange={(e) => handleFeaturedToggle(e.target.checked)}
-                  className="h-4 w-4 rounded border-white/60 bg-white/20 text-[#e8a12f] focus:ring-white/60"
+                  className="h-4 w-4 rounded border-white/60 bg-white/20 text-[#C58A2A] focus:ring-white/60"
                 />
-                <Sparkles className="w-4 h-4 text-[#e8a12f]" />
+                <Sparkles className="w-4 h-4 text-[#C58A2A]" />
                 <span>Ver solo destacados</span>
               </label>
               <button
@@ -257,7 +258,7 @@ const ServicesPage = () => {
                 Mostrar todos los servicios
               </button>
               <div className="flex flex-wrap gap-2 text-xs text-white/80">
-                <Sparkles className="w-4 h-4 text-[#e8a12f]" />
+                <Sparkles className="w-4 h-4 text-[#C58A2A]" />
                 <span>Sugerencias:</span>
                 {[ 'Diseño, Construcción y Regularización Inmobiliaria', 'Servicios Inmobiliarios', 'Trámites y Regularización Inmobiliaria'].map((tag) => (
                   <button
@@ -277,10 +278,10 @@ const ServicesPage = () => {
 
       <div className="container-custom">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 -mt-8 relative z-10">
-          <div className="lg:col-span-2 bg-white rounded-2xl shadow-lg border border-[#dfe2ea] p-4 space-y-3 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_22px_45px_rgba(35,50,116,0.08)]">
+          <div className="lg:col-span-2 bg-white rounded-2xl shadow-lg border border-[#D7DCE1] p-4 space-y-3 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_22px_45px_rgba(35,50,116,0.08)]">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-[11px] uppercase tracking-wide text-[#65647a]">Especialidades</p>
+                <p className="text-[11px] uppercase tracking-wide text-[#5F6B76]">Especialidades</p>
                 <h2 className="text-lg font-bold text-[#07073b]">Estos son los servicios que hacemos</h2>
               </div>
             </div>
@@ -288,26 +289,26 @@ const ServicesPage = () => {
               {serviceHighlights.map((item) => (
                 <span
                   key={item}
-                  className="px-3 py-1.5 bg-[#ffffff] text-[#07073b] rounded-full shadow-sm border border-[#dfe2ea] text-xs font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:bg-white"
+                  className="px-3 py-1.5 bg-[#ffffff] text-[#07073b] rounded-full shadow-sm border border-[#D7DCE1] text-xs font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:bg-white"
                 >
                   {item}
                 </span>
               ))}
             </div>
           </div>
-          <div className="bg-white rounded-2xl shadow-lg border border-[#dfe2ea] p-4 space-y-3 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_22px_45px_rgba(225,95,11,0.10)]">
+          <div className="bg-white rounded-2xl shadow-lg border border-[#D7DCE1] p-4 space-y-3 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_22px_45px_rgba(225,95,11,0.10)]">
             <p className="text-xs font-semibold text-[#07073b] uppercase tracking-wide">SOLUCIONES PROFESIONALES</p>
-            <p className="text-base leading-8 text-[#454546]">
+            <p className="text-base leading-8 text-[#303840]">
               Gestionamos licencias, diseño, obra y venta. Cada servicio incluye seguimiento y asesoria personalizada.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs text-[#07073b]">
-              <span className="px-3 py-1.5 rounded-xl bg-[#fbf3df] border border-[#fbf3df] font-semibold text-center transition-transform duration-300 hover:-translate-y-0.5">
+              <span className="px-3 py-1.5 rounded-xl bg-[#F3EFE6] border border-[#F3EFE6] font-semibold text-center transition-transform duration-300 hover:-translate-y-0.5">
                 Arquitectura
               </span>
-              <span className="px-3 py-1.5 rounded-xl bg-[#eef8f1] border border-[#d9f4e0] font-semibold text-center transition-transform duration-300 hover:-translate-y-0.5">
+              <span className="px-3 py-1.5 rounded-xl bg-[#E9F3EE] border border-[#DDEFE5] font-semibold text-center transition-transform duration-300 hover:-translate-y-0.5">
                 Construccion
               </span>
-              <span className="px-3 py-1.5 rounded-xl bg-[#eef8f1] border border-[#d9f4e0] font-semibold text-center transition-transform duration-300 hover:-translate-y-0.5">
+              <span className="px-3 py-1.5 rounded-xl bg-[#E9F3EE] border border-[#DDEFE5] font-semibold text-center transition-transform duration-300 hover:-translate-y-0.5">
                 Inmobiliaria
               </span>
             </div>
@@ -315,7 +316,7 @@ const ServicesPage = () => {
         </div>
 
         {filteredServices.length === 0 ? (
-          <p className="text-[#65647a]">No hay servicios publicados.</p>
+          <p className="text-[#5F6B76]">No hay servicios publicados.</p>
         ) : (
           <>
             <div id="servicios-listado" className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 scroll-mt-32">
@@ -327,18 +328,18 @@ const ServicesPage = () => {
                 >
                   <div className="p-4 pb-0">
                     <div className="flex items-center gap-2 flex-wrap">
-                      <span className="inline-flex bg-[#f3f4f6] text-[#07073b] text-xs font-semibold uppercase tracking-wide px-3 py-1 rounded-full border border-[#dfe2ea]">
+                      <span className="inline-flex bg-[#F4F5F6] text-[#07073b] text-xs font-semibold uppercase tracking-wide px-3 py-1 rounded-full border border-[#D7DCE1]">
                         {service.category || 'Servicio'}
                       </span>
                       {isFeaturedService(service) && (
-                        <span className="inline-flex items-center gap-1 bg-[#1fb74d] text-white text-xs font-semibold uppercase tracking-wide px-3 py-1 rounded-full shadow-md">
+                        <span className="inline-flex items-center gap-1 bg-[#238A55] text-white text-xs font-semibold uppercase tracking-wide px-3 py-1 rounded-full shadow-md">
                           <Sparkles className="w-4 h-4" />
                           Destacado
                         </span>
                       )}
                     </div>
                   </div>
-                  <div className="relative aspect-[4/3] w-full bg-[#f3f4f6] flex items-center justify-center">
+                  <div className="relative aspect-[4/3] w-full bg-[#F4F5F6] flex items-center justify-center">
                     <img
                       src={toPublicUrl(service.cover_image || service.gallery?.[0]?.path) || 'https://via.placeholder.com/400x240'}
                       alt={service.title}
@@ -359,7 +360,7 @@ const ServicesPage = () => {
                   type="button"
                   onClick={() => handlePageChange(Math.max(1, currentPage - 1))}
                   disabled={currentPage === 1}
-                  className="rounded-full border border-[#dfe2ea] bg-white px-5 py-2.5 font-semibold text-[#07073b] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#07073b] disabled:cursor-not-allowed disabled:opacity-45"
+                  className="rounded-full border border-[#D7DCE1] bg-white px-5 py-2.5 font-semibold text-[#07073b] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#07073b] disabled:cursor-not-allowed disabled:opacity-45"
                 >
                   Anterior
                 </button>
@@ -370,8 +371,8 @@ const ServicesPage = () => {
                     onClick={() => handlePageChange(page)}
                     className={`h-11 w-11 rounded-full border text-sm font-bold transition-all duration-300 hover:-translate-y-0.5 ${
                       page === currentPage
-                        ? 'border-[#1fb74d] bg-[#1fb74d] text-white shadow-md'
-                        : 'border-[#dfe2ea] bg-white text-[#07073b] hover:border-[#07073b]'
+                        ? 'border-[#238A55] bg-[#238A55] text-white shadow-md'
+                        : 'border-[#D7DCE1] bg-white text-[#07073b] hover:border-[#07073b]'
                     }`}
                   >
                     {page}
@@ -381,7 +382,7 @@ const ServicesPage = () => {
                   type="button"
                   onClick={() => handlePageChange(Math.min(totalPages, currentPage + 1))}
                   disabled={currentPage === totalPages}
-                  className="rounded-full border border-[#dfe2ea] bg-white px-5 py-2.5 font-semibold text-[#07073b] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#07073b] disabled:cursor-not-allowed disabled:opacity-45"
+                  className="rounded-full border border-[#D7DCE1] bg-white px-5 py-2.5 font-semibold text-[#07073b] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#07073b] disabled:cursor-not-allowed disabled:opacity-45"
                 >
                   Siguiente
                 </button>

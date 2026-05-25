@@ -103,7 +103,7 @@ const SidebarItems = ({ groups, collapsed, onNavigate }) => (
     {groups.map((group) => (
       <section key={group.key} className="space-y-2">
         {!collapsed && (
-          <p className="px-3 text-[11px] font-bold uppercase tracking-[0.24em] text-[#65647a]">
+          <p className="px-3 text-[11px] font-bold uppercase tracking-[0.24em] text-[#5F6B76]">
             {group.title}
           </p>
         )}
@@ -123,7 +123,7 @@ const SidebarItems = ({ groups, collapsed, onNavigate }) => (
                   } ${
                     isActive
                       ? 'bg-[#07073b] text-white shadow-[0_14px_34px_rgba(35,50,116,0.24)]'
-                      : 'text-[#07073b] hover:bg-[#f3f4f6]'
+                      : 'text-[#07073b] hover:bg-[#F4F5F6]'
                   }`
                 }
               >
@@ -172,22 +172,22 @@ const AdminWorkspaceLayout = () => {
   const asideWidth = collapsed ? 'lg:w-[104px]' : 'lg:w-[320px]';
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,_rgba(35,50,116,0.12),_transparent_28%),linear-gradient(180deg,#f3f4f6_0%,#f3f4f6_100%)]">
+    <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,_rgba(35,50,116,0.12),_transparent_28%),linear-gradient(180deg,#F4F5F6_0%,#F4F5F6_100%)]">
       <div className="mx-auto flex min-h-screen max-w-[1720px]">
-        <aside className={`hidden shrink-0 border-r border-[#dfe2ea] bg-[#ffffff] px-4 py-6 transition-all duration-300 lg:block ${asideWidth}`}>
+        <aside className={`hidden shrink-0 border-r border-[#D7DCE1] bg-[#ffffff] px-4 py-6 transition-all duration-300 lg:block ${asideWidth}`}>
           <div className="sticky top-24 flex h-[calc(100vh-7rem)] flex-col">
-            <div className={`mb-4 rounded-[24px] border border-[#dfe2ea] bg-white shadow-sm ${collapsed ? 'p-3' : 'px-4 py-3'}`}>
+            <div className={`mb-4 rounded-[24px] border border-[#D7DCE1] bg-white shadow-sm ${collapsed ? 'p-3' : 'px-4 py-3'}`}>
               <div className={`flex ${collapsed ? 'justify-center' : 'items-center justify-between gap-3'}`}>
                 {!collapsed && (
                   <div className="min-w-0">
-                    <p className="text-[11px] font-bold uppercase tracking-[0.28em] text-[#1fb74d]">Backoffice</p>
+                    <p className="text-[11px] font-bold uppercase tracking-[0.28em] text-[#238A55]">Backoffice</p>
                     <p className="mt-1 truncate text-sm font-black text-[#07073b]">Navegacion administrativa</p>
                   </div>
                 )}
                 <button
                   type="button"
                   onClick={() => setCollapsed((value) => !value)}
-                  className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-[#dfe2ea] bg-[#ffffff] text-[#07073b]"
+                  className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-[#D7DCE1] bg-[#ffffff] text-[#07073b]"
                   aria-label={collapsed ? 'Expandir menu lateral' : 'Minimizar menu lateral'}
                   title={collapsed ? 'Expandir menu lateral' : 'Minimizar menu lateral'}
                 >
@@ -196,37 +196,37 @@ const AdminWorkspaceLayout = () => {
               </div>
             </div>
 
-            <div className={`mb-5 rounded-[28px] border border-[#dfe2ea] bg-white shadow-sm ${collapsed ? 'p-3' : 'p-4'}`}>
+            <div className={`mb-5 rounded-[28px] border border-[#D7DCE1] bg-white shadow-sm ${collapsed ? 'p-3' : 'p-4'}`}>
               <div className={`flex ${collapsed ? 'justify-center' : 'items-center gap-3 px-2'}`}>
                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#07073b] text-white">
                   <ShieldCheck className="h-5 w-5" />
                 </div>
                 {!collapsed && (
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#65647a]">Tu acceso</p>
+                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#5F6B76]">Tu acceso</p>
                     <p className="text-sm font-black text-[#07073b]">{roleLabels[user?.role] || 'Staff'}</p>
                   </div>
                 )}
               </div>
             </div>
 
-            <div className="min-h-0 flex-1 overflow-y-auto rounded-[28px] border border-[#dfe2ea] bg-white p-3 shadow-sm">
+            <div className="min-h-0 flex-1 overflow-y-auto rounded-[28px] border border-[#D7DCE1] bg-white p-3 shadow-sm">
               <SidebarItems groups={groups} collapsed={collapsed} />
             </div>
           </div>
         </aside>
 
         <div className="flex min-w-0 flex-1 flex-col">
-          <div className="sticky top-0 z-20 border-b border-[#dfe2ea] bg-[#f3f4f6]/92 backdrop-blur lg:hidden">
+          <div className="sticky top-0 z-20 border-b border-[#D7DCE1] bg-[#F4F5F6]/92 backdrop-blur lg:hidden">
             <div className="flex items-center justify-between px-4 py-4">
               <div>
-                <p className="text-[11px] font-bold uppercase tracking-[0.24em] text-[#1fb74d]">Backoffice</p>
+                <p className="text-[11px] font-bold uppercase tracking-[0.24em] text-[#238A55]">Backoffice</p>
                 <p className="text-lg font-black text-[#07073b]">Administracion</p>
               </div>
               <button
                 type="button"
                 onClick={() => setMobileOpen(true)}
-                className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-[#dfe2ea] bg-white text-[#07073b] shadow-sm"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-[#D7DCE1] bg-white text-[#07073b] shadow-sm"
                 aria-label="Abrir menu lateral"
               >
                 <Menu className="h-5 w-5" />
@@ -242,23 +242,23 @@ const AdminWorkspaceLayout = () => {
                 onClick={() => setMobileOpen(false)}
                 aria-label="Cerrar menu lateral"
               />
-              <div className="relative h-full w-[88%] max-w-[360px] border-r border-[#dfe2ea] bg-[#ffffff] px-4 py-5 shadow-2xl">
-                <div className="mb-5 flex items-center justify-between rounded-[28px] border border-[#dfe2ea] bg-white p-5">
+              <div className="relative h-full w-[88%] max-w-[360px] border-r border-[#D7DCE1] bg-[#ffffff] px-4 py-5 shadow-2xl">
+                <div className="mb-5 flex items-center justify-between rounded-[28px] border border-[#D7DCE1] bg-white p-5">
                   <div>
-                    <p className="text-[11px] font-bold uppercase tracking-[0.24em] text-[#1fb74d]">Backoffice</p>
+                    <p className="text-[11px] font-bold uppercase tracking-[0.24em] text-[#238A55]">Backoffice</p>
                     <p className="mt-2 text-xl font-black text-[#07073b]">Navegacion interna</p>
                   </div>
                   <button
                     type="button"
                     onClick={() => setMobileOpen(false)}
-                    className="inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-[#dfe2ea] bg-white text-[#07073b]"
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-[#D7DCE1] bg-white text-[#07073b]"
                     aria-label="Cerrar menu"
                   >
                     <X className="h-5 w-5" />
                   </button>
                 </div>
 
-                <div className="rounded-[28px] border border-[#dfe2ea] bg-white p-3">
+                <div className="rounded-[28px] border border-[#D7DCE1] bg-white p-3">
                   <SidebarItems groups={groups} onNavigate={() => setMobileOpen(false)} />
                 </div>
               </div>

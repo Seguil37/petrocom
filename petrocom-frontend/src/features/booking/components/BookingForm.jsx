@@ -56,7 +56,7 @@ const BookingForm = ({ tour, onSubmit, loading }) => {
           minDate={new Date()}
         />
         {errors.date && (
-          <p className="text-[#e8a12f] text-sm mt-2">{errors.date}</p>
+          <p className="text-[#C58A2A] text-sm mt-2">{errors.date}</p>
         )}
       </div>
 
@@ -77,7 +77,7 @@ const BookingForm = ({ tour, onSubmit, loading }) => {
           onInfantsChange={(infants) => setFormData({ ...formData, infants })}
         />
         {errors.guests && (
-          <p className="text-[#e8a12f] text-sm mt-2">{errors.guests}</p>
+          <p className="text-[#C58A2A] text-sm mt-2">{errors.guests}</p>
         )}
       </div>
 
@@ -91,7 +91,7 @@ const BookingForm = ({ tour, onSubmit, loading }) => {
           value={formData.specialRequests}
           onChange={(e) => setFormData({ ...formData, specialRequests: e.target.value })}
           rows="4"
-          className="w-full px-4 py-3 border-2 border-[#dfe2ea] rounded-xl focus:border-primary focus:outline-none resize-none"
+          className="w-full px-4 py-3 border-2 border-[#D7DCE1] rounded-xl focus:border-primary focus:outline-none resize-none"
           placeholder="Alergias, restricciones dietéticas, necesidades especiales..."
         />
       </div>
