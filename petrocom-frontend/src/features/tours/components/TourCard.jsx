@@ -4,9 +4,7 @@ import { MapPin, Home } from 'lucide-react';
 import { toPublicUrl } from '../../../shared/utils/api';
 
 const TourCard = ({ tour }) => {
-  const image =
-    toPublicUrl(tour.hero_image || tour.featured_image || tour.images?.[0]?.path) ||
-    'https://images.unsplash.com/photo-1727483892297-56448c8f1af1?auto=format&fit=crop&w=900&q=80';
+  const image = toPublicUrl(tour.hero_image || tour.featured_image || tour.images?.[0]?.path);
 
   return (
     <Link
@@ -22,11 +20,17 @@ const TourCard = ({ tour }) => {
       </div>
         
       <div className="relative overflow-hidden bg-white aspect-[4/3]">
-        <img
-          src={image}
-          alt={tour.title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-        />
+        {image ? (
+          <img
+            src={image}
+            alt={tour.title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+        ) : (
+          <div className="flex h-full items-center justify-center bg-[#f8f5ef] px-6 text-center text-sm font-bold uppercase tracking-[0.2em] text-[#5F6B76]">
+            Sin imagen
+          </div>
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
 
       </div>

@@ -4,21 +4,27 @@ import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Globe, Star } from 'lucide-react';
 
-const GAS_STATION_IMAGE = 'https://images.unsplash.com/photo-1727483892297-56448c8f1af1?auto=format&fit=crop&w=900&q=80';
-const TANKER_IMAGE = 'https://images.unsplash.com/photo-1768637656191-133fe8f95786?auto=format&fit=crop&w=900&q=80';
+import informeTecnicoImage from '../../../assets/images/servicios-principales/informe_tecnico_favorable_itf.png';
+import registroHidrocarburosImage from '../../../assets/images/servicios-principales/registro_de_hidrocarburos.png';
+import grifosEstacionesImage from '../../../assets/images/servicios-principales/grifos_estaciones_servicio.png';
+import gasocentrosGlpImage from '../../../assets/images/servicios-principales/gasocentros_glp.png';
+import consumidoresDirectosImage from '../../../assets/images/servicios-principales/consumidores_directos.png';
+import transporteCombustiblesImage from '../../../assets/images/servicios-principales/transporte_combustibles.png';
+import planesContingenciaImage from '../../../assets/images/servicios-principales/planes_de_contingencia.png';
+import levantamientoObservacionesImage from '../../../assets/images/servicios-principales/levantamiento_observaciones.png';
 
 const PopularCountriesSection = () => {
   const scrollRef = useRef(null);
 
   const categories = [
-    { name: 'Informe Tecnico Favorable - ITF', subtitle: 'Instalacion, modificacion o ampliacion de infraestructura de hidrocarburos', image: GAS_STATION_IMAGE },
-    { name: 'Registro de Hidrocarburos', subtitle: 'Inscripcion, modificacion y actualizacion ante OSINERGMIN', image: GAS_STATION_IMAGE },
-    { name: 'Grifos y estaciones de servicio', subtitle: 'Expedientes para combustibles liquidos, tanques, islas y zonas de descarga', image: GAS_STATION_IMAGE },
-    { name: 'Gasocentros y GLP', subtitle: 'Soporte tecnico para GLP, almacenamiento, despacho y venta', image: GAS_STATION_IMAGE },
-    { name: 'Consumidores directos', subtitle: 'Documentacion para almacenamiento y consumo propio de combustibles', image: TANKER_IMAGE },
-    { name: 'Transporte de combustibles', subtitle: 'Planes, matrices y requisitos para unidades de transporte terrestre', image: TANKER_IMAGE },
-    { name: 'Planes de contingencia', subtitle: 'Riesgos, emergencia, senalizacion y procedimientos operativos', image: TANKER_IMAGE },
-    { name: 'Levantamiento de observaciones', subtitle: 'Descargos tecnicos, subsanaciones y planos corregidos', image: GAS_STATION_IMAGE },
+    { name: 'Informe Tecnico Favorable - ITF', subtitle: 'Instalacion, modificacion o ampliacion de infraestructura de hidrocarburos', image: informeTecnicoImage },
+    { name: 'Registro de Hidrocarburos', subtitle: 'Inscripcion, modificacion y actualizacion ante OSINERGMIN', image: registroHidrocarburosImage },
+    { name: 'Grifos y estaciones de servicio', subtitle: 'Expedientes para combustibles liquidos, tanques, islas y zonas de descarga', image: grifosEstacionesImage },
+    { name: 'Gasocentros y GLP', subtitle: 'Soporte tecnico para GLP, almacenamiento, despacho y venta', image: gasocentrosGlpImage },
+    { name: 'Consumidores directos', subtitle: 'Documentacion para almacenamiento y consumo propio de combustibles', image: consumidoresDirectosImage },
+    { name: 'Transporte de combustibles', subtitle: 'Planes, matrices y requisitos para unidades de transporte terrestre', image: transporteCombustiblesImage },
+    { name: 'Planes de contingencia', subtitle: 'Riesgos, emergencia, senalizacion y procedimientos operativos', image: planesContingenciaImage },
+    { name: 'Levantamiento de observaciones', subtitle: 'Descargos tecnicos, subsanaciones y planos corregidos', image: levantamientoObservacionesImage },
   ];
 
   const duplicatedCategories = [...categories, ...categories, ...categories];

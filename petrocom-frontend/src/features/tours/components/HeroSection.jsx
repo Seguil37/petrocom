@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ClipboardList, MapPin, Search, Star, Users } from 'lucide-react';
 
-const heroImage = 'https://images.unsplash.com/photo-1727483892297-56448c8f1af1?auto=format&fit=crop&w=1800&q=80';
+import heroImage from '../../../assets/images/logo/logo.png';
 
 const HeroSection = () => {
   const [mode, setMode] = useState('services');
@@ -59,7 +59,7 @@ const HeroSection = () => {
   return (
     <section className="relative min-h-[760px] lg:min-h-[820px] flex items-center justify-center overflow-hidden px-3 sm:px-6 py-10">
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#05052f]/90 via-[#07073b]/75 to-[#303840]/80 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#05052f]/78 via-[#07073b]/60 to-[#303840]/62 z-10" />
         <img
           src={heroImage}
           alt="Estacion de servicio y surtidores de combustible"

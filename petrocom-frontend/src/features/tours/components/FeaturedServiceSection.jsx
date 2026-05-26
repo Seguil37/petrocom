@@ -3,44 +3,6 @@ import { Link } from 'react-router-dom';
 import { Sparkles, Briefcase } from 'lucide-react';
 import { servicesApi, toPublicUrl } from '../../../shared/utils/api';
 
-const GAS_STATION_IMAGE = 'https://images.unsplash.com/photo-1727483892297-56448c8f1af1?auto=format&fit=crop&w=900&q=80';
-const TANKER_IMAGE = 'https://images.unsplash.com/photo-1768637656191-133fe8f95786?auto=format&fit=crop&w=900&q=80';
-
-const fallbackServices = [
-  {
-    id: 'itf',
-    title: 'Informe Tecnico Favorable - ITF',
-    category: 'ITF y expedientes',
-    cover_image: GAS_STATION_IMAGE,
-    short_description: 'Expedientes tecnicos para instalacion, modificacion o ampliacion de actividades de hidrocarburos.',
-    is_featured: true,
-  },
-  {
-    id: 'registro',
-    title: 'Registro de Hidrocarburos',
-    category: 'OSINERGMIN',
-    cover_image: GAS_STATION_IMAGE,
-    short_description: 'Inscripcion, modificacion y actualizacion del registro segun actividad y establecimiento.',
-    is_featured: true,
-  },
-  {
-    id: 'estaciones',
-    title: 'Grifos y estaciones de servicio',
-    category: 'Combustibles liquidos',
-    cover_image: GAS_STATION_IMAGE,
-    short_description: 'Planos, memorias, regularizaciones y levantamiento de observaciones.',
-    is_featured: true,
-  },
-  {
-    id: 'transporte',
-    title: 'Transporte de combustibles',
-    category: 'Transporte terrestre',
-    cover_image: TANKER_IMAGE,
-    short_description: 'Planes de contingencia, matrices de riesgo y requisitos documentales para unidades.',
-    is_featured: true,
-  },
-];
-
 const FeaturedServiceSection = () => {
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -69,8 +31,6 @@ const FeaturedServiceSection = () => {
     fetchFeaturedServices();
   }, []);
 
-  const displayServices = services.length > 0 ? services : fallbackServices;
-
   if (loading) {
     return (
       <section className="py-20 bg-[#F4F5F6]">
@@ -81,6 +41,8 @@ const FeaturedServiceSection = () => {
       </section>
     );
   }
+
+  if (services.length === 0) return null;
 
   return (
     <section className="py-20 bg-[#F4F5F6]">
@@ -102,8 +64,8 @@ const FeaturedServiceSection = () => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {displayServices.map((service) => {
-            const isFallback = typeof service.id === 'string';
+          {services.map((service) => {
+            const coverImage = toPublicUrl(service.cover_image || service.gallery?.[0]?.path);
             const content = (
               <article className="group bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2 border border-[#D7DCE1] h-full">
                 <div className="p-4 pb-0">
@@ -115,12 +77,24 @@ const FeaturedServiceSection = () => {
                 </div>
 
                 <div className="relative overflow-hidden bg-white aspect-[4/3]">
-                  <img
-                    src={toPublicUrl(service.cover_image || service.gallery?.[0]?.path) || GAS_STATION_IMAGE}
-                    alt={service.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
+                  {coverImage ? (
+                    <img
+                      src={coverImage}
+                      alt={service.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  ) : (
+                    <div className="flex h-full items-center justify-center bg-[#f8f5ef] px-6 text-center text-sm font-bold uppercase tracking-[0.2em] text-[#5F6B76]">
+                      Sin imagen
+                    </div>
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/58 px-5 text-center opacity-0 transition-all duration-500 group-hover:opacity-100 group-focus-within:opacity-100">
+                    <div className="translate-y-4 transition-transform duration-500 group-hover:translate-y-0 group-focus-within:translate-y-0">
+                      <h3 className="text-xl font-black text-white drop-shadow-lg">{service.title}</h3>
+                      <p className="mt-3 text-sm font-bold text-white">Haz clic para ver el detalle</p>
+                    </div>
+                  </div>
                 </div>
 
                 <div className="p-5 space-y-3">
@@ -137,11 +111,7 @@ const FeaturedServiceSection = () => {
               </article>
             );
 
-            return isFallback ? (
-              <Link key={service.id} to="/services" className="block h-full">
-                {content}
-              </Link>
-            ) : (
+            return (
               <Link key={service.id} to={`/services/${service.slug || service.id}`} className="block h-full">
                 {content}
               </Link>

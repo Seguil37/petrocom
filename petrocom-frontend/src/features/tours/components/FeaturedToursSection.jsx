@@ -12,7 +12,8 @@ const FeaturedToursSection = () => {
     const fetchFeaturedProjects = async () => {
       try {
         const response = await api.get('/projects/featured');
-        setProjects(response.data.slice(0, 8));
+        const data = response.data?.data ?? response.data ?? [];
+        setProjects(data.slice(0, 8));
       } catch (error) {
         console.error('Error fetching projects:', error);
       } finally {
@@ -22,38 +23,6 @@ const FeaturedToursSection = () => {
 
     fetchFeaturedProjects();
   }, []);
-
-  const exampleProjects = [
-    {
-      id: 1,
-      title: 'Estaciones de servicio',
-      type: 'Expediente tecnico',
-      hero_image: 'https://images.unsplash.com/photo-1727483892297-56448c8f1af1?auto=format&fit=crop&w=900&q=80',
-      city: 'Huancayo',
-      state: 'Junin',
-      is_featured: true,
-    },
-    {
-      id: 2,
-      title: 'Gasocentros de GLP',
-      type: 'Asesoria tecnica',
-      hero_image: 'https://images.unsplash.com/photo-1727483892297-56448c8f1af1?auto=format&fit=crop&w=900&q=80',
-      city: 'Huancayo',
-      state: 'Junin',
-      is_featured: true,
-    },
-    {
-      id: 3,
-      title: 'Transporte de combustibles',
-      type: 'Gestion documental',
-      hero_image: 'https://images.unsplash.com/photo-1768637656191-133fe8f95786?auto=format&fit=crop&w=900&q=80',
-      city: 'Huancayo',
-      state: 'Junin',
-      is_featured: true,
-    },
-  ];
-
-  const displayProjects = projects.length > 0 ? projects : exampleProjects;
 
   if (loading) {
     return (
@@ -65,6 +34,8 @@ const FeaturedToursSection = () => {
       </section>
     );
   }
+
+  if (projects.length === 0) return null;
 
   return (
     <section className="py-20 bg-[#F4F5F6]">
@@ -88,7 +59,7 @@ const FeaturedToursSection = () => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {displayProjects.map((project) => (
+          {projects.map((project) => (
             <TourCard key={project.id} tour={project} />
           ))}
         </div>

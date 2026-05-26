@@ -1,81 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
-import { Search, Sparkles, Briefcase, ShieldCheck } from 'lucide-react';
+import { Search, Sparkles, Briefcase } from 'lucide-react';
 import { servicesApi, toPublicUrl } from '../../../shared/utils/api';
 
 const SERVICES_PER_PAGE = 12;
-const GAS_STATION_IMAGE = 'https://images.unsplash.com/photo-1727483892297-56448c8f1af1?auto=format&fit=crop&w=900&q=80';
-const TANKER_IMAGE = 'https://images.unsplash.com/photo-1768637656191-133fe8f95786?auto=format&fit=crop&w=900&q=80';
-
-const fallbackServices = [
-  {
-    id: 'itf',
-    title: 'Informe Tecnico Favorable - ITF',
-    category: 'ITF y expedientes tecnicos',
-    short_description: 'Elaboramos y gestionamos expedientes tecnicos para instalacion, modificacion o ampliacion de establecimientos de combustibles liquidos y GLP.',
-    cover_image: GAS_STATION_IMAGE,
-    featured: true,
-  },
-  {
-    id: 'registro-hidrocarburos',
-    title: 'Registro de Hidrocarburos',
-    category: 'Registro de Hidrocarburos',
-    short_description: 'Asesoramos en la inscripcion, modificacion y actualizacion del Registro de Hidrocarburos ante OSINERGMIN.',
-    cover_image: GAS_STATION_IMAGE,
-    featured: true,
-  },
-  {
-    id: 'estaciones',
-    title: 'Grifos y estaciones de servicio',
-    category: 'Estaciones de servicio',
-    short_description: 'Documentacion tecnica para grifos, estaciones, ampliaciones, regularizaciones y levantamiento de observaciones.',
-    cover_image: GAS_STATION_IMAGE,
-    featured: true,
-  },
-  {
-    id: 'glp',
-    title: 'Gasocentros y GLP',
-    category: 'GLP',
-    short_description: 'Soporte tecnico para gasocentros, locales de venta de GLP, consumidores directos e instalaciones de almacenamiento.',
-    cover_image: GAS_STATION_IMAGE,
-  },
-  {
-    id: 'consumidores-directos',
-    title: 'Consumidores directos',
-    category: 'Consumidores directos',
-    short_description: 'Asesoria para empresas que requieren almacenamiento y consumo propio de combustibles liquidos o GLP.',
-    cover_image: TANKER_IMAGE,
-  },
-  {
-    id: 'transporte',
-    title: 'Transporte de combustibles',
-    category: 'Transporte de combustibles',
-    short_description: 'Documentacion tecnica, planes de contingencia, matrices de riesgo y requisitos para transporte terrestre de combustibles.',
-    cover_image: TANKER_IMAGE,
-    featured: true,
-  },
-  {
-    id: 'contingencia',
-    title: 'Planes de contingencia y matrices de riesgo',
-    category: 'Seguridad y cumplimiento',
-    short_description: 'Preparamos planes de contingencia, analisis de riesgos, protocolos de emergencia y procedimientos operativos.',
-    cover_image: TANKER_IMAGE,
-  },
-  {
-    id: 'observaciones',
-    title: 'Levantamiento de observaciones',
-    category: 'Subsanaciones tecnicas',
-    short_description: 'Elaboramos descargos tecnicos, subsanaciones, planos corregidos y memorias complementarias.',
-    cover_image: GAS_STATION_IMAGE,
-  },
-  {
-    id: 'planos-informes',
-    title: 'Planos, memorias e informes tecnicos',
-    category: 'Documentacion tecnica',
-    short_description: 'Planos de distribucion, instalaciones mecanicas, electricas, tanques, tuberias, venteos e islas de despacho.',
-    cover_image: GAS_STATION_IMAGE,
-  },
-];
 
 const serviceHighlights = [
   'Informe Tecnico Favorable - ITF',
@@ -189,10 +117,8 @@ const ServicesPage = () => {
     return Boolean(value);
   };
 
-  const sourceServices = services.length > 0 ? services : fallbackServices;
-
   const filteredServices = useMemo(() => {
-    return sourceServices.filter((service) => {
+    return services.filter((service) => {
       const searchableText = normalizeText(`${service.title} ${service.short_description || ''} ${service.category || ''}`);
       const normalizedSearch = normalizeText(appliedSearchTerm);
       const normalizedCategory = normalizeText(categoryFilter);
@@ -201,7 +127,7 @@ const ServicesPage = () => {
       const matchesFeatured = featuredOnly ? isFeaturedService(service) : true;
       return matchesText && matchesCategory && matchesFeatured;
     });
-  }, [sourceServices, appliedSearchTerm, categoryFilter, featuredOnly]);
+  }, [services, appliedSearchTerm, categoryFilter, featuredOnly]);
 
   useEffect(() => {
     setCurrentPage(1);
@@ -365,47 +291,31 @@ const ServicesPage = () => {
           <>
             <div id="servicios-listado" className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 scroll-mt-32">
               {paginatedServices.map((service) => {
-                const isFallback = typeof service.id === 'string';
+                const coverImage = toPublicUrl(service.cover_image || service.gallery?.[0]?.path);
                 const card = (
-                  <article className="group relative rounded-2xl shadow-lg overflow-hidden h-full bg-gradient-to-br from-[#07073b] via-[#07073b] to-[#07073b] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_28px_55px_rgba(15,25,58,0.26)]">
-                    <div className="p-4 pb-0">
-                      <div className="flex items-center gap-2 flex-wrap">
-                        <span className="inline-flex bg-[#F4F5F6] text-[#07073b] text-xs font-semibold uppercase tracking-wide px-3 py-1 rounded-full border border-[#D7DCE1]">
-                          {service.category || 'Servicio'}
+                  <article className="group relative rounded-2xl shadow-lg overflow-hidden block h-full bg-gradient-to-br from-[#1b274f] via-[#1f2f63] to-[#0f193a] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_28px_55px_rgba(15,25,58,0.26)]">
+                    <div className="relative aspect-[4/3] w-full bg-[#f8f5ef] flex items-center justify-center">
+                      {coverImage ? (
+                        <img
+                          src={coverImage}
+                          alt={service.title}
+                          className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+                        />
+                      ) : (
+                        <span className="px-6 text-center text-sm font-bold uppercase tracking-[0.2em] text-[#5F6B76]">
+                          Sin imagen
                         </span>
-                        {isFeaturedService(service) && (
-                          <span className="inline-flex items-center gap-1 bg-[#238A55] text-white text-xs font-semibold uppercase tracking-wide px-3 py-1 rounded-full shadow-md">
-                            <Sparkles className="w-4 h-4" />
-                            Destacado
-                          </span>
-                        )}
+                      )}
+                      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-center px-6 text-white">
+                        <h3 className="text-2xl font-black drop-shadow-lg md:text-3xl">{service.title}</h3>
+                        <p className="mt-3 text-sm font-bold md:text-base">Haz clic para ver el detalle</p>
                       </div>
-                    </div>
-                    <div className="relative aspect-[4/3] w-full bg-[#F4F5F6] flex items-center justify-center">
-                      <img
-                        src={toPublicUrl(service.cover_image || service.gallery?.[0]?.path) || GAS_STATION_IMAGE}
-                        alt={service.title}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent" />
-                    </div>
-                    <div className="p-6 bg-white">
-                      <div className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-[#238A55]">
-                        <ShieldCheck className="h-4 w-4" />
-                        PETROCOM Energy
-                      </div>
-                      <h3 className="text-2xl font-black text-[#07073b]">{service.title}</h3>
-                      <p className="mt-2 text-sm leading-6 text-[#303840]">{service.short_description}</p>
                     </div>
                   </article>
                 );
 
-                return isFallback ? (
-                  <Link key={service.id} to="/contacto" className="block h-full">
-                    {card}
-                  </Link>
-                ) : (
-                  <Link key={service.id} to={`/services/${service.slug}`} className="block h-full">
+                return (
+                  <Link key={service.id} to={`/services/${service.slug || service.id}`} className="block h-full">
                     {card}
                   </Link>
                 );

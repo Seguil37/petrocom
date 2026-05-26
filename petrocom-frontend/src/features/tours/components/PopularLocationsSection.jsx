@@ -3,21 +3,25 @@
 import { Link } from 'react-router-dom';
 import { TrendingUp } from 'lucide-react';
 
+import huancayoJuninImage from '../../../assets/images/servicios-principales/huancayo_junin.png';
+import grifosEstacionesImage from '../../../assets/images/servicios-principales/grifos_estaciones_servicio.png';
+import gasocentrosGlpImage from '../../../assets/images/servicios-principales/gasocentros_glp.png';
+
 const activityAreas = [
   {
     name: 'Huancayo y Junin',
     subtitle: 'Base de atencion para expedientes tecnicos y gestiones documentales.',
-    image: 'https://images.unsplash.com/photo-1727483892297-56448c8f1af1?auto=format&fit=crop&w=900&q=80',
+    image: huancayoJuninImage,
   },
   {
     name: 'Estaciones y grifos',
     subtitle: 'Documentacion para combustibles liquidos, tanques, islas y zonas de descarga.',
-    image: 'https://images.unsplash.com/photo-1727483892297-56448c8f1af1?auto=format&fit=crop&w=900&q=80',
+    image: grifosEstacionesImage,
   },
   {
     name: 'GLP y consumidores directos',
     subtitle: 'Soporte para almacenamiento, despacho, venta y consumo propio.',
-    image: 'https://images.unsplash.com/photo-1768637656191-133fe8f95786?auto=format&fit=crop&w=900&q=80',
+    image: gasocentrosGlpImage,
   },
 ];
 
