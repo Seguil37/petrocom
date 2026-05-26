@@ -140,7 +140,7 @@ const ControlBoardPage = () => {
             paginatedRows.map((row) => (
               <div key={row.id} className="border-t border-[#D7DCE1]">
                 <button
-                  className="grid w-full grid-cols-10 text-left transition hover:bg-[#ffffff]"
+                  className={`grid w-full grid-cols-10 border-l-4 text-left transition ${getSlaRowClass(row.sla)}`}
                   onClick={() => setOpenId(openId === row.id ? null : row.id)}
                 >
                   <div className="flex items-center gap-2 p-3 font-semibold text-[#07073b]">
@@ -156,7 +156,12 @@ const ControlBoardPage = () => {
                   <div className="p-3 text-[#07073b]">{row.responsible || 'Sin asignar'}</div>
                   <div className="p-3 text-[#07073b]">{row.current_phase || '-'}</div>
                   <div className="p-3 text-[#07073b]">{row.registered_at || '-'}</div>
-                  <div className="p-3 text-[#07073b]">{row.due_date || 'Sin fecha'}</div>
+                  <div className="p-3 text-[#07073b]">
+                    <div className="flex flex-col items-start gap-1">
+                      <span>{row.due_date || 'Sin fecha'}</span>
+                      <SlaBadge sla={row.sla} compact />
+                    </div>
+                  </div>
                   <div className="flex items-center justify-center p-3">
                     <StatusBadge status={row.status} />
                   </div>
@@ -349,7 +354,18 @@ const StatusBadge = ({ status }) => {
   );
 };
 
-const SlaBadge = ({ sla }) => {
+const getSlaRowClass = (sla) => {
+  const map = {
+    green: 'border-l-[#238A55] bg-[#E9F7EF] hover:bg-[#DDF2E8]',
+    yellow: 'border-l-[#C58A2A] bg-[#FFF8E6] hover:bg-[#FFF0C2]',
+    red: 'border-l-[#C43D32] bg-[#FDECEC] hover:bg-[#FAD9D7]',
+    none: 'border-l-[#B8C0C8] bg-white hover:bg-[#F4F5F6]',
+  };
+
+  return map[sla] || map.none;
+};
+
+const SlaBadge = ({ sla, compact = false }) => {
   const map = {
     green: 'bg-green-100 text-green-700',
     yellow: 'bg-yellow-100 text-yellow-700',
@@ -364,11 +380,18 @@ const SlaBadge = ({ sla }) => {
     none: 'Sin fecha',
   };
 
+  const compactLabels = {
+    green: 'OK',
+    yellow: 'Pronto',
+    red: 'Vencido',
+    none: 'Sin fecha',
+  };
+
   const cls = map[sla] || map.none;
 
   return (
-    <span className={`rounded-full px-3 py-1 text-xs font-semibold ${cls}`}>
-      {labels[sla] || labels.none}
+    <span className={`max-w-full rounded-full px-3 py-1 text-xs font-semibold ${cls}`}>
+      {compact ? compactLabels[sla] || compactLabels.none : labels[sla] || labels.none}
     </span>
   );
 };
