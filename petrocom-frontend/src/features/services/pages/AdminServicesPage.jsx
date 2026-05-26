@@ -27,12 +27,15 @@ const SERVICE_STATUS_CONFIG = {
 
 const emptyImage = { path: '', caption: '', file: null, preview: '' };
 const SERVICE_CATEGORIES = [
-  'Tramites y regularizacion inmobiliaria',
-  'Arquitectura',
-  'Ingenieria',
-  'Dise�o interior',
-  'Asesoria inmobiliaria',
-  'Tasaciones',
+  'ITF y expedientes tecnicos',
+  'Registro de Hidrocarburos',
+  'Estaciones de servicio',
+  'GLP',
+  'Consumidores directos',
+  'Transporte de combustibles',
+  'Seguridad y cumplimiento',
+  'Subsanaciones tecnicas',
+  'Documentacion tecnica',
 ];
 const SUMMARY_MAX = 180;
 
@@ -438,7 +441,7 @@ const AdminServicesPage = () => {
                 value={form.title}
                 onChange={(e) => setForm({ ...form, title: e.target.value })}
                 onBlur={() => setForm((prev) => ({ ...prev, title: toTitleCase(prev.title) }))}
-                placeholder="Ej: Apertura de carpeta predial"
+                placeholder="Ej: Informe Tecnico Favorable - ITF"
               />
               <p className="mt-1 text-xs text-[#5F6B76]">Usa un titulo unico y descriptivo. Se corrige a formato titulo.</p>
             </div>
@@ -473,7 +476,7 @@ const AdminServicesPage = () => {
                 value={form.short_description}
                 onChange={(e) => setForm({ ...form, short_description: e.target.value.slice(0, SUMMARY_MAX) })}
                 onBlur={() => setForm((prev) => ({ ...prev, short_description: normalizeSentence(prev.short_description) }))}
-                placeholder="Resume en una frase que problema resuelve el servicio y para quien es."
+                placeholder="Resume en una frase que problema tecnico resuelve y para que actividad aplica."
                 maxLength={SUMMARY_MAX}
               />
               <p className="mt-1 text-xs text-[#5F6B76]">{form.short_description.length}/{SUMMARY_MAX} caracteres</p>
@@ -487,7 +490,7 @@ const AdminServicesPage = () => {
                 value={form.description}
                 onChange={(e) => setForm({ ...form, description: e.target.value })}
                 onBlur={() => setForm((prev) => ({ ...prev, description: normalizeSentence(prev.description) }))}
-                placeholder="Explica que incluye el servicio, a quien va dirigido, que documentos pide y cual es el resultado esperado."
+                placeholder="Explica que incluye el servicio, para que actividad aplica, que documentos revisa y cual es el resultado esperado."
               />
               <p className="mt-1 text-xs text-[#5F6B76]">Estructura recomendada: incluye, publico objetivo, requisitos y resultado esperado.</p>
             </div>

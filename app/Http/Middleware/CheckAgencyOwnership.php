@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 class CheckAgencyOwnership
 {
     /**
-     * Verificar que el usuario agencia tenga una agencia asociada
+     * Verificar que el usuario operador tenga un perfil asociado.
      */
     public function handle(Request $request, Closure $next): Response
     {
@@ -21,15 +21,15 @@ class CheckAgencyOwnership
             ], 401);
         }
 
-        // Si es admin, siempre puede pasar
+        // Si es admin, siempre puede pasar.
         if ($user->isAdmin()) {
             return $next($request);
         }
 
-        // Si es agencia, verificar que tenga una agencia asociada
+        // Si es operador externo, verificar que tenga un perfil asociado.
         if ($user->isAgency() && !$user->agency) {
             return response()->json([
-                'message' => 'Tu perfil de agencia no está completo. Por favor completa el registro.',
+                'message' => 'Tu perfil de operador no esta completo. Por favor completa el registro.',
                 'action' => 'complete_agency_profile',
             ], 403);
         }

@@ -7,7 +7,6 @@ import PopularLocationsSection from '../components/PopularLocationsSection';
 import FeaturedToursSection from '../components/FeaturedToursSection';
 import FeaturedServiceSection from '../components/FeaturedServiceSection';
 import PopularCountriesSection from '../components/PopularCountriesSection';
-import ReferenceContentSection from '../components/ReferenceContentSection';
 
 const HomePage = () => {
   return (

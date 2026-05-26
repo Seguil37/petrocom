@@ -123,27 +123,20 @@ const ToursPage = () => {
           <div className="space-y-5">
             <div className="inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold uppercase tracking-[0.2em] text-[#F3EFE6] transition-transform duration-500 hover:translate-x-1">
               <Sparkles className="h-4 w-4 transition-transform duration-500 hover:scale-110 hover:rotate-12" />
-              Portafolio Casaliz
+              Proyectos PETROCOM
             </div>
             <h1 className="text-4xl sm:text-5xl font-black leading-tight transition-transform duration-500 hover:translate-x-1">
-              Proyectos que convierten ideas en espacios reales.
+              Categorias de proyectos para actividades de hidrocarburos.
             </h1>
             <p className="text-lg max-w-2xl text-white/88 transition-colors duration-500 hover:text-white">
-              Explora viviendas, remodelaciones, oficinas e intervenciones integrales desarrolladas con una visión técnica, estética y
-              estratégica desde la primera idea hasta la entrega.
+              Explora tipos de expedientes, regularizaciones y gestiones tecnicas para estaciones de servicio, grifos,
+              gasocentros, consumidores directos, transporte y almacenamiento de combustibles.
             </p>
             <div className="flex flex-wrap gap-4">
-              <a
-                href="#projects-results"
-                className="rounded-xl bg-white px-5 py-3 font-bold text-[#07073b] shadow-lg transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02]"
-              >
-                Ver proyectos
+              <a href="#projects-results" className="rounded-xl bg-white px-5 py-3 font-bold text-[#07073b] shadow-lg transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02]">
+                Ver categorias
               </a>
-              <button
-                type="button"
-                onClick={showAllProjects}
-                className="rounded-xl border border-white/35 bg-white/10 px-5 py-3 font-bold text-white shadow-lg backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:bg-white/18"
-              >
+              <button type="button" onClick={showAllProjects} className="rounded-xl border border-white/35 bg-white/10 px-5 py-3 font-bold text-white shadow-lg backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:bg-white/18">
                 Mostrar todos
               </button>
             </div>
@@ -154,7 +147,7 @@ const ToursPage = () => {
             <div className="mt-5 space-y-3">
               {[
                 { label: 'Resultados encontrados', value: loading ? '...' : `${pagination.total}` },
-                { label: 'Página actual', value: `${pagination.currentPage}` },
+                { label: 'Pagina actual', value: `${pagination.currentPage}` },
                 { label: 'Filtros activos', value: `${Object.values(filters).filter(Boolean).length}` },
               ].map((item) => (
                 <div key={item.label} className="flex items-center justify-between rounded-2xl bg-white/8 px-4 py-3 transition-all duration-300 hover:bg-white/14">
@@ -164,7 +157,7 @@ const ToursPage = () => {
               ))}
             </div>
             <div className="mt-6 rounded-2xl border border-white/15 bg-white/10 p-4 text-sm leading-6 text-white/85">
-              Usa el buscador y los filtros para encontrar referencias por ciudad, tipo de proyecto o proyectos destacados.
+              Usa el buscador y los filtros para ubicar categorias por actividad, entidad, ciudad o tipo de expediente.
             </div>
           </div>
         </div>
@@ -185,40 +178,25 @@ const ToursPage = () => {
           <aside className="hidden lg:block lg:sticky lg:top-24">
             <div className="space-y-4">
               <SearchBar filters={filters} onFilterChange={handleFilterChange} onSearch={applyFilters} />
-              <FilterSidebar
-                filters={filters}
-                onFilterChange={handleFilterChange}
-                onApply={applyFilters}
-                onClear={clearFilters}
-              />
+              <FilterSidebar filters={filters} onFilterChange={handleFilterChange} onApply={applyFilters} onClear={clearFilters} />
             </div>
           </aside>
 
           <div className="min-w-0">
-            <div
-              id="projects-results"
-              className="mb-4 rounded-[28px] border border-[#D7DCE1] bg-white p-6 shadow-[0_18px_45px_rgba(77,58,31,0.07)] transition-all duration-500 hover:-translate-y-1 scroll-mt-32"
-            >
+            <div id="projects-results" className="mb-4 rounded-[28px] border border-[#D7DCE1] bg-white p-6 shadow-[0_18px_45px_rgba(77,58,31,0.07)] transition-all duration-500 hover:-translate-y-1 scroll-mt-32">
               <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                 <div>
                   <p className="text-[11px] font-bold uppercase tracking-[0.28em] text-[#C58A2A]">Listado de proyectos</p>
                   <h2 className="mt-2 mb-2 flex items-center gap-2 text-3xl font-black text-[#07073b]">
                     {filters.search && <MapPin className="h-6 w-6 text-[#238A55]" />}
-                    {filters.search || 'Todos los proyectos'}
+                    {filters.search || 'Todas las categorias'}
                   </h2>
                   <p className="text-[#5F6B76]">
-                    {loading ? 'Cargando...' : (
-                      <span>
-                        <span className="font-semibold">{pagination.total}</span> proyectos encontrados
-                      </span>
-                    )}
+                    {loading ? 'Cargando...' : <span><span className="font-semibold">{pagination.total}</span> resultados encontrados</span>}
                   </p>
                 </div>
 
-                <button
-                  onClick={() => setShowFilters(true)}
-                  className="inline-flex w-fit items-center gap-2 rounded-full border border-[#D7DCE1] bg-[#F4F5F6] px-4 py-2 font-semibold text-[#07073b] transition-all duration-300 hover:-translate-y-0.5 hover:bg-white lg:hidden"
-                >
+                <button onClick={() => setShowFilters(true)} className="inline-flex w-fit items-center gap-2 rounded-full border border-[#D7DCE1] bg-[#F4F5F6] px-4 py-2 font-semibold text-[#07073b] transition-all duration-300 hover:-translate-y-0.5 hover:bg-white lg:hidden">
                   Filtros
                 </button>
               </div>
@@ -232,53 +210,29 @@ const ToursPage = () => {
               </div>
             ) : projects.length === 0 ? (
               <div className="rounded-[28px] border border-dashed border-[#D7DCE1] bg-white p-8 text-center shadow-sm">
-                <h3 className="mb-2 text-xl font-bold text-[#07073b]">No encontramos proyectos</h3>
-                <p className="mb-4 text-[#5F6B76]">Prueba ajustando los filtros o buscando otra ciudad.</p>
-                <button
-                  onClick={clearFilters}
-                  className="rounded-full bg-[#07073b] px-4 py-2 text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#05052f]"
-                >
+                <h3 className="mb-2 text-xl font-bold text-[#07073b]">No encontramos resultados</h3>
+                <p className="mb-4 text-[#5F6B76]">Prueba ajustando los filtros o buscando otra actividad.</p>
+                <button onClick={clearFilters} className="rounded-full bg-[#07073b] px-4 py-2 text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#05052f]">
                   Limpiar filtros
                 </button>
               </div>
             ) : (
               <>
                 <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2">
-                  {projects.map((project) => (
-                    <TourCard key={project.id} tour={project} />
-                  ))}
+                  {projects.map((project) => <TourCard key={project.id} tour={project} />)}
                 </div>
 
                 {pagination.lastPage > 1 && (
                   <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-                    <button
-                      type="button"
-                      onClick={() => handlePageChange(Math.max(1, pagination.currentPage - 1))}
-                      disabled={pagination.currentPage === 1}
-                      className="rounded-full border border-[#D7DCE1] bg-white px-5 py-2.5 font-semibold text-[#07073b] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#07073b] disabled:cursor-not-allowed disabled:opacity-45"
-                    >
+                    <button type="button" onClick={() => handlePageChange(Math.max(1, pagination.currentPage - 1))} disabled={pagination.currentPage === 1} className="rounded-full border border-[#D7DCE1] bg-white px-5 py-2.5 font-semibold text-[#07073b] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#07073b] disabled:cursor-not-allowed disabled:opacity-45">
                       Anterior
                     </button>
                     {Array.from({ length: pagination.lastPage }, (_, index) => index + 1).map((page) => (
-                      <button
-                        key={page}
-                        type="button"
-                        onClick={() => handlePageChange(page)}
-                        className={`h-11 w-11 rounded-full border text-sm font-bold transition-all duration-300 hover:-translate-y-0.5 ${
-                          page === pagination.currentPage
-                            ? 'border-[#238A55] bg-[#238A55] text-white shadow-md'
-                            : 'border-[#D7DCE1] bg-white text-[#07073b] hover:border-[#07073b]'
-                        }`}
-                      >
+                      <button key={page} type="button" onClick={() => handlePageChange(page)} className={`h-11 w-11 rounded-full border text-sm font-bold transition-all duration-300 hover:-translate-y-0.5 ${page === pagination.currentPage ? 'border-[#238A55] bg-[#238A55] text-white shadow-md' : 'border-[#D7DCE1] bg-white text-[#07073b] hover:border-[#07073b]'}`}>
                         {page}
                       </button>
                     ))}
-                    <button
-                      type="button"
-                      onClick={() => handlePageChange(Math.min(pagination.lastPage, pagination.currentPage + 1))}
-                      disabled={pagination.currentPage === pagination.lastPage}
-                      className="rounded-full border border-[#D7DCE1] bg-white px-5 py-2.5 font-semibold text-[#07073b] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#07073b] disabled:cursor-not-allowed disabled:opacity-45"
-                    >
+                    <button type="button" onClick={() => handlePageChange(Math.min(pagination.lastPage, pagination.currentPage + 1))} disabled={pagination.currentPage === pagination.lastPage} className="rounded-full border border-[#D7DCE1] bg-white px-5 py-2.5 font-semibold text-[#07073b] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#07073b] disabled:cursor-not-allowed disabled:opacity-45">
                       Siguiente
                     </button>
                   </div>

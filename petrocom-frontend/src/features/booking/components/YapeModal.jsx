@@ -10,8 +10,8 @@ const YapeModal = ({ isOpen, onClose, amount, onSuccess }) => {
   const [loading, setLoading] = useState(false);
   const [copied, setCopied] = useState(false);
 
-  const yapeNumber = '987 654 321';
-  const yapeName = 'Book&Go Tours';
+  const yapeNumber = '927 985 691';
+  const yapeName = 'PETROCOM Energy';
 
   const formatPhone = (value) => {
     const cleaned = value.replace(/\D/g, '');

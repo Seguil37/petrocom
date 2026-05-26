@@ -22,7 +22,7 @@ const adminItems = [
     module: MODULES.PROJECTS,
     group: 'announcements',
     title: 'Gestion de proyectos publicados',
-    description: 'Administra los proyectos visibles en la web y su contenido comercial.',
+    description: 'Administra categorias y referencias tecnicas visibles en la web.',
     eyebrow: 'Anuncios',
     to: '/agency/dashboard',
     roles: STAFF_ROLES,
@@ -142,10 +142,10 @@ const adminGroups = [
   },
   {
     key: 'announcements',
-    title: 'Anuncios',
-    eyebrow: 'Contenido visible',
+    title: 'Contenido web',
+    eyebrow: 'Servicios y proyectos',
     description:
-      'Publicacion y gestion de contenido comercial que aparece en la web: proyectos y servicios.',
+      'Publicacion y gestion del contenido visible en la web: categorias de proyectos y servicios tecnicos.',
     icon: Megaphone,
   },
 ];

@@ -14,12 +14,12 @@ const PayPalButton = ({ amount, onSuccess, onError }) => {
             value: amount.toFixed(2),
             currency_code: "USD",
           },
-          description: "Reserva de Tours - Book&Go",
+          description: "Solicitud de servicio tecnico - PETROCOM Energy",
         },
       ],
       application_context: {
         shipping_preference: "NO_SHIPPING",
-        brand_name: "Book&Go Perú",
+        brand_name: "PETROCOM Energy",
         locale: "es-PE",
       },
     });
@@ -28,17 +28,17 @@ const PayPalButton = ({ amount, onSuccess, onError }) => {
   const onApprove = async (data, actions) => {
     try {
       const details = await actions.order.capture();
-      console.log('✅ PayPal payment successful:', details);
+      console.log('PayPal payment successful:', details);
       onSuccess(details);
     } catch (error) {
-      console.error('❌ Error capturing PayPal order:', error);
+      console.error('Error capturing PayPal order:', error);
       setError('Error al procesar el pago');
       onError(error);
     }
   };
 
   const onErrorHandler = (err) => {
-    console.error('❌ PayPal error:', err);
+    console.error('PayPal error:', err);
     setError('Error con PayPal');
     onError(err);
   };

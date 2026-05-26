@@ -10,20 +10,17 @@ const TourDetails = ({ formData, updateFormData }) => {
 
   const handleNumberChange = (e) => {
     const { name, value } = e.target;
-    updateFormData({ [name]: parseInt(value) || 0 });
+    updateFormData({ [name]: parseInt(value, 10) || 0 });
   };
 
   return (
     <div className="space-y-6">
-      <h2 className="text-xl font-bold text-[#07073b] mb-6">
-        Detalles del Tour
-      </h2>
+      <h2 className="text-xl font-bold text-[#07073b] mb-6">Detalles del expediente</h2>
 
-      {/* Itinerario */}
       <div>
         <label className="block text-sm font-semibold text-[#07073b] mb-2 flex items-center gap-2">
           <FileText className="w-5 h-5 text-primary" />
-          Itinerario *
+          Alcance *
         </label>
         <textarea
           name="itinerary"
@@ -31,19 +28,16 @@ const TourDetails = ({ formData, updateFormData }) => {
           onChange={handleChange}
           rows="8"
           className="w-full px-4 py-3 border-2 border-[#D7DCE1] rounded-xl focus:border-primary focus:outline-none resize-y font-mono text-sm"
-          placeholder="Día 1: Cusco - Km 82 - Wayllabamba (12km)&#10;Salida temprano desde Cusco. Inicio de caminata en el km 82...&#10;&#10;Día 2: Wayllabamba - Paso Warmihuañusca (11km)&#10;Día más desafiante. Ascenso al paso..."
+          placeholder="Etapa 1: Revision de requisitos OSINERGMIN&#10;Etapa 2: Elaboracion de planos, memorias y matriz de riesgo&#10;Etapa 3: Presentacion y seguimiento del expediente"
           required
         />
-        <p className="text-sm text-[#5F6B76] mt-2">
-          Describe el itinerario día a día o por actividades
-        </p>
+        <p className="text-sm text-[#5F6B76] mt-2">Describe el alcance por etapas o entregables tecnicos.</p>
       </div>
 
-      {/* Incluye */}
       <div>
         <label className="block text-sm font-semibold text-[#07073b] mb-2 flex items-center gap-2">
           <CheckCircle className="w-5 h-5 text-[#07073b]" />
-          ¿Qué incluye? *
+          Que incluye *
         </label>
         <textarea
           name="includes"
@@ -51,19 +45,16 @@ const TourDetails = ({ formData, updateFormData }) => {
           onChange={handleChange}
           rows="6"
           className="w-full px-4 py-3 border-2 border-[#D7DCE1] rounded-xl focus:border-primary focus:outline-none resize-y"
-          placeholder="• Guía profesional bilingüe certificado&#10;• Entrada a Machu Picchu&#10;• Transporte Cusco - Km 82&#10;• 3 noches de camping..."
+          placeholder="• Revision tecnica&#10;• Planos y memorias&#10;• Plan de contingencia&#10;• Seguimiento de observaciones"
           required
         />
-        <p className="text-sm text-[#5F6B76] mt-2">
-          Lista todo lo que está incluido en el precio (usa • para viñetas)
-        </p>
+        <p className="text-sm text-[#5F6B76] mt-2">Lista los entregables incluidos en el servicio.</p>
       </div>
 
-      {/* No incluye */}
       <div>
         <label className="block text-sm font-semibold text-[#07073b] mb-2 flex items-center gap-2">
           <XCircle className="w-5 h-5 text-[#C58A2A]" />
-          ¿Qué NO incluye? *
+          Que no incluye *
         </label>
         <textarea
           name="excludes"
@@ -71,12 +62,11 @@ const TourDetails = ({ formData, updateFormData }) => {
           onChange={handleChange}
           rows="5"
           className="w-full px-4 py-3 border-2 border-[#D7DCE1] rounded-xl focus:border-primary focus:outline-none resize-y"
-          placeholder="• Propinas para guías y porteadores&#10;• Bebidas alcohólicas&#10;• Seguro de viaje personal..."
+          placeholder="• Tasas administrativas de entidades&#10;• Adecuaciones fisicas no contratadas&#10;• Ensayos o certificados externos"
           required
         />
       </div>
 
-      {/* Requisitos */}
       <div>
         <label className="block text-sm font-semibold text-[#07073b] mb-2 flex items-center gap-2">
           <AlertTriangle className="w-5 h-5 text-[#C58A2A]" />
@@ -88,16 +78,15 @@ const TourDetails = ({ formData, updateFormData }) => {
           onChange={handleChange}
           rows="5"
           className="w-full px-4 py-3 border-2 border-[#D7DCE1] rounded-xl focus:border-primary focus:outline-none resize-y"
-          placeholder="• Buen estado físico (caminatas de 6-8 horas)&#10;• Pasaporte vigente&#10;• Edad mínima: 12 años..."
+          placeholder="• Datos del titular&#10;• Ubicacion del establecimiento&#10;• Documentacion tecnica disponible"
           required
         />
       </div>
 
-      {/* Política de cancelación */}
       <div>
         <label className="block text-sm font-semibold text-[#07073b] mb-2 flex items-center gap-2">
           <Calendar className="w-5 h-5 text-primary" />
-          Política de Cancelación *
+          Condiciones del servicio *
         </label>
         <textarea
           name="cancellation_policy"
@@ -105,16 +94,13 @@ const TourDetails = ({ formData, updateFormData }) => {
           onChange={handleChange}
           rows="3"
           className="w-full px-4 py-3 border-2 border-[#D7DCE1] rounded-xl focus:border-primary focus:outline-none resize-y"
-          placeholder="Cancelación gratuita hasta 24 horas antes. Menos de 24 horas: sin reembolso."
+          placeholder="El alcance se confirma luego de revisar requisitos, documentos disponibles y actividad declarada."
           required
         />
       </div>
 
-      {/* Horas de cancelación */}
       <div>
-        <label className="block text-sm font-semibold text-[#07073b] mb-2">
-          Horas de Cancelación Gratuita *
-        </label>
+        <label className="block text-sm font-semibold text-[#07073b] mb-2">Plazo de revision inicial *</label>
         <div className="flex items-center gap-4">
           <input
             type="number"
@@ -125,11 +111,9 @@ const TourDetails = ({ formData, updateFormData }) => {
             min="0"
             required
           />
-          <span className="text-[#5F6B76]">horas antes del tour</span>
+          <span className="text-[#5F6B76]">horas para revision inicial</span>
         </div>
-        <p className="text-sm text-[#5F6B76] mt-2">
-          Ejemplo: 24 horas = cancelación gratuita hasta 1 día antes
-        </p>
+        <p className="text-sm text-[#5F6B76] mt-2">Ejemplo: 24 horas para revisar documentos base y proponer ruta de trabajo.</p>
       </div>
     </div>
   );

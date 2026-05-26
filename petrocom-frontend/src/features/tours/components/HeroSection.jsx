@@ -2,9 +2,9 @@
 
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { MapPin, Search, Star, Users } from 'lucide-react';
-import heroImage from '../../../assets/images/logo/logo.png';
+import { ClipboardList, MapPin, Search, Star, Users } from 'lucide-react';
 
+const heroImage = 'https://images.unsplash.com/photo-1727483892297-56448c8f1af1?auto=format&fit=crop&w=1800&q=80';
 
 const HeroSection = () => {
   const [mode, setMode] = useState('services');
@@ -26,9 +26,7 @@ const HeroSection = () => {
     }
 
     const params = new URLSearchParams();
-    if (projectQuery) {
-      params.append('search', projectQuery);
-    }
+    if (projectQuery) params.append('search', projectQuery);
     navigate({
       pathname: '/projects',
       search: params.toString() ? `?${params.toString()}` : '',
@@ -37,25 +35,23 @@ const HeroSection = () => {
   };
 
   const projectSuggestions = [
-    'Edificio Multifamiliar Ecológica Plaza',
-    'Casa de Campo Zurite',
-    'Vivienda unifamiliar',
-    'Remodelación integral',
-    'Oficina comercial',
+    'Estaciones de servicio',
+    'Gasocentros de GLP',
+    'Consumidores directos',
+    'Transporte de combustibles',
   ];
   const serviceSuggestions = [
-    'Diseño, Construcción y Regularización Inmobiliaria',
-    'Servicios Inmobiliarios',
-    'Trámites y Regularización Inmobiliaria',
-    'Diseño de interiores',
-    'Topografía',
+    'Informe Tecnico Favorable - ITF',
+    'Registro de Hidrocarburos',
+    'Planes de contingencia',
+    'Levantamiento de observaciones',
   ];
 
   const isAbout = mode === 'about';
-  const inputLabel = mode === 'services' ? 'Servicio o palabra clave' : 'Ciudad o destino';
+  const inputLabel = mode === 'services' ? 'Servicio o tramite' : 'Tipo de proyecto';
   const inputPlaceholder = mode === 'services'
-    ? 'Licencias, diseño, topografia...'
-    : 'Ciudad, tipo de proyecto o referencia';
+    ? 'ITF, Registro de Hidrocarburos, GLP...'
+    : 'Estacion de servicio, consumidor directo...';
   const suggestions = mode === 'services' ? serviceSuggestions : projectSuggestions;
   const value = mode === 'services' ? serviceQuery : projectQuery;
   const onChange = mode === 'services' ? setServiceQuery : setProjectQuery;
@@ -63,10 +59,10 @@ const HeroSection = () => {
   return (
     <section className="relative min-h-[760px] lg:min-h-[820px] flex items-center justify-center overflow-hidden px-3 sm:px-6 py-10">
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#05052f]/90 via-[#07073b]/75 to-[#303840]/80 z-10" />
         <img
           src={heroImage}
-          alt="Hero background"
+          alt="Estacion de servicio y surtidores de combustible"
           className="w-full h-full object-cover animate-slow-zoom"
         />
       </div>
@@ -75,10 +71,10 @@ const HeroSection = () => {
         <div className="animate-fade-in">
           <div className="mb-6">
             <h1 className="text-3xl sm:text-4xl lg:text-6xl font-black text-white mb-4 tracking-tight leading-tight transition-transform duration-500 hover:-translate-y-1">
-              Diseñamos espacios que hablan por ti.
+              Especialistas en proyectos y tramites para el sector hidrocarburos
             </h1>
-            <p className="text-base sm:text-lg lg:text-2xl text-white font-semibold tracking-wide transition-colors duration-500 hover:text-white">
-              Arquitectura y gestion de proyectos para viviendas, oficinas y espacios comerciales.
+            <p className="mx-auto max-w-5xl text-base sm:text-lg lg:text-2xl text-white/90 font-semibold tracking-wide transition-colors duration-500 hover:text-white">
+              Brindamos asesoria tecnica, elaboracion de expedientes y acompanamiento integral para combustibles liquidos, GLP, estaciones de servicio, consumidores directos y transporte de hidrocarburos.
             </p>
           </div>
 
@@ -102,11 +98,10 @@ const HeroSection = () => {
           </div>
 
           {isAbout ? (
-            <div className="max-w-5xl mx-auto bg-[#07073b]/80 border border-white/30 rounded-3xl p-8 text-white shadow-2xl backdrop-blur transition-all duration-500 hover:-translate-y-1 hover:bg-[#07073b]/85">
-              <p className="text-3xl md:text-4xl font-black mb-3">10+ años de experiencia combinada</p>
+            <div className="max-w-5xl mx-auto bg-[#07073b]/82 border border-white/30 rounded-3xl p-8 text-white shadow-2xl backdrop-blur transition-all duration-500 hover:-translate-y-1 hover:bg-[#07073b]/88">
+              <p className="text-3xl md:text-4xl font-black mb-3">Gestion tecnica, normativa y documental</p>
               <p className="text-white/85 mb-6 text-lg max-w-3xl mx-auto">
-                Equipo de arquitectos e ingenieros que lidera licencias, diseño, construccion y supervision.
-                Cuentanos tu idea y la llevamos a proyecto ejecutable.
+                Acompanamos a empresas y titulares desde la evaluacion inicial hasta la presentacion, seguimiento y levantamiento de observaciones del expediente.
               </p>
               <div className="flex flex-wrap justify-center gap-3">
                 <button
@@ -114,14 +109,15 @@ const HeroSection = () => {
                   onClick={() => navigate('/contacto')}
                   className="px-6 py-3 rounded-full bg-white text-[#07073b] font-bold shadow-lg transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02]"
                 >
-                  Hablemos ahora
+                  Contactanos
                 </button>
-                <a
-                  href="#nosotros"
+                <button
+                  type="button"
+                  onClick={() => navigate('/consulta-tramite')}
                   className="px-6 py-3 rounded-full border border-white/60 text-white font-bold transition-all duration-300 hover:-translate-y-1 hover:bg-white/10"
                 >
-                  Ver fortalezas
-                </a>
+                  Consultar tramite
+                </button>
               </div>
             </div>
           ) : (
@@ -157,9 +153,9 @@ const HeroSection = () => {
 
               <div className="mt-3 flex flex-wrap items-center gap-2 text-left">
                 <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#5F6B76]">
-                    Prueba con:
+                  Prueba con:
                 </span>
-                {suggestions.slice(0, 4).map((item) => (
+                {suggestions.map((item) => (
                   <button
                     key={item}
                     type="button"
@@ -170,13 +166,15 @@ const HeroSection = () => {
                   </button>
                 ))}
               </div>
-
-              
-            </form>  
+            </form>
           )}
 
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
-            {[{ icon: Star, text: 'Clientes que confian en Casaliz', count: '98%' }, { icon: Star, text: 'Proyectos disenados y construidos', count: '120+' }, { icon: Users, text: 'Años de experiencia combinada', count: '10+' }].map((item, index) => {
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            {[
+              { icon: ClipboardList, text: 'Expedientes tecnicos y documentales', count: 'ITF' },
+              { icon: Star, text: 'Seguimiento y levantamiento de observaciones', count: 'Gestion' },
+              { icon: Users, text: 'Atencion para empresas y titulares', count: 'GLP' },
+            ].map((item, index) => {
               const Icon = item.icon;
               return (
                 <div
@@ -185,13 +183,38 @@ const HeroSection = () => {
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <div className="flex items-center justify-center gap-2 mb-2">
-                    <Icon className="w-5 h-5 text-[#238A55] fill-current" />
+                    <Icon className="w-5 h-5 text-[#238A55]" />
                     <span className="text-2xl font-bold">{item.count}</span>
                   </div>
                   <p className="text-sm">{item.text}</p>
                 </div>
               );
             })}
+          </div>
+
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <button
+              type="button"
+              onClick={() => navigate('/services')}
+              className="rounded-xl bg-white px-5 py-3 font-bold text-[#07073b] shadow-lg transition-all duration-300 hover:-translate-y-1"
+            >
+              Ver servicios
+            </button>
+            <button
+              type="button"
+              onClick={() => navigate('/consulta-tramite')}
+              className="rounded-xl border border-white/35 bg-white/10 px-5 py-3 font-bold text-white shadow-lg backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:bg-white/18"
+            >
+              Consultar tramite
+            </button>
+            <a
+              href="https://wa.me/51927985691?text=Hola%20PETROCOM%20Energy%2C%20necesito%20asesoria%20para%20un%20tramite%20de%20hidrocarburos."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-xl bg-[#238A55] px-5 py-3 font-bold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-[#196B43]"
+            >
+              Contactanos por WhatsApp
+            </a>
           </div>
         </div>
       </div>

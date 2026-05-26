@@ -98,7 +98,7 @@ const RegisterPage = () => {
           <div className="flex flex-col items-center justify-center gap-2 min-h-[120px]">
             <h2 className="text-4xl font-black text-[#07073b] leading-tight text-center">Crea tu cuenta</h2>
             <p className="text-[#5F6B76] text-center max-w-xl">
-              Únete a Casaliz, tu opinión nos importa.
+              Unete a PETROCOM Energy para consultar tus tramites.
             </p>
           </div>
         </div>
@@ -332,7 +332,7 @@ const TermsAndConditionsStep = ({ onBack, onSubmit, loading, apiError }) => {
           <div className="border border-[#D7DCE1] rounded-xl p-6 max-h-64 overflow-y-auto mb-6">
             <div className="space-y-4 text-sm text-[#5F6B76]">
               <p className="font-semibold text-[#07073b]">1. Aceptación de términos</p>
-              <p>Al crear una cuenta en Casaliz, aceptas nuestros términos y condiciones.</p>
+              <p>Al crear una cuenta en PETROCOM Energy, aceptas nuestros terminos y condiciones.</p>
 
               <p className="font-semibold text-[#07073b]">2. Uso del servicio</p>
               <p>Debes utilizar nuestros servicios de manera responsable, legal y sin afectar el funcionamiento de la plataforma.</p>
@@ -341,16 +341,16 @@ const TermsAndConditionsStep = ({ onBack, onSubmit, loading, apiError }) => {
               <p>Tus datos serán protegidos y utilizados únicamente para fines de contacto, cotización y gestión de servicios.</p>
 
               <p className="font-semibold text-[#07073b]">4. Información proporcionada</p>
-              <p>Te comprometes a registrar información veraz y actualizada. Casaliz no se responsabiliza por errores derivados de datos incorrectos.</p>
+              <p>Te comprometes a registrar informacion veraz y actualizada. PETROCOM Energy no se responsabiliza por errores derivados de datos incorrectos.</p>
 
               <p className="font-semibold text-[#07073b]">5. Alcance de cotizaciones</p>
               <p>Las cotizaciones son referenciales y pueden variar según cambios de requerimientos, condiciones del inmueble y trámites municipales.</p>
 
               <p className="font-semibold text-[#07073b]">6. Propiedad intelectual</p>
-              <p>Los diseños, planos, renders y documentos técnicos elaborados por Casaliz son propiedad de la empresa, salvo acuerdo escrito.</p>
+              <p>Los expedientes, planos, memorias, informes y documentos tecnicos elaborados por PETROCOM Energy son propiedad de la empresa, salvo acuerdo escrito.</p>
 
               <p className="font-semibold text-[#07073b]">7. Cambios y actualizaciones</p>
-              <p>Casaliz puede actualizar estos términos cuando sea necesario. Las modificaciones se publicarán en la plataforma.</p>
+              <p>PETROCOM Energy puede actualizar estos terminos cuando sea necesario. Las modificaciones se publicaran en la plataforma.</p>
             </div>
           </div>
 
@@ -362,7 +362,7 @@ const TermsAndConditionsStep = ({ onBack, onSubmit, loading, apiError }) => {
               className="w-5 h-5 mt-0.5 text-[#238A55] focus:ring-[#238A55] rounded"
             />
             <span className="text-sm text-[#07073b]">
-              Acepto los términos y condiciones, la política de privacidad y el acuerdo de la comunidad de Casaliz.
+              Acepto los terminos y condiciones, la politica de privacidad y el acuerdo de uso de PETROCOM Energy.
             </span>
           </label>
 

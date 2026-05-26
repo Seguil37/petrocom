@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use App\Http\Middleware\CheckRole;
@@ -25,6 +26,10 @@ return Application::configure(basePath: dirname(__DIR__))
             'track' => TrackActivity::class,
             'module' => CheckModulePermission::class,
         ]);
+
+        $middleware->redirectGuestsTo(function (Request $request) {
+            return $request->is('api/*') ? null : '/login';
+        });
     })
     ->withExceptions(function (Exceptions $exceptions) {
         $databaseUnavailableResponse = function (Request $request) {
@@ -43,5 +48,15 @@ return Application::configure(basePath: dirname(__DIR__))
 
         $exceptions->render(function (\PDOException $e, Request $request) use ($databaseUnavailableResponse) {
             return $databaseUnavailableResponse($request);
+        });
+
+        $exceptions->render(function (AuthenticationException $e, Request $request) {
+            if (!$request->expectsJson() && !$request->is('api/*')) {
+                return null;
+            }
+
+            return response()->json([
+                'message' => 'No autenticado.',
+            ], 401);
         });
     })->create();

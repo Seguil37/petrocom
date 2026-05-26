@@ -41,7 +41,7 @@ const FilterSidebar = ({ filters, onFilterChange, onApply, onClear, isMobile = f
             className="h-4 w-4 rounded border-[#D7DCE1] text-[#238A55] focus:ring-[#238A55] focus:outline-none"
             style={{ accentColor: '#238A55' }}
           />
-          Mostrar proyectos destacados
+          Mostrar categorias destacadas
         </label>
       </div>
 

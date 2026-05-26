@@ -46,16 +46,25 @@ const ClientTramiteStatus = ({ tramite, compact = false }) => {
         </div>
 
         <div className="mt-5 grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <InfoItem icon={ClipboardList} label="Etapa actual" value={tramite.current_subphase?.name || tramite.current_phase?.name || 'Por iniciar'} />
-          <InfoItem icon={CalendarDays} label="Inicio" value={formatDate(tramite.registered_at)} />
+          <InfoItem icon={ClipboardList} label="Tipo de servicio" value={tramite.type?.name || 'Tramite tecnico'} />
+          <InfoItem icon={FileText} label="Marco de gestion" value={tramite.entity || 'Normativa aplicable'} />
+          <InfoItem icon={CalendarDays} label="Fecha de inicio" value={formatDate(tramite.registered_at)} />
           <InfoItem icon={Clock3} label="Fecha objetivo" value={formatDate(tramite.due_date)} />
           <InfoItem icon={MapPin} label="Ubicacion" value={tramite.location || 'No registrada'} />
+          <InfoItem icon={ClipboardList} label="Etapa actual" value={tramite.current_subphase?.name || tramite.current_phase?.name || 'Por iniciar'} />
+          <InfoItem icon={CheckCircle2} label="Responsable" value={tramite.responsible_name || 'Equipo PETROCOM'} />
+          <InfoItem icon={Clock3} label="Ultima actualizacion" value={formatDateTime(tramite.last_update_at)} />
         </div>
 
         <div className="mt-5 rounded-lg border border-[#D7DCE1] bg-[#F4F5F6] p-4">
           <p className="text-xs font-black uppercase text-[#238A55]">Proxima accion</p>
           <p className="mt-1 text-sm font-semibold text-[#07073b]">{tramite.next_action}</p>
           <p className="mt-2 text-xs text-[#5F6B76]">Ultima actualizacion: {formatDateTime(tramite.last_update_at)}</p>
+        </div>
+
+        <div className="mt-5 grid grid-cols-1 gap-4 lg:grid-cols-2">
+          <InfoList title="Documentos pendientes" items={tramite.pending_documents} empty="No hay documentos pendientes visibles." />
+          <InfoList title="Observaciones" items={tramite.observations} empty="No hay observaciones registradas." />
         </div>
       </section>
 
@@ -153,6 +162,23 @@ const Metric = ({ label, value }) => (
   <div className="rounded-lg bg-[#F4F5F6] p-3">
     <p className="text-2xl font-black text-[#07073b]">{value}</p>
     <p className="text-xs font-bold uppercase text-[#5F6B76]">{label}</p>
+  </div>
+);
+
+const InfoList = ({ title, items = [], empty }) => (
+  <div className="rounded-lg border border-[#D7DCE1] bg-[#ffffff] p-4">
+    <p className="text-xs font-black uppercase text-[#238A55]">{title}</p>
+    {items.length ? (
+      <ul className="mt-2 space-y-2">
+        {items.map((item) => (
+          <li key={item} className="rounded-md bg-[#F4F5F6] px-3 py-2 text-sm font-semibold text-[#07073b]">
+            {item}
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p className="mt-2 text-sm text-[#5F6B76]">{empty}</p>
+    )}
   </div>
 );
 

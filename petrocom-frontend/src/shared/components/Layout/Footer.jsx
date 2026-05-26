@@ -1,170 +1,115 @@
 // src/shared/components/Layout/Footer.jsx
 import { Link } from 'react-router-dom';
-import {
-  Facebook,
-  Instagram,
-  Twitter,
-  Linkedin,
-  Mail,
-  Phone,
-  MapPin,
-  Clock,
-  Send,
-} from 'lucide-react';
+import { Facebook, Mail, Phone, MapPin, Clock } from 'lucide-react';
 import petrocomLogo from '../../../assets/images/petrocom-logo.png';
-
 
 const Footer = () => {
   return (
     <footer className="bg-[#07073b] text-[#D7DCE1]">
       <div className="container-custom py-16">
-        {/* Primera fila con 4 columnas */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-          {/* Columna 1: Marca */}
           <div>
             <div className="flex items-center gap-3 mb-4">
               <div className="bg-white rounded-xl shadow-lg border border-white/40 px-4 py-3">
                 <div className="h-14 md:h-16 lg:h-20 max-w-[220px] flex items-center">
                   <img
                     src={petrocomLogo}
-                    alt="Petrocom"
+                    alt="PETROCOM Energy"
                     className="h-full w-auto max-w-full object-contain"
                   />
                 </div>
               </div>
             </div>
             <p className="text-sm text-[#D7DCE1] mb-6 leading-relaxed">
-              Arquitectos e ingenieros especializados en soluciones a medida para proyectos
-              residenciales, comerciales y corporativos.
+              Servicios tecnicos para hidrocarburos: ITF, Registro de Hidrocarburos, expedientes,
+              planes de contingencia y seguimiento de tramites ante entidades competentes.
             </p>
             <div className="flex gap-3">
               <a
-                href="https://www.facebook.com/CASALIZEIRL"
+                href="https://www.facebook.com/profile.php?id=61574640909224"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-[#05052f] hover:bg-[#238A55] rounded-full flex items-center justify-center transition-all group"
+                aria-label="Facebook PETROCOM Energy"
               >
                 <Facebook className="w-5 h-5 text-[#D7DCE1] group-hover:text-white" />
               </a>
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-[#05052f] hover:bg-[#238A55] rounded-full flex items-center justify-center transition-all group"
-              >
-                <Instagram className="w-5 h-5 text-[#D7DCE1] group-hover:text-white" />
-              </a>
-              
             </div>
           </div>
 
-          {/* Columna 2: Nuestros Servicios */}
           <div>
             <h3 className="text-white font-bold text-lg mb-4">Nuestros Servicios</h3>
             <ul className="space-y-3">
-              <li>
-                <Link
-                  to="/services"
-                  className="text-[#D7DCE1] hover:text-[#238A55] transition-colors inline-flex items-center gap-2 group"
-                >
-                  <span className="w-1 h-1 bg-[#238A55] rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-                  Diseño arquitectónico
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/services"
-                  className="text-[#D7DCE1] hover:text-[#238A55] transition-colors inline-flex items-center gap-2 group"
-                >
-                  <span className="w-1 h-1 bg-[#238A55] rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-                  Licencias
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/services"
-                  className="text-[#D7DCE1] hover:text-[#238A55] transition-colors inline-flex items-center gap-2 group"
-                >
-                  <span className="w-1 h-1 bg-[#238A55] rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-                  Expedientes tecnicos
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/services"
-                  className="text-[#D7DCE1] hover:text-[#238A55] transition-colors inline-flex items-center gap-2 group"
-                >
-                  <span className="w-1 h-1 bg-[#238A55] rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-                  Consultorías y supervisión
-                </Link>
-              </li>
+              {[
+                'Informe Tecnico Favorable - ITF',
+                'Registro de Hidrocarburos',
+                'Grifos y estaciones de servicio',
+                'Gasocentros y GLP',
+                'Transporte de combustibles',
+              ].map((item) => (
+                <li key={item}>
+                  <Link
+                    to="/services"
+                    className="text-[#D7DCE1] hover:text-[#238A55] transition-colors inline-flex items-center gap-2 group"
+                  >
+                    <span className="w-1 h-1 bg-[#238A55] rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                    {item}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Columna 3: Proyectos / Empresa */}
           <div>
-            <h3 className="text-white font-bold text-lg mb-4">Proyectos</h3>
+            <h3 className="text-white font-bold text-lg mb-4">PETROCOM Energy</h3>
             <ul className="space-y-3">
               <li>
-                <Link
-                  to="/projects"
-                  className="text-[#D7DCE1] hover:text-[#238A55] transition-colors inline-flex items-center gap-2 group"
-                >
+                <Link to="/projects" className="text-[#D7DCE1] hover:text-[#238A55] transition-colors inline-flex items-center gap-2 group">
                   <span className="w-1 h-1 bg-[#238A55] rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-                  Galería de proyectos
+                  Proyectos y categorias
                 </Link>
               </li>
               <li>
-                <a
-                  href="http://localhost:5173/about"
-                  className="text-[#D7DCE1] hover:text-[#238A55] transition-colors inline-flex items-center gap-2 group"
-                >
+                <Link to="/about" className="text-[#D7DCE1] hover:text-[#238A55] transition-colors inline-flex items-center gap-2 group">
                   <span className="w-1 h-1 bg-[#238A55] rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-                  Nosotros
-                </a>
-              </li>
-              <li>
-                <Link
-                  to="/"
-                  className="text-[#D7DCE1] hover:text-[#238A55] transition-colors inline-flex items-center gap-2 group"
-                >
-                  <span className="w-1 h-1 bg-[#238A55] rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-                  Inicio
+                  Empresa
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/services"
-                  className="text-[#D7DCE1] hover:text-[#238A55] transition-colors inline-flex items-center gap-2 group"
-                >
+                <Link to="/consulta-tramite" className="text-[#D7DCE1] hover:text-[#238A55] transition-colors inline-flex items-center gap-2 group">
                   <span className="w-1 h-1 bg-[#238A55] rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-                  Servicios
+                  Consulta de tramite
+                </Link>
+              </li>
+              <li>
+                <Link to="/contacto" className="text-[#D7DCE1] hover:text-[#238A55] transition-colors inline-flex items-center gap-2 group">
+                  <span className="w-1 h-1 bg-[#238A55] rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                  Contacto
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Columna 4: Contáctanos */}
           <div>
-            <h3 className="text-white font-bold text-lg mb-4">Contáctanos</h3>
+            <h3 className="text-white font-bold text-lg mb-4">Contactanos</h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <Phone className="w-5 h-5 text-[#238A55] flex-shrink-0 mt-0.5" />
-                <a href="tel:+51984696802" className="text-[#D7DCE1] hover:text-[#238A55] transition-colors">
-                  984 696802
+                <a href="tel:+51927985691" className="text-[#D7DCE1] hover:text-[#238A55] transition-colors">
+                  927 985 691
                 </a>
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="w-5 h-5 text-[#238A55] flex-shrink-0 mt-0.5" />
-                <a href="mailto:lissyosores@hotmail.com" className="text-[#D7DCE1] hover:text-[#238A55] transition-colors">
-                  lissyosores@hotmail.com
+                <a href="mailto:iaosoress@gmail.com" className="text-[#D7DCE1] hover:text-[#238A55] transition-colors">
+                  iaosoress@gmail.com
                 </a>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-[#238A55] flex-shrink-0 mt-0.5" />
                 <span className="text-[#D7DCE1]">
-                  Av. Lloque Yupanqui, Edificio Ecological Plaza 2do. nivel Of. 202<br />
-                  Wanchaq - Cusco - Cusco
+                  Jr. Chiclayo 345, El Tambo<br />
+                  Huancayo, Junin
                 </span>
               </li>
               <li className="flex items-start gap-3">
@@ -175,29 +120,19 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Línea divisoria */}
         <div className="border-t border-[#05052f] pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-[#D7DCE1] text-sm">
-              © 2025 CasaLiz Arquitectos Ingenieros. Todos los derechos reservados.
+              © 2026 PETROCOM Energy. Todos los derechos reservados.
             </p>
             <div className="flex gap-6 text-sm">
-              <Link
-                to="/"
-                className="text-[#D7DCE1] hover:text-[#238A55] transition-colors"
-              >
+              <Link to="/" className="text-[#D7DCE1] hover:text-[#238A55] transition-colors">
                 Inicio
               </Link>
-              <Link
-                to="/services"
-                className="text-[#D7DCE1] hover:text-[#238A55] transition-colors"
-              >
+              <Link to="/services" className="text-[#D7DCE1] hover:text-[#238A55] transition-colors">
                 Servicios
               </Link>
-              <Link
-                to="/projects"
-                className="text-[#D7DCE1] hover:text-[#238A55] transition-colors"
-              >
+              <Link to="/projects" className="text-[#D7DCE1] hover:text-[#238A55] transition-colors">
                 Proyectos
               </Link>
             </div>

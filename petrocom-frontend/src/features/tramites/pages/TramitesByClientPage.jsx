@@ -24,7 +24,6 @@ const PERU_DEPARTMENTS = [
   'Ayacucho',
   'Cajamarca',
   'Callao',
-  'Cusco',
   'Huancavelica',
   'Huanuco',
   'Ica',
@@ -44,13 +43,17 @@ const PERU_DEPARTMENTS = [
   'Ucayali',
 ];
 const LOCATION_SUGGESTIONS = {
+  Junin: {
+    provinces: ['Huancayo', 'Concepcion', 'Chupaca'],
+    districts: ['El Tambo', 'Huancayo', 'Chilca', 'Pilcomayo', 'Sapallanga'],
+  },
   Lima: {
     provinces: ['Lima', 'Huaral', 'Cañete', 'Huaura'],
     districts: ['Miraflores', 'San Isidro', 'Surco', 'La Molina', 'Barranco', 'Cieneguilla'],
   },
-  Cusco: {
-    provinces: ['Cusco', 'Anta', 'Urubamba', 'Calca'],
-    districts: ['Cusco', 'San Sebastian', 'San Jeronimo', 'Wanchaq', 'Santiago', 'Zurite'],
+  Ica: {
+    provinces: ['Ica', 'Pisco', 'Chincha'],
+    districts: ['Ica', 'Parcona', 'La Tinguiña', 'Pisco', 'San Clemente'],
   },
   Arequipa: {
     provinces: ['Arequipa', 'Camana', 'Caylloma'],
@@ -63,14 +66,14 @@ const LOCATION_SUGGESTIONS = {
 };
 
 const TRAMITE_NAME_SUGGESTIONS = [
-  'Licencia de Obra',
-  'Declaratoria de Fabrica',
-  'Independizacion de Predio',
-  'Subdivision de Lote',
-  'Acumulacion de Lote',
-  'Prescripcion Adquisitiva',
-  'Saneamiento Fisico Legal',
-  'Regularizacion de Edificacion',
+  'ITF para estacion de servicio',
+  'Modificacion de Registro de Hidrocarburos',
+  'Consumidor directo de combustibles liquidos',
+  'Local de venta de GLP',
+  'Plan de contingencia',
+  'Levantamiento de observaciones OSINERGMIN',
+  'Transporte de combustibles',
+  'Gasocentro de GLP',
 ];
 
 const emptyForm = {
@@ -221,7 +224,7 @@ const TramitesByClientPage = () => {
           <div className="min-w-0">
             <h1 className="text-3xl font-black text-[#07073b]">Tramites por Cliente / Proyecto</h1>
             <p className="text-[#5F6B76]">
-              Asigna un flujo de tramite ya definido a un cliente o proyecto especifico.
+              Asigna un flujo de tramite ya definido a un cliente, establecimiento o actividad especifica.
             </p>
           </div>
           <div className="flex w-full flex-wrap gap-2 sm:w-auto sm:flex-nowrap xl:justify-end">
@@ -317,7 +320,7 @@ const TramitesByClientPage = () => {
                   onChange={(e) => setForm({ ...form, project_name: e.target.value })}
                   onBlur={() => setForm((prev) => ({ ...prev, project_name: normalizeSentence(prev.project_name) }))}
                   list="tramite-name-suggestions"
-                  placeholder="Ej: Licencia de obra de vivienda unifamiliar"
+                  placeholder="Ej: ITF para estacion de servicio"
                   required
                 />
                 <datalist id="tramite-name-suggestions">
@@ -325,7 +328,7 @@ const TramitesByClientPage = () => {
                     <option key={name} value={name} />
                   ))}
                 </datalist>
-                <p className="mt-1 text-xs text-[#5F6B76]">Elige una sugerencia si aplica; evita abreviaciones como lic., reg. o indep.</p>
+                <p className="mt-1 text-xs text-[#5F6B76]">Elige una sugerencia si aplica; evita abreviaciones no claras en el expediente.</p>
               </div>
 
               <div>
@@ -335,9 +338,9 @@ const TramitesByClientPage = () => {
                   value={form.property_name}
                   onChange={(e) => setForm({ ...form, property_name: e.target.value })}
                   onBlur={() => setForm((prev) => ({ ...prev, property_name: toTitleCase(prev.property_name) }))}
-                  placeholder="Ej: Torre A, Local 102"
+                  placeholder="Ej: Estacion, grifo, local GLP o unidad"
                 />
-                <p className="mt-1 text-xs text-[#5F6B76]">Usa una denominacion estable: manzana, lote, local o edificio si corresponde.</p>
+                <p className="mt-1 text-xs text-[#5F6B76]">Usa una denominacion estable del establecimiento, local, unidad o predio.</p>
               </div>
 
               <div className="space-y-3 rounded-2xl border border-[#F4F5F6] bg-[#ffffff] p-4">
@@ -370,7 +373,7 @@ const TramitesByClientPage = () => {
                     value={form.location_province}
                     onChange={(e) => setForm({ ...form, location_province: e.target.value })}
                     onBlur={() => setForm((prev) => ({ ...prev, location_province: toTitleCase(prev.location_province) }))}
-                    placeholder="Ej: Cusco"
+                    placeholder="Ej: Huancayo"
                     list="tramite-province-suggestions"
                     required
                   />
@@ -388,7 +391,7 @@ const TramitesByClientPage = () => {
                     value={form.location_district}
                     onChange={(e) => setForm({ ...form, location_district: e.target.value })}
                     onBlur={() => setForm((prev) => ({ ...prev, location_district: toTitleCase(prev.location_district) }))}
-                    placeholder="Ej: San Sebastian"
+                    placeholder="Ej: El Tambo"
                     list="tramite-district-suggestions"
                     required
                   />
@@ -475,7 +478,7 @@ const TramitesByClientPage = () => {
                 >
                   <option value="">Todos los estados</option>
                   <option value="pending">Pendiente</option>
-                  <option value="in_progress">En proceso</option>
+                  <option value="in_progress">En revision tecnica</option>
                   <option value="observed">Observado</option>
                   <option value="completed">Finalizado</option>
                 </select>
@@ -793,7 +796,7 @@ const TramitesByClientPage = () => {
                   onChange={(e) => setEditing({ ...editing, status: e.target.value })}
                 >
                   <option value="pending">Pendiente</option>
-                  <option value="in_progress">En proceso</option>
+                  <option value="in_progress">En revision tecnica</option>
                   <option value="observed">Observado</option>
                   <option value="completed">Finalizado</option>
                 </select>
@@ -925,7 +928,7 @@ const statusLabel = (status) => {
     case 'pending':
       return 'Pendiente';
     case 'in_progress':
-      return 'En proceso';
+      return 'En revision tecnica';
     case 'observed':
       return 'Observado';
     case 'completed':

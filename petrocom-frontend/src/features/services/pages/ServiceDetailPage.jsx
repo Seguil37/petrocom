@@ -86,12 +86,12 @@ const ServiceDetailPage = () => {
 
               <div className="flex pt-4">
                 <a
-                  href="https://tinyurl.com/CasalizArquitectura"
+                  href="https://wa.me/51927985691?text=Hola%20PETROCOM%20Energy%2C%20necesito%20cotizar%20un%20servicio%20tecnico."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-3 bg-[#238A55] text-white font-bold px-8 py-4 rounded-full hover:shadow-lg hover:shadow-[#238A55]/40 transition-all duration-300 transform hover:scale-105"
                 >
-                  Cotizar Servicio
+                  Consultar servicio
                   <ChevronRight className="w-5 h-5" />
                 </a>
               </div>
@@ -121,18 +121,18 @@ const ServiceDetailPage = () => {
           </div>
           <div className="bg-white rounded-2xl border-2 border-[#D7DCE1] shadow-lg p-6 hover:shadow-xl transition-shadow">
             <Zap className="w-8 h-8 text-[#238A55] mb-3" />
-            <p className="text-xs uppercase tracking-widest text-[#5F6B76] font-bold">RApido</p>
-            <p className="text-lg font-bold text-[#07073b] mt-2">Entrega Agil</p>
+            <p className="text-xs uppercase tracking-widest text-[#5F6B76] font-bold">Gestion</p>
+            <p className="text-lg font-bold text-[#07073b] mt-2">Seguimiento</p>
           </div>
           <div className="bg-white rounded-2xl border-2 border-[#D7DCE1] shadow-lg p-6 hover:shadow-xl transition-shadow">
             <CheckCircle className="w-8 h-8 text-[#238A55] mb-3" />
-            <p className="text-xs uppercase tracking-widest text-[#5F6B76] font-bold">Calidad</p>
-            <p className="text-lg font-bold text-[#07073b] mt-2">Garantizado</p>
+            <p className="text-xs uppercase tracking-widest text-[#5F6B76] font-bold">Normativo</p>
+            <p className="text-lg font-bold text-[#07073b] mt-2">Normativa vigente</p>
           </div>
           <div className="bg-white rounded-2xl border-2 border-[#D7DCE1] shadow-lg p-6 hover:shadow-xl transition-shadow">
             <Zap className="w-8 h-8 text-[#238A55] mb-3" />
-            <p className="text-xs uppercase tracking-widest text-[#5F6B76] font-bold">Soporte</p>
-            <p className="text-lg font-bold text-[#07073b] mt-2">24/7 Disponible</p>
+            <p className="text-xs uppercase tracking-widest text-[#5F6B76] font-bold">Seguridad</p>
+            <p className="text-lg font-bold text-[#07073b] mt-2">Riesgos y control</p>
           </div>
         </div>
       </section>
@@ -146,7 +146,7 @@ const ServiceDetailPage = () => {
                 <div className="h-1 w-1 rounded-full bg-[#238A55]" />
                 <h2 className="text-3xl font-black text-[#07073b]">Galeria de Trabajos</h2>
               </div>
-              <p className="text-[#5F6B76] text-lg font-light">Explora nuestros proyectos y trabajos realizados</p>
+              <p className="text-[#5F6B76] text-lg font-light">Explora referencias visuales y documentos del servicio</p>
             </div>
 
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -194,7 +194,7 @@ const ServiceDetailPage = () => {
               Listo para comenzar?
             </h2>
             <p className="text-lg text-white/80 max-w-2xl mx-auto font-light">
-              Contactanos hoy y solicita una cotizacion personalizada para tu proyecto
+              Contactanos hoy y solicita una revision inicial de tu expediente o actividad.
             </p>
           </div>
 

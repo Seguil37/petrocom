@@ -104,7 +104,7 @@ const AgencyDashboard = () => {
         <div className="mb-8 flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
           <div className="min-w-0">
             <h1 className="text-3xl font-black text-[#07073b] mb-2">Hola, {user?.name} 👋</h1>
-            <p className="text-[#5F6B76]">Administra los proyectos del portafolio CASALIZ.</p>
+            <p className="text-[#5F6B76]">Administra categorias y referencias tecnicas visibles en PETROCOM Energy.</p>
           </div>
           <div className="flex w-full flex-wrap gap-2 sm:w-auto sm:flex-nowrap xl:justify-end">
             <AdminPanelBackButton />

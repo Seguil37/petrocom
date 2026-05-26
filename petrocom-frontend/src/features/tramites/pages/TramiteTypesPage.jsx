@@ -276,7 +276,7 @@ const TramiteTypesPage = () => {
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
                   onBlur={() => setForm((prev) => ({ ...prev, name: toTitleCase(prev.name) }))}
                   className={inputClass}
-                  placeholder="Ej: Licencia de obra"
+                  placeholder="Ej: ITF para estacion de servicio"
                   required
                 />
               </div>
@@ -349,7 +349,7 @@ const TramiteTypesPage = () => {
                         onChange={(e) => handlePhaseChange(idx, 'name', e.target.value)}
                         onBlur={() => handlePhaseChange(idx, 'name', toTitleCase(phase.name))}
                         className={inputClass}
-                        placeholder="Ej: Recepcion documental"
+                      placeholder="Ej: Revision de requisitos OSINERGMIN"
                         required
                       />
                     </div>
@@ -368,7 +368,7 @@ const TramiteTypesPage = () => {
                         onChange={(e) => handlePhaseChange(idx, 'description', e.target.value)}
                         onBlur={() => handlePhaseChange(idx, 'description', normalizeSentence(phase.description))}
                         className={`${inputClass} min-h-[72px] resize-y`}
-                        placeholder="Ej: Revision inicial de documentos y requisitos."
+                        placeholder="Ej: Revision inicial de documentos tecnicos y requisitos del expediente."
                       />
                     </div>
                   </div>
@@ -398,7 +398,7 @@ const TramiteTypesPage = () => {
                             value={subphase.name}
                             onChange={(e) => handleSubphaseChange(idx, subIndex, 'name', e.target.value)}
                             onBlur={() => handleSubphaseChange(idx, subIndex, 'name', toTitleCase(subphase.name))}
-                            placeholder="Ej: Validacion de planos"
+                            placeholder="Ej: Validacion de planos y memoria tecnica"
                             className={inputClass}
                           />
 	                          <div className="rounded-xl border border-[#D7DCE1] bg-[#F4F5F6] px-4 py-2 font-semibold text-[#07073b]">

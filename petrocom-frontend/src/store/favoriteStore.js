@@ -27,7 +27,7 @@ const useFavoriteStore = create((set, get) => ({
       const favoriteIds = data.map((item) => item.id).filter(Boolean);
       set({ favorites: favoriteIds, favoriteTours: data, hasFetched: true });
     } catch (error) {
-      set({ error: error.response?.data?.message || 'No se pudieron cargar tus favoritos' });
+      set({ error: error.response?.data?.message || 'No se pudieron cargar tus elementos guardados' });
     } finally {
       set({ loading: false });
     }

@@ -18,34 +18,34 @@ class UsersSeeder extends Seeder
                 'role' => 'master_admin',
                 'city' => 'Lima',
                 'state' => 'Lima',
-                'country' => 'PerÃº',
+                'country' => 'Peru',
             ],
             [
                 'name' => 'Admin Principal',
                 'email' => 'ioseguil@gmail.com',
                 'password' => Hash::make('mychemicalromance37'),
                 'role' => 'admin',
-                'city' => 'Arequipa',
-                'state' => 'Arequipa',
-                'country' => 'PerÃº',
+                'city' => 'Huancayo',
+                'state' => 'Junin',
+                'country' => 'Peru',
             ],
             [
                 'name' => 'Cliente Demo',
                 'email' => 'jhojanvidal321@gmail.com',
                 'password' => Hash::make('password'),
                 'role' => 'client',
-                'city' => 'Cusco',
-                'state' => 'Cusco',
-                'country' => 'PerÃº',
+                'city' => 'Huancayo',
+                'state' => 'Junin',
+                'country' => 'Peru',
             ],
             [
                 'name' => 'Operativo Demo',
                 'email' => 'operativo@demo.com',
                 'password' => Hash::make('password'),
                 'role' => 'operator',
-                'city' => 'Lima',
-                'state' => 'Lima',
-                'country' => 'PerÃº',
+                'city' => 'Huancayo',
+                'state' => 'Junin',
+                'country' => 'Peru',
             ],
         ];
 
@@ -57,4 +57,3 @@ class UsersSeeder extends Seeder
         }
     }
 }
-

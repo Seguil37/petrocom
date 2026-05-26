@@ -59,8 +59,8 @@ const TourDetailPage = () => {
     } catch (err) {
       setFavoriteError(
         err.message === 'AUTH_REQUIRED'
-          ? 'Inicia sesion como cliente para guardar favoritos.'
-          : 'No se pudo actualizar tu lista de favoritos.'
+          ? 'Inicia sesion como cliente para guardar este proyecto.'
+          : 'No se pudo actualizar tu lista de elementos guardados.'
       );
     }
   };
@@ -102,7 +102,7 @@ const TourDetailPage = () => {
             <div className="space-y-6 order-2 lg:order-1">
               <div className="flex flex-wrap items-center gap-2">
                 <span className="px-4 py-2 rounded-full bg-gradient-to-r from-[#238A55]/20 to-[#C58A2A]/20 backdrop-blur border border-[#238A55]/40 text-[#C58A2A] text-xs uppercase tracking-widest font-bold">
-                  ✨ Proyecto Destacado
+                  Proyecto destacado
                 </span>
                 <span className="px-4 py-2 rounded-full bg-gradient-to-r from-[#07073b]/80 to-[#07073b]/80 border border-white/20 text-white text-xs font-semibold shadow-sm">
                   {project.status === 'published' ? 'Publicado' : 'Borrador'}
@@ -138,7 +138,7 @@ const TourDetailPage = () => {
                   }`}
                 >
                   <Heart className={`w-6 h-6 ${isFavorite ? 'fill-[#07073b]' : ''}`} />
-                  {isFavorite ? 'En favoritos' : 'Guardar favorito'}
+                  {isFavorite ? 'Guardado' : 'Guardar proyecto'}
                 </button>
               )}
             </div>
@@ -173,7 +173,7 @@ const TourDetailPage = () => {
           </div>
           <div className="bg-white rounded-2xl border-2 border-[#D7DCE1] shadow-lg p-6 hover:shadow-xl transition-shadow">
             <p className="text-xs uppercase tracking-widest text-[#5F6B76] font-bold">Tipo de Proyecto</p>
-            <p className="text-lg font-bold text-[#07073b] mt-2">{project.type || 'Residencial'}</p>
+            <p className="text-lg font-bold text-[#07073b] mt-2">{project.type || 'Proyecto de hidrocarburos'}</p>
           </div>
           <button
             type="button"
@@ -253,7 +253,7 @@ const TourDetailPage = () => {
                 Listo para comenzar?
               </h2>
               <p className="text-lg text-white/80 max-w-2xl mx-auto font-light">
-                Contactanos hoy y solicita una cotizacion personalizada para tu proyecto
+                Contactanos hoy y solicita una revision inicial de tu expediente o categoria de actividad.
               </p>
             </div>
 
@@ -286,7 +286,7 @@ const TourDetailPage = () => {
                   <Home className="w-6 h-6 text-[#238A55] flex-shrink-0 mt-1" />
                   <div>
                     <p className="text-xs uppercase tracking-widest text-[#5F6B76] font-bold">Tipo</p>
-                    <p className="text-lg font-bold text-[#07073b] mt-1">{project.type || 'Residencial'}</p>
+                    <p className="text-lg font-bold text-[#07073b] mt-1">{project.type || 'Proyecto de hidrocarburos'}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4 pb-4 border-b-2 border-[#D7DCE1]">
@@ -305,7 +305,7 @@ const TourDetailPage = () => {
                 </div>
                 <div className="pt-4">
                   <p className="text-xs uppercase tracking-widest text-[#5F6B76] font-bold mb-2">Resumen</p>
-                  <p className="text-[#303840] leading-relaxed text-sm font-light">{project.summary || 'Proyecto destacado del portafolio de CASALIZ.'}</p>
+                  <p className="text-[#303840] leading-relaxed text-sm font-light">{project.summary || 'Categoria de proyecto tecnico para actividades de hidrocarburos.'}</p>
                 </div>
               </div>
               {isAuthenticated && user?.role === ROLES.CLIENT && (
@@ -318,7 +318,7 @@ const TourDetailPage = () => {
                   }`}
                 >
                   <Heart className={`w-5 h-5 ${isFavorite ? 'fill-white' : ''}`} />
-                  {isFavorite ? 'Quitar de favoritos' : 'Agregar a favoritos'}
+                  {isFavorite ? 'Quitar de guardados' : 'Guardar proyecto'}
                 </button>
               )}
               {favoriteError && <p className="text-sm text-red-600 text-center font-semibold mt-3">{favoriteError}</p>}

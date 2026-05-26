@@ -239,7 +239,7 @@ const TramiteTasksPage = () => {
                       value={form.title}
                       onChange={(e) => setForm({ ...form, title: e.target.value })}
                       onBlur={() => setForm((prev) => ({ ...prev, title: normalizeSentence(prev.title) }))}
-                      placeholder="Ej: Desarrollo de planos arquitectonicos"
+                      placeholder="Ej: Elaboracion de planos, matriz de riesgo o subsanacion tecnica"
                       required
                     />
                   </div>

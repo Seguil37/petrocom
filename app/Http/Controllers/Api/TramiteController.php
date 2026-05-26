@@ -420,7 +420,7 @@ class TramiteController extends Controller
 
         $aliases = [
             Tramite::STATUS_PENDING => ['pendiente', 'pending'],
-            Tramite::STATUS_IN_PROGRESS => ['en proceso', 'proceso', 'progress', 'in progress'],
+            Tramite::STATUS_IN_PROGRESS => ['en revision tecnica', 'revision tecnica', 'expediente en elaboracion', 'en evaluacion', 'en proceso', 'proceso', 'progress', 'in progress'],
             Tramite::STATUS_OBSERVED => ['observado', 'observada', 'observed'],
             Tramite::STATUS_COMPLETED => ['finalizado', 'finalizada', 'completado', 'completada', 'completed'],
         ];

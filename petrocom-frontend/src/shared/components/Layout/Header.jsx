@@ -143,7 +143,7 @@ const Header = () => {
               <div className="relative w-full">
                 <input
                   type="text"
-                  placeholder="¿Que proyecto buscas?"
+                  placeholder="Buscar servicio, tramite o proyecto"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full pl-12 pr-32 py-3 rounded-full border-2 border-[#D7DCE1] focus:border-[#238A55] focus:outline-none transition-all bg-[#F4F5F6] text-[#07073b] placeholder-[#5F6B76]"
@@ -167,25 +167,25 @@ const Header = () => {
                 to="/services"
                 className="text-[#07073b] hover:text-[#238A55] transition-colors"
               >
-                Nuestros Servicios
+                Servicios
               </Link>
               <Link
                 to="/consulta-tramite"
                 className="text-[#07073b] hover:text-[#238A55] transition-colors"
               >
-                Consulta tramite
+                Consulta de tramite
               </Link>
               <Link
                 to="/projects"
                 className="text-[#07073b] hover:text-[#238A55] transition-colors"
               >
-                Nuestros Proyectos
+                Proyectos
               </Link>
               <Link
                 to="/about"
                 className="text-[#07073b] hover:text-[#238A55] transition-colors"
               >
-                Nosotros
+                Empresa
               </Link>
             </nav>
 
@@ -196,7 +196,7 @@ const Header = () => {
                 className="flex items-center gap-1 text-[#07073b] hover:text-[#238A55] transition-colors"
               >
                 <Mail className="w-4 h-4" />
-                <span className="hidden lg:inline">Contactanos</span>
+                <span className="hidden lg:inline">Contacto</span>
               </Link>
             </div>
 
@@ -466,7 +466,7 @@ const Header = () => {
           <form onSubmit={handleSearch} className="relative">
             <input
               type="text"
-              placeholder="¿Qué proyecto estás buscando?"
+              placeholder="Buscar servicio, tramite o proyecto"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full pl-12 pr-4 py-3 rounded-full border-2 border-[#D7DCE1] focus:border-[#238A55] focus:outline-none"
@@ -485,7 +485,7 @@ const Header = () => {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <BriefcaseBusiness className="w-4 h-4 text-[#238A55]" />
-                Nuestros Servicios
+                Servicios
               </Link>
               <Link
                 to="/consulta-tramite"
@@ -493,7 +493,7 @@ const Header = () => {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <ClipboardList className="w-4 h-4 text-[#238A55]" />
-                Consulta tramite
+                Consulta de tramite
               </Link>
               <Link
                 to="/projects"
@@ -501,7 +501,7 @@ const Header = () => {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <FolderKanban className="w-4 h-4 text-[#238A55]" />
-                Nuestros Proyectos
+                Proyectos
               </Link>
 	              <Link
 	                to="/about"
@@ -509,7 +509,7 @@ const Header = () => {
 	                onClick={() => setMobileMenuOpen(false)}
 	              >
 	                <Info className="w-4 h-4 text-[#238A55]" />
-	                Nosotros
+	                Empresa
 	              </Link>
               <Link
                 to="/contacto"
@@ -517,7 +517,7 @@ const Header = () => {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <Mail className="w-4 h-4 text-[#238A55]" />
-                Contactanos
+                Contacto
               </Link>
 
               {isAuthenticated && (
@@ -647,9 +647,9 @@ const Header = () => {
               )}
 
 	              <div className="border-t border-[#D7DCE1] my-2 pt-2">
-	                <a href="tel:+51990179027" className="flex items-center gap-2 px-4 py-2 hover:bg-white text-[#07073b] rounded-lg transition-colors">
+	                <a href="tel:+51927985691" className="flex items-center gap-2 px-4 py-2 hover:bg-white text-[#07073b] rounded-lg transition-colors">
 	                  <Phone className="w-4 h-4 text-[#238A55]" />
-                  <span>+51 990 179 027</span>
+                  <span>+51 927 985 691</span>
                 </a>
                 <Link
                   to="/contacto"
@@ -657,7 +657,7 @@ const Header = () => {
                   onClick={() => setMobileMenuOpen(false)}
                 >
 	                  <Mail className="w-4 h-4 text-[#238A55]" />
-	                  <span>Contactanos</span>
+	                  <span>Contacto</span>
 	                </Link>
                   {isAuthenticated && (
                     <button

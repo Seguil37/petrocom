@@ -71,7 +71,7 @@ const LoginPage = () => {
             Bienvenido de nuevo
           </h2>
           <p className="text-[#5F6B76]">
-            Inicia sesión para dejar reseñas, tu opinion nos importa.
+            Inicia sesion para consultar y gestionar tus tramites PETROCOM.
           </p>
         </div>
 

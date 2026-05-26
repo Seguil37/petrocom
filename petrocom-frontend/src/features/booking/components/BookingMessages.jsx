@@ -103,10 +103,10 @@ const BookingMessages = ({ bookingId }) => {
       {/* Header */}
       <div className="px-6 py-4 border-b border-[#D7DCE1]">
         <h3 className="font-bold text-[#07073b]">
-          Mensajes con la Agencia
+          Mensajes con PETROCOM
         </h3>
         <p className="text-sm text-[#5F6B76]">
-          Comunícate directamente sobre tu reserva
+          Comunicate directamente sobre tu solicitud
         </p>
       </div>
 
@@ -116,7 +116,7 @@ const BookingMessages = ({ bookingId }) => {
           <div className="text-center py-12">
             <p className="text-[#5F6B76]">No hay mensajes aún</p>
             <p className="text-sm text-[#5F6B76] mt-2">
-              Inicia la conversación con la agencia
+              Inicia la conversacion con el equipo tecnico
             </p>
           </div>
         ) : (
@@ -138,7 +138,7 @@ const BookingMessages = ({ bookingId }) => {
                   {/* Nombre del remitente */}
                   {!isOwn && (
                     <p className="text-xs font-semibold text-[#5F6B76] mb-1">
-                      {message.sender?.name || 'Agencia'}
+                      {message.sender?.name || 'Equipo PETROCOM'}
                     </p>
                   )}
 

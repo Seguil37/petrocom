@@ -4,98 +4,108 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class ProjectsTableSeeder extends Seeder
 {
-
-    /**
-     * Auto generated seed file
-     *
-     * @return void
-     */
-    public function run()
+    public function run(): void
     {
-        
-
+        DB::table('project_images')->delete();
+        DB::table('project_reviews')->delete();
+        DB::table('favorites')->delete();
         DB::table('projects')->delete();
-        
-        DB::table('projects')->insert(array (
-            0 => 
-            array (
-                'id' => 1,
-                'title' => 'Casa de Campo Zurite',
-                'slug' => 'casa-de-campo-zurite',
-                'type' => 'Residencial – Casa de campo',
-                'city' => 'Zurite',
-                'state' => 'Cusco',
+
+        $gasStationImage = 'https://images.unsplash.com/photo-1727483892297-56448c8f1af1?auto=format&fit=crop&w=1200&q=80';
+        $tankerImage = 'https://images.unsplash.com/photo-1768637656191-133fe8f95786?auto=format&fit=crop&w=1200&q=80';
+        $now = now();
+
+        $projects = [
+            [
+                'title' => 'Estaciones de servicio',
+                'type' => 'Expediente tecnico',
+                'summary' => 'Gestion documental y soporte tecnico para instalacion, modificacion o regularizacion de estaciones de servicio.',
+                'description' => 'Categoria de proyectos orientada a expedientes tecnicos para estaciones de servicio, incluyendo distribucion, almacenamiento, despacho, seguridad y seguimiento de observaciones.',
+                'image' => $gasStationImage,
+            ],
+            [
+                'title' => 'Grifos rurales',
+                'type' => 'Gestion documental',
+                'summary' => 'Asesoria para grifos rurales y establecimientos de venta de combustibles con enfoque tecnico y normativo.',
+                'description' => 'Soporte para ordenar requisitos, planos, memorias y documentos relacionados con grifos rurales o establecimientos de combustibles en zonas no urbanas.',
+                'image' => $gasStationImage,
+            ],
+            [
+                'title' => 'Gasocentros de GLP',
+                'type' => 'Asesoria tecnica',
+                'summary' => 'Revision y elaboracion de documentos para gasocentros e instalaciones vinculadas al GLP.',
+                'description' => 'Acompanamiento para proyectos de gasocentros de GLP, locales de venta, almacenamiento, despacho y requisitos tecnicos asociados.',
+                'image' => $gasStationImage,
+            ],
+            [
+                'title' => 'Consumidores directos',
+                'type' => 'Regularizacion',
+                'summary' => 'Expedientes para empresas que almacenan y consumen combustibles liquidos o GLP para operacion propia.',
+                'description' => 'Categoria enfocada en consumidores directos, con revision de capacidad de almacenamiento, condiciones de seguridad, matrices de riesgo y documentacion de soporte.',
+                'image' => $tankerImage,
+            ],
+            [
+                'title' => 'Locales de venta de GLP',
+                'type' => 'Gestion documental',
+                'summary' => 'Documentacion tecnica para locales de venta de GLP y cumplimiento de requisitos aplicables.',
+                'description' => 'Soporte para titulares de locales de venta de GLP en la preparacion de documentos, planos, condiciones de seguridad y subsanaciones.',
+                'image' => $gasStationImage,
+            ],
+            [
+                'title' => 'Transporte de combustibles',
+                'type' => 'Expediente tecnico',
+                'summary' => 'Documentacion para unidades y operaciones de transporte terrestre de combustibles y materiales peligrosos.',
+                'description' => 'Elaboracion de planes, matrices, informacion de unidades, rutas, condiciones operativas y documentos para transporte de combustibles.',
+                'image' => $tankerImage,
+            ],
+            [
+                'title' => 'Almacenamiento de combustibles',
+                'type' => 'Asesoria tecnica',
+                'summary' => 'Revision tecnica para instalaciones, tanques, zonas de descarga y condiciones de almacenamiento.',
+                'description' => 'Categoria para proyectos vinculados a almacenamiento de combustibles, revision de instalaciones, medidas de seguridad y documentacion complementaria.',
+                'image' => $tankerImage,
+            ],
+            [
+                'title' => 'Levantamiento de observaciones OSINERGMIN',
+                'type' => 'Levantamiento de observaciones',
+                'summary' => 'Subsanacion tecnica y documental de expedientes observados por entidades competentes.',
+                'description' => 'Analisis de observaciones, preparacion de descargos, correccion de planos, memorias complementarias y seguimiento de subsanaciones.',
+                'image' => $gasStationImage,
+            ],
+            [
+                'title' => 'Planes de contingencia para hidrocarburos',
+                'type' => 'Seguridad y cumplimiento',
+                'summary' => 'Planes de contingencia, matrices de riesgo y protocolos de emergencia para actividades de hidrocarburos.',
+                'description' => 'Desarrollo de documentos de respuesta ante emergencias, identificacion de riesgos, medidas de control, senalizacion y procedimientos operativos.',
+                'image' => $tankerImage,
+            ],
+        ];
+
+        DB::table('projects')->insert(array_map(function (array $project, int $index) use ($now) {
+            return [
+                'title' => $project['title'],
+                'slug' => Str::slug($project['title']),
+                'type' => $project['type'],
+                'city' => 'Huancayo',
+                'state' => 'Junin',
                 'country' => 'Peru',
-                'is_featured' => 1,
-                'hero_image' => '/storage/images/proyectos/1-casa-de-campo-zurite/hero-694310fadd23a.jpg',
+                'is_featured' => $index < 4,
+                'hero_image' => $project['image'],
                 'status' => 'published',
-                'published_at' => '2025-12-17 20:22:18',
-                'summary' => 'Proyecto de vivienda unifamiliar tipo casa de campo, diseñada para integrarse al entorno natural de la comunidad de Janama, en Zurite. La propuesta prioriza confort, funcionalidad y una imagen arquitectónica contemporánea con materiales cálidos y soluciones espaciales eficientes.',
-                'description' => 'La Casa de Campo Zurite es un proyecto residencial desarrollado en la comunidad de Janama, distrito de Zurite, provincia de Anta – Cusco. La vivienda fue concebida como una casa de descanso, integrándose armónicamente al paisaje rural y aprovechando las visuales, la iluminación natural y la ventilación cruzada.
-
-El diseño arquitectónico presenta una volumetría moderna con cubiertas inclinadas, balcones y amplios vanos, combinando materiales tradicionales y contemporáneos. El programa arquitectónico incluye cuatro habitaciones, dos baños completos, sala, comedor, cocina funcional, lavandería y cochera, distribuidos de manera eficiente para garantizar confort y habitabilidad.
-
-El proyecto responde a criterios de funcionalidad, estética y adaptación al entorno, ofreciendo una solución residencial sólida, confortable y acorde al contexto rural andino, cumpliendo con las normativas vigentes y las necesidades del usuario final.',
-                'metadata' => NULL,
+                'published_at' => $now,
+                'summary' => $project['summary'],
+                'description' => $project['description'],
+                'metadata' => null,
                 'created_by' => 1,
                 'updated_by' => 1,
-                'created_at' => '2025-12-17 20:22:18',
-                'updated_at' => '2025-12-17 20:22:20',
-                'deleted_at' => NULL,
-            ),
-            1 => 
-            array (
-                'id' => 2,
-                'title' => 'Edificio Multifamiliar Ecológica Plaza',
-                'slug' => 'edificio-multifamiliar-ecologica-plaza',
-                'type' => 'Residencial – Edificio multifamiliar',
-                'city' => 'Cusco',
-                'state' => 'Cusco',
-                'country' => 'Peru',
-                'is_featured' => 1,
-                'hero_image' => '/storage/images/proyectos/2-edificio-multifamiliar-ecologica-plaza/hero-694312cf5edd5.jpg',
-                'status' => 'published',
-                'published_at' => '2025-12-17 20:30:07',
-                'summary' => 'Proyecto de edificio multifamiliar diseñado para uso residencial urbano, con departamentos funcionales y una propuesta arquitectónica contemporánea que optimiza el espacio, la iluminación natural y la habitabilidad en un entorno consolidado de la ciudad de Cusco.',
-                'description' => 'El Edificio Multifamiliar Ecológica Plaza es un proyecto residencial desarrollado en la ciudad de Cusco, concebido para albergar múltiples unidades de vivienda con una distribución eficiente y funcional en cada nivel. El diseño arquitectónico responde a una estética moderna, con una fachada contemporánea que combina volúmenes limpios, materiales de bajo mantenimiento y amplias áreas acristaladas que favorecen la iluminación natural.
-
-En el primer nivel se plantea una unidad residencial que incluye sala, comedor, cocina, dos dormitorios, lavandería, dos baños y cochera, garantizando accesibilidad y funcionalidad. Los niveles superiores cuentan con departamentos que incorporan sala, comedor, cocina, tres dormitorios, lavandería y dos baños, ofreciendo espacios cómodos y bien organizados para familias.
-
-El proyecto prioriza la optimización del área construida, la correcta ventilación e iluminación de los ambientes, así como una adecuada relación entre espacio público y privado. Su ubicación estratégica y diseño eficiente lo convierten en una propuesta ideal para vivienda multifamiliar en contexto urbano, cumpliendo con la normativa vigente y las necesidades del mercado inmobiliario local.',
-                'metadata' => NULL,
-                'created_by' => 1,
-                'updated_by' => 1,
-                'created_at' => '2025-12-17 20:30:07',
-                'updated_at' => '2025-12-17 20:30:07',
-                'deleted_at' => NULL,
-            ),
-            2 => 
-            array (
-                'id' => 3,
-                'title' => 'DAS',
-                'slug' => 'das',
-                'type' => 'SAD',
-                'city' => 'ASD',
-                'state' => 'ASD',
-                'country' => 'Peru',
-                'is_featured' => 1,
-                'hero_image' => '/storage/images/proyectos/3-das/hero-694321a94f285.jpg',
-                'status' => 'published',
-                'published_at' => '2025-12-17 21:33:29',
-                'summary' => 'ASD',
-                'description' => 'ASD',
-                'metadata' => NULL,
-                'created_by' => 1,
-                'updated_by' => 1,
-                'created_at' => '2025-12-17 21:33:29',
-                'updated_at' => '2025-12-17 21:33:34',
-                'deleted_at' => '2025-12-17 21:33:34',
-            ),
-        ));
-        
-        
+                'created_at' => $now,
+                'updated_at' => $now,
+                'deleted_at' => null,
+            ];
+        }, $projects, array_keys($projects)));
     }
 }

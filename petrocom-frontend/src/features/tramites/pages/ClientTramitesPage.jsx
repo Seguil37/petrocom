@@ -65,7 +65,7 @@ const ClientTramitesPage = () => {
               <p className="text-sm font-black uppercase text-[#238A55]">Portal del cliente</p>
               <h1 className="mt-1 text-3xl font-black text-[#07073b]">Mis tramites</h1>
               <p className="mt-2 max-w-2xl text-[#5F6B76]">
-                Revisa tus tramites activos, historial con Casaliz y siguientes servicios recomendados.
+                Revisa tus expedientes activos, historial con PETROCOM Energy y siguientes servicios recomendados.
               </p>
             </div>
             <Link
@@ -113,7 +113,7 @@ const ClientTramitesPage = () => {
                     id="client-tramite-search"
                     value={search}
                     onChange={(event) => setSearch(event.target.value)}
-                    placeholder="Codigo o proyecto"
+                    placeholder="Codigo, expediente o servicio"
                     className="min-h-[44px] w-full rounded-lg border border-[#D7DCE1] pl-10 pr-3 text-sm text-[#07073b] outline-none focus:border-[#238A55]"
                   />
                 </div>
@@ -180,25 +180,25 @@ const Stat = ({ icon, label, value }) => (
 const buildRecommendations = (tramites) => {
   const text = tramites.map((tramite) => `${tramite.type?.name || ''} ${tramite.project_name || ''}`).join(' ').toLowerCase();
 
-  if (text.includes('licencia')) {
+  if (text.includes('itf') || text.includes('estacion') || text.includes('grifo')) {
     return [
-      { title: 'Declaratoria de fabrica', description: 'Formaliza la obra terminada y deja lista la propiedad para futuros tramites.' },
-      { title: 'Independizacion', description: 'Organiza unidades inmobiliarias para venta, herencia o financiamiento.' },
-      { title: 'Asesoria documental', description: 'Revisa documentos tecnicos y municipales antes de la siguiente gestion.' },
+      { title: 'Registro de Hidrocarburos', description: 'Continua con la inscripcion o actualizacion cuando el expediente tecnico lo requiera.' },
+      { title: 'Plan de contingencia', description: 'Ordena protocolos, riesgos y respuesta ante emergencias para la actividad.' },
+      { title: 'Levantamiento de observaciones', description: 'Prepara descargos, planos corregidos y memorias complementarias.' },
     ];
   }
 
-  if (text.includes('compra') || text.includes('saneamiento')) {
+  if (text.includes('glp') || text.includes('consumidor')) {
     return [
-      { title: 'Saneamiento fisico legal', description: 'Reduce observaciones antes de vender, ampliar o financiar la propiedad.' },
-      { title: 'Remodelacion', description: 'Evalua mejoras tecnicas y funcionales para aprovechar mejor el inmueble.' },
-      { title: 'Tasacion', description: 'Obtiene una referencia profesional del valor real del inmueble.' },
+      { title: 'Matriz de riesgo', description: 'Identifica peligros y medidas de control para almacenamiento o despacho.' },
+      { title: 'Planos tecnicos', description: 'Actualiza distribucion, tanques, tuberias, venteos y zonas de seguridad.' },
+      { title: 'Registro de Hidrocarburos', description: 'Valida requisitos para inscripcion, modificacion o actualizacion.' },
     ];
   }
 
   return [
-    { title: 'Revision tecnica', description: 'Detecta riesgos y oportunidades antes de iniciar nuevas gestiones.' },
-    { title: 'Plan de mejoras', description: 'Prioriza los siguientes pasos de tu propiedad con apoyo del equipo.' },
-    { title: 'Documentos ordenados', description: 'Centraliza entregables y antecedentes para futuros tramites.' },
+    { title: 'Revision tecnica', description: 'Detecta brechas documentales antes de iniciar nuevas gestiones.' },
+    { title: 'Plan de contingencia', description: 'Ordena medidas de control y respuesta ante emergencias.' },
+    { title: 'Documentos ordenados', description: 'Centraliza entregables, antecedentes y observaciones del expediente.' },
   ];
 };

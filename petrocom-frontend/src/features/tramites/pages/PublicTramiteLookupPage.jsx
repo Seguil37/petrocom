@@ -46,16 +46,16 @@ const PublicTramiteLookupPage = () => {
         <div className="container-custom py-10 lg:py-14">
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <div>
-              <p className="text-sm font-black uppercase text-[#238A55]">Seguimiento de tramites</p>
+              <p className="text-sm font-black uppercase text-[#238A55]">Seguimiento de expedientes</p>
               <h1 className="mt-2 text-3xl font-black text-[#07073b] md:text-4xl">
-                Consulta tu tramite con tu codigo
+                Consulta tu tramite de hidrocarburos con tu codigo
               </h1>
               <p className="mt-3 max-w-xl text-[#5F6B76]">
-                Ingresa el codigo que te entrego el equipo de Casaliz para ver el estado, avance, fechas y proximas acciones sin crear una cuenta.
+                Ingresa el codigo que te entrego PETROCOM Energy para ver estado, avance, fechas, responsable, documentos pendientes y proximas acciones.
               </p>
               <div className="mt-5 flex flex-wrap gap-3 text-sm font-semibold text-[#07073b]">
-                <span className="rounded-full border border-[#D7DCE1] bg-[#F4F5F6] px-3 py-1">Sin registro</span>
-                <span className="rounded-full border border-[#D7DCE1] bg-[#F4F5F6] px-3 py-1">Vista simple</span>
+                <span className="rounded-full border border-[#D7DCE1] bg-[#F4F5F6] px-3 py-1">ITF</span>
+                <span className="rounded-full border border-[#D7DCE1] bg-[#F4F5F6] px-3 py-1">Hidrocarburos</span>
                 <span className="rounded-full border border-[#D7DCE1] bg-[#F4F5F6] px-3 py-1">Actualizado por el equipo</span>
               </div>
             </div>
@@ -83,7 +83,7 @@ const PublicTramiteLookupPage = () => {
               </div>
               {error && <p className="mt-3 text-sm font-semibold text-red-600">{error}</p>}
               <div className="mt-4 border-t border-[#D7DCE1] pt-4 text-sm text-[#5F6B76]">
-                Los clientes registrados tambien pueden ver todos sus tramites desde{' '}
+                Los clientes registrados tambien pueden ver todos sus expedientes desde{' '}
                 <Link to="/cliente/tramites" className="font-black text-[#07073b] hover:text-[#238A55]">
                   Mis tramites
                 </Link>

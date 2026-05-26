@@ -13,8 +13,9 @@ class TramiteClientPresenter
         $tramite->loadMissing([
             'type:id,name,code',
             'client:id,name,email',
+            'responsible:id,name,email',
             'phases.subphases',
-            'tasks:id,tramite_id,tramite_phase_instance_id,tramite_subphase_instance_id,title,status,progress,due_date,completed_at,updated_at',
+            'tasks:id,tramite_id,tramite_phase_instance_id,tramite_subphase_instance_id,title,status,progress,due_date,completed_at,observations,updated_at',
         ]);
 
         $currentPhase = $this->currentPhase($tramite);
@@ -33,6 +34,8 @@ class TramiteClientPresenter
             'project_name' => $this->cleanValue($tramite->project_name),
             'property_name' => $this->cleanValue($tramite->property_name),
             'location' => $this->cleanValue($tramite->location),
+            'entity' => 'Normativa aplicable',
+            'responsible_name' => $tramite->responsible?->name,
             'status' => $tramite->status,
             'status_label' => $this->statusLabel($tramite->status),
             'progress' => $progress,
@@ -52,6 +55,8 @@ class TramiteClientPresenter
             'due_date' => optional($tramite->due_date)->toDateString(),
             'last_update_at' => optional($lastUpdate)->toISOString(),
             'next_action' => $this->nextAction($tramite, $currentPhase, $currentSubphase),
+            'pending_documents' => $this->pendingDocuments($tramite->tasks),
+            'observations' => $this->observations($tramite),
             'tasks_summary' => $this->tasksSummary($tramite->tasks),
             'phases' => $tramite->phases->map(fn ($phase) => [
                 'id' => $phase->id,
@@ -160,11 +165,11 @@ class TramiteClientPresenter
     private function nextAction(Tramite $tramite, $currentPhase, $currentSubphase): string
     {
         if ($tramite->status === Tramite::STATUS_COMPLETED) {
-            return 'El tramite figura como finalizado. Puedes comunicarte con el equipo para la entrega o archivo de documentos.';
+            return 'El tramite figura como finalizado. Puedes comunicarte con el equipo para la entrega o archivo tecnico.';
         }
 
         if ($tramite->status === Tramite::STATUS_OBSERVED || $tramite->tasks->contains('status', TramiteTask::STATUS_BLOCKED)) {
-            return 'Hay observaciones en revision. El equipo actualizara el avance cuando se resuelvan.';
+            return 'Hay observaciones tecnicas en revision. El equipo actualizara el avance cuando se resuelvan.';
         }
 
         $nextTask = $tramite->tasks
@@ -184,7 +189,35 @@ class TramiteClientPresenter
             return "Etapa actual: {$currentPhase->name}.";
         }
 
-        return 'El equipo esta preparando la siguiente actualizacion del tramite.';
+        return 'El equipo esta preparando la siguiente actualizacion del expediente.';
+    }
+
+    private function pendingDocuments(Collection $tasks): array
+    {
+        return $tasks
+            ->whereIn('status', [TramiteTask::STATUS_PENDING, TramiteTask::STATUS_IN_PROGRESS, TramiteTask::STATUS_BLOCKED])
+            ->pluck('title')
+            ->filter()
+            ->values()
+            ->take(6)
+            ->all();
+    }
+
+    private function observations(Tramite $tramite): array
+    {
+        $items = collect();
+
+        if ($this->cleanValue($tramite->notes)) {
+            $items->push($this->cleanValue($tramite->notes));
+        }
+
+        $tramite->tasks
+            ->whereIn('status', [TramiteTask::STATUS_BLOCKED])
+            ->each(function (TramiteTask $task) use ($items): void {
+                $items->push($this->cleanValue($task->observations) ?: "Revisar {$task->title}.");
+            });
+
+        return $items->filter()->values()->take(5)->all();
     }
 
     private function recentActivity(Tramite $tramite): array
@@ -245,9 +278,9 @@ class TramiteClientPresenter
     private function statusLabel(?string $status): string
     {
         return match ($status) {
-            Tramite::STATUS_IN_PROGRESS => 'En proceso',
+            Tramite::STATUS_IN_PROGRESS => 'En revision tecnica',
             Tramite::STATUS_OBSERVED => 'Observado',
-            Tramite::STATUS_COMPLETED => 'Completado',
+            Tramite::STATUS_COMPLETED => 'Finalizado',
             default => 'Pendiente',
         };
     }
@@ -255,9 +288,9 @@ class TramiteClientPresenter
     private function taskStatusLabel(?string $status): string
     {
         return match ($status) {
-            TramiteTask::STATUS_IN_PROGRESS => 'En proceso',
+            TramiteTask::STATUS_IN_PROGRESS => 'En elaboracion',
             TramiteTask::STATUS_BLOCKED => 'Observado',
-            TramiteTask::STATUS_DONE => 'Completado',
+            TramiteTask::STATUS_DONE => 'Subsanado',
             default => 'Pendiente',
         };
     }

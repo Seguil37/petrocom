@@ -47,7 +47,7 @@ const SearchBar = ({ filters, onFilterChange, onSearch }) => {
       <div className="bg-white rounded-2xl shadow-lg p-2 md:p-2.5 border border-[#D7DCE1] text-[#07073b]">
         <div className="text-xs font-bold uppercase tracking-wide mb-3 flex items-center gap-2 text-[#07073b]">
           <Home className="w-4 h-4 text-[#238A55]" />
-          Encuentra tu proyecto
+          Encuentra tu categoria
         </div>
 
         <div className="space-y-3">
@@ -55,7 +55,7 @@ const SearchBar = ({ filters, onFilterChange, onSearch }) => {
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-[#5F6B76] w-5 h-5" />
             <input
               type="text"
-              placeholder="Busca por ciudad o proyecto"
+              placeholder="Busca por actividad, tramite o ciudad"
               value={searchInput}
               onChange={(e) => {
                 setSearchInput(e.target.value);
@@ -69,7 +69,7 @@ const SearchBar = ({ filters, onFilterChange, onSearch }) => {
             <Home className="absolute left-3 top-1/2 -translate-y-1/2 text-[#5F6B76] w-5 h-5" />
             <input
               type="text"
-              placeholder="Tipo de proyecto"
+              placeholder="Tipo de expediente"
               value={typeInput}
               onChange={(e) => setTypeInput(e.target.value)}
               className="w-full pl-10 pr-4 py-1.5 rounded-xl border-2 border-[#D7DCE1] text-[#07073b] placeholder-[#5F6B76] focus:outline-none focus:border-[#238A55] transition-all bg-white"
@@ -81,14 +81,14 @@ const SearchBar = ({ filters, onFilterChange, onSearch }) => {
             className="w-full bg-[#238A55] text-white font-bold py-2.5 rounded-xl hover:bg-[#196B43] transition-all shadow-md flex items-center justify-center gap-2"
           >
             <Search className="w-4 h-4" />
-            Buscar proyectos
+            Buscar categorias
           </button>
         </div>
 
         <div className="mt-4 flex flex-wrap items-center gap-2 text-[#07073b]">
           <Sparkles className="w-4 h-4 text-[#238A55]" />
-          <span className="text-xs text-[#5F6B76]">Ciudades frecuentes:</span>
-          {['Lima', 'Arequipa', 'Cusco', 'Trujillo'].map((tag) => (
+          <span className="text-xs text-[#5F6B76]">Busquedas frecuentes:</span>
+          {['Huancayo', 'Estaciones de servicio', 'GLP', 'Transporte'].map((tag) => (
             <button
               key={tag}
               type="button"

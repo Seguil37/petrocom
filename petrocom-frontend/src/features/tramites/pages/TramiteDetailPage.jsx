@@ -8,9 +8,9 @@ import AdminPanelBackButton from '../../../shared/components/AdminPanelBackButto
 
 const statusOptions = [
   { value: 'pending', label: 'Pendiente', color: 'bg-yellow-100 text-yellow-700' },
-  { value: 'in_progress', label: 'En proceso', color: 'bg-blue-100 text-blue-700' },
+  { value: 'in_progress', label: 'En revision tecnica', color: 'bg-blue-100 text-blue-700' },
   { value: 'observed', label: 'Observado', color: 'bg-orange-100 text-orange-700' },
-  { value: 'completed', label: 'Completado', color: 'bg-green-100 text-green-700' },
+  { value: 'completed', label: 'Finalizado', color: 'bg-green-100 text-green-700' },
 ];
 
 const TramiteDetailPage = () => {

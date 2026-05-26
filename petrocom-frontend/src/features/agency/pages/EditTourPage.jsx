@@ -9,13 +9,14 @@ import { normalizeSentence, normalizeUrl, toTitleCase } from '../../../shared/ut
 const emptyImage = { path: '', caption: '', file: null, preview: '' };
 const COUNTRIES = ['Peru'];
 const PROJECT_TYPES = [
-  'Residencial',
-  'Comercial',
-  'Industrial',
-  'Interiorismo',
-  'Habilitacion Urbana',
-  'Saneamiento Inmobiliario',
-  'Topografia',
+  'Expediente tecnico',
+  'Asesoria tecnica',
+  'Gestion documental',
+  'Regularizacion',
+  'Levantamiento de observaciones',
+  'Seguridad y cumplimiento',
+  'Transporte de combustibles',
+  'GLP',
 ];
 const PERU_REGIONS = [
   'Amazonas',
@@ -25,7 +26,6 @@ const PERU_REGIONS = [
   'Ayacucho',
   'Cajamarca',
   'Callao',
-  'Cusco',
   'Huancavelica',
   'Huanuco',
   'Ica',
@@ -45,8 +45,9 @@ const PERU_REGIONS = [
   'Ucayali',
 ];
 const CITY_SUGGESTIONS = {
-  Lima: ['Miraflores', 'San Isidro', 'Santiago de Surco', 'La Molina', 'Barranco', 'Cieneguilla'],
-  Cusco: ['Cusco', 'San Sebastian', 'San Jeronimo', 'Wanchaq', 'Santiago', 'Zurite'],
+  Junin: ['Huancayo', 'El Tambo', 'Chilca', 'Pilcomayo'],
+  Lima: ['Ate', 'Callao', 'Villa El Salvador', 'Lurin', 'Huaral'],
+  Ica: ['Ica', 'Pisco', 'Chincha', 'Parcona'],
   Arequipa: ['Cercado', 'Yanahuara', 'Cayma', 'Cerro Colorado'],
   Piura: ['Piura', 'Castilla', 'Catacaos'],
   'La Libertad': ['Trujillo', 'Victor Larco', 'Huanchaco'],
@@ -285,7 +286,7 @@ const EditTourPage = () => {
                   onChange={(e) => handleChange('title', e.target.value)}
                   onBlur={() => handleChange('title', toTitleCase(formData.title))}
                   className="w-full rounded-xl border border-[#D7DCE1] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
-                  placeholder="Casa de campo en Cieneguilla"
+                  placeholder="Estacion de servicio - expediente tecnico"
                   minLength={4}
                 />
                 <p className="mt-1 text-xs text-[#5F6B76]">Usa un nombre claro y comercial para el portafolio.</p>
@@ -321,7 +322,7 @@ const EditTourPage = () => {
                   onChange={(e) => handleChange('city', e.target.value)}
                   onBlur={() => handleChange('city', toTitleCase(formData.city))}
                   className="w-full rounded-xl border border-[#D7DCE1] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
-                  placeholder="Ej: Miraflores, San Isidro, Cusco"
+                  placeholder="Ej: El Tambo, Huancayo"
                 />
                 <datalist id="edit-project-city-suggestions">
                   {cityHints.map((city) => (
@@ -410,7 +411,7 @@ const EditTourPage = () => {
                   onChange={(e) => handleChange('summary', e.target.value.slice(0, SUMMARY_MAX))}
                   onBlur={() => handleChange('summary', normalizeSentence(formData.summary))}
                   className="w-full min-h-[120px] rounded-xl border border-[#D7DCE1] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary resize-y overflow-auto"
-                  placeholder="Resume en una frase que se hizo y para quien fue pensado el proyecto."
+                  placeholder="Resume en una frase el tipo de expediente o gestion tecnica."
                   maxLength={SUMMARY_MAX}
                 />
                 <p className="mt-1 text-xs text-[#5F6B76]">{formData.summary.length}/{SUMMARY_MAX} caracteres</p>
@@ -422,7 +423,7 @@ const EditTourPage = () => {
                   onChange={(e) => handleChange('description', e.target.value)}
                   onBlur={() => handleChange('description', normalizeSentence(formData.description))}
                   className="w-full min-h-[120px] rounded-xl border border-[#D7DCE1] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary resize-y overflow-auto"
-                  placeholder="Describe el contexto, el objetivo del proyecto, la solucion propuesta y el resultado final."
+                  placeholder="Describe la actividad, el alcance documental, la entidad relacionada y el resultado esperado."
                 />
                 {errors.description && <p className="text-sm text-red-600 mt-1">{errors.description}</p>}
               </div>
