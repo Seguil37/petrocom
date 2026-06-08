@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Sparkles } from 'lucide-react';
 import TourCard from './TourCard';
-import api from '../../../shared/utils/api';
+import api, { extractArray } from '../../../shared/utils/api';
 
 const FeaturedToursSection = () => {
   const [projects, setProjects] = useState([]);
@@ -12,7 +12,7 @@ const FeaturedToursSection = () => {
     const fetchFeaturedProjects = async () => {
       try {
         const response = await api.get('/projects/featured');
-        const data = response.data?.data ?? response.data ?? [];
+        const data = extractArray(response.data, ['projects']);
         setProjects(data.slice(0, 8));
       } catch (error) {
         console.error('Error fetching projects:', error);

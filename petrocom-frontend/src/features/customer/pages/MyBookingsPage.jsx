@@ -16,7 +16,7 @@ import {
   Star,
   ChevronRight
 } from 'lucide-react';
-import api from '../../../shared/utils/api';
+import api, { extractArray } from '../../../shared/utils/api';
 
 const MyBookingsPage = () => {
   const navigate = useNavigate();
@@ -36,7 +36,7 @@ const MyBookingsPage = () => {
       setLoading(true);
       const params = filter !== 'all' ? { status: filter } : {};
       const response = await api.get('/bookings', { params });
-      setBookings(response.data.data || response.data);
+      setBookings(extractArray(response.data, ['bookings']));
     } catch (err) {
       console.error('Error fetching bookings:', err);
       setError('Error al cargar las reservas');

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { servicesApi, toPublicUrl } from '../../../shared/utils/api';
+import { extractArray, servicesApi, toPublicUrl } from '../../../shared/utils/api';
 import { normalizeSentence, normalizeUrl, toTitleCase } from '../../../shared/utils/formNormalization';
 import AdminPanelBackButton from '../../../shared/components/AdminPanelBackButton';
 import {
@@ -83,7 +83,7 @@ const AdminServicesPage = () => {
     try {
       setLoading(true);
       const response = await servicesApi.list({ per_page: 200, status: 'all' });
-      const data = response.data?.data ?? response.data ?? [];
+      const data = extractArray(response.data, ['services']);
       setServices(data);
     } catch (error) {
       console.error('Error al cargar servicios', error);

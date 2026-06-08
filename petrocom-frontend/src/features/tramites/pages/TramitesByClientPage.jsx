@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Building2, ChevronLeft, ChevronRight, ClipboardList, Loader2, MapPin, Plus, Search, UserCircle } from 'lucide-react';
-import { tramitesApi, adminUsersApi } from '../../../shared/utils/api';
+import { adminUsersApi, extractArray, extractPagination, tramitesApi } from '../../../shared/utils/api';
 import { normalizeSentence, toTitleCase } from '../../../shared/utils/formNormalization';
 import { MODULES, canAccessModule, isStaff } from '../../../shared/constants/roles';
 import useAuthStore from '../../../store/authStore';
@@ -128,16 +128,18 @@ const TramitesByClientPage = () => {
 
       const [typesRes, tramitesRes, usersRes, clientsRes] = await Promise.all(promises);
 
-      setTypes(typesRes.data);
-      setTramites(tramitesRes.data.data || tramitesRes.data);
+      setTypes(extractArray(typesRes.data, ['types', 'tramite_types']));
+      const tramiteItems = extractArray(tramitesRes.data, ['tramites']);
+      const tramitePagination = extractPagination(tramitesRes.data, page);
+      setTramites(tramiteItems);
       setPagination({
-        total: tramitesRes.data.total || (tramitesRes.data.data || tramitesRes.data || []).length,
-        lastPage: tramitesRes.data.last_page || 1,
+        total: tramitePagination.total,
+        lastPage: tramitePagination.lastPage,
       });
 
       if (shouldLoadUsers && usersRes) {
-        setResponsables((usersRes.data?.data || usersRes.data || []).filter((item) => isStaff(item.role)));
-        setClients(clientsRes?.data || []);
+        setResponsables(extractArray(usersRes.data, ['users']).filter((item) => isStaff(item.role)));
+        setClients(extractArray(clientsRes?.data, ['clients', 'users']));
       } else {
         setResponsables([]);
         setClients([]);

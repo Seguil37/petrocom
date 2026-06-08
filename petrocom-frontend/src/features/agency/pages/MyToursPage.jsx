@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Plus, Eye, Edit, Trash2, Search, ChevronLeft, ChevronRight, Archive } from 'lucide-react';
-import { projectsApi, toPublicUrl } from '../../../shared/utils/api';
+import { extractArray, projectsApi, toPublicUrl } from '../../../shared/utils/api';
 
 const STATUS_CONFIG = {
   published: {
@@ -38,7 +38,7 @@ const MyToursPage = () => {
     try {
       setLoading(true);
       const response = await projectsApi.list({ per_page: 1000 });
-      const data = response.data?.data ?? response.data ?? [];
+      const data = extractArray(response.data, ['projects']);
       setAllProjects(data);
     } catch (error) {
       console.error('Error fetching proyectos:', error);

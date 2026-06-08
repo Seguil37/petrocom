@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { Type, List } from 'lucide-react';
-import api from '../../../shared/utils/api';
+import api, { extractArray } from '../../../shared/utils/api';
 
 const TourBasicInfo = ({ formData, updateFormData, errors = {} }) => {
   const [categories, setCategories] = useState([]);
@@ -15,7 +15,7 @@ const TourBasicInfo = ({ formData, updateFormData, errors = {} }) => {
   const fetchCategories = async () => {
     try {
       const response = await api.get('/categories');
-      setCategories(response.data.data || response.data || []);
+      setCategories(extractArray(response.data, ['categories']));
     } catch (error) {
       console.error('Error fetching categories:', error);
     } finally {

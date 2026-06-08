@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Sparkles, Briefcase } from 'lucide-react';
-import { servicesApi, toPublicUrl } from '../../../shared/utils/api';
+import { extractArray, servicesApi, toPublicUrl } from '../../../shared/utils/api';
 
 const FeaturedServiceSection = () => {
   const [services, setServices] = useState([]);
@@ -18,7 +18,7 @@ const FeaturedServiceSection = () => {
     const fetchFeaturedServices = async () => {
       try {
         const response = await servicesApi.list({ per_page: 8, is_featured: true });
-        const data = response.data?.data ?? response.data ?? [];
+        const data = extractArray(response.data, ['services']);
         const featured = data.filter(isFeaturedService).slice(0, 8);
         setServices(featured);
       } catch (error) {

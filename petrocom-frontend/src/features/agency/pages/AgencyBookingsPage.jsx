@@ -15,7 +15,7 @@ import {
   Filter,
   Download
 } from 'lucide-react';
-import api from '../../../shared/utils/api';
+import api, { extractArray } from '../../../shared/utils/api';
 
 const AgencyBookingsPage = () => {
   const [bookings, setBookings] = useState([]);
@@ -39,7 +39,7 @@ const AgencyBookingsPage = () => {
       const params = statusFilter !== 'all' ? { status: statusFilter } : {};
       const response = await api.get('/agency/bookings', { params });
       
-      const bookingsData = response.data.data || response.data;
+      const bookingsData = extractArray(response.data, ['bookings']);
       setBookings(bookingsData);
       
       // Calcular estadísticas

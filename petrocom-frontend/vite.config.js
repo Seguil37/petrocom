@@ -10,13 +10,12 @@ export default defineConfig({
     host: true,
     proxy: {
       '/api': {
-        target: 'http://127.0.0.1:8000',
+        target: 'https://api.petrocomenergyhidrocarburos.com',
         changeOrigin: true,
         secure: false,
-        rewrite: (path) => path.replace(/^\/api/, '/api/v1'),
       },
       '/storage': {
-        target: 'http://127.0.0.1:8000',
+        target: 'https://api.petrocomenergyhidrocarburos.com',
         changeOrigin: true,
         secure: false,
       },

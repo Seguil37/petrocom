@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { Search, Sparkles, Briefcase } from 'lucide-react';
-import { servicesApi, toPublicUrl } from '../../../shared/utils/api';
+import { extractArray, servicesApi, toPublicUrl } from '../../../shared/utils/api';
 
 const SERVICES_PER_PAGE = 12;
 
@@ -46,7 +46,7 @@ const ServicesPage = () => {
     const fetchServices = async () => {
       try {
         const response = await servicesApi.list({ per_page: 100 });
-        const data = response.data?.data ?? response.data ?? [];
+        const data = extractArray(response.data, ['services']);
         setServices(data);
       } catch (error) {
         console.error('Error fetching services', error);

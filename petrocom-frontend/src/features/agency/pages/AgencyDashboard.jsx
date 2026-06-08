@@ -3,7 +3,7 @@ import { createElement, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Plus, Home, Users, TrendingUp, Eye, Edit, Trash2, CheckCircle, ChevronLeft, ChevronRight, Archive } from 'lucide-react';
 import useAuthStore from '../../../store/authStore';
-import { projectsApi, toPublicUrl } from '../../../shared/utils/api';
+import { extractArray, extractPagination, projectsApi, toPublicUrl } from '../../../shared/utils/api';
 import AdminPanelBackButton from '../../../shared/components/AdminPanelBackButton';
 
 const STATUS_CONFIG = {
@@ -45,15 +45,16 @@ const AgencyDashboard = () => {
       setLoading(true);
       const response = await projectsApi.list({ per_page: perPage, page: currentPage });
       const data = response.data;
-      const items = data.data || data;
+      const items = extractArray(data, ['projects']);
+      const meta = extractPagination(data, currentPage);
       
       setRecentProjects(items);
-      setTotalPages(data.last_page || Math.ceil((data.total || items.length) / perPage));
+      setTotalPages(meta.lastPage || Math.ceil((meta.total || items.length) / perPage));
       
       // Solo actualizar stats en la primera página
       if (currentPage === 1) {
         setStats({
-          total_projects: data.total || items.length,
+          total_projects: meta.total || items.length,
           featured: items.filter((p) => p.is_featured).length,
           total_reviews: items.reduce((sum, p) => sum + (p.reviews_count || 0), 0),
         });

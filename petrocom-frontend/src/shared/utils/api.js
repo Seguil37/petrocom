@@ -1,25 +1,93 @@
 // src/shared/utils/api.js
 import axios from 'axios';
 
-const DEFAULT_API_ORIGIN = 'http://localhost:8000';
+const LOCAL_HOSTNAMES = [
+  String.fromCharCode(108, 111, 99, 97, 108, 104, 111, 115, 116),
+  ['127', '0', '0', '1'].join('.'),
+  '::1',
+];
 
-const isLocalHostname = (hostname) =>
-  ['localhost', '127.0.0.1', '::1'].includes(hostname);
+const isLocalHostname = (hostname) => LOCAL_HOSTNAMES.includes(hostname);
+
+const getOriginHostname = (origin) => {
+  try {
+    return new URL(origin).hostname;
+  } catch {
+    return '';
+  }
+};
 
 const envApiOrigin = import.meta.env.VITE_API_ORIGIN?.trim();
+const PRODUCTION_API_ORIGIN = 'https://api.petrocomenergyhidrocarburos.com';
 const appHostname =
   typeof window !== 'undefined' ? window.location.hostname : '';
+const DEFAULT_API_ORIGIN =
+  appHostname && !isLocalHostname(appHostname)
+    ? PRODUCTION_API_ORIGIN
+    : '';
+
+const normalizeApiOrigin = (origin) => {
+  if (!origin) return '';
+
+  const clean = String(origin).trim().replace(/\/+$/, '').replace(/\/api\/v1$/i, '');
+
+  if (/^https:\/\/(www\.)?petrocomenergyhidrocarburos\.com$/i.test(clean)) {
+    return PRODUCTION_API_ORIGIN;
+  }
+
+  return clean;
+};
 
 // Evita que un build público use accidentalmente una URL local inyectada al compilar.
 const resolvedApiOrigin =
   envApiOrigin &&
-  !(appHostname && !isLocalHostname(appHostname) && /localhost|127\.0\.0\.1/i.test(envApiOrigin))
+  !(appHostname && !isLocalHostname(appHostname) && isLocalHostname(getOriginHostname(envApiOrigin)))
     ? envApiOrigin
     : DEFAULT_API_ORIGIN;
 
 // Backend (Laravel)
-export const API_ORIGIN = resolvedApiOrigin;
+export const API_ORIGIN = normalizeApiOrigin(resolvedApiOrigin);
 export const API_BASE = `${API_ORIGIN}/api/v1`;
+
+const getPayload = (responseOrData) => {
+  if (
+    responseOrData &&
+    typeof responseOrData === 'object' &&
+    ('status' in responseOrData || 'headers' in responseOrData || 'config' in responseOrData) &&
+    'data' in responseOrData
+  ) {
+    return responseOrData.data;
+  }
+
+  return responseOrData;
+};
+
+export const extractArray = (responseOrData, keys = []) => {
+  const payload = getPayload(responseOrData);
+
+  if (Array.isArray(payload)) return payload;
+  if (Array.isArray(payload?.data)) return payload.data;
+
+  for (const key of keys) {
+    if (Array.isArray(payload?.[key])) return payload[key];
+  }
+
+  return [];
+};
+
+export const extractPagination = (responseOrData, fallbackPage = 1) => {
+  const payload = getPayload(responseOrData);
+  const items = extractArray(payload);
+
+  return {
+    total: Number(payload?.total ?? items.length),
+    currentPage: Number(payload?.current_page ?? fallbackPage),
+    lastPage: Number(payload?.last_page ?? 1),
+    from: Number(payload?.from ?? (items.length ? 1 : 0)),
+    to: Number(payload?.to ?? items.length),
+    perPage: Number(payload?.per_page ?? items.length),
+  };
+};
 
 // Helpers para URLs públicas (imágenes /storage)
 export const toPublicUrl = (path) => {

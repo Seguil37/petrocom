@@ -18,7 +18,7 @@ import {
   UserMinus,
   UserPlus,
 } from 'lucide-react';
-import { adminUsersApi, modulePermissionsApi } from '../../../shared/utils/api';
+import { adminUsersApi, extractArray, extractPagination, modulePermissionsApi } from '../../../shared/utils/api';
 import { MODULES, ROLES, moduleLabels, roleLabels } from '../../../shared/constants/roles';
 import useAuthStore from '../../../store/authStore';
 import AdminUserForm from '../components/AdminUserForm';
@@ -91,15 +91,16 @@ const AdminUsersPage = () => {
       setError('');
       const response = await adminUsersApi.list(page, searchTerm);
       const data = response.data;
-      const items = data.data || data;
+      const items = extractArray(data, ['users']);
+      const pagination = extractPagination(data, page);
       setUsers(items);
       setMeta({
-        current_page: data.current_page || page,
-        last_page: data.last_page || 1,
-        total: data.total || items.length,
-        from: data.from || (items.length ? 1 : 0),
-        to: data.to || items.length,
-        per_page: data.per_page || items.length,
+        current_page: pagination.currentPage,
+        last_page: pagination.lastPage,
+        total: pagination.total,
+        from: pagination.from,
+        to: pagination.to,
+        per_page: pagination.perPage,
       });
     } catch (err) {
       console.error('Error fetching users', err);

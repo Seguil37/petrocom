@@ -1,3 +1,4 @@
+import { createElement } from 'react';
 import { Mail, MapPin, Phone, Facebook, MessageCircle, Sparkles, ArrowRight } from 'lucide-react';
 
 const WHATSAPP_URL = 'https://wa.me/51927985691?text=Hola%20PETROCOM%20Energy%2C%20necesito%20asesoria%20para%20un%20tramite%20de%20hidrocarburos.';
@@ -210,10 +211,10 @@ const ContactPage = () => {
   );
 };
 
-const Info = ({ icon: Icon, label, children }) => (
+const Info = ({ icon, label, children }) => (
   <div className="flex gap-4">
     <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-[#F4F5F6]">
-      <Icon className="h-5 w-5 text-[#238A55]" />
+      {createElement(icon, { className: 'h-5 w-5 text-[#238A55]' })}
     </div>
     <div>
       <p className="text-sm font-semibold text-[#5F6B76]">{label}</p>

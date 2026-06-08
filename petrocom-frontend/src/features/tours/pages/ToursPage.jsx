@@ -5,7 +5,7 @@ import { MapPin, Sparkles } from 'lucide-react';
 import TourCard from '../components/TourCard';
 import SearchBar from '../components/SearchBar';
 import FilterSidebar from '../components/FilterSidebar';
-import api from '../../../shared/utils/api';
+import api, { extractArray, extractPagination } from '../../../shared/utils/api';
 
 const ToursPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -48,11 +48,13 @@ const ToursPage = () => {
 
       const response = await api.get('/projects', { params });
       const data = response.data;
-      setProjects(data.data || data);
+      const items = extractArray(data, ['projects']);
+      const meta = extractPagination(data, page);
+      setProjects(items);
       setPagination({
-        total: data.total || (data.data ? data.data.length : data.length),
-        currentPage: data.current_page || 1,
-        lastPage: data.last_page || 1,
+        total: meta.total,
+        currentPage: meta.currentPage,
+        lastPage: meta.lastPage,
       });
     } catch (error) {
       console.error('Error al cargar proyectos', error);

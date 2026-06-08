@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { Send, Loader2, Paperclip, X } from 'lucide-react';
-import api from '../../../shared/utils/api';
+import api, { extractArray } from '../../../shared/utils/api';
 import useAuthStore from '../../../store/authStore';
 
 const BookingMessages = ({ bookingId }) => {
@@ -30,7 +30,7 @@ const BookingMessages = ({ bookingId }) => {
   const fetchMessages = async () => {
     try {
       const response = await api.get(`/bookings/${bookingId}/messages`);
-      setMessages(response.data.data || []);
+      setMessages(extractArray(response.data, ['messages']));
     } catch (error) {
       console.error('Error fetching messages:', error);
     } finally {

@@ -1,6 +1,6 @@
 // src/store/favoriteStore.js
 import { create } from 'zustand';
-import { favoritesApi } from '../shared/utils/api';
+import { extractArray, favoritesApi } from '../shared/utils/api';
 import useAuthStore from './authStore';
 import { ROLES } from '../shared/constants/roles';
 
@@ -23,7 +23,7 @@ const useFavoriteStore = create((set, get) => ({
     set({ loading: true, error: null });
     try {
       const response = await favoritesApi.list();
-      const data = response.data.data || response.data || [];
+      const data = extractArray(response.data, ['favorites', 'projects']);
       const favoriteIds = data.map((item) => item.id).filter(Boolean);
       set({ favorites: favoriteIds, favoriteTours: data, hasFetched: true });
     } catch (error) {

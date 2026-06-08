@@ -2,7 +2,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { MessageCircle, Star } from 'lucide-react';
 import useAuthStore from '../../../store/authStore';
-import { reviewsApi } from '../../../shared/utils/api';
+import { extractArray, reviewsApi } from '../../../shared/utils/api';
 import { ROLES } from '../../../shared/constants/roles';
 
 const RatingStars = ({ value = 0, size = 16 }) => (
@@ -63,7 +63,7 @@ const ReviewsSection = ({ projectId }) => {
       setLoading(true);
       try {
         const response = await reviewsApi.listByProject(projectId);
-        setReviews(response.data.data || response.data || []);
+        setReviews(extractArray(response.data, ['reviews']));
       } catch {
         setError('No se pudieron cargar los comentarios');
       } finally {

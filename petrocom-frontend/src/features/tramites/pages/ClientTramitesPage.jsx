@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { createElement } from 'react';
 import { Link } from 'react-router-dom';
 import { BriefcaseBusiness, CheckCircle2, Loader2, Search, Sparkles } from 'lucide-react';
-import { clientTramitesApi } from '../../../shared/utils/api';
+import { clientTramitesApi, extractArray } from '../../../shared/utils/api';
 import ClientTramiteStatus from '../components/ClientTramiteStatus';
 
 const ClientTramitesPage = () => {
@@ -19,9 +19,10 @@ const ClientTramitesPage = () => {
         setLoading(true);
         setError('');
         const { data } = await clientTramitesApi.mine();
-        setTramites(data.data || []);
+        const items = extractArray(data, ['tramites']);
+        setTramites(items);
         setSummary(data.summary || { total: 0, active: 0, completed: 0 });
-        setSelectedId(data.data?.[0]?.id || null);
+        setSelectedId(items[0]?.id || null);
       } catch (err) {
         console.error(err);
         setError('No se pudieron cargar tus tramites.');
