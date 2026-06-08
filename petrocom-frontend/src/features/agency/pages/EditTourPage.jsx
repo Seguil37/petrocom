@@ -26,6 +26,7 @@ const PERU_REGIONS = [
   'Ayacucho',
   'Cajamarca',
   'Callao',
+  'Cusco',
   'Huancavelica',
   'Huanuco',
   'Ica',
@@ -49,6 +50,7 @@ const CITY_SUGGESTIONS = {
   Lima: ['Ate', 'Callao', 'Villa El Salvador', 'Lurin', 'Huaral'],
   Ica: ['Ica', 'Pisco', 'Chincha', 'Parcona'],
   Arequipa: ['Cercado', 'Yanahuara', 'Cayma', 'Cerro Colorado'],
+  Cusco: ['Cusco', 'Santiago', 'San Sebastian', 'San Jeronimo'],
   Piura: ['Piura', 'Castilla', 'Catacaos'],
   'La Libertad': ['Trujillo', 'Victor Larco', 'Huanchaco'],
 };

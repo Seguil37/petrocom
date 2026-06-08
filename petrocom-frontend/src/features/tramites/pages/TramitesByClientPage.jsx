@@ -24,6 +24,7 @@ const PERU_DEPARTMENTS = [
   'Ayacucho',
   'Cajamarca',
   'Callao',
+  'Cusco',
   'Huancavelica',
   'Huanuco',
   'Ica',
@@ -58,6 +59,10 @@ const LOCATION_SUGGESTIONS = {
   Arequipa: {
     provinces: ['Arequipa', 'Camana', 'Caylloma'],
     districts: ['Yanahuara', 'Cayma', 'Cerro Colorado', 'Jose Luis Bustamante'],
+  },
+  Cusco: {
+    provinces: ['Cusco', 'Acomayo', 'Anta', 'Calca', 'Canas', 'Canchis', 'Chumbivilcas', 'Espinar', 'La Convencion', 'Paruro', 'Paucartambo', 'Quispicanchi', 'Urubamba'],
+    districts: ['Cusco', 'Santiago', 'Wanchaq', 'San Sebastian', 'San Jeronimo', 'Saylla', 'Poroy'],
   },
   Piura: {
     provinces: ['Piura', 'Sullana', 'Paita'],
