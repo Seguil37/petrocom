@@ -91,7 +91,7 @@ const HeroSection = () => {
           </MotionTitle>
 
           <p className="mt-5 max-w-2xl text-base leading-8 text-white/82 sm:text-lg">
-            Desarrollamos expedientes, ingenieria y acompanamiento tecnico para instalaciones de
+            Desarrollamos expedientes, ingenieria y acompañamiento tecnico para instalaciones de
             combustibles liquidos, GLP y operaciones reguladas por OSINERGMIN.
           </p>
 

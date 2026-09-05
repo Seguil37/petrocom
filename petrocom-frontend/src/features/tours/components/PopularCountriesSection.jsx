@@ -56,7 +56,7 @@ const services = [
   },
   {
     name: 'Planes de contingencia',
-    subtitle: 'Riesgos, emergencias, senalizacion y procedimientos operativos.',
+    subtitle: 'Riesgos, emergencias, señalización y procedimientos operativos.',
     image: planesContingenciaImage,
     category: 'Seguridad',
   },

@@ -38,7 +38,7 @@ class ProjectsTableSeeder extends Seeder
                 'title' => 'Gasocentros de GLP',
                 'type' => 'Asesoria tecnica',
                 'summary' => 'Revision y elaboracion de documentos para gasocentros e instalaciones vinculadas al GLP.',
-                'description' => 'Acompanamiento para proyectos de gasocentros de GLP, locales de venta, almacenamiento, despacho y requisitos tecnicos asociados.',
+                'description' => 'Acompañamiento para proyectos de gasocentros de GLP, locales de venta, almacenamiento, despacho y requisitos tecnicos asociados.',
                 'image' => $gasStationImage,
             ],
             [
@@ -80,7 +80,7 @@ class ProjectsTableSeeder extends Seeder
                 'title' => 'Planes de contingencia para hidrocarburos',
                 'type' => 'Seguridad y cumplimiento',
                 'summary' => 'Planes de contingencia, matrices de riesgo y protocolos de emergencia para actividades de hidrocarburos.',
-                'description' => 'Desarrollo de documentos de respuesta ante emergencias, identificacion de riesgos, medidas de control, senalizacion y procedimientos operativos.',
+                'description' => 'Desarrollo de documentos de respuesta ante emergencias, identificacion de riesgos, medidas de control, señalización y procedimientos operativos.',
                 'image' => $tankerImage,
             ],
         ];

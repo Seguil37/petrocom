@@ -273,7 +273,7 @@ const ServicesPage = () => {
           <div className="bg-white rounded-2xl shadow-lg border border-[#D7DCE1] p-4 space-y-3 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_22px_45px_rgba(225,95,11,0.10)]">
             <p className="text-xs font-semibold text-[#07073b] uppercase tracking-wide">Gestion integral</p>
             <p className="text-base leading-8 text-[#303840]">
-              Te acompanamos desde la evaluacion inicial hasta la presentacion, seguimiento y levantamiento de observaciones del expediente.
+              Te acompañamos desde la evaluacion inicial hasta la presentacion, seguimiento y levantamiento de observaciones del expediente.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs text-[#07073b]">
               {['ITF', 'OSINERGMIN', 'GLP'].map((item) => (

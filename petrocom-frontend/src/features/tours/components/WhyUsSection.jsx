@@ -18,7 +18,7 @@ const features = [
     icon: CalendarClock,
     number: '03',
     title: 'Seguimiento tecnico',
-    description: 'Acompanamos cada etapa: evaluacion inicial, elaboracion, presentacion, observaciones, subsanacion y cierre documental.',
+    description: 'Acompañamos cada etapa: evaluacion inicial, elaboracion, presentacion, observaciones, subsanacion y cierre documental.',
   },
 ];
 
@@ -44,7 +44,7 @@ const WhyUsSection = () => (
           </p>
           <div className="mt-8 flex items-center gap-3 border-l-4 border-[#C58A2A] pl-4 text-sm font-bold leading-6 text-[#303840]">
             <Check className="h-5 w-5 shrink-0 text-[#238A55]" />
-            Un solo equipo acompana el proceso desde el diagnostico hasta el cierre.
+            Un solo equipo acompaña el proceso desde el diagnostico hasta el cierre.
           </div>
         </div>
 

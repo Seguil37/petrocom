@@ -150,7 +150,7 @@ const BookingSuccessPage = () => {
               Elaboramos expedientes, planos, memorias, matrices de riesgo y planes de contingencia para actividades de hidrocarburos.
             </p>
             <p className="text-[#303840]">
-              Acompanamos la presentacion, seguimiento y levantamiento de observaciones ante entidades competentes.
+              Acompañamos la presentacion, seguimiento y levantamiento de observaciones ante entidades competentes.
             </p>
           </div>
         </div>

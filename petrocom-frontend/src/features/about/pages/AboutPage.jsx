@@ -15,7 +15,7 @@ const experienceHighlights = [
     icon: ClipboardCheck,
   },
   {
-    title: 'Acompanamiento integral',
+    title: 'Acompañamiento integral',
     description: 'Damos seguimiento desde la evaluacion inicial hasta la presentacion, observaciones, subsanacion y cierre del tramite.',
     icon: Layers,
   },
@@ -81,7 +81,7 @@ const AboutPage = () => {
             </h1>
 
             <p className="text-lg max-w-2xl text-white/85 transition-colors duration-500 hover:text-white">
-              PETROCOM Energy acompana a sus clientes en la elaboracion de expedientes, gestion de tramites,
+              PETROCOM Energy acompaña a sus clientes en la elaboracion de expedientes, gestion de tramites,
               levantamiento de observaciones y cumplimiento de requisitos tecnicos aplicables a combustibles liquidos,
               GLP, estaciones de servicio, consumidores directos y transporte de hidrocarburos.
             </p>

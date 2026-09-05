@@ -450,7 +450,7 @@ const CreateTourPage = () => {
                   onClick={addImageField}
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-[#D7DCE1] text-[#07073b] hover:border-primary"
                 >
-                  <PlusCircle className="w-4 h-4" /> Anadir imagen
+                  <PlusCircle className="w-4 h-4" /> Añadir imagen
                 </button>
               </div>
 
@@ -525,7 +525,7 @@ const CreateTourPage = () => {
                   onClick={addImageField}
                   className="inline-flex items-center gap-2 px-5 py-2 rounded-xl border border-[#D7DCE1] text-[#07073b] hover:border-primary"
                 >
-                  <PlusCircle className="w-4 h-4" /> Anadir imagen
+                  <PlusCircle className="w-4 h-4" /> Añadir imagen
                 </button>
               </div>
             </section>
