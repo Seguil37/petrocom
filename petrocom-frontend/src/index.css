@@ -6,6 +6,10 @@
 
   }
 
+  html[data-public-motion='enabled'] {
+    scroll-behavior: auto;
+  }
+
   button,
   [role="button"],
   input[type="button"],
@@ -17,6 +21,128 @@
 
 }
 @layer utilities {
+  [data-motion-section],
+  [data-motion-card],
+  [data-motion-item],
+  [data-motion-title] [data-motion-letter],
+  [data-motion-parallax] {
+    will-change: opacity, transform;
+  }
+
+  .scene[data-motion-ring-scene] {
+    --ring-separation: 0.96;
+    position: relative;
+    overflow: visible;
+    perspective: 2500px;
+    perspective-origin: 50% 50%;
+    transform-style: preserve-3d;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    box-shadow: none;
+    user-select: none;
+    touch-action: pan-y;
+    cursor: grab;
+  }
+
+  .scene[data-motion-ring-scene]:active {
+    cursor: grabbing;
+  }
+
+  .ring[data-motion-ring] {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    will-change: transform;
+    transform-origin: 50% 50%;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .service-card[data-ring-card] {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: clamp(26.25rem, 28vw, 31.25rem);
+    height: auto;
+    flex-shrink: 0;
+    transform: translate(-50%, -50%) rotateY(var(--card-angle, 0deg)) translateZ(var(--ring-radius, 0px));
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+
+  [data-ring-card-surface] {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: clamp(25rem, 32vw, 28rem);
+    transform-origin: 50% 50%;
+    will-change: opacity, filter, transform;
+  }
+
+  .service-card[data-ring-card] img {
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .scene[data-motion-ring-scene] {
+      --ring-separation: 0.94;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .scene[data-motion-ring-scene] {
+      --ring-separation: 0.92;
+    }
+
+    .service-card[data-ring-card] {
+      width: min(76vw, 20rem);
+    }
+
+    .service-card[data-ring-card] h3 {
+      max-width: 100%;
+      padding: 0.75rem;
+      overflow-wrap: anywhere;
+    }
+
+    [data-ring-card-surface] {
+      height: clamp(24rem, 108vw, 27rem);
+    }
+  }
+
+  @media (max-width: 359px) {
+    .service-card[data-ring-card] h3 {
+      font-size: 1rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-motion-section],
+    [data-motion-card],
+    [data-motion-item],
+    [data-motion-title] [data-motion-letter],
+    [data-motion-parallax] {
+      animation: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+
+    [data-motion-ring],
+    [data-ring-card],
+    [data-ring-card-surface] {
+      transition: none !important;
+    }
+  }
+
   /* Gradientes personalizados */
   .gradient-primary,
   .bg-gradient-primary {
@@ -69,4 +195,3 @@
     }
   }
 }
-

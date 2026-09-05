@@ -7,6 +7,7 @@ import './App.css';
 
 // Utils
 import ScrollToTop from './shared/components/ScrollToTop';
+import PublicMotionProvider from './shared/motion/PublicMotionProvider';
 
 // Layouts
 import MainLayout from './shared/components/Layout/MainLayout';
@@ -103,8 +104,9 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
-        <ScrollToTop />
-        <Routes>
+        <PublicMotionProvider>
+          <ScrollToTop />
+          <Routes>
           <Route path="/" element={<MainLayout />}>
             {/* Public Routes */}
             <Route index element={<HomePage />} />
@@ -321,7 +323,8 @@ function App() {
               />
             </Route>
           </Route>
-        </Routes>
+          </Routes>
+        </PublicMotionProvider>
       </BrowserRouter>
     </QueryClientProvider>
   );

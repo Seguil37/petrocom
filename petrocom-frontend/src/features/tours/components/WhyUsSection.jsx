@@ -1,88 +1,98 @@
-// src/features/tours/components/WhyUsSection.jsx
+import { Award, CalendarClock, Check, FileCheck2, ShieldCheck, Users } from 'lucide-react';
+import MotionTitle from '../../../shared/motion/MotionTitle';
 
-import { Shield, FileCheck2, Calendar, Award, Users, Clock } from 'lucide-react';
+const features = [
+  {
+    icon: ShieldCheck,
+    number: '01',
+    title: 'Cumplimiento y seguridad',
+    description: 'Preparamos documentos tecnicos con foco en requisitos, distancias de seguridad, riesgos, contingencias y trazabilidad del expediente.',
+  },
+  {
+    icon: FileCheck2,
+    number: '02',
+    title: 'Expedientes ordenados',
+    description: 'Integramos planos, memorias, informes, matrices y documentos de soporte para ITF, Registro de Hidrocarburos y actividades GLP.',
+  },
+  {
+    icon: CalendarClock,
+    number: '03',
+    title: 'Seguimiento tecnico',
+    description: 'Acompanamos cada etapa: evaluacion inicial, elaboracion, presentacion, observaciones, subsanacion y cierre documental.',
+  },
+];
 
-const WhyUsSection = () => {
-  const features = [
-    {
-      icon: Shield,
-      title: 'Cumplimiento y seguridad',
-      description:
-        'Preparamos documentos tecnicos con foco en requisitos, distancias de seguridad, riesgos, contingencias y trazabilidad del expediente.',
-      color: 'from-[#07073b] to-[#05052f]',
-    },
-    {
-      icon: FileCheck2,
-      title: 'Expedientes ordenados',
-      description:
-        'Integramos planos, memorias, informes, matrices y documentos de soporte para ITF, Registro de Hidrocarburos y actividades GLP.',
-      color: 'from-[#07073b] to-[#05052f]',
-    },
-    {
-      icon: Calendar,
-      title: 'Seguimiento tecnico',
-      description:
-        'Acompanamos cada etapa: evaluacion inicial, elaboracion, presentacion, observaciones, subsanacion y cierre documental.',
-      color: 'from-[#07073b] to-[#10104d]',
-    },
-  ];
+const stats = [
+  { icon: Award, value: 'ITF', label: 'Ingenieria para infraestructura de hidrocarburos' },
+  { icon: Users, value: 'GLP', label: 'Soporte para instalaciones y consumidores directos' },
+  { icon: CalendarClock, value: '24h', label: 'Ruta inicial de atencion y revision de requisitos' },
+];
 
-  const stats = [
-    { icon: Award, value: 'ITF', label: 'Expedientes tecnicos para infraestructura de hidrocarburos' },
-    { icon: Users, value: 'GLP', label: 'Soporte para gasocentros, locales de venta y consumidores directos' },
-    { icon: Clock, value: '24h', label: 'Ruta inicial de atencion y revision de requisitos' },
-  ];
-
-  return (
-    <section id="nosotros" className="py-20 bg-gradient-to-br from-[#F4F5F6] to-[#F4F5F6]">
-      <div className="container-custom">
-        <div className="text-center mb-16 animate-fade-in transition-transform duration-500 hover:-translate-y-1">
-          <h2 className="text-4xl lg:text-5xl font-black text-[#07073b] mb-4 transition-transform duration-500 hover:scale-[1.01]">
-            Por que trabajar con PETROCOM Energy
-          </h2>
-          <div className="w-24 h-1 bg-[#238A55] mx-auto rounded-full transition-all duration-500 hover:w-32" />
+const WhyUsSection = () => (
+  <section id="nosotros" className="bg-white py-20 lg:py-28">
+    <div className="container-custom">
+      <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+        <div className="lg:sticky lg:top-28 lg:self-start">
+          <p className="mb-4 text-xs font-extrabold uppercase tracking-[0.18em] text-[#238A55]">
+            Metodo Petrocom
+          </p>
+          <MotionTitle className="text-3xl font-black leading-tight text-[#07073b] sm:text-4xl lg:text-5xl">
+            Control tecnico en cada etapa del expediente
+          </MotionTitle>
+          <p className="mt-6 max-w-xl text-base leading-8 text-[#5F6B76]">
+            Combinamos ingenieria, gestion documental y seguimiento para que cada decision tenga un sustento claro y verificable.
+          </p>
+          <div className="mt-8 flex items-center gap-3 border-l-4 border-[#C58A2A] pl-4 text-sm font-bold leading-6 text-[#303840]">
+            <Check className="h-5 w-5 shrink-0 text-[#238A55]" />
+            Un solo equipo acompana el proceso desde el diagnostico hasta el cierre.
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          {features.map((feature, index) => {
+        <div className="overflow-hidden rounded-lg border border-[#D7DCE1] bg-[#F8F9FA] shadow-[0_16px_40px_rgba(7,7,59,0.07)]">
+          {features.map((feature) => {
             const Icon = feature.icon;
             return (
-              <div key={index} className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 animate-fade-in" style={{ animationDelay: `${index * 0.2}s` }}>
-                <div className="mb-6">
-                  <div className={`w-16 h-16 bg-gradient-to-br ${feature.color} rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300 shadow-lg`}>
-                    <Icon className="w-8 h-8 text-white" />
-                  </div>
+              <article
+                key={feature.number}
+                className="group grid gap-5 border-b border-[#D7DCE1] px-6 py-8 last:border-b-0 sm:grid-cols-[4rem_1fr] sm:px-8 sm:py-10 lg:px-10"
+                data-motion-card
+              >
+                <div className="flex items-start justify-between sm:block">
+                  <span className="text-sm font-black text-[#C58A2A]">{feature.number}</span>
+                  <Icon className="mt-4 h-8 w-8 text-[#238A55] transition-transform duration-500 group-hover:scale-110" />
                 </div>
-
-                <h3 className="text-2xl font-bold text-[#07073b] mb-4 group-hover:text-[#238A55] transition-colors">
-                  {feature.title}
-                </h3>
-
-                <p className="text-[#5F6B76] leading-relaxed">{feature.description}</p>
-                <div className="mt-6 h-1 w-0 group-hover:w-full bg-[#238A55] transition-all duration-500 rounded-full" />
-              </div>
-            );
-          })}
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {stats.map((stat, index) => {
-            const Icon = stat.icon;
-            return (
-              <div key={index} className="relative overflow-hidden bg-gradient-to-br from-[#07073b] via-[#10104d] to-[#303840] rounded-2xl p-8 text-center animate-fade-in shadow-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_28px_55px_rgba(35,50,116,0.20)]" style={{ animationDelay: `${0.6 + index * 0.1}s` }}>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-white/10 pointer-events-none" />
-                <div className="relative w-16 h-16 bg-gradient-to-br from-[#C58A2A] to-[#C58A2A] rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg transition-transform duration-500 hover:scale-110">
-                  <Icon className="w-8 h-8 text-white" />
+                <div>
+                  <h3 className="text-2xl font-black text-[#07073b]">{feature.title}</h3>
+                  <p className="mt-3 max-w-2xl leading-7 text-[#5F6B76]">{feature.description}</p>
                 </div>
-                <div className="relative text-4xl font-black text-white drop-shadow mb-2">{stat.value}</div>
-                <div className="relative text-white/90 font-medium">{stat.label}</div>
-              </div>
+              </article>
             );
           })}
         </div>
       </div>
-    </section>
-  );
-};
+
+      <div className="mt-16 grid border border-[#D7DCE1] md:grid-cols-3">
+        {stats.map((stat, index) => {
+          const Icon = stat.icon;
+          return (
+            <div
+              key={stat.value}
+              className={`p-7 md:p-8 ${index ? 'border-t border-[#D7DCE1] md:border-l md:border-t-0' : ''}`}
+              data-motion-card
+            >
+              <div className="flex items-center gap-4">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center bg-[#07073b] text-white">
+                  <Icon className="h-5 w-5" />
+                </span>
+                <span className="text-3xl font-black text-[#238A55]">{stat.value}</span>
+              </div>
+              <p className="mt-4 text-sm font-semibold leading-6 text-[#5F6B76]">{stat.label}</p>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+);
 
 export default WhyUsSection;

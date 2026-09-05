@@ -1,7 +1,6 @@
-// src/features/tours/components/PopularLocationsSection.jsx
-
 import { Link } from 'react-router-dom';
-import { TrendingUp } from 'lucide-react';
+import { ArrowRight, Fuel, MapPinned } from 'lucide-react';
+import MotionTitle from '../../../shared/motion/MotionTitle';
 
 import huancayoJuninImage from '../../../assets/images/servicios-principales/huancayo_junin.png';
 import grifosEstacionesImage from '../../../assets/images/servicios-principales/grifos_estaciones_servicio.png';
@@ -10,74 +9,84 @@ import gasocentrosGlpImage from '../../../assets/images/servicios-principales/ga
 const activityAreas = [
   {
     name: 'Huancayo y Junin',
+    eyebrow: 'Cobertura regional',
     subtitle: 'Base de atencion para expedientes tecnicos y gestiones documentales.',
     image: huancayoJuninImage,
+    icon: MapPinned,
   },
   {
     name: 'Estaciones y grifos',
-    subtitle: 'Documentacion para combustibles liquidos, tanques, islas y zonas de descarga.',
+    eyebrow: 'Combustibles liquidos',
+    subtitle: 'Documentacion para tanques, islas, zonas de descarga y operacion.',
     image: grifosEstacionesImage,
+    icon: Fuel,
   },
   {
     name: 'GLP y consumidores directos',
+    eyebrow: 'Instalaciones especializadas',
     subtitle: 'Soporte para almacenamiento, despacho, venta y consumo propio.',
     image: gasocentrosGlpImage,
+    icon: Fuel,
   },
 ];
 
-const PopularLocationsSection = () => {
-  return (
-    <section className="py-20 bg-[#F4F5F6]">
-      <div className="container-custom">
-        <div className="flex items-center gap-3 mb-12 animate-fade-in">
-          <TrendingUp className="w-8 h-8 text-[#238A55]" />
-          <h2 className="text-4xl lg:text-5xl font-black text-[#07073b]">
+const PopularLocationsSection = () => (
+  <section className="bg-[#F4F5F6] py-20 lg:py-28">
+    <div className="container-custom">
+      <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <div className="max-w-3xl">
+          <p className="mb-4 text-xs font-extrabold uppercase tracking-[0.18em] text-[#238A55]">
+            Alcance operativo
+          </p>
+          <MotionTitle className="text-3xl font-black leading-tight text-[#07073b] sm:text-4xl lg:text-5xl">
             Actividades que atendemos
-          </h2>
+          </MotionTitle>
         </div>
+        <Link
+          to="/projects"
+          className="inline-flex min-h-11 items-center gap-2 self-start border-b-2 border-[#238A55] pb-2 text-sm font-extrabold text-[#07073b] transition-colors hover:text-[#238A55] md:self-auto"
+        >
+          Ver todas las categorias
+          <ArrowRight className="h-4 w-4" />
+        </Link>
+      </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {activityAreas.map((location, index) => (
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {activityAreas.map((area) => {
+          const Icon = area.icon;
+          return (
             <Link
-              key={index}
-              to={`/projects?search=${encodeURIComponent(location.name)}`}
-              className="group bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden hover:-translate-y-1 animate-fade-in"
-              style={{ animationDelay: `${index * 0.05}s` }}
+              key={area.name}
+              to={`/projects?search=${encodeURIComponent(area.name)}`}
+              className="group overflow-hidden rounded-lg border border-[#D7DCE1] bg-white shadow-[0_14px_36px_rgba(7,7,59,0.08)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_24px_52px_rgba(7,7,59,0.16)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#238A55] focus-visible:ring-offset-4"
+              data-motion-card
             >
-              <div className="relative h-56 overflow-hidden">
-                <img src={location.image} alt={location.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/15 to-transparent" />
+              <div className="relative aspect-[4/3] overflow-hidden bg-white">
+                <img
+                  src={area.image}
+                  alt={area.name}
+                  className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-[1.025]"
+                  loading="lazy"
+                />
               </div>
-
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-[#07073b] mb-2 group-hover:text-[#238A55] transition-colors">
-                  {location.name}
-                </h3>
-                <p className="text-[#5F6B76] mb-3">{location.subtitle}</p>
-                <div className="flex items-center justify-start">
-                  <div className="flex items-center gap-1 text-[#238A55] opacity-80 group-hover:opacity-100 transition-opacity">
-                    <span className="text-sm font-semibold">Ver categorias</span>
-                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </div>
+              <div className="border-t border-[#D7DCE1] p-6">
+                <div className="mb-4 flex items-center gap-2 text-[11px] font-extrabold uppercase tracking-[0.12em] text-[#238A55]">
+                  <Icon className="h-4 w-4" />
+                  {area.eyebrow}
                 </div>
+                <h3 className="text-2xl font-black leading-tight text-[#07073b]">{area.name}</h3>
+                <p className="mt-3 leading-7 text-[#5F6B76]">{area.subtitle}</p>
+                <span className="mt-5 inline-flex items-center gap-2 text-sm font-extrabold text-[#07073b]">
+                  Ver proyectos
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </span>
               </div>
             </Link>
-          ))}
-        </div>
-
-        <div className="text-center mt-12">
-          <Link to="/projects" className="inline-flex items-center gap-2 bg-[#238A55] hover:bg-[#196B43] text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl">
-            Ver todas las categorias
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </Link>
-        </div>
+          );
+        })}
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default PopularLocationsSection;

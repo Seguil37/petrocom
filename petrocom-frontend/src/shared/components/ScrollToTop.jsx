@@ -1,22 +1,24 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { usePublicMotion } from '../motion/publicMotionContext';
 
 const ScrollToTop = () => {
   const { pathname, search, hash } = useLocation();
+  const { scrollTo } = usePublicMotion();
 
   useEffect(() => {
     if (hash) {
       requestAnimationFrame(() => {
         const element = document.querySelector(hash);
         if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          scrollTo(element);
         }
       });
       return;
     }
 
-    window.scrollTo(0, 0);
-  }, [pathname, search, hash]);
+    scrollTo(0, { immediate: true });
+  }, [pathname, search, hash, scrollTo]);
 
   return null;
 };

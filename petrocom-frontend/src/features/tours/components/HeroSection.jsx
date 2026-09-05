@@ -2,9 +2,24 @@
 
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ClipboardList, MapPin, Search, Star, Users } from 'lucide-react';
-
+import {
+  ArrowRight,
+  CheckCircle2,
+  ClipboardCheck,
+  Fuel,
+  MapPin,
+  Search,
+  ShieldCheck,
+  Users,
+} from 'lucide-react';
+import MotionTitle from '../../../shared/motion/MotionTitle';
 import heroImage from '../../../assets/images/logo/logo.png';
+
+const modeOptions = [
+  { value: 'services', label: 'Servicios' },
+  { value: 'projects', label: 'Proyectos' },
+  { value: 'about', label: 'Empresa' },
+];
 
 const HeroSection = () => {
   const [mode, setMode] = useState('services');
@@ -12,25 +27,16 @@ const HeroSection = () => {
   const [serviceQuery, setServiceQuery] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (mode === 'services') {
-      const params = new URLSearchParams();
-      if (serviceQuery) params.append('search', serviceQuery);
-      navigate({
-        pathname: '/services',
-        search: params.toString() ? `?${params.toString()}` : '',
-        hash: '#servicios-listado',
-      });
-      return;
-    }
-
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const query = mode === 'services' ? serviceQuery : projectQuery;
     const params = new URLSearchParams();
-    if (projectQuery) params.append('search', projectQuery);
+    if (query) params.append('search', query);
+
     navigate({
-      pathname: '/projects',
+      pathname: mode === 'services' ? '/services' : '/projects',
       search: params.toString() ? `?${params.toString()}` : '',
-      hash: '#projects-results',
+      hash: mode === 'services' ? '#servicios-listado' : '#projects-results',
     });
   };
 
@@ -49,173 +55,188 @@ const HeroSection = () => {
 
   const isAbout = mode === 'about';
   const inputLabel = mode === 'services' ? 'Servicio o tramite' : 'Tipo de proyecto';
-  const inputPlaceholder = mode === 'services'
-    ? 'ITF, Registro de Hidrocarburos, GLP...'
-    : 'Estacion de servicio, consumidor directo...';
+  const inputPlaceholder =
+    mode === 'services'
+      ? 'ITF, Registro de Hidrocarburos, GLP...'
+      : 'Estacion de servicio, consumidor directo...';
   const suggestions = mode === 'services' ? serviceSuggestions : projectSuggestions;
   const value = mode === 'services' ? serviceQuery : projectQuery;
   const onChange = mode === 'services' ? setServiceQuery : setProjectQuery;
 
   return (
-    <section className="relative min-h-[760px] lg:min-h-[820px] flex items-center justify-center overflow-hidden px-3 sm:px-6 py-10">
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#05052f]/78 via-[#07073b]/60 to-[#303840]/62 z-10" />
+    <section className="relative overflow-hidden bg-[#07073b] text-white" data-motion-hero>
+      <div className="absolute inset-0">
         <img
           src={heroImage}
-          alt="Estacion de servicio y surtidores de combustible"
-          className="w-full h-full object-cover animate-slow-zoom"
+          alt="Estacion de servicio, tanques GLP e ingenieria de hidrocarburos"
+          className="h-full w-full object-cover object-[center_56%] opacity-90"
+          data-motion-parallax="5"
         />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,7,59,0.94)_0%,rgba(7,7,59,0.78)_47%,rgba(7,7,59,0.30)_100%)]" />
+        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#F4F5F6] to-transparent" />
       </div>
 
-      <div className="container-custom relative z-20 text-center">
-        <div className="animate-fade-in">
-          <div className="mb-6">
-            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-black text-white mb-4 tracking-tight leading-tight transition-transform duration-500 hover:-translate-y-1">
-              Especialistas en proyectos y tramites para el sector hidrocarburos
-            </h1>
-            <p className="mx-auto max-w-5xl text-base sm:text-lg lg:text-2xl text-white/90 font-semibold tracking-wide transition-colors duration-500 hover:text-white">
-              Brindamos asesoria tecnica, elaboracion de expedientes y acompanamiento integral para combustibles liquidos, GLP, estaciones de servicio, consumidores directos y transporte de hidrocarburos.
-            </p>
+      <div className="container-custom relative z-10 grid gap-8 py-12 sm:py-14 lg:grid-cols-[minmax(0,1fr)_440px] lg:items-center lg:py-16 xl:py-20">
+        <div className="max-w-3xl" data-motion-item>
+          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.22em] text-white backdrop-blur">
+            <ShieldCheck className="h-4 w-4 text-[#C58A2A]" />
+            Ingenieria, seguridad y gestion regulatoria
           </div>
 
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-4">
-            {['services', 'projects', 'about'].map((value) => (
+          <MotionTitle
+            as="h1"
+            className="max-w-4xl text-4xl font-black leading-[1.03] text-white sm:text-5xl lg:text-6xl"
+          >
+            PETROCOM Energy
+          </MotionTitle>
+
+          <p className="mt-5 max-w-2xl text-base leading-8 text-white/82 sm:text-lg">
+            Desarrollamos expedientes, ingenieria y acompanamiento tecnico para instalaciones de
+            combustibles liquidos, GLP y operaciones reguladas por OSINERGMIN.
+          </p>
+
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <button
+              type="button"
+              onClick={() => navigate('/services')}
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#238A55] px-6 py-3 text-sm font-bold text-white shadow-xl shadow-black/20 transition hover:-translate-y-0.5 hover:bg-[#196B43]"
+            >
+              Explorar servicios
+              <ArrowRight className="h-4 w-4" />
+            </button>
+            <button
+              type="button"
+              onClick={() => navigate('/consulta-tramite')}
+              className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/25 bg-white/10 px-6 py-3 text-sm font-bold text-white backdrop-blur transition hover:-translate-y-0.5 hover:bg-white/20"
+            >
+              Consultar tramite
+              <ClipboardCheck className="h-4 w-4" />
+            </button>
+          </div>
+
+          <div className="mt-9 grid max-w-2xl grid-cols-1 gap-3 sm:grid-cols-3">
+            {[
+              { icon: Fuel, text: 'Infraestructura de hidrocarburos', count: 'ITF' },
+              { icon: ShieldCheck, text: 'Cumplimiento y seguridad', count: 'OSINERGMIN' },
+              { icon: Users, text: 'Atencion para empresas y titulares', count: '24h' },
+            ].map((item) => {
+              const Icon = item.icon;
+              return (
+                <div
+                  key={item.text}
+                  className="rounded-lg border border-white/20 bg-white/10 p-4 backdrop-blur"
+                  data-motion-item
+                >
+                  <div className="mb-1 flex items-center gap-2">
+                    <Icon className="h-5 w-5 text-[#C58A2A]" />
+                    <span className="text-lg font-black text-white">{item.count}</span>
+                  </div>
+                  <p className="text-sm leading-5 text-white/74">{item.text}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        <div
+          className="rounded-lg border border-white/20 bg-[#F4F5F6] p-4 text-[#07073b] shadow-2xl shadow-black/30 sm:p-5"
+          data-motion-item
+        >
+          <div className="grid grid-cols-3 gap-1 rounded-lg bg-[#E5E9E7] p-1">
+            {modeOptions.map((option) => (
               <button
-                key={value}
+                key={option.value}
                 type="button"
-                onClick={() => setMode(value)}
-                className={`px-4 py-2 rounded-full text-sm font-bold transition-all border ${
-                  mode === value
-                    ? 'bg-white text-[#07073b] border-white shadow-lg'
-                    : 'bg-white/10 text-white border-white/20 hover:bg-white/20 hover:-translate-y-0.5'
+                onClick={() => setMode(option.value)}
+                className={`rounded-md px-2 py-2 text-xs font-black transition sm:text-sm ${
+                  mode === option.value
+                    ? 'bg-white text-[#07073b] shadow-sm'
+                    : 'text-[#5F6B76] hover:bg-white/60'
                 }`}
               >
-                {value === 'projects' && 'Proyectos'}
-                {value === 'services' && 'Servicios'}
-                {value === 'about' && 'Empresa'}
+                {option.label}
               </button>
             ))}
           </div>
 
           {isAbout ? (
-            <div className="max-w-5xl mx-auto bg-[#07073b]/82 border border-white/30 rounded-3xl p-8 text-white shadow-2xl backdrop-blur transition-all duration-500 hover:-translate-y-1 hover:bg-[#07073b]/88">
-              <p className="text-3xl md:text-4xl font-black mb-3">Gestion tecnica, normativa y documental</p>
-              <p className="text-white/85 mb-6 text-lg max-w-3xl mx-auto">
-                Acompanamos a empresas y titulares desde la evaluacion inicial hasta la presentacion, seguimiento y levantamiento de observaciones del expediente.
-              </p>
-              <div className="flex flex-wrap justify-center gap-3">
-                <button
-                  type="button"
-                  onClick={() => navigate('/contacto')}
-                  className="px-6 py-3 rounded-full bg-white text-[#07073b] font-bold shadow-lg transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02]"
-                >
-                  Contactanos
-                </button>
-                <button
-                  type="button"
-                  onClick={() => navigate('/consulta-tramite')}
-                  className="px-6 py-3 rounded-full border border-white/60 text-white font-bold transition-all duration-300 hover:-translate-y-1 hover:bg-white/10"
-                >
-                  Consultar tramite
-                </button>
+            <div className="mt-5 space-y-5">
+              <div>
+                <p className="text-xs font-black uppercase tracking-[0.22em] text-[#238A55]">
+                  Equipo especializado
+                </p>
+                <h2 className="mt-2 text-3xl font-black leading-tight text-[#07073b]">
+                  Una ruta tecnica desde la evaluacion hasta la aprobacion.
+                </h2>
+                <p className="mt-3 text-sm leading-7 text-[#5F6B76]">
+                  Coordinamos ingenieria, documentacion y seguimiento para mantener cada
+                  expediente claro, trazable y alineado con la normativa aplicable.
+                </p>
               </div>
+
+              <div className="grid gap-2">
+                {['Evaluacion regulatoria', 'Expediente tecnico', 'Levantamiento de observaciones'].map(
+                  (item) => (
+                    <div key={item} className="flex items-center gap-2 text-sm font-semibold text-[#303840]">
+                      <CheckCircle2 className="h-4 w-4 text-[#238A55]" />
+                      {item}
+                    </div>
+                  ),
+                )}
+              </div>
+
+              <button
+                type="button"
+                onClick={() => navigate('/contacto')}
+                className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[#07073b] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#10104d]"
+              >
+                Hablar con un especialista
+                <ArrowRight className="h-4 w-4" />
+              </button>
             </div>
           ) : (
-            <form
-              onSubmit={handleSubmit}
-              className="max-w-5xl mx-auto mt-8 bg-[#F4F5F6] rounded-2xl shadow-2xl p-4 lg:p-6 animate-slide-up transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_28px_55px_rgba(15,27,53,0.20)]"
-            >
-              <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_auto] gap-4 items-end">
-                <div className="text-left">
-                  <label className="block text-sm font-semibold text-[#07073b] mb-2">{inputLabel}</label>
-                  <div className="relative">
-                    <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 text-[#5F6B76] w-5 h-5" />
-                    <input
-                      type="text"
-                      placeholder={inputPlaceholder}
-                      value={value}
-                      onChange={(e) => onChange(e.target.value)}
-                      className="w-full pl-12 pr-4 py-4 rounded-xl border-2 border-[#D7DCE1] focus:border-[#238A55] focus:outline-none transition-all text-[#07073b] font-medium hover:border-[#238A55]/60"
-                    />
-                  </div>
-                </div>
-
-                <div className="flex items-end">
-                  <button
-                    type="submit"
-                    className="w-full bg-[#238A55] hover:bg-[#196B43] text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 flex items-center justify-center gap-2 group"
-                  >
-                    <Search className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                    {mode === 'services' ? 'Buscar servicios' : 'Buscar proyectos'}
-                  </button>
+            <form onSubmit={handleSubmit} className="mt-5 space-y-4">
+              <div>
+                <label className="mb-2 block text-sm font-black text-[#07073b]">{inputLabel}</label>
+                <div className="relative">
+                  <MapPin className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-[#238A55]" />
+                  <input
+                    type="text"
+                    placeholder={inputPlaceholder}
+                    value={value}
+                    onChange={(event) => onChange(event.target.value)}
+                    className="h-14 w-full rounded-lg border border-[#D7DCE1] bg-white pl-12 pr-4 text-sm font-semibold text-[#07073b] outline-none transition placeholder:text-[#7B8792] focus:border-[#238A55] focus:ring-4 focus:ring-[#A8D8BA]/40"
+                  />
                 </div>
               </div>
 
-              <div className="mt-3 flex flex-wrap items-center gap-2 text-left">
-                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#5F6B76]">
-                  Prueba con:
+              <button
+                type="submit"
+                className="inline-flex h-14 w-full items-center justify-center gap-2 rounded-lg bg-[#238A55] px-6 text-sm font-black text-white shadow-lg shadow-[#238A55]/20 transition hover:-translate-y-0.5 hover:bg-[#196B43]"
+              >
+                <Search className="h-5 w-5" />
+                {mode === 'services' ? 'Buscar servicios' : 'Buscar proyectos'}
+              </button>
+
+              <div className="space-y-2">
+                <span className="text-[11px] font-black uppercase tracking-[0.2em] text-[#7B8792]">
+                  Prueba con
                 </span>
-                {suggestions.map((item) => (
-                  <button
-                    key={item}
-                    type="button"
-                    onClick={() => onChange(item)}
-                    className="rounded-full border border-[#D7DCE1] bg-white px-3 py-1 text-xs font-semibold text-[#5F6B76] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#238A55]/30 hover:text-[#C58A2A]"
-                  >
-                    {item}
-                  </button>
-                ))}
+                <div className="flex flex-wrap gap-2">
+                  {suggestions.map((item) => (
+                    <button
+                      key={item}
+                      type="button"
+                      onClick={() => onChange(item)}
+                      className="rounded-full border border-[#D7DCE1] bg-white px-3 py-1.5 text-xs font-bold text-[#5F6B76] transition hover:border-[#238A55]/40 hover:text-[#196B43]"
+                    >
+                      {item}
+                    </button>
+                  ))}
+                </div>
               </div>
             </form>
           )}
-
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            {[
-              { icon: ClipboardList, text: 'Expedientes tecnicos y documentales', count: 'ITF' },
-              { icon: Star, text: 'Seguimiento y levantamiento de observaciones', count: 'Gestion' },
-              { icon: Users, text: 'Atencion para empresas y titulares', count: 'GLP' },
-            ].map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <div
-                  key={index}
-                  className="bg-[#F4F5F6]/10 backdrop-blur-sm rounded-lg p-4 text-white animate-fade-in transition-all duration-500 hover:-translate-y-1 hover:bg-[#F4F5F6]/15"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className="flex items-center justify-center gap-2 mb-2">
-                    <Icon className="w-5 h-5 text-[#238A55]" />
-                    <span className="text-2xl font-bold">{item.count}</span>
-                  </div>
-                  <p className="text-sm">{item.text}</p>
-                </div>
-              );
-            })}
-          </div>
-
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <button
-              type="button"
-              onClick={() => navigate('/services')}
-              className="rounded-xl bg-white px-5 py-3 font-bold text-[#07073b] shadow-lg transition-all duration-300 hover:-translate-y-1"
-            >
-              Ver servicios
-            </button>
-            <button
-              type="button"
-              onClick={() => navigate('/consulta-tramite')}
-              className="rounded-xl border border-white/35 bg-white/10 px-5 py-3 font-bold text-white shadow-lg backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:bg-white/18"
-            >
-              Consultar tramite
-            </button>
-            <a
-              href="https://wa.me/51927985691?text=Hola%20PETROCOM%20Energy%2C%20necesito%20asesoria%20para%20un%20tramite%20de%20hidrocarburos."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-xl bg-[#238A55] px-5 py-3 font-bold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-[#196B43]"
-            >
-              Contactanos por WhatsApp
-            </a>
-          </div>
         </div>
       </div>
     </section>

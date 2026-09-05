@@ -10,19 +10,24 @@ import PopularCountriesSection from '../components/PopularCountriesSection';
 
 const HomePage = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-[#F4F5F6]" data-motion-page>
       <HeroSection />
       <PopularCountriesSection />
-      <CTASection />
-      <FeaturedServiceSection />
-      <FeaturedToursSection />
-      <WhyUsSection />
-      <PopularLocationsSection />
-
-      
-      
-      
-      
+      <div data-motion-section>
+        <CTASection />
+      </div>
+      <div data-motion-section>
+        <FeaturedServiceSection />
+      </div>
+      <div data-motion-section>
+        <FeaturedToursSection />
+      </div>
+      <div data-motion-section>
+        <WhyUsSection />
+      </div>
+      <div data-motion-section>
+        <PopularLocationsSection />
+      </div>
     </div>
   );
 };
