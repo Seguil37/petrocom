@@ -1,9 +1,12 @@
 // src/features/tours/components/HeroSection.jsx
 
-import { useState } from 'react';
+import { useLayoutEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import gsap from 'gsap';
 import {
   ArrowRight,
+  ArrowDown,
+  ArrowUpRight,
   CheckCircle2,
   ClipboardCheck,
   Fuel,
@@ -12,7 +15,7 @@ import {
   ShieldCheck,
   Users,
 } from 'lucide-react';
-import MotionTitle from '../../../shared/motion/MotionTitle';
+import { usePublicMotion } from '../../../shared/motion/publicMotionContext';
 import heroImage from '../../../assets/images/logo/logo.png';
 
 const modeOptions = [
@@ -26,6 +29,21 @@ const HeroSection = () => {
   const [projectQuery, setProjectQuery] = useState('');
   const [serviceQuery, setServiceQuery] = useState('');
   const navigate = useNavigate();
+  const heroRef = useRef(null);
+  const { scrollTo } = usePublicMotion();
+
+  useLayoutEffect(() => {
+    const media = gsap.matchMedia();
+    media.add('(prefers-reduced-motion: no-preference)', () => {
+      gsap.fromTo(heroRef.current.querySelectorAll('[data-home-title-line]'), { yPercent: 110 }, {
+        yPercent: 0, duration: 1.15, stagger: 0.12, ease: 'power3.out', delay: 0.12,
+      });
+      gsap.fromTo(heroRef.current.querySelector('img'), { scale: 1.08 }, {
+        scale: 1, duration: 1.8, ease: 'power2.out',
+      });
+    }, heroRef);
+    return () => media.revert();
+  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -64,57 +82,70 @@ const HeroSection = () => {
   const onChange = mode === 'services' ? setServiceQuery : setProjectQuery;
 
   return (
-    <section className="relative overflow-hidden bg-[#07073b] text-white" data-motion-hero>
-      <div className="absolute inset-0">
+    <>
+    <section ref={heroRef} className="home-hero relative overflow-hidden bg-[#07073b] text-white" data-motion-hero aria-labelledby="home-hero-title">
+      <div className="home-hero-media absolute inset-0">
         <img
           src={heroImage}
           alt="Estacion de servicio, tanques GLP e ingenieria de hidrocarburos"
           className="h-full w-full object-cover object-[center_56%] opacity-90"
-          data-motion-parallax="5"
+          data-motion-parallax="4"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,7,59,0.94)_0%,rgba(7,7,59,0.78)_47%,rgba(7,7,59,0.30)_100%)]" />
-        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#F4F5F6] to-transparent" />
+        <div className="home-hero-overlay absolute inset-0" />
+        <div className="home-hero-blend absolute inset-x-0 bottom-0" />
       </div>
 
-      <div className="container-custom relative z-10 grid gap-8 py-12 sm:py-14 lg:grid-cols-[minmax(0,1fr)_440px] lg:items-center lg:py-16 xl:py-20">
-        <div className="max-w-3xl" data-motion-item>
-          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.22em] text-white backdrop-blur">
-            <ShieldCheck className="h-4 w-4 text-[#C58A2A]" />
-            Ingenieria, seguridad y gestion regulatoria
+      <div className="container-custom home-hero-content relative z-10">
+        <div className="home-hero-copy">
+          <div className="home-hero-eyebrow" data-motion-item>
+            <span aria-hidden="true" /> PETROCOM ENERGY <b>/</b> INGENIERÍA Y GESTIÓN
           </div>
 
-          <MotionTitle
-            as="h1"
-            className="max-w-4xl text-4xl font-black leading-[1.03] text-white sm:text-5xl lg:text-6xl"
-          >
-            PETROCOM Energy
-          </MotionTitle>
+          <h1 id="home-hero-title" className="home-display-title" aria-label="Ingeniería que impulsa tu proyecto.">
+            <span><span data-home-title-line>INGENIERÍA</span></span>
+            <span><span data-home-title-line>QUE IMPULSA</span></span>
+            <span><span data-home-title-line className="home-title-mint">TU PROYECTO.</span></span>
+          </h1>
 
-          <p className="mt-5 max-w-2xl text-base leading-8 text-white/82 sm:text-lg">
+          <p className="home-hero-description" data-motion-item>
             Desarrollamos expedientes, ingenieria y acompañamiento tecnico para instalaciones de
             combustibles liquidos, GLP y operaciones reguladas por OSINERGMIN.
           </p>
 
-          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+          <div className="home-hero-actions" data-motion-item>
             <button
               type="button"
               onClick={() => navigate('/services')}
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#238A55] px-6 py-3 text-sm font-bold text-white shadow-xl shadow-black/20 transition hover:-translate-y-0.5 hover:bg-[#196B43]"
+              className="home-primary-action"
             >
               Explorar servicios
-              <ArrowRight className="h-4 w-4" />
+              <ArrowUpRight className="h-5 w-5" aria-hidden="true" />
             </button>
             <button
               type="button"
               onClick={() => navigate('/consulta-tramite')}
-              className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/25 bg-white/10 px-6 py-3 text-sm font-bold text-white backdrop-blur transition hover:-translate-y-0.5 hover:bg-white/20"
+              className="home-secondary-action"
             >
               Consultar tramite
               <ClipboardCheck className="h-4 w-4" />
             </button>
           </div>
 
-          <div className="mt-9 grid max-w-2xl grid-cols-1 gap-3 sm:grid-cols-3">
+        </div>
+      </div>
+      <div className="container-custom home-hero-footer" data-motion-item>
+        <span><MapPin size={14} aria-hidden="true" /> HUANCAYO, PERÚ</span>
+        <a href="#home-buscador" onClick={(event) => { event.preventDefault(); scrollTo('#home-buscador'); }}><span>ENCUENTRA TU PRÓXIMO PASO</span><ArrowDown size={18} aria-hidden="true" /></a>
+        <span className="home-footer-specialty">INGENIERÍA / ENERGÍA / GESTIÓN</span>
+      </div>
+    </section>
+
+    <section id="home-buscador" className="home-quick-access">
+      <div className="container-custom home-quick-grid">
+        <div className="home-quick-intro" data-motion-section>
+          <p>EXPLORA PETROCOM</p>
+          <h2>Una ruta clara<br /><span>para tu proyecto.</span></h2>
+          <div className="home-quick-specialties">
             {[
               { icon: Fuel, text: 'Infraestructura de hidrocarburos', count: 'ITF' },
               { icon: ShieldCheck, text: 'Cumplimiento y seguridad', count: 'OSINERGMIN' },
@@ -124,8 +155,7 @@ const HeroSection = () => {
               return (
                 <div
                   key={item.text}
-                  className="rounded-lg border border-white/20 bg-white/10 p-4 backdrop-blur"
-                  data-motion-item
+                  className="home-hero-stat rounded-lg border border-white/20 bg-white/10 p-4 backdrop-blur"
                 >
                   <div className="mb-1 flex items-center gap-2">
                     <Icon className="h-5 w-5 text-[#C58A2A]" />
@@ -139,8 +169,8 @@ const HeroSection = () => {
         </div>
 
         <div
-          className="rounded-lg border border-white/20 bg-[#F4F5F6] p-4 text-[#07073b] shadow-2xl shadow-black/30 sm:p-5"
-          data-motion-item
+          className="home-search-panel rounded-lg border border-white/20 bg-[#F4F5F6] p-4 text-[#07073b] shadow-2xl shadow-black/30 sm:p-5"
+          data-motion-section
         >
           <div className="grid grid-cols-3 gap-1 rounded-lg bg-[#E5E9E7] p-1">
             {modeOptions.map((option) => (
@@ -240,6 +270,7 @@ const HeroSection = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

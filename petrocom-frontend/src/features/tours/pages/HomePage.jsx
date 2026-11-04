@@ -7,10 +7,11 @@ import PopularLocationsSection from '../components/PopularLocationsSection';
 import FeaturedToursSection from '../components/FeaturedToursSection';
 import FeaturedServiceSection from '../components/FeaturedServiceSection';
 import PopularCountriesSection from '../components/PopularCountriesSection';
+import './HomePage.css';
 
 const HomePage = () => {
   return (
-    <div className="min-h-screen bg-[#F4F5F6]" data-motion-page>
+    <div className="petro-home min-h-screen bg-[#F4F5F6]" data-motion-page>
       <HeroSection />
       <PopularCountriesSection />
       <div data-motion-section>

@@ -301,13 +301,13 @@ const PopularCountriesSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative flex h-[100svh] min-h-[760px] flex-col overflow-hidden bg-[#07073b] py-8 text-white sm:py-10 lg:py-12"
+      className="home-principal-services relative flex h-[100svh] min-h-[760px] flex-col overflow-hidden bg-[#07073b] py-8 text-white sm:py-10 lg:py-12"
       data-motion-ring-section
     >
       <header className="container-custom shrink-0 pb-6 sm:pb-8">
         <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-4xl">
-            <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-black uppercase tracking-[0.18em] text-[#C58A2A] backdrop-blur">
+            <div className="home-services-label mb-3 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-black uppercase tracking-[0.18em] text-[#C58A2A] backdrop-blur">
               <Fuel className="h-4 w-4" />
               Servicios principales
             </div>
@@ -321,7 +321,7 @@ const PopularCountriesSection = () => {
 
           <Link
             to="/services#servicios-listado"
-            className="inline-flex items-center gap-2 self-start rounded-lg border border-white/20 bg-white/10 px-5 py-3 text-sm font-bold text-white backdrop-blur transition hover:bg-white/20 lg:self-auto"
+            className="home-services-link inline-flex items-center gap-2 self-start rounded-lg border border-white/20 bg-white/10 px-5 py-3 text-sm font-bold text-white backdrop-blur transition hover:bg-white/20 lg:self-auto"
           >
             Ver lista completa
             <ArrowRight className="h-4 w-4" />
@@ -335,7 +335,7 @@ const PopularCountriesSection = () => {
           data-ring-prev
           aria-label="Servicio anterior"
           title="Servicio anterior"
-          className="absolute left-3 top-1/2 z-20 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/25 bg-[#07073b]/85 text-white shadow-lg backdrop-blur transition hover:scale-105 hover:bg-[#238A55] focus:outline-none focus:ring-4 focus:ring-[#A8D8BA]/40 sm:left-5"
+          className="home-services-nav absolute left-3 top-1/2 z-20 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/25 bg-[#07073b]/85 text-white shadow-lg backdrop-blur transition hover:scale-105 hover:bg-[#238A55] focus:outline-none focus:ring-4 focus:ring-[#A8D8BA]/40 sm:left-5"
         >
           <ArrowLeft className="h-5 w-5" />
         </button>
@@ -361,16 +361,16 @@ const PopularCountriesSection = () => {
                     className="absolute inset-0 h-full w-full object-cover"
                     draggable="false"
                   />
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#07073b]/70 via-[#07073b]/10 to-[#07073b]/90" />
+                  <div className="home-service-image-shade pointer-events-none absolute inset-0 bg-gradient-to-b from-[#07073b]/70 via-[#07073b]/10 to-[#07073b]/90" />
 
                   <div className="absolute inset-x-4 top-4 sm:inset-x-5 sm:top-5">
-                    <h3 className="max-w-[92%] rounded-lg border border-white/20 bg-[#07073b]/90 px-4 py-3 text-xl font-black leading-tight text-white shadow-lg backdrop-blur-md sm:text-2xl">
+                    <h3 className="home-service-title max-w-[92%] rounded-lg border border-white/20 bg-[#07073b]/90 px-4 py-3 text-xl font-black leading-tight text-white shadow-lg backdrop-blur-md sm:text-2xl">
                       {service.name}
                     </h3>
                   </div>
 
                   <div className="absolute inset-x-4 bottom-4 sm:inset-x-5 sm:bottom-5">
-                    <div className="rounded-lg border border-white/70 bg-[#F4F5F6]/95 p-4 text-[#07073b] shadow-xl backdrop-blur-md">
+                    <div className="home-service-detail rounded-lg border border-white/70 bg-[#F4F5F6]/95 p-4 text-[#07073b] shadow-xl backdrop-blur-md">
                       <div className="mb-2 flex items-center gap-2 text-xs font-black uppercase tracking-[0.16em] text-[#238A55]">
                         <ShieldCheck className="h-4 w-4" />
                         {service.category}
@@ -400,7 +400,7 @@ const PopularCountriesSection = () => {
           data-ring-next
           aria-label="Siguiente servicio"
           title="Siguiente servicio"
-          className="absolute right-3 top-1/2 z-20 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/25 bg-[#07073b]/85 text-white shadow-lg backdrop-blur transition hover:scale-105 hover:bg-[#238A55] focus:outline-none focus:ring-4 focus:ring-[#A8D8BA]/40 sm:right-5"
+          className="home-services-nav absolute right-3 top-1/2 z-20 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/25 bg-[#07073b]/85 text-white shadow-lg backdrop-blur transition hover:scale-105 hover:bg-[#238A55] focus:outline-none focus:ring-4 focus:ring-[#A8D8BA]/40 sm:right-5"
         >
           <ArrowRight className="h-5 w-5" />
         </button>

@@ -1,0 +1,146 @@
+/* A continuous color treatment for the home hero and its services carousel. */
+.petro-home {
+  --home-night: #0b1426;
+  --home-slate: #14243a;
+  --home-green: #238a55;
+  --home-mint: #a8d8ba;
+}
+.petro-home .home-hero { background: var(--home-night); }
+.petro-home .home-hero-overlay {
+  background: linear-gradient(90deg, rgba(11,20,38,.95) 0%, rgba(11,20,38,.78) 46%, rgba(11,20,38,.3) 100%);
+}
+.petro-home .home-hero-blend {
+  height: 130px;
+  background: linear-gradient(0deg, var(--home-night), rgba(11,20,38,0));
+  pointer-events: none;
+}
+.petro-home .home-hero-tag {
+  background: rgba(20,36,58,.6);
+  border-color: rgba(168,216,186,.26);
+  color: #e3eee8;
+}
+.petro-home .home-hero-tag svg, .petro-home .home-hero-stat svg { color: var(--home-mint); }
+.petro-home .home-hero-stat {
+  background: rgba(20,36,58,.65);
+  border-color: rgba(215,232,224,.18);
+  box-shadow: none;
+}
+.petro-home .home-hero-stat p { color: #d1ddd7; }
+.petro-home .home-search-panel { background: #f8faf9; border-color: #ffffffb3; color: var(--home-night); box-shadow: 0 25px 70px #0004; }
+.petro-home .home-search-panel > div:first-child { background: #e8eee9; }
+.petro-home .home-search-panel input { border-color: #d8e1db; }
+.petro-home .home-principal-services {
+  background: radial-gradient(ellipse at 83% 52%, rgba(35,138,85,.12), transparent 55%), linear-gradient(180deg, var(--home-night), #101e31);
+}
+.petro-home .home-principal-services > header { padding-top: 10px; }
+.petro-home .home-services-label {
+  color: var(--home-mint);
+  background: rgba(35,138,85,.12);
+  border-color: rgba(168,216,186,.25);
+}
+.petro-home .home-services-link { background: transparent; border-color: #a8d8ba66; color: #e8f1ec; }
+.petro-home .home-services-link:hover { background: var(--home-green); border-color: var(--home-green); }
+.petro-home .home-services-nav { background: #14243ae8; border-color: #a8d8ba50; }
+.petro-home .home-services-nav:hover { background: var(--home-green); }
+.petro-home .home-principal-services .service-card__surface { background: var(--home-slate); border-color: #a8d8ba40; }
+.petro-home .home-service-image-shade { background: linear-gradient(180deg, #0b14267a 0%, #0b142608 35%, #0b1426c9 100%); }
+.petro-home .home-service-title { background: #0b1426e8; border-color: #d7e8e033; }
+.petro-home .home-service-detail { background: #f4f8f5f5; border-color: #d5e5da; box-shadow: 0 10px 25px #0002; }
+.petro-home .home-service-detail > div { color: #1b7045; }
+.petro-home .home-service-detail > p { color: #30443a; }
+.petro-home .home-principal-services a:focus-visible,
+.petro-home .home-principal-services button:focus-visible { outline: 2px solid var(--home-mint); outline-offset: 4px; }
+@media (max-width: 640px) {
+  .petro-home .home-hero-overlay { background: linear-gradient(180deg, #0b1426d9, #0b1426ba 55%, #0b1426f5); }
+  .petro-home .home-hero-blend { height: 90px; }
+}
+
+/* Match the scale and typography of the About opening, only on Home. */
+.petro-home .home-hero {
+  display: flex;
+  align-items: center;
+  min-height: max(780px, 100svh);
+  font-family: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.petro-home .home-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0 4%;
+  border-inline: 1px solid #ffffff12;
+  pointer-events: none;
+}
+.petro-home .home-hero-media { inset: -7% 0; }
+.petro-home .home-hero > .container-custom,
+.petro-home .home-quick-access > .container-custom {
+  width: min(1320px, calc(100% - 112px));
+  max-width: none;
+  padding-inline: 0;
+}
+.petro-home .home-hero-content { padding-block: 70px 140px; }
+.petro-home .home-hero-copy { max-width: 1000px; }
+.petro-home .home-hero-eyebrow { display: flex; align-items: center; gap: 11px; font-size: 10px; line-height: 1.6; letter-spacing: 2px; font-weight: 500; color: #e1e7e3; }
+.petro-home .home-hero-eyebrow > span { width: 6px; height: 6px; background: var(--home-mint); border-radius: 50%; box-shadow: 0 0 0 5px #a8d8ba18; }
+.petro-home .home-hero-eyebrow > b { color: var(--home-mint); font-weight: 400; margin-inline: 5px; }
+.petro-home .home-display-title {
+  margin: 35px 0 0;
+  font-size: clamp(64px, 7.4vw, 112px);
+  font-weight: 600;
+  letter-spacing: -.065em;
+  line-height: 1.01;
+  color: #fff;
+}
+.petro-home .home-display-title > span { display: block; overflow: hidden; padding-block: .04em; }
+.petro-home .home-display-title > span > span { display: inline-block; }
+.petro-home .home-title-mint { color: var(--home-mint); }
+.petro-home .home-hero-description { position: relative; max-width: 540px; padding-left: 68px; margin-top: 26px; color: #e0e4e5; font-size: 13px; line-height: 1.9; font-weight: 400; }
+.petro-home .home-hero-description::before { content: ''; position: absolute; left: 0; top: 12px; height: 1px; width: 45px; background: var(--home-mint); }
+.petro-home .home-hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 33px; margin-top: 29px; }
+.petro-home .home-primary-action { display: inline-flex; align-items: center; justify-content: space-between; gap: 34px; min-height: 54px; padding: 16px 21px; border: 0; color: white; background: var(--home-green); font-size: 12px; font-weight: 600; transition: background .3s; }
+.petro-home .home-primary-action:hover { background: #196b43; }
+.petro-home .home-primary-action svg { transition: transform .3s; }
+.petro-home .home-primary-action:hover svg { transform: translate(3px, -3px); }
+.petro-home .home-secondary-action { display: inline-flex; align-items: center; gap: 20px; min-height: 44px; padding-block: 10px; background: transparent; border: 0; color: white; font-size: 12px; font-weight: 500; transition: color .3s; }
+.petro-home .home-secondary-action:hover { color: var(--home-mint); }
+.petro-home .home-hero-footer { position: absolute; inset: auto 0 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 20px; border-top: 1px solid #ffffff35; padding-block: 26px; }
+.petro-home .home-hero-footer > span,
+.petro-home .home-hero-footer > a { display: inline-flex; align-items: center; gap: 9px; color: #d5ded9; font-size: 8px; font-weight: 500; letter-spacing: 1.6px; text-decoration: none; }
+.petro-home .home-hero-footer > a { gap: 19px; }
+.petro-home .home-hero-footer > a > svg { box-sizing: content-box; padding: 11px; border: 1px solid #ffffff65; border-radius: 50%; }
+.petro-home .home-hero a:focus-visible,
+.petro-home .home-hero button:focus-visible { outline: 2px solid var(--home-mint); outline-offset: 5px; }
+.petro-home .home-quick-access { background: var(--home-night); padding-block: 65px; scroll-margin-top: 96px; border-bottom: 1px solid #ffffff12; }
+.petro-home .home-quick-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8%; align-items: center; }
+.petro-home .home-quick-intro > p { color: var(--home-mint); font-size: 10px; letter-spacing: 2px; margin-bottom: 22px; }
+.petro-home .home-quick-intro > h2 { color: white; font-size: clamp(30px, 3.3vw, 46px); font-weight: 500; line-height: 1.2; letter-spacing: -1.5px; }
+.petro-home .home-quick-intro > h2 > span { color: var(--home-mint); }
+.petro-home .home-quick-specialties { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 30px; }
+.petro-home .home-quick-specialties .home-hero-stat { border-radius: 0; border: 0; border-top: 1px solid #a8d8ba40; background: transparent; padding: 18px 0 0; }
+.petro-home .home-quick-specialties .home-hero-stat p { font-size: 11px; }
+.petro-home .home-quick-specialties .home-hero-stat span { font-size: 14px; font-weight: 500; }
+.petro-home .home-search-panel { border-radius: 0; padding: 25px; }
+@media (min-width: 1800px) { .petro-home .home-display-title { font-size: 128px; } }
+@media (max-width: 1100px) {
+  .petro-home .home-hero > .container-custom, .petro-home .home-quick-access > .container-custom { width: calc(100% - 64px); }
+  .petro-home .home-display-title { font-size: 9vw; }
+  .petro-home .home-footer-specialty { display: none; }
+  .petro-home .home-quick-grid { gap: 35px; }
+}
+@media (max-width: 760px) {
+  .petro-home .home-hero { min-height: max(730px, 100svh); }
+  .petro-home .home-hero > .container-custom, .petro-home .home-quick-access > .container-custom { width: calc(100% - 40px); }
+  .petro-home .home-hero-content { padding-block: 55px 135px; }
+  .petro-home .home-display-title { font-size: clamp(38px, 10.2vw, 72px); margin-top: 30px; }
+  .petro-home .home-hero-eyebrow { font-size: 8px; letter-spacing: 1px; gap: 8px; }
+  .petro-home .home-hero-description { padding-left: 38px; font-size: 12px; max-width: 460px; }
+  .petro-home .home-hero-description::before { width: 24px; }
+  .petro-home .home-hero-actions { gap: 20px; }
+  .petro-home .home-hero-footer > a > span { display: none; }
+  .petro-home .home-quick-grid { grid-template-columns: 1fr; gap: 35px; }
+  .petro-home .home-quick-access { padding-block: 45px; }
+  .petro-home .home-search-panel { padding: 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .petro-home .home-primary-action, .petro-home .home-primary-action svg, .petro-home .home-secondary-action { transition: none; }
+  .petro-home .home-primary-action:hover svg { transform: none; }
+}
