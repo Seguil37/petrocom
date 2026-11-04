@@ -108,14 +108,14 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section id="nosotros" className="pc-shell pc-editorial">
+      <section className="pc-shell pc-editorial" aria-labelledby="about-essence-title">
         <div className="pc-editorial-visual" data-about-image-reveal>
           <SectorImage image="engineering" alt="Revisión técnica para el Registro de Hidrocarburos" sizes="(max-width: 760px) 100vw, 45vw" />
           <div className="pc-image-marker" aria-hidden="true"><span /><span /></div>
           <p className="pc-image-caption">CRITERIO TÉCNICO EN CADA ETAPA <span>01 /</span></p>
         </div>
-        <div className="pc-editorial-copy">
-          <div data-about-reveal><SectionLabel number="01">NUESTRA ESENCIA</SectionLabel><RevealHeading first="Ordenamos lo complejo." second="Impulsamos lo que sigue." /></div>
+        <div id="nosotros" className="pc-editorial-copy">
+          <div data-about-reveal><SectionLabel number="01">NUESTRA ESENCIA</SectionLabel><RevealHeading id="about-essence-title" first="Ordenamos lo complejo." second="Impulsamos lo que sigue." /></div>
           <p className="pc-lead" data-about-reveal>PETROCOM Energy es una empresa especializada en asesoría técnica, normativa y documental para el desarrollo de proyectos vinculados al sector hidrocarburos.</p>
           <p data-about-reveal>Nuestro trabajo se centra en ordenar información, reducir observaciones y sostener cada gestión con criterio técnico. Acompañamos la elaboración de expedientes, la gestión de trámites y el cumplimiento de requisitos para combustibles líquidos, GLP, estaciones de servicio, consumidores directos y transporte de hidrocarburos.</p>
           <dl className="pc-facts" data-about-reveal>

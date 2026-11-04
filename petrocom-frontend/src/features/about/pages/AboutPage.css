@@ -7,7 +7,7 @@
   --pc-muted: #606971;
   color: var(--pc-navy);
   background: var(--pc-paper);
-  font-family: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-sans);
   overflow: clip;
   -webkit-font-smoothing: antialiased;
 }
@@ -18,6 +18,7 @@
 .pc-about svg { flex-shrink: 0; }
 .pc-about img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .pc-about section[id] { scroll-margin-top: 100px; }
+.pc-about #nosotros { scroll-margin-top: 112px; }
 .pc-reading-progress { position: fixed; top: 80px; inset-inline: 0; height: 2px; z-index: 49; background: var(--pc-mint); transform: scaleX(0); transform-origin: left center; pointer-events: none; }
 .pc-heading-mask { display: block; overflow: hidden; padding-bottom: .08em; margin-bottom: -.08em; }
 .pc-heading-mask > span, .pc-heading-mask > em { display: block; }
@@ -53,7 +54,8 @@
 .pc-hero-rule { height: 1px; width: 45px; flex-shrink: 0; margin-top: 12px; background: var(--pc-mint); }
 .pc-hero-summary p { max-width: 435px; color: #e0e4e5; font-size: 13px; line-height: 1.9; }
 .pc-hero-actions { display: flex; align-items: center; gap: 33px; margin-top: 29px; }
-.pc-hero-actions .pc-text-link { color: white; }
+.pc-hero-actions .pc-text-link { color: white; min-height: 54px; padding: 16px 21px; border: 1px solid #ffffff40; line-height: 1.5; box-sizing: border-box; }
+.pc-hero-actions .pc-text-link:hover { background: #ffffff0d; border-color: var(--pc-mint); }
 .pc-hero-bottom { position: absolute; inset: auto 0 0; display: flex; justify-content: space-between; align-items: center; gap: 20px; border-top: 1px solid #ffffff35; padding-block: 26px; }
 .pc-hero-bottom > span, .pc-scroll-cue { display: inline-flex; align-items: center; gap: 9px; color: #d5ded9; font-size: 8px; font-weight: 500; letter-spacing: 1.6px; }
 .pc-scroll-cue { gap: 19px; color: white; }

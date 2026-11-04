@@ -60,7 +60,7 @@
   display: flex;
   align-items: center;
   min-height: max(780px, 100svh);
-  font-family: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
 }
 .petro-home .home-hero::after {

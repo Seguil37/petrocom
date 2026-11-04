@@ -1,6 +1,7 @@
 // src/shared/components/Layout/Header.jsx
 
 import { useEffect, useRef, useState } from 'react';
+import './Header.css';
 import { Link, useNavigate } from 'react-router-dom';
 import {
   Search,
@@ -26,11 +27,22 @@ const Header = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [notificationOpen, setNotificationOpen] = useState(false);
+  const [accountMenuOpen, setAccountMenuOpen] = useState(false);
   const [notifications, setNotifications] = useState([]);
   const [unreadCount, setUnreadCount] = useState(0);
   const notificationRef = useRef(null);
+  const accountRef = useRef(null);
   const { isAuthenticated, user, logout } = useAuthStore();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!accountMenuOpen) return undefined;
+    const closeOutside = (event) => {
+      if (!accountRef.current?.contains(event.target)) setAccountMenuOpen(false);
+    };
+    document.addEventListener('pointerdown', closeOutside);
+    return () => document.removeEventListener('pointerdown', closeOutside);
+  }, [accountMenuOpen]);
   const canAccessAnyInternalModule = [
     MODULES.PROJECTS,
     MODULES.SERVICES,
@@ -292,8 +304,21 @@ const Header = () => {
 		                    </div>
 		                </div>
 
-	                <div className="relative group">
-	                <button className="flex items-center gap-2 p-2 hover:bg-white rounded-full transition-all">
+	                <div className="relative" ref={accountRef}
+                    onPointerEnter={(event) => { if (event.pointerType === 'mouse') setAccountMenuOpen(true); }}
+                    onPointerLeave={(event) => { if (event.pointerType === 'mouse') setAccountMenuOpen(false); }}
+                    onBlur={(event) => {
+                      if (!event.currentTarget.contains(event.relatedTarget) && !event.currentTarget.matches(':hover')) setAccountMenuOpen(false);
+                    }}
+                    onKeyDown={(event) => {
+                      if (event.key === 'Escape') {
+                        setAccountMenuOpen(false);
+                        event.currentTarget.querySelector('button')?.focus();
+                      }
+                    }}>
+	                <button type="button" aria-expanded={accountMenuOpen} aria-controls="account-dropdown"
+                    onClick={() => setAccountMenuOpen((open) => !open)}
+                    className="flex items-center gap-2 p-2 hover:bg-white rounded-full transition-all">
 	                  {user?.avatar ? (
 	                    <img
 	                      src={user.avatar}
@@ -316,7 +341,8 @@ const Header = () => {
 	                  </button>
 
 	                {/* Dropdown Menu */}
-                <div className="absolute right-0 mt-2 w-48 bg-[#F4F5F6] rounded-xl shadow-xl border border-[#D7DCE1] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <div id="account-dropdown"
+                  className={`account-dropdown absolute right-0 top-full bg-[#F4F5F6] rounded-xl shadow-xl border border-[#D7DCE1] transition-all duration-200 ${accountMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`} data-lenis-prevent>
                   <Link
                     to="/profile"
                     className="block px-4 py-3 hover:bg-white text-[#07073b] rounded-t-xl transition-colors"

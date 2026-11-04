@@ -1,8 +1,9 @@
 // src/features/tours/components/SearchBar.jsx
-import { useEffect, useState } from 'react';
+import { useEffect, useId, useState } from 'react';
 import { Search, Sparkles, Home } from 'lucide-react';
 
 const SearchBar = ({ filters, onFilterChange, onSearch }) => {
+  const fieldId = useId();
   const [searchInput, setSearchInput] = useState(filters.search || '');
   const [cityFilter, setCityFilter] = useState(filters.city || '');
   const [typeInput, setTypeInput] = useState(filters.type || '');
@@ -43,7 +44,7 @@ const SearchBar = ({ filters, onFilterChange, onSearch }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="w-full">
+    <form onSubmit={handleSubmit} className="w-full min-w-0">
       <div className="bg-white rounded-2xl shadow-lg p-2 md:p-2.5 border border-[#D7DCE1] text-[#07073b]">
         <div className="text-xs font-bold uppercase tracking-wide mb-3 flex items-center gap-2 text-[#07073b]">
           <Home className="w-4 h-4 text-[#238A55]" />
@@ -52,33 +53,37 @@ const SearchBar = ({ filters, onFilterChange, onSearch }) => {
 
         <div className="space-y-3">
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-[#5F6B76] w-5 h-5" />
+            <label htmlFor={`${fieldId}-search`} className="sr-only">Buscar por actividad, trámite o ciudad</label>
+            <Search className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[#5F6B76] w-4 h-4" />
             <input
+              id={`${fieldId}-search`}
               type="text"
-              placeholder="Busca por actividad, tramite o ciudad"
+              placeholder="Actividad, trámite o ciudad"
               value={searchInput}
               onChange={(e) => {
                 setSearchInput(e.target.value);
                 setCityFilter('');
               }}
-              className="w-full pl-10 pr-4 py-1.5 rounded-xl border-2 border-[#D7DCE1] text-[#07073b] placeholder-[#5F6B76] focus:outline-none focus:border-[#238A55] transition-all bg-white"
+              className="h-11 w-full min-w-0 pl-9 pr-3 text-[13px] leading-5 rounded-xl border-2 border-[#D7DCE1] text-[#07073b] placeholder-[#5F6B76] focus:outline-none focus:border-[#238A55] transition-all bg-white"
             />
           </div>
 
           <div className="relative">
-            <Home className="absolute left-3 top-1/2 -translate-y-1/2 text-[#5F6B76] w-5 h-5" />
+            <label htmlFor={`${fieldId}-type`} className="sr-only">Tipo de expediente</label>
+            <Home className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[#5F6B76] w-4 h-4" />
             <input
+              id={`${fieldId}-type`}
               type="text"
               placeholder="Tipo de expediente"
               value={typeInput}
               onChange={(e) => setTypeInput(e.target.value)}
-              className="w-full pl-10 pr-4 py-1.5 rounded-xl border-2 border-[#D7DCE1] text-[#07073b] placeholder-[#5F6B76] focus:outline-none focus:border-[#238A55] transition-all bg-white"
+              className="h-11 w-full min-w-0 pl-9 pr-3 text-[13px] leading-5 rounded-xl border-2 border-[#D7DCE1] text-[#07073b] placeholder-[#5F6B76] focus:outline-none focus:border-[#238A55] transition-all bg-white"
             />
           </div>
 
           <button
             type="submit"
-            className="w-full bg-[#238A55] text-white font-bold py-2.5 rounded-xl hover:bg-[#196B43] transition-all shadow-md flex items-center justify-center gap-2"
+            className="min-h-11 w-full bg-[#238A55] text-white text-[13px] leading-5 font-semibold px-3 py-2.5 rounded-xl hover:bg-[#196B43] transition-all shadow-md flex items-center justify-center gap-2"
           >
             <Search className="w-4 h-4" />
             Buscar categorias

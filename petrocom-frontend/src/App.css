@@ -4,7 +4,7 @@
 
 /* 1. Resetear body para quitar espacios blancos */
 body {
-  font-family: "Montserrat", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-family: var(--font-sans);
   background: #F4F5F6;
   color: var(--text-default);
   margin: 0; /* ✅ Eliminar margen */

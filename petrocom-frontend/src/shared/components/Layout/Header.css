@@ -1,0 +1,24 @@
+.account-dropdown {
+  z-index: 80;
+  width: min(320px, calc(100vw - 32px));
+  max-height: min(576px, calc(100dvh - 112px));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  font-size: 13px;
+  line-height: 1.45;
+  letter-spacing: 0;
+}
+.account-dropdown > a,
+.account-dropdown > button {
+  min-height: 41px;
+  padding: 11px 16px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  border-color: #dfe4e8;
+}
+.account-dropdown > a:focus-visible,
+.account-dropdown > button:focus-visible {
+  outline: 2px solid #238a55;
+  outline-offset: -3px;
+}
